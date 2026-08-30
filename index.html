@@ -692,6 +692,9 @@ function setupSidebarListeners() {
     if(activeCode!==null)return;
     const wrap=document.getElementById('contentWrap');
     if(!wrap || !wrap.querySelector('.home-hero'))return;
+    if(wrap.querySelector('.ah-dashboard')&&wrap.querySelector('.ah-path'))return;
+
+    if(_homeObserver)_homeObserver.disconnect();
 
     const old=wrap.querySelector('.ah-dashboard');
     if(old)old.remove();
@@ -701,6 +704,8 @@ function setupSidebarListeners() {
     const hero=wrap.querySelector('.home-hero');
     hero.insertAdjacentHTML('afterend',dashboardHTML());
     hero.nextElementSibling.insertAdjacentHTML('afterend',pathHTML());
+
+    if(_homeObserver)_homeObserver.observe(wrap,{childList:true});
 
     const dash=wrap.querySelector('.ah-dashboard');
     dash.querySelectorAll('[data-ah-tool]').forEach(function(b){
@@ -843,10 +848,12 @@ function setupSidebarListeners() {
   }
 
   const wrap=document.getElementById('contentWrap');
+  let _homeObserver=null;
   if(wrap){
-    new MutationObserver(function(){
+    _homeObserver=new MutationObserver(function(){
       if(activeCode===null)enhance();
-    }).observe(wrap,{childList:true});
+    });
+    _homeObserver.observe(wrap,{childList:true});
   }
 
   document.addEventListener('DOMContentLoaded',enhance);
