@@ -169,7 +169,7 @@
 
 /* Sidebar v4 — cleaner nav */
 .sidebar-pins-v4{grid-template-columns:1fr 1fr;gap:8px;}
-.sidebar-pins-v4 .side-pin-wide{grid-column:1 / -1;min-height:42px;font-size:12.5px;justify-content:flex-start;padding-left:14px;gap:8px;text-align:left;}.sidebar-cat{grid-column:1 / -1;margin:0 12px 6px;}.sidebar-cat-header{display:flex;align-items:center;gap:8px;min-height:38px;padding:9px 12px;border-radius:8px;color:#fff;font-size:12.5px;font-weight:600;cursor:pointer;user-select:none;}.sidebar-cat-header .cat-arrow{font-size:9px;transition:transform .15s ease;display:inline-block;}.sidebar-cat-header.collapsed .cat-arrow{transform:rotate(-90deg);}.sidebar-cat-items{padding:2px 0 4px 10px;}.cat-item{font-size:12px;color:var(--ink);padding:7px 10px 7px 20px;cursor:pointer;border-radius:6px;position:relative;}.cat-item:hover{background:var(--paper);}.cat-item:before{content:"";position:absolute;left:8px;top:50%;width:5px;height:5px;border-radius:50%;background:var(--ink-soft);transform:translateY(-50%);}
+.sidebar-pins-v4 .side-pin-wide{grid-column:1 / -1;min-height:42px;font-size:12.5px;justify-content:flex-start;padding-left:14px;gap:8px;text-align:left;}.sidebar-cat{grid-column:1 / -1;margin:0 12px 6px;}.sidebar-cat-header{display:flex;align-items:center;gap:8px;min-height:38px;padding:9px 12px;border-radius:8px;color:#fff;font-size:12.5px;font-weight:600;cursor:pointer;user-select:none;}.sidebar-cat-header .cat-arrow{font-size:9px;transition:transform .15s ease;display:inline-block;}.sidebar-cat-header.collapsed .cat-arrow{transform:rotate(-90deg);}.sidebar-cat-items{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 6px 12px 6px;}.cat-item{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;font-size:10.5px;line-height:1.25;color:var(--ink);text-align:center;padding:10px 6px;cursor:pointer;border-radius:10px;position:relative;background:var(--card);border:1px solid var(--line-soft);min-height:78px;}.cat-item:hover{background:var(--paper);border-color:var(--line);}.cat-item-icon{width:32px;height:32px;flex:0 0 auto;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:#fff;}.cat-item-label{display:block;word-break:break-word;}.cat-item-label .icp-new-badge{display:block;margin:4px auto 0;width:fit-content;}
 .sidebar-legacy-pin{display:none!important;}
 .hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px;}
 .hub-card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--ink);border-radius:10px;padding:16px;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease;}
@@ -312,22 +312,22 @@ body.icp-modal-open{overflow:hidden;}
       <div class="sidebar-cat">
         <div class="sidebar-cat-header" data-cat-toggle="studytools" style="background:#2E6E8E;"><span class="cat-arrow">&#9660;</span> &#128214; Study tools</div>
         <div class="sidebar-cat-items" data-cat-items="studytools">
-          <div class="cat-item" data-target="guidePin">&#128161; Exam Technique Guide</div>
-          <div class="cat-item" data-target="confusedPin">&#128260; Confused Standards</div>
-          <div class="cat-item" data-target="buzzwordsPin">&#128214; Buzzwords Ledger</div>
-          <div class="cat-item" data-target="formulaPin">&#129518; Formula Cheat Sheet</div>
-          <div class="cat-item" data-target="flashcardPin">&#127183; Flashcards</div>
+          <div class="cat-item" data-target="guidePin"><span class="cat-item-icon" style="background:#2E6E8E;">&#128161;</span><span class="cat-item-label">Exam Technique Guide</span></div>
+          <div class="cat-item" data-target="confusedPin"><span class="cat-item-icon" style="background:#2E6E8E;">&#128260;</span><span class="cat-item-label">Confused Standards</span></div>
+          <div class="cat-item" data-target="buzzwordsPin"><span class="cat-item-icon" style="background:#2E6E8E;">&#128214;</span><span class="cat-item-label">Buzzwords Ledger</span></div>
+          <div class="cat-item" data-target="formulaPin"><span class="cat-item-icon" style="background:#2E6E8E;">&#129518;</span><span class="cat-item-label">Formula Cheat Sheet</span></div>
+          <div class="cat-item" data-target="flashcardPin"><span class="cat-item-icon" style="background:#2E6E8E;">&#127183;</span><span class="cat-item-label">Flashcards</span></div>
         </div>
       </div>
       <div class="sidebar-cat">
         <div class="sidebar-cat-header" data-cat-toggle="practicecat" style="background:var(--rust);"><span class="cat-arrow">&#9660;</span> &#127919; Practice</div>
         <div class="sidebar-cat-items" data-cat-items="practicecat">
-          <div class="cat-item" data-target="practicePin">&#127919; Mixed practice</div>
-          <div class="cat-item" data-target="mockExamPin">&#128221; Full Mock Exam</div>
-          <div class="cat-item" data-target="groupAccountsPin">&#127970; Group Accounts</div>
-          <div class="cat-item icp-nav-highlight" data-target="icpPin">&#127919; Interactive Consolidation <span class="icp-new-badge">NEW</span></div>
-          <div class="cat-item" data-target="pastPapersPin">&#128196; Real Exam Bank</div>
-          <div class="cat-item" data-target="mistakesPin">&#10060; My Mistakes</div>
+          <div class="cat-item" data-target="practicePin"><span class="cat-item-icon" style="background:var(--rust);">&#127919;</span><span class="cat-item-label">Mixed practice</span></div>
+          <div class="cat-item" data-target="mockExamPin"><span class="cat-item-icon" style="background:var(--rust);">&#128221;</span><span class="cat-item-label">Full Mock Exam</span></div>
+          <div class="cat-item" data-target="groupAccountsPin"><span class="cat-item-icon" style="background:var(--rust);">&#127970;</span><span class="cat-item-label">Group Accounts</span></div>
+          <div class="cat-item icp-nav-highlight" data-target="icpPin"><span class="cat-item-icon" style="background:var(--accent);">&#127919;</span><span class="cat-item-label">Interactive Consolidation<span class="icp-new-badge">NEW</span></span></div>
+          <div class="cat-item" data-target="pastPapersPin"><span class="cat-item-icon" style="background:var(--rust);">&#128196;</span><span class="cat-item-label">Real Exam Bank</span></div>
+          <div class="cat-item" data-target="mistakesPin"><span class="cat-item-icon" style="background:var(--rust);">&#10060;</span><span class="cat-item-label">My Mistakes</span></div>
         </div>
       </div>
       <div id="groupAccountsPin" class="sidebar-legacy-pin" hidden></div>
