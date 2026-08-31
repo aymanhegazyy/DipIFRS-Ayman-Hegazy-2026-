@@ -1058,7 +1058,7 @@ factsHtml += '</div></div>';
 
 document.getElementById('colFacts').innerHTML = factsHtml;
 
-document.querySelectorAll('.facts-head').forEach(function(h){
+document.querySelectorAll('.icp-facts-head').forEach(function(h){
   h.addEventListener('click', function(){
     var id = h.getAttribute('data-toggle');
     var body = document.getElementById('body-'+id);
@@ -1164,7 +1164,7 @@ data.workings.forEach(function(w){
     var anyEntered = false;
     var correctCount = 0;
     fillables.forEach(function(f){
-      var input = document.querySelector('.entry[data-w="'+w.id+'"][data-key="'+f.key+'"]');
+      var input = document.querySelector('.icp-entry[data-w="'+w.id+'"][data-key="'+f.key+'"]');
       var userVal = parseFloat(input.value);
       if(!isNaN(userVal)) anyEntered = true;
       var isRight = !isNaN(userVal) && Math.abs(userVal - f.target) < 0.5;
@@ -1204,7 +1204,7 @@ document.getElementById('checkBalance').addEventListener('click', function(){
   if(data.statementType === 'PL'){
     var correct = 0, entered = 0;
     data.finalRows.forEach(function(r, i){
-      var inp = document.querySelector('.entry[data-final="'+i+'"]');
+      var inp = document.querySelector('.icp-entry[data-final="'+i+'"]');
       var uv = parseFloat(inp.value);
       inp.classList.remove('icp-correct','icp-wrong');
       if(!isNaN(uv)){
@@ -1221,8 +1221,8 @@ document.getElementById('checkBalance').addEventListener('click', function(){
   }
   var totalAssetsIdx = data.finalRows.findIndex(function(r){return r[0]==='Total assets';});
   var totalELIdx = data.finalRows.findIndex(function(r){return r[0]==='Total equity and liabilities';});
-  var uA = parseFloat(document.querySelector('.entry[data-final="'+totalAssetsIdx+'"]').value);
-  var uEL = parseFloat(document.querySelector('.entry[data-final="'+totalELIdx+'"]').value);
+  var uA = parseFloat(document.querySelector('.icp-entry[data-final="'+totalAssetsIdx+'"]').value);
+  var uEL = parseFloat(document.querySelector('.icp-entry[data-final="'+totalELIdx+'"]').value);
   if(isNaN(uA) || isNaN(uEL)){
     fb.innerHTML = '<div class="icp-feedback icp-bad">Enter your Total Assets and Total Equity &amp; Liabilities figures first.</div>';
     return;
