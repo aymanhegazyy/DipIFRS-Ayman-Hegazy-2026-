@@ -756,7 +756,7 @@ function setupSidebarListeners() {
     return `
       <section class="ah-dashboard" aria-label="Study dashboard">
         <div class="ah-exambar" style="justify-content:center;">
-          <button class="ah-session-btn" id="ahStartSession">Start 45-Min Study Session</button>
+          <button class="ah-session-btn" id="ahStartSession">Start 30-Min Study Session</button>
         </div>
         <div class="ah-grid">
           <div class="ah-stat"><span>Practice Accuracy</span><b>${s.accuracy}%</b><small>${s.attempted} questions answered</small></div>
@@ -847,9 +847,9 @@ function setupSidebarListeners() {
 
     let pool=[];
     try{
-      pool=pickRandomQuestions(10);
+      pool=pickRandomQuestions(50);
     }catch(e){
-      try{pool=buildQuizPool().sort(function(){return Math.random()-.5}).slice(0,10);}
+      try{pool=buildQuizPool().sort(function(){return Math.random()-.5}).slice(0,50);}
       catch(err){pool=[];}
     }
 
@@ -858,14 +858,14 @@ function setupSidebarListeners() {
       return;
     }
 
-    let seconds=45*60,score=0,total=0,finished=false;
+    let seconds=30*60,score=0,total=0,finished=false;
     wrap.innerHTML=`
       <div class="ah-session">
         <div class="guide-hero">
-          <h1>45-Minute Study Session</h1>
-          <p>10 mixed MCQs from the existing DipIFRS question bank. Answer at your own pace, then review the explanations.</p>
+          <h1>30-Minute Study Session</h1>
+          <p>50 mixed MCQs from the existing DipIFRS question bank. Answer at your own pace, then review the explanations.</p>
         </div>
-        <div class="ah-session-head"><span id="ahTimer">45:00</span><span id="ahSessionScore">0 / 0</span></div>
+        <div class="ah-session-head"><span id="ahTimer">30:00</span><span id="ahSessionScore">0 / 0</span></div>
         <div id="ahSessionQuestions"></div>
         <button class="ah-end" id="ahEndSession">End Session &amp; See Summary</button>
       </div>`;
