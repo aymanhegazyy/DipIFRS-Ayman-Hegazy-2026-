@@ -370,7 +370,14 @@
 
 /* Sidebar v4 — cleaner nav */
 .sidebar-pins-v4{grid-template-columns:1fr 1fr;gap:8px;}
-.sidebar-pins-v4 .side-pin-wide{grid-column:1 / -1;min-height:42px;font-size:12.5px;justify-content:flex-start;padding-left:14px;gap:8px;text-align:left;}.sidebar-cat{grid-column:1 / -1;margin:0 12px 6px;}.sidebar-cat-header{display:flex;align-items:center;gap:8px;min-height:38px;padding:9px 12px;border-radius:8px;color:#fff;font-size:12.5px;font-weight:600;cursor:pointer;user-select:none;}.sidebar-cat-header .cat-arrow{font-size:9px;transition:transform .15s ease;display:inline-block;}.sidebar-cat-header.collapsed .cat-arrow{transform:rotate(-90deg);}.sidebar-cat-items{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 6px 12px 6px;}.cat-item{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;font-size:10.5px;line-height:1.25;color:var(--ink);text-align:center;padding:10px 6px;cursor:pointer;border-radius:10px;position:relative;background:var(--card);border:1px solid var(--line-soft);min-height:78px;}.cat-item:hover{background:var(--paper);border-color:var(--line);}.cat-item-icon{width:32px;height:32px;flex:0 0 auto;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:#fff;}.cat-item-label{display:block;word-break:break-word;}.cat-item-label .icp-new-badge{display:block;margin:4px auto 0;width:fit-content;}
+.sidebar-pins-v4 .side-pin-wide{grid-column:1 / -1;min-height:42px;font-size:12.5px;justify-content:flex-start;padding-left:14px;gap:8px;text-align:left;}.sidebar-cat{grid-column:1 / -1;margin:0 12px 6px;}.sidebar-cat-header{display:flex;align-items:center;gap:8px;min-height:38px;padding:9px 12px;border-radius:8px;color:#fff;font-size:12.5px;font-weight:600;cursor:pointer;user-select:none;}.sidebar-cat-header .cat-arrow{font-size:9px;transition:transform .15s ease;display:inline-block;}.sidebar-cat-header.collapsed .cat-arrow{transform:rotate(-90deg);}.sidebar-cat-items{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 6px 12px 6px;}
+.sidebar-cat-items-list{display:flex;flex-direction:column;gap:2px;padding:8px 6px 12px 6px;}
+.cat-item-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .12s ease;}
+.cat-item-row:hover{background:var(--paper);}
+.cat-item-icon-sm{width:26px;height:26px;flex:0 0 auto;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;}
+.cat-item-label-sm{font-size:12px;color:var(--ink);line-height:1.3;flex:1;}
+.cat-item-label-sm .icp-new-badge{margin-left:6px;}
+.cat-item{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;font-size:10.5px;line-height:1.25;color:var(--ink);text-align:center;padding:10px 6px;cursor:pointer;border-radius:10px;position:relative;background:var(--card);border:1px solid var(--line-soft);min-height:78px;}.cat-item:hover{background:var(--paper);border-color:var(--line);}.cat-item-icon{width:32px;height:32px;flex:0 0 auto;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:#fff;}.cat-item-label{display:block;word-break:break-word;}.cat-item-label .icp-new-badge{display:block;margin:4px auto 0;width:fit-content;}
 .sidebar-legacy-pin{display:none!important;}
 .hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px;}
 .hub-card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--ink);border-radius:10px;padding:16px;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease;}
@@ -509,27 +516,13 @@ body.icp-modal-open{overflow:hidden;}
 
       <div class="sidebar-group-label">Study path</div>
       <div class="sidebar-cat">
-        <div class="sidebar-cat-header" data-cat-toggle="studytools" style="background:#2E6E8E;"><span class="cat-arrow">&#9660;</span> &#128214; Study tools</div>
-        <div class="sidebar-cat-items" data-cat-items="studytools">
-          <div class="cat-item" data-target="guidePin"><span class="cat-item-icon" style="background:#2E6E8E;">&#128161;</span><span class="cat-item-label">Exam Technique Guide</span></div>
-          <div class="cat-item" data-target="confusedPin"><span class="cat-item-icon" style="background:#2E6E8E;">&#128260;</span><span class="cat-item-label">Confused Standards</span></div>
-          <div class="cat-item" data-target="buzzwordsPin"><span class="cat-item-icon" style="background:#2E6E8E;">&#128214;</span><span class="cat-item-label">Buzzwords Ledger</span></div>
-          <div class="cat-item icp-nav-highlight" data-target="formulaPin"><span class="cat-item-icon" style="background:#2E6E8E;">&#129518;</span><span class="cat-item-label">Formula Cheat Sheet<span class="icp-new-badge" style="background:var(--teal);">UPDATED</span></span></div>
-          <div class="cat-item" data-target="flashcardPin"><span class="cat-item-icon" style="background:#2E6E8E;">&#127183;</span><span class="cat-item-label">Flashcards</span></div>
-        </div>
-      </div>
-      <div class="sidebar-cat">
-        <div class="sidebar-cat-header" data-cat-toggle="practicecat" style="background:var(--rust);"><span class="cat-arrow">&#9660;</span> &#127919; Practice</div>
-        <div class="sidebar-cat-items" data-cat-items="practicecat">
-          <div class="cat-item" data-target="practicePin"><span class="cat-item-icon" style="background:var(--rust);">&#127919;</span><span class="cat-item-label">Mixed practice</span></div>
-          <div class="cat-item" data-target="groupAccountsPin"><span class="cat-item-icon" style="background:var(--rust);">&#127970;</span><span class="cat-item-label">Group Accounts</span></div>
-          <div class="cat-item icp-nav-highlight" data-target="icpPin"><span class="cat-item-icon" style="background:var(--accent);">&#127919;</span><span class="cat-item-label">Interactive Consolidation<span class="icp-new-badge">NEW</span></span></div>
-          <div class="cat-item" data-target="bossFightPin"><span class="cat-item-icon" style="background:var(--rust);">&#9876;</span><span class="cat-item-label">Buzzword Boss Fight<span class="icp-new-badge">NEW</span></span></div>
-          <div class="cat-item" data-target="decisionTreePin"><span class="cat-item-icon" style="background:var(--teal);">&#127795;</span><span class="cat-item-label">Decision Trees<span class="icp-new-badge">NEW</span></span></div>
-          <div class="cat-item" data-target="verbChallengePin"><span class="cat-item-icon" style="background:var(--slate);">&#127919;</span><span class="cat-item-label">Verb Interrogation<span class="icp-new-badge">NEW</span></span></div>
-          <div class="cat-item" data-target="codeRedPin"><span class="cat-item-icon" style="background:var(--rust);">&#128680;</span><span class="cat-item-label">Code Red<span class="icp-new-badge">NEW</span></span></div>
-          <div class="cat-item" data-target="pastPapersPin"><span class="cat-item-icon" style="background:var(--rust);">&#128196;</span><span class="cat-item-label">Exam-Style Bank</span></div>
-          <div class="cat-item" data-target="mistakesPin"><span class="cat-item-icon" style="background:var(--rust);">&#10060;</span><span class="cat-item-label">My Mistakes</span></div>
+        <div class="sidebar-cat-header" data-cat-toggle="studytools" style="background:#2E6E8E;"><span class="cat-arrow">&#9660;</span> &#128214; Study Tools</div>
+        <div class="sidebar-cat-items sidebar-cat-items-list" data-cat-items="studytools">
+          <div class="cat-item-row" data-target="guidePin"><span class="cat-item-icon-sm" style="background:#2E6E8E;">&#128161;</span><span class="cat-item-label-sm">Exam Technique Guide</span></div>
+          <div class="cat-item-row" data-target="confusedPin"><span class="cat-item-icon-sm" style="background:#2E6E8E;">&#128260;</span><span class="cat-item-label-sm">Confused Standards</span></div>
+          <div class="cat-item-row" data-target="buzzwordsPin"><span class="cat-item-icon-sm" style="background:#2E6E8E;">&#128214;</span><span class="cat-item-label-sm">Buzzwords Ledger</span></div>
+          <div class="cat-item-row icp-nav-highlight" data-target="formulaPin"><span class="cat-item-icon-sm" style="background:#2E6E8E;">&#129518;</span><span class="cat-item-label-sm">Formula Cheat Sheet<span class="icp-new-badge" style="background:var(--teal);">UPDATED</span></span></div>
+          <div class="cat-item-row" data-target="flashcardPin"><span class="cat-item-icon-sm" style="background:#2E6E8E;">&#127183;</span><span class="cat-item-label-sm">Flashcards</span></div>
         </div>
       </div>
       <div id="groupAccountsPin" class="sidebar-legacy-pin" hidden></div>
@@ -1488,7 +1481,8 @@ function insertSpecialRounds(pool,mode){
 }let _mockSet=[],_mockScore={mcq:{correct:0,total:0},tf:{correct:0,total:0},spot:{correct:0,total:0},seq:{correct:0,total:0},calc:{correct:0,total:0},gamcq:{correct:0,total:0},speed:{correct:0,total:0},odd:{correct:0,total:0},ethics:{correct:0,total:0},realexam:{correct:0,total:0}},_mockTimerInterval=null,_mockAnswered={},_mockSeqState={},_mockFlags={mcq:!0,tf:!0,spot:!0,seq:!0,calc:!0,ga:!0,speed:!0,odd:!0,ethics:!0,realexam:!0},_mockWasTimed=!1;let _isTodaysChallenge=!1;var _mockBfState={},_mockDtState={};
 function embeddedBfInnerHtml(cardIdx,bfIdx){
   var bf=BOSS_FIGHT_DATA[bfIdx];
-  var st=_mockBfState[cardIdx]=_mockBfState[cardIdx]||{filled:{},selectedBlank:null,wordBank:null};
+  if(_mockBfState[cardIdx]&&_mockBfState[cardIdx].bfIdx!==bfIdx)delete _mockBfState[cardIdx];
+  var st=_mockBfState[cardIdx]=_mockBfState[cardIdx]||{bfIdx:bfIdx,filled:{},selectedBlank:null,wordBank:null};
   if(!st.wordBank){
     var all=bf.blanks.concat(bf.distractors);
     for(var i=all.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=all[i];all[i]=all[j];all[j]=tmp;}
@@ -1535,7 +1529,8 @@ function wireEmbeddedBf(cardIdx){
 }
 function embeddedDtInnerHtml(cardIdx,dtIdx){
   var dt=DECISION_TREES[dtIdx];
-  var st=_mockDtState[cardIdx]=_mockDtState[cardIdx]||{currentNodeId:dt.start,path:[]};
+  if(_mockDtState[cardIdx]&&_mockDtState[cardIdx].dtIdx!==dtIdx)delete _mockDtState[cardIdx];
+  var st=_mockDtState[cardIdx]=_mockDtState[cardIdx]||{dtIdx:dtIdx,currentNodeId:dt.start,path:[]};
   var isResult=!(st.currentNodeId in dt.nodes);
   var pathHtml=st.path.map(function(p){return '<div class="dt-path-row" style="font-size:11px;padding:3px 0;"><span class="dt-path-q">'+p.q+'</span><span class="dt-path-a dt-path-a-'+p.answer.toLowerCase()+'">'+p.answer+'</span></div>';}).join("");
   var mainHtml;
@@ -1572,12 +1567,14 @@ if("special_dt"===e.type){
   return '<div class="quiz-card special-round-card" data-mecard="'+t+'"><div class="embedded-round-body">'+embeddedDtInnerHtml(t,e.dtIdx)+'</div></div>';
 }
 if("special_vc"===e.type){
-  _stdEmbedVcState[t]=_stdEmbedVcState[t]||{answered:false,chosen:null,correct:false};
+  if(_stdEmbedVcState[t]&&_stdEmbedVcState[t].vcIdx!==e.vcIdx)delete _stdEmbedVcState[t];
+  _stdEmbedVcState[t]=_stdEmbedVcState[t]||{vcIdx:e.vcIdx,answered:false,chosen:null,correct:false};
   const vcItem=VERB_CHALLENGE_BANK[e.vcIdx];
   return '<div class="quiz-card special-round-card" data-mecard="'+t+'"><div class="embedded-round-body">'+embeddedVcInnerContent(t,vcItem)+'</div></div>';
 }
 if("special_cr"===e.type){
-  _stdEmbedCrState[t]=_stdEmbedCrState[t]||{answered:false,secondsLeft:90,interval:null,result:null,message:""};
+  if(_stdEmbedCrState[t]&&_stdEmbedCrState[t].crIdx!==e.crIdx){if(_stdEmbedCrState[t].interval)clearInterval(_stdEmbedCrState[t].interval);delete _stdEmbedCrState[t];}
+  _stdEmbedCrState[t]=_stdEmbedCrState[t]||{crIdx:e.crIdx,answered:false,secondsLeft:90,interval:null,result:null,message:""};
   const crItem=CODE_RED_SCENARIOS[e.crIdx];
   return '<div class="quiz-card special-round-card" data-mecard="'+t+'"><div class="embedded-round-body">'+embeddedCrInnerContent(t,crItem)+'</div></div>';
 }
@@ -1855,7 +1852,7 @@ function setupSidebarCatToggles() {
       hdr.classList.toggle('collapsed', !collapsed);
     });
   });
-  document.querySelectorAll('.cat-item[data-target]').forEach(function(item){
+  document.querySelectorAll('.cat-item[data-target], .cat-item-row[data-target]').forEach(function(item){
     if (item._wired) return;
     item._wired = true;
     item.addEventListener('click', function(e){
