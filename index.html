@@ -2777,10 +2777,12 @@ window.icpInit = function(){
     var submitBtn = document.getElementById('icpSubmitBtn');
     var exam = mode === 'exam';
 
+    var sessSelect = document.getElementById('sessionSelect');
     if(modalEl) modalEl.classList.toggle('icp-exam-active', exam);
     if(modeBtn) modeBtn.textContent = exam ? '✖ Exit Exam' : '⏳ Exam Mode';
     if(timerEl) timerEl.style.display = exam ? 'inline-block' : 'none';
     if(submitBtn) submitBtn.style.display = exam ? 'inline-block' : 'none';
+    if(sessSelect) sessSelect.disabled = exam;
 
     if(exam){
       document.querySelectorAll('.icp-entry').forEach(function(inp){
