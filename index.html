@@ -129,7 +129,7 @@
 .tc-card-head p{margin:2px 0 0;font-size:12px;color:rgba(255,255,255,.85);}
 @keyframes tcStreakPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}.tc-streak-badge{margin-left:auto;background:rgba(255,255,255,.2);padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;white-space:nowrap;animation:tcStreakPulse 1.8s ease-in-out infinite;}
 .tc-card-desc{font-size:12.5px;color:rgba(255,255,255,.9);margin:0 0 14px;line-height:1.5;}
-.tc-card @keyframes tcBtnNudge{0%,90%,100%{transform:translateX(0);}93%{transform:translateX(-3px);}96%{transform:translateX(3px);}}@keyframes tcBtnColorCycle{0%,100%{background:#fff;}33%{background:#FFE9D6;}66%{background:#FFF3C4;}}#startTodaysChallengeBtn{background:#fff;color:var(--rust);display:inline-block;animation:tcBtnNudge 1.2s ease-in-out infinite,tcBtnColorCycle 1s ease-in-out infinite;}
+.tc-card @keyframes tcBtnNudge{0%,90%,100%{transform:translateX(0);}93%{transform:translateX(-3px);}96%{transform:translateX(3px);}}@keyframes tcBtnColorCycle{0%,100%{background:#fff;}33%{background:#FFE9D6;}66%{background:#FFF3C4;}}@keyframes tcHandPulse{0%,100%{transform:translateX(0) scale(1);opacity:1;}50%{transform:translateX(-6px) scale(1.15);opacity:.75;}}.tc-point-hand{display:inline-block;font-size:24px;margin-left:8px;animation:tcHandPulse 1s ease-in-out infinite;vertical-align:middle;}#startTodaysChallengeBtn{background:#fff;color:var(--rust);display:inline-block;animation:tcBtnNudge 1.2s ease-in-out infinite,tcBtnColorCycle 1s ease-in-out infinite;}
 .tc-tier{background:var(--card);border-radius:10px;padding:20px;text-align:center;margin-bottom:16px;}
 .tc-tier-icon{font-size:40px;margin-bottom:8px;}
 .tc-tier h2{font-family:var(--font-display);font-size:19px;margin:0 0 8px;}
@@ -1612,7 +1612,22 @@ function wireEmbeddedDt(cardIdx){
     });
   });
 }
+function shuffleQuestionOptionsOnce(e){
+  if(e._optShuffled)return;
+  var field=e.type==="odd"?"items":"options";
+  if(!e[field]||!Array.isArray(e[field]))return;
+  var arr=e[field];
+  var correctVal=arr[e.correct];
+  var indices=arr.map(function(x,i){return i;});
+  for(var i=indices.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=indices[i];indices[i]=indices[j];indices[j]=tmp;}
+  e[field]=indices.map(function(i){return arr[i];});
+  e.correct=e[field].indexOf(correctVal);
+  e._optShuffled=true;
+}
 function renderMockQuestionCard(e,t){
+if((e.type==="mcq"||e.type==="spot"||e.type==="odd"||e.type==="ethics")&&!e._optShuffled){
+  shuffleQuestionOptionsOnce(e);
+}
 if("special_bf"===e.type){
   return '<div class="quiz-card special-round-card" data-mecard="'+t+'"><div class="embedded-round-body">'+embeddedBfInnerHtml(t,e.bfIdx)+'</div></div>';
 }
@@ -2079,7 +2094,7 @@ function setupSidebarListeners() {
           ${(function(){try{const d=JSON.parse(localStorage.getItem("dipifr_todays30_streak")||"null");return d&&d.streak>1?'<div class="tc-streak-badge">&#128293; '+d.streak+'-day streak</div>':'';}catch(e){return '';}})()}
         </div>
         <p class="tc-card-desc">Test your IFRS readiness for today: MCQs, True/False, Speed Round, Ethics, and Sequencing &mdash; all mixed together.</p>
-        <span class="me-start-btn" id="startTodaysChallengeBtn">&#128640; Start Today's Challenge</span>
+        <span class="me-start-btn" id="startTodaysChallengeBtn">&#128640; Start Today's Challenge</span><span class="tc-point-hand">&#128072;</span>
       </section>
       ${pathAndAdvisoryHtml}`;
   }
