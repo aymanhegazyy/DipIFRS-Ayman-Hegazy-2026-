@@ -1024,6 +1024,47 @@ html[data-theme="dark"] .home-search-wrap input{
 }
 html[data-theme="dark"] .topbar{background:#0D0F10 !important;color:#E8ECE9 !important;}
 </style>
+
+<style id="student-discovery-upgrades">
+/* Student-discovery upgrades: richer standards cards and global search */
+.standard-list .std-item{position:relative;gap:9px;padding:10px 10px 9px;border:1px solid transparent;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,background .16s ease;align-items:flex-start;}
+.standard-list .std-item:hover{transform:translateY(-2px);border-color:var(--teal);box-shadow:0 5px 12px rgba(46,110,104,.13);background:var(--card);}
+.standard-list .std-item.active{border-color:var(--teal);}
+.std-topic-icon{width:28px;height:28px;flex:0 0 28px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:16px;background:var(--std-tint,var(--teal-soft));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--std-color,var(--teal)) 18%,transparent);}
+.std-item .std-copy{min-width:0;display:flex;flex-direction:column;gap:2px;flex:1;}
+.std-item .std-copy .title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12.5px;}
+.std-item .std-meta{font-size:9.5px;line-height:1.3;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:400;}
+.std-item .code{min-width:48px;margin-top:2px;}
+.std-item .priority-badge{margin-top:2px;}
+.std-item.std-ifrs{--std-color:#2E6E68;--std-tint:var(--teal-soft);}
+.std-item.std-ias{--std-color:#B5842A;--std-tint:var(--accent-soft);}
+.std-item.std-other{--std-color:#9C4632;--std-tint:var(--rust-soft);}
+.std-item .priority-badge.tier1{font-size:12px;filter:none;}
+.home-search-results{max-height:min(62vh,520px);overflow-y:auto;box-shadow:0 12px 28px rgba(21,34,56,.18);border:1px solid var(--line);border-radius:10px;background:var(--card);padding:7px;}
+.hsr-group{position:sticky;top:0;z-index:1;background:var(--card);padding:8px 9px 5px;font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line-soft);}
+.hsr-item{width:100%;display:flex;align-items:center;gap:10px;text-align:left;border:0;background:transparent;color:var(--ink);padding:9px 8px;border-radius:7px;cursor:pointer;}
+.hsr-item:hover{background:var(--teal-soft);}.hsr-code{width:25px;flex:0 0 25px;text-align:center;font-size:16px}.hsr-title{font-size:12.5px;font-weight:600}.hsr-meta{font-size:10px;color:var(--ink-soft);margin-top:2px;line-height:1.3}.hsr-empty{padding:18px 10px;color:var(--ink-soft);font-size:12px;text-align:center}
+</style>
+
+<style id="direct-standards-css">
+#standardList .std-item.std-direct-ifrs,#standardList .std-item.std-direct-ias,#standardList .std-item.std-direct-other{display:grid!important;grid-template-columns:29px 54px 24px minmax(0,1fr)!important;align-items:center!important;gap:8px!important;padding:10px!important;border:1px solid transparent!important;transition:transform .15s ease,background .15s ease,border-color .15s ease,box-shadow .15s ease!important}
+#standardList .std-item.std-direct-ifrs:hover,#standardList .std-item.std-direct-ias:hover,#standardList .std-item.std-direct-other:hover{transform:translateY(-2px)!important;background:var(--card)!important;border-color:var(--teal)!important;box-shadow:0 5px 12px rgba(46,110,104,.15)!important}
+.std-direct-icon{width:29px;height:29px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:16px;background:var(--teal-soft)}
+.std-direct-ias .std-direct-icon{background:var(--accent-soft)}.std-direct-other .std-direct-icon{background:var(--rust-soft)}
+.std-direct-copy{min-width:0;display:flex;flex-direction:column;gap:2px}.std-direct-copy .title{display:block!important;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.std-direct-meta{display:block;font-size:9px;line-height:1.25;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}
+</style>
+<style id="overlay-direct-css">
+#stdOverlay .ov-std-item{display:grid!important;grid-template-columns:27px 48px minmax(0,1fr)!important;align-items:center!important;gap:8px!important;padding:8px 10px!important;border:1px solid transparent!important;border-radius:7px!important;transition:.15s ease!important}
+#stdOverlay .ov-std-item:hover{transform:translateY(-1px)!important;border-color:var(--teal)!important;background:var(--teal-soft)!important}
+#stdOverlay .ov-direct-icon{width:27px;height:27px;display:flex;align-items:center;justify-content:center;border-radius:7px;background:var(--teal-soft);font-size:15px}
+#stdOverlay .ov-std-item.ov-direct-ias .ov-direct-icon{background:var(--accent-soft)}#stdOverlay .ov-std-item.ov-direct-other .ov-direct-icon{background:var(--rust-soft)}
+#stdOverlay .ov-direct-copy{min-width:0;display:flex;flex-direction:column;gap:2px}.ov-direct-copy .ov-std-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ov-direct-meta{font-size:9px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+</style>
+<style id="global-search-direct-css">
+.home-search-results{max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--card);box-shadow:0 12px 28px rgba(21,34,56,.2);padding:7px;z-index:99999}
+.hsr-group{padding:8px 9px 5px;font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line-soft);background:var(--card)}
+.hsr-item{width:100%;display:flex;align-items:center;gap:10px;text-align:left;border:0;background:transparent;color:var(--ink);padding:9px 8px;border-radius:7px;cursor:pointer}.hsr-item:hover{background:var(--teal-soft)}.hsr-code{width:25px;flex:0 0 25px;text-align:center;font-size:16px}.hsr-title{font-size:12.5px;font-weight:600}.hsr-meta{font-size:10px;color:var(--ink-soft);margin-top:2px;line-height:1.3}.hsr-empty{padding:18px 10px;color:var(--ink-soft);font-size:12px;text-align:center}
+</style>
 </head>
 <body class="one-page-mode protected">
 
@@ -3535,7 +3576,7 @@ function runHomeGlobalSearch(q){
     }).slice(0,8);
   }
   var tools=[
-    {id:"guidePin",title:"Exam Technique Guide",meta:"How markers award marks",icon:"💡"},
+    {id:"practiceHubPin",title:"Practice · Classic & Innovative",meta:"MCQs · calculations · exam-style drills",icon:"🎯"},{id:"studyToolsPin",title:"Study Toolkit",meta:"Technique · comparisons · formulas",icon:"🧰"},{id:"bossFightPin",title:"Boss Fight",meta:"Challenge your weak areas",icon:"⚔️"},{id:"guidePin",title:"Exam Technique Guide",meta:"How markers award marks",icon:"💡"},
     {id:"confusedPin",title:"Confused Standards",meta:"Standards that mix students up",icon:"🔄"},
     {id:"formulasVaultPin",title:"Formulas Vault",meta:"Interactive formula practice",icon:"🔐"},
     {id:"flashcardPin",title:"Glossary",meta:"Key terms at a glance",icon:"📖"},
@@ -3738,7 +3779,7 @@ function renderHome(){recordNav(renderHome,[]),activeCode=null,clearAllPins();co
       if(!arr.length)return "";
       var h='<div class="group-label">'+label+'</div>';
       arr.forEach(function(s){
-        h+='<div class="ov-std-item" data-code="'+s.code+'"><span class="ov-std-code">'+s.code+'</span><span class="ov-std-title">'+s.title+'</span></div>';
+        h+='<div class="ov-std-item ov-direct-'+(s.code.indexOf("IFRS")===0?"ifrs":s.code.indexOf("IAS")===0?"ias":"other")+'" data-code="'+s.code+'"><span class="ov-direct-icon">'+(s.code==="IFRS 16"?"🔑":s.code==="IFRS 15"?"💰":s.code==="IFRS 3"?"🤝":s.code==="IAS 2"?"📦":s.code==="IAS 12"?"🧾":s.code==="IAS 36"?"🛡️":s.code.indexOf("IFRS")===0?"📘":s.code.indexOf("IAS")===0?"📚":"📄")+'</span><span class="ov-std-code">'+s.code+'</span><span class="ov-direct-copy"><span class="ov-std-title">'+s.title+'</span><span class="ov-direct-meta">'+(s.meta||"Study reference")+'</span></span></div>';
       });
       return h;
     }
@@ -3967,7 +4008,7 @@ function buildFlashcardPool(e){const t=FLASHCARD_BANK.filter(function(i){return 
 }
 
 try{window.STANDARDS=STANDARDS;}catch(ex){}
-function matchesSearch(e){if(!searchTerm)return!0;return(e.code+" "+e.title+" "+e.meta).toLowerCase().includes(searchTerm.toLowerCase())}function matchesFilter(e){return"all"===activeFilter||("OTHER"===activeFilter?!e.code.startsWith("IFRS")&&!e.code.startsWith("IAS"):"PRIORITY"===activeFilter?(PRIORITY_TIERS[e.code]===1||PRIORITY_TIERS[e.code]===2):e.code.startsWith(activeFilter))}window._sidebarCollapsed=window._sidebarCollapsed||{};window.STANDARDS=STANDARDS;function renderList(){const e=document.getElementById("standardList"),t=STANDARDS.filter(e=>e.code.startsWith("IFRS")&&matchesSearch(e)&&matchesFilter(e)),i=STANDARDS.filter(e=>e.code.startsWith("IAS")&&matchesSearch(e)&&matchesFilter(e)),a=STANDARDS.filter(e=>!e.code.startsWith("IFRS")&&!e.code.startsWith("IAS")&&matchesSearch(e)&&matchesFilter(e));function n(e,t,g){if(0===t.length)return"";const collapsed=!!window._sidebarCollapsed[g];let i='<div class="group-label'+(collapsed?" collapsed":"")+'" data-group="'+g+'"><span class="collapse-arrow">&#9660;</span>'+e+'</div><div class="group-items" data-group-items="'+g+'" style="'+(collapsed?"display:none;":"")+'">';return t.forEach(e=>{const t=e.code===activeCode?" active":"",a=reviewed[e.code],n=a?" status-"+a:"",s="red"===a||"yellow"===a||"green"===a?"&#10003;":"";i+='<div class="std-item'+t+'" data-code="'+e.code+'" title="'+e.code+" &mdash; "+e.title.replace(/"/g,"&quot;")+'"><span class="code">'+e.code+'</span>'+priorityBadgeHtml(e.code)+'<span class="title">'+e.title+'</span></div>'}),i+"</div>"}0!==t.length||0!==i.length||0!==a.length?(e.innerHTML=n("IFRS Standards",t,"ifrs")+n("IAS Standards",i,"ias")+n("Other Examinable Documents",a,"other"),e.querySelectorAll(".std-item").forEach(e=>{e.addEventListener("click",()=>selectStandard(e.getAttribute("data-code")))}),e.querySelectorAll(".check").forEach(e=>{e.addEventListener("click",t=>cycleReviewStatus(e.getAttribute("data-code"),t))}),e.querySelectorAll(".group-label").forEach(function(e){e.addEventListener("click",function(){const g=e.getAttribute("data-group");window._sidebarCollapsed[g]=!window._sidebarCollapsed[g];renderList();});})):e.innerHTML='<div class="no-results">No standards match your search.</div>'}document.getElementById("flashcardPin").addEventListener("click",function(){renderGlossary()});function clearAllPins(){if(typeof clearHubPins==="function"){try{clearHubPins()}catch(e){}}void 0!==_mockTimerInterval&&_mockTimerInterval&&(clearInterval(_mockTimerInterval),_mockTimerInterval=null);const e=document.getElementById("siteFooter");e&&(e.style.display=""),["guidePin","progressPin","practicePin","confusedPin","formulaPin","flashcardPin","buzzwordsPin","pastPapersPin","groupAccountsPin"].forEach(function(e){const t=document.getElementById(e);t&&t.classList.remove("active")})}function esc(e){return e.slice(0, 50)}function linkifyStandardCodes(e){return e.replace(/\b(IFRS|IAS)\s?(\d+)\b/g,function(e,t,i){var a=t+" "+i;return STANDARDS.some(function(e){return e.code===a})?'<span class="std-link" data-code="'+a+'">'+e+"</span>":e})}function renderSectionCard(e){const t=e.theme?" theme-"+e.theme:"",i=e.body.map(e=>"<p>"+e+"</p>").join("");return'<div class="sec-block'+t+'"><h2><span class="n">'+e.n+"</span>"+e.title+"</h2>"+i+"</div>"}function renderContent(e){const t=STANDARDS.find(t=>t.code===e);if(!t)return;activeCode=e;const i=document.getElementById("siteFooter");i&&(i.style.display="none");const findSec=title=>{const s=t.sections.find(x=>x.title===title);return s?renderSectionCard(s):"";},objSec='<div class="sec-block"><h2><span class="n">01</span>Objective</h2><p>'+t.objective+"</p></div>",scopeBasicSec=findSec("Scope"),defSec=findSec("Definitions"),recogSec=findSec("Recognition"),measureSec=findSec("Measurement"),presentSec=findSec("Presentation"),discloSec=findSec("Disclosures"),a=objSec+scopeBasicSec+defSec+recogSec+measureSec+presentSec+discloSec,n=t.sections.filter(e=>"Recognition"===e.title||"Measurement"===e.title).map(renderSectionCard).join(""),s='<div class="card trap"><h2>&#9888; Exam &amp; Practical Points</h2><ul>'+t.traps.map(e=>"<li>"+e+"</li>").join("")+"</ul></div>",o=t.examples.map((e,t)=>{const i=e.exempt?" exempt":"",a=e.exempt?'<span class="exempt-flag">'+(e.exemptNote||"Exempt")+"</span>":"";return'<div class="example-row'+i+'"><span class="idx">'+String(t+1).padStart(2,"0")+"</span><span>"+e.t+a+"</span></div>"}).join(""),r='<div class="sec-block" id="sec-examples"><h2><span class="n">08</span>Practical Examples</h2><div class="examples-list">'+o+"</div></div>",l='<div class="sec-block" id="sec-takeaways"><h2><span class="n">09</span>Key Takeaways</h2><div class="takeaways-grid">'+t.takeaways.map(e=>'<div class="takeaway">'+e+"</div>").join("")+"</div></div>",c=t.comparison,d='<div class="sec-block" id="sec-comparison"><h2><span class="n">10</span>Comparison Table</h2><table class="cmp"><thead><tr>'+c.headers.map(e=>"<th>"+e+"</th>").join("")+"</tr></thead><tbody>"+c.rows.map(e=>"<tr>"+e.map(e=>"<td>"+e+"</td>").join("")+"</tr>").join("")+"</tbody></table></div>";let u="",h="",scopeSec="",workedSec="",trapsSec="",interSec="";const m=t.enhancement,_stdCodeSafe=t.code;if(m&&Object.keys(m).length){const e='<div class="deepdive-divider" id="sec-scope"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">11</span>Scope Map &amp; Life-Cycle Timeline</h2></div><div class="scope-grid"><div class="scope-box in"><h3>&#10003; In Scope</h3><ul>'+(m.scope_in||[]).map(e=>"<li>"+e+"</li>").join("")+'</ul></div><div class="scope-box out"><h3>&#10007; Out of Scope</h3><ul>'+(m.scope_out||[]).map(e=>"<li>"+e+"</li>").join("")+'</ul></div></div><div class="timeline-box"><b>Timeline:</b> '+(m.timeline||"")+"</div>",t=(m.example_steps||[]).map(e=>"<li>"+e+"</li>").join(""),i='<div class="example-box" id="sec-worked-example"><div class="ex-title">Worked Example &mdash; '+(m.example_title||"")+"</div><ol>"+t+"</ol></div>",a='<div class="deepdive-divider" id="sec-traps2"><span class="deepdive-tag">Deep Dive</span><h2>Examiner Traps &amp; Pitfalls</h2></div><div class="card trap"><ul>'+(m.traps||[]).map(e=>"<li>"+e+"</li>").join("")+"</ul></div>",n='<div class="deepdive-divider" id="sec-interactions"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">12</span>Key Interactions</h2></div><div class="interactions-table"><table><thead><tr><th>Standard</th><th>Nature of Interaction</th></tr></thead><tbody>'+(m.interactions||[]).map(e=>"<tr><td><b>"+linkifyStandardCodes(e[0])+"</b></td><td>"+linkifyStandardCodes(e[1])+"</td></tr>").join("")+"</tbody></table></div>",s=m.summary||{headers:[],rows:[]};h='<div class="deepdive-divider" id="sec-cheatsheet"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">13</span>Cheat-Sheet Summary</h2></div><div class="cheat-table"><table><thead><tr>'+(s.headers||[]).map(e=>"<th>"+e+"</th>").join("")+"</tr></thead><tbody>"+(s.rows||[]).map(e=>"<tr>"+e.map(e=>"<td>"+e+"</td>").join("")+"</tr>").join("")+"</tbody></table></div>"+buildStandardFormulaSectionHtml(_stdCodeSafe),u=e+i+a+n+h,scopeSec=e,workedSec=i,trapsSec=a,interSec=n}const p=t.quiz||[];let f="";if(false){const e=p.map((e,i)=>{const a=e.options.map((t,a)=>'<button class="quiz-option'+(a===e.correct?" correct-print-tag":"")+'" data-qi="'+i+'" data-oi="'+a+'">'+t+"</button>").join(""),n=t.code+"::q"+i,s=answerHistory[n];let o="";return s&&(o=s.lastCorrect?'<span class="prev-badge prev-correct">&#10003; Correct last time</span>':'<span class="prev-badge prev-wrong">&#10007; Missed last time</span>'),'<div class="quiz-card" data-qcard="'+i+'"><div class="quiz-q">Q'+(i+1)+". "+e.q+o+'</div><div class="quiz-options">'+a+'</div><div class="quiz-explain" data-qexplain="'+i+'">'+e.explain+"</div></div>"}).join(""),i=getStandardStats(t.code),a=i.attempted?" &middot; History: "+i.correct+"/"+i.attempted+" ("+i.accuracyPct+"%)":"";f='<div class="deepdive-divider" id="sec-quiz"><span class="deepdive-tag">Practice</span><h2>Self-Test Practice</h2></div><div class="quiz-header"><span class="quiz-score" id="quizScore">Score: 0 / '+p.length+a+'</span><span class="quiz-reset" id="quizReset">Reset quiz</span></div>'+e}const g=t.calc||[];let y="";if(g.length){y='<div class="deepdive-divider" id="sec-calc"><span class="deepdive-tag">Practice</span><h2>Calculation Practice</h2></div>'+g.map((e,t)=>{const i=(e.steps||[]).map(e=>"<li>"+e+"</li>").join("");return'<div class="calc-card"><div class="calc-title">'+e.title+'</div><div class="calc-facts"><b>Facts:</b> '+e.facts+'</div><div class="calc-question">'+e.question+'</div><button class="reveal-btn" data-reveal="'+t+'">Reveal Solution</button><div class="calc-solution" data-solution="'+t+'"><ol>'+i+'</ol><div class="calc-answer">Answer: '+e.answer+"</div></div></div>"}).join("")}else y='<div class="deepdive-divider" id="sec-calc"><span class="deepdive-tag">Practice</span><h2>Calculation Practice</h2></div><div class="empty-practice">No dedicated calculation problems for this standard — it\'s primarily judgment/disclosure-based. Try the self-test quiz above instead.</div>';const b=t.code.replace("IFRS ","").replace("IAS ",""),v=t.code.startsWith("IAS")?"IAS":t.code.startsWith("IFRS")?"IFRS":"GUIDE",w=reviewed[t.code],S=w?" status-"+w:"",I=w?STATUS_LABELS[w]:"Mark status",x=t.technique||[];let A="";if(x.length){A='<div class="technique-box" id="sec-technique"><div class="tt-title">&#128161; How ACCA Wants This Answered</div><ul>'+x.map(e=>"<li>"+e+"</li>").join("")+"</ul></div>"}const E=t.model_answer;let P="";if(E){const e={issue:"ISSUE",rule:"IFRS RULE",application:"APPLICATION",calculation:"CALCULATION",presentation:"PRESENTATION",conclusion:"CONCLUSION"},t=E.points.map(t=>"<tr><td>"+(t.stage?'<span class="stage-tag stage-'+t.stage+'">'+(e[t.stage]||t.stage)+"</span>":"")+t.text+'</td><td class="mark-col">'+t.m+"</td></tr>").join("");P='<div class="deepdive-divider" id="sec-model-answer"><span class="deepdive-tag">ACCA Style</span><h2>Model Answer &amp; Mark Scheme</h2></div><div class="model-answer-box">'+'<div class="pre-answer-checklist"><div class="pac-toggle" id="pacToggle">&#128203; Before You Start Writing &mdash; Quick Self-Check <span id="pacArrow" class="rotated">&#9662;</span></div><div class="pac-content open" id="pacContent"><ul><li>Did I answer the exact requirement?</li><li>Did I apply the facts?</li><li>Did I explain the numbers?</li><li>Did I state presentation?</li><li>Did I avoid irrelevant IFRS?</li><li>Did I use the marks to control the depth?</li></ul></div></div>'+'<div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft);">Exam-style question<span class="model-answer-marks">'+E.marks+' marks</span></div><div class="model-question"><b>Question:</b> '+E.question+'</div><button class="reveal-btn" id="revealModelAnswerBtn" style="margin-bottom:12px;">&#9998; I&#39;ve written my answer &mdash; Reveal Model Answer &amp; Mark Scheme</button><div id="modelAnswerRevealArea" style="display:none;"><table class="mark-scheme"><thead><tr><th>Model answer point</th><th>Marks</th></tr></thead><tbody>'+t+'<tr class="total-row"><td>Total</td><td class="mark-col">'+E.marks+'</td></tr></tbody></table><div class="examiner-note"><b>Examiner tip:</b> '+E.note+"</div></div></div>"}const q=t.checklist||[];let R="";if(q.length){R='<div class="checklist-box" id="sec-checklist"><div class="cb-title">&#9989; Before You Submit &mdash; Final Check</div>'+q.map((e,t)=>'<div class="checklist-item" data-cidx="'+t+'"><span class="cb-box">&#10003;</span><span class="cb-text">'+e+"</span></div>").join("")+"</div>"}const F=t.monkey_tactic;let C="",T="";if(F){C='<div class="monkey-tactic-box" id="sec-monkey-tactic"><div class="mt-title">&#128018; Monkey Tactic &mdash; Mandatory Phrases</div><div class="mt-phrases">'+F.phrases.map(e=>'<span class="mt-phrase">'+e+"</span>").join("")+'</div><div class="mt-story"><b>Scenario story:</b> '+F.story+"</div></div>",T='<a class="jump-pill" href="#sec-monkey-tactic">Monkey Tactic</a>'}const k=(t.quiz||[]).length,G=(TRUE_FALSE_BANK[t.code]||[]).length,z=SPOT_THE_ERROR.filter(function(e){return e.code===t.code}).length,O=SEQUENCING_QUESTIONS.filter(function(e){return e.code===t.code}).length,D=(t.calc||[]).length;
+function matchesSearch(e){if(!searchTerm)return!0;return(e.code+" "+e.title+" "+e.meta).toLowerCase().includes(searchTerm.toLowerCase())}function matchesFilter(e){return"all"===activeFilter||("OTHER"===activeFilter?!e.code.startsWith("IFRS")&&!e.code.startsWith("IAS"):"PRIORITY"===activeFilter?(PRIORITY_TIERS[e.code]===1||PRIORITY_TIERS[e.code]===2):e.code.startsWith(activeFilter))}window._sidebarCollapsed=window._sidebarCollapsed||{};window.STANDARDS=STANDARDS;function renderList(){const e=document.getElementById("standardList"),t=STANDARDS.filter(e=>e.code.startsWith("IFRS")&&matchesSearch(e)&&matchesFilter(e)),i=STANDARDS.filter(e=>e.code.startsWith("IAS")&&matchesSearch(e)&&matchesFilter(e)),a=STANDARDS.filter(e=>!e.code.startsWith("IFRS")&&!e.code.startsWith("IAS")&&matchesSearch(e)&&matchesFilter(e));function n(e,t,g){if(0===t.length)return"";const collapsed=!!window._sidebarCollapsed[g];let i='<div class="group-label'+(collapsed?" collapsed":"")+'" data-group="'+g+'"><span class="collapse-arrow">&#9660;</span>'+e+'</div><div class="group-items" data-group-items="'+g+'" style="'+(collapsed?"display:none;":"")+'">';return t.forEach(e=>{const t=e.code===activeCode?" active":"",a=reviewed[e.code],n=a?" status-"+a:"",s="red"===a||"yellow"===a||"green"===a?"&#10003;":"";i+='<div class="std-item std-direct-'+(e.code.startsWith("IFRS")?"ifrs":e.code.startsWith("IAS")?"ias":"other")+t+'" data-code="'+e.code+'" title="'+e.code+" &mdash; "+e.title.replace(/"/g,"&quot;")+'"><span class="std-direct-icon">'+(e.code==="IFRS 16"?"🔑":e.code==="IFRS 15"?"💰":e.code==="IFRS 3"?"🤝":e.code==="IFRS 9"?"💳":e.code==="IAS 2"?"📦":e.code==="IAS 12"?"🧾":e.code==="IAS 16"?"🏭":e.code==="IAS 36"?"🛡️":e.code==="IAS 37"?"⚠️":e.code==="IAS 38"?"💡":e.code.startsWith("IFRS")?"📘":e.code.startsWith("IAS")?"📚":"📄")+'</span><span class="code">'+e.code+'</span>'+priorityBadgeHtml(e.code)+'<span class="std-direct-copy"><span class="title">'+e.title+'</span><span class="std-direct-meta">'+(e.meta||"Core study topic")+'</span></span></div>'}),i+"</div>"}0!==t.length||0!==i.length||0!==a.length?(e.innerHTML=n("IFRS Standards",t,"ifrs")+n("IAS Standards",i,"ias")+n("Other Examinable Documents",a,"other"),e.querySelectorAll(".std-item").forEach(e=>{e.addEventListener("click",()=>selectStandard(e.getAttribute("data-code")))}),e.querySelectorAll(".check").forEach(e=>{e.addEventListener("click",t=>cycleReviewStatus(e.getAttribute("data-code"),t))}),e.querySelectorAll(".group-label").forEach(function(e){e.addEventListener("click",function(){const g=e.getAttribute("data-group");window._sidebarCollapsed[g]=!window._sidebarCollapsed[g];renderList();});})):e.innerHTML='<div class="no-results">No standards match your search.</div>'}document.getElementById("flashcardPin").addEventListener("click",function(){renderGlossary()});function clearAllPins(){if(typeof clearHubPins==="function"){try{clearHubPins()}catch(e){}}void 0!==_mockTimerInterval&&_mockTimerInterval&&(clearInterval(_mockTimerInterval),_mockTimerInterval=null);const e=document.getElementById("siteFooter");e&&(e.style.display=""),["guidePin","progressPin","practicePin","confusedPin","formulaPin","flashcardPin","buzzwordsPin","pastPapersPin","groupAccountsPin"].forEach(function(e){const t=document.getElementById(e);t&&t.classList.remove("active")})}function esc(e){return e.slice(0, 50)}function linkifyStandardCodes(e){return e.replace(/\b(IFRS|IAS)\s?(\d+)\b/g,function(e,t,i){var a=t+" "+i;return STANDARDS.some(function(e){return e.code===a})?'<span class="std-link" data-code="'+a+'">'+e+"</span>":e})}function renderSectionCard(e){const t=e.theme?" theme-"+e.theme:"",i=e.body.map(e=>"<p>"+e+"</p>").join("");return'<div class="sec-block'+t+'"><h2><span class="n">'+e.n+"</span>"+e.title+"</h2>"+i+"</div>"}function renderContent(e){const t=STANDARDS.find(t=>t.code===e);if(!t)return;activeCode=e;const i=document.getElementById("siteFooter");i&&(i.style.display="none");const findSec=title=>{const s=t.sections.find(x=>x.title===title);return s?renderSectionCard(s):"";},objSec='<div class="sec-block"><h2><span class="n">01</span>Objective</h2><p>'+t.objective+"</p></div>",scopeBasicSec=findSec("Scope"),defSec=findSec("Definitions"),recogSec=findSec("Recognition"),measureSec=findSec("Measurement"),presentSec=findSec("Presentation"),discloSec=findSec("Disclosures"),a=objSec+scopeBasicSec+defSec+recogSec+measureSec+presentSec+discloSec,n=t.sections.filter(e=>"Recognition"===e.title||"Measurement"===e.title).map(renderSectionCard).join(""),s='<div class="card trap"><h2>&#9888; Exam &amp; Practical Points</h2><ul>'+t.traps.map(e=>"<li>"+e+"</li>").join("")+"</ul></div>",o=t.examples.map((e,t)=>{const i=e.exempt?" exempt":"",a=e.exempt?'<span class="exempt-flag">'+(e.exemptNote||"Exempt")+"</span>":"";return'<div class="example-row'+i+'"><span class="idx">'+String(t+1).padStart(2,"0")+"</span><span>"+e.t+a+"</span></div>"}).join(""),r='<div class="sec-block" id="sec-examples"><h2><span class="n">08</span>Practical Examples</h2><div class="examples-list">'+o+"</div></div>",l='<div class="sec-block" id="sec-takeaways"><h2><span class="n">09</span>Key Takeaways</h2><div class="takeaways-grid">'+t.takeaways.map(e=>'<div class="takeaway">'+e+"</div>").join("")+"</div></div>",c=t.comparison,d='<div class="sec-block" id="sec-comparison"><h2><span class="n">10</span>Comparison Table</h2><table class="cmp"><thead><tr>'+c.headers.map(e=>"<th>"+e+"</th>").join("")+"</tr></thead><tbody>"+c.rows.map(e=>"<tr>"+e.map(e=>"<td>"+e+"</td>").join("")+"</tr>").join("")+"</tbody></table></div>";let u="",h="",scopeSec="",workedSec="",trapsSec="",interSec="";const m=t.enhancement,_stdCodeSafe=t.code;if(m&&Object.keys(m).length){const e='<div class="deepdive-divider" id="sec-scope"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">11</span>Scope Map &amp; Life-Cycle Timeline</h2></div><div class="scope-grid"><div class="scope-box in"><h3>&#10003; In Scope</h3><ul>'+(m.scope_in||[]).map(e=>"<li>"+e+"</li>").join("")+'</ul></div><div class="scope-box out"><h3>&#10007; Out of Scope</h3><ul>'+(m.scope_out||[]).map(e=>"<li>"+e+"</li>").join("")+'</ul></div></div><div class="timeline-box"><b>Timeline:</b> '+(m.timeline||"")+"</div>",t=(m.example_steps||[]).map(e=>"<li>"+e+"</li>").join(""),i='<div class="example-box" id="sec-worked-example"><div class="ex-title">Worked Example &mdash; '+(m.example_title||"")+"</div><ol>"+t+"</ol></div>",a='<div class="deepdive-divider" id="sec-traps2"><span class="deepdive-tag">Deep Dive</span><h2>Examiner Traps &amp; Pitfalls</h2></div><div class="card trap"><ul>'+(m.traps||[]).map(e=>"<li>"+e+"</li>").join("")+"</ul></div>",n='<div class="deepdive-divider" id="sec-interactions"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">12</span>Key Interactions</h2></div><div class="interactions-table"><table><thead><tr><th>Standard</th><th>Nature of Interaction</th></tr></thead><tbody>'+(m.interactions||[]).map(e=>"<tr><td><b>"+linkifyStandardCodes(e[0])+"</b></td><td>"+linkifyStandardCodes(e[1])+"</td></tr>").join("")+"</tbody></table></div>",s=m.summary||{headers:[],rows:[]};h='<div class="deepdive-divider" id="sec-cheatsheet"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">13</span>Cheat-Sheet Summary</h2></div><div class="cheat-table"><table><thead><tr>'+(s.headers||[]).map(e=>"<th>"+e+"</th>").join("")+"</tr></thead><tbody>"+(s.rows||[]).map(e=>"<tr>"+e.map(e=>"<td>"+e+"</td>").join("")+"</tr>").join("")+"</tbody></table></div>"+buildStandardFormulaSectionHtml(_stdCodeSafe),u=e+i+a+n+h,scopeSec=e,workedSec=i,trapsSec=a,interSec=n}const p=t.quiz||[];let f="";if(false){const e=p.map((e,i)=>{const a=e.options.map((t,a)=>'<button class="quiz-option'+(a===e.correct?" correct-print-tag":"")+'" data-qi="'+i+'" data-oi="'+a+'">'+t+"</button>").join(""),n=t.code+"::q"+i,s=answerHistory[n];let o="";return s&&(o=s.lastCorrect?'<span class="prev-badge prev-correct">&#10003; Correct last time</span>':'<span class="prev-badge prev-wrong">&#10007; Missed last time</span>'),'<div class="quiz-card" data-qcard="'+i+'"><div class="quiz-q">Q'+(i+1)+". "+e.q+o+'</div><div class="quiz-options">'+a+'</div><div class="quiz-explain" data-qexplain="'+i+'">'+e.explain+"</div></div>"}).join(""),i=getStandardStats(t.code),a=i.attempted?" &middot; History: "+i.correct+"/"+i.attempted+" ("+i.accuracyPct+"%)":"";f='<div class="deepdive-divider" id="sec-quiz"><span class="deepdive-tag">Practice</span><h2>Self-Test Practice</h2></div><div class="quiz-header"><span class="quiz-score" id="quizScore">Score: 0 / '+p.length+a+'</span><span class="quiz-reset" id="quizReset">Reset quiz</span></div>'+e}const g=t.calc||[];let y="";if(g.length){y='<div class="deepdive-divider" id="sec-calc"><span class="deepdive-tag">Practice</span><h2>Calculation Practice</h2></div>'+g.map((e,t)=>{const i=(e.steps||[]).map(e=>"<li>"+e+"</li>").join("");return'<div class="calc-card"><div class="calc-title">'+e.title+'</div><div class="calc-facts"><b>Facts:</b> '+e.facts+'</div><div class="calc-question">'+e.question+'</div><button class="reveal-btn" data-reveal="'+t+'">Reveal Solution</button><div class="calc-solution" data-solution="'+t+'"><ol>'+i+'</ol><div class="calc-answer">Answer: '+e.answer+"</div></div></div>"}).join("")}else y='<div class="deepdive-divider" id="sec-calc"><span class="deepdive-tag">Practice</span><h2>Calculation Practice</h2></div><div class="empty-practice">No dedicated calculation problems for this standard — it\'s primarily judgment/disclosure-based. Try the self-test quiz above instead.</div>';const b=t.code.replace("IFRS ","").replace("IAS ",""),v=t.code.startsWith("IAS")?"IAS":t.code.startsWith("IFRS")?"IFRS":"GUIDE",w=reviewed[t.code],S=w?" status-"+w:"",I=w?STATUS_LABELS[w]:"Mark status",x=t.technique||[];let A="";if(x.length){A='<div class="technique-box" id="sec-technique"><div class="tt-title">&#128161; How ACCA Wants This Answered</div><ul>'+x.map(e=>"<li>"+e+"</li>").join("")+"</ul></div>"}const E=t.model_answer;let P="";if(E){const e={issue:"ISSUE",rule:"IFRS RULE",application:"APPLICATION",calculation:"CALCULATION",presentation:"PRESENTATION",conclusion:"CONCLUSION"},t=E.points.map(t=>"<tr><td>"+(t.stage?'<span class="stage-tag stage-'+t.stage+'">'+(e[t.stage]||t.stage)+"</span>":"")+t.text+'</td><td class="mark-col">'+t.m+"</td></tr>").join("");P='<div class="deepdive-divider" id="sec-model-answer"><span class="deepdive-tag">ACCA Style</span><h2>Model Answer &amp; Mark Scheme</h2></div><div class="model-answer-box">'+'<div class="pre-answer-checklist"><div class="pac-toggle" id="pacToggle">&#128203; Before You Start Writing &mdash; Quick Self-Check <span id="pacArrow" class="rotated">&#9662;</span></div><div class="pac-content open" id="pacContent"><ul><li>Did I answer the exact requirement?</li><li>Did I apply the facts?</li><li>Did I explain the numbers?</li><li>Did I state presentation?</li><li>Did I avoid irrelevant IFRS?</li><li>Did I use the marks to control the depth?</li></ul></div></div>'+'<div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft);">Exam-style question<span class="model-answer-marks">'+E.marks+' marks</span></div><div class="model-question"><b>Question:</b> '+E.question+'</div><button class="reveal-btn" id="revealModelAnswerBtn" style="margin-bottom:12px;">&#9998; I&#39;ve written my answer &mdash; Reveal Model Answer &amp; Mark Scheme</button><div id="modelAnswerRevealArea" style="display:none;"><table class="mark-scheme"><thead><tr><th>Model answer point</th><th>Marks</th></tr></thead><tbody>'+t+'<tr class="total-row"><td>Total</td><td class="mark-col">'+E.marks+'</td></tr></tbody></table><div class="examiner-note"><b>Examiner tip:</b> '+E.note+"</div></div></div>"}const q=t.checklist||[];let R="";if(q.length){R='<div class="checklist-box" id="sec-checklist"><div class="cb-title">&#9989; Before You Submit &mdash; Final Check</div>'+q.map((e,t)=>'<div class="checklist-item" data-cidx="'+t+'"><span class="cb-box">&#10003;</span><span class="cb-text">'+e+"</span></div>").join("")+"</div>"}const F=t.monkey_tactic;let C="",T="";if(F){C='<div class="monkey-tactic-box" id="sec-monkey-tactic"><div class="mt-title">&#128018; Monkey Tactic &mdash; Mandatory Phrases</div><div class="mt-phrases">'+F.phrases.map(e=>'<span class="mt-phrase">'+e+"</span>").join("")+'</div><div class="mt-story"><b>Scenario story:</b> '+F.story+"</div></div>",T='<a class="jump-pill" href="#sec-monkey-tactic">Monkey Tactic</a>'}const k=(t.quiz||[]).length,G=(TRUE_FALSE_BANK[t.code]||[]).length,z=SPOT_THE_ERROR.filter(function(e){return e.code===t.code}).length,O=SEQUENCING_QUESTIONS.filter(function(e){return e.code===t.code}).length,D=(t.calc||[]).length;
 const REX=[];PAST_PAPERS.forEach((s,si)=>{s.items.forEach((it,ii)=>{if((it.standards||[]).indexOf(t.code)!==-1)REX.push({sn:s.name,si:si,ii:ii,title:it.title,question:it.question,answer:it.answer});});});
 const rexCap=Math.min(REX.length,5),N=k+G+z+O+D+rexCap,L=[];k&&L.push(k+" MCQ"),G&&L.push(G+" True/False"),z&&L.push(z+" Spot the Error"),O&&L.push(O+" Sequencing"),D&&L.push(D+" Calc"),rexCap&&L.push(rexCap+" Exam-Style"+(REX.length>5?" (of "+REX.length+")":""));
 const Q=REX.length>0?'<div class="deepdive-divider" id="sec-real-exam"><span class="deepdive-tag">Exam-Style</span><h2>Exam-Style Question Bank — '+t.code+'</h2></div><div class="guide-list" style="margin-bottom:12px;">'+REX.length+' real question'+(REX.length>1?"s":"")+' tagged '+t.code+' from actual DipIFR sessions (2014–2024).</div>'+REX.map(function(en,idx){return '<div class="pp-item-card"><h3>'+en.sn+' — '+en.title+'</h3><div class="pp-question">'+en.question+'</div><button class="reveal-btn" data-rex-reveal="'+idx+'">✎ Try it yourself — Reveal Model Answer</button><div class="pp-answer" data-rex-answer="'+idx+'">'+en.answer+'</div></div>';}).join('')+'':"";
@@ -5000,80 +5041,32 @@ window.STANDARDS=window.STANDARDS||window.__STD_INDEX;
 (function(){
   function runHomeGlobalSearch(q){
     var box=document.getElementById("homeSearchResults");
-    if(!box){
-      var inp=document.getElementById("homeSearchInput");
-      var wrap=inp&&(inp.closest(".home-search-wrap")||inp.parentElement);
-      if(!wrap)return;
-      wrap.classList.add("home-search-wrap");
-      box=document.createElement("div");
-      box.id="homeSearchResults";
-      box.className="home-search-results";
-      wrap.appendChild(box);
-    }
+    if(!box){var inp=document.getElementById("homeSearchInput"),wrap=inp&&(inp.closest(".home-search-wrap")||inp.parentElement);if(!wrap)return;box=document.createElement("div");box.id="homeSearchResults";box.className="home-search-results";wrap.appendChild(box);}
     q=(q||"").trim().toLowerCase();
     if(!q){box.classList.remove("open");box.innerHTML="";return;}
     var STD=window.STANDARDS||window.__STD_INDEX||[];
-    var stdHits=STD.filter(function(s){
-      return ((s.code||"")+" "+(s.title||"")+" "+(s.meta||"")).toLowerCase().indexOf(q)>=0;
-    }).slice(0,8);
-    var tools=[
-      {id:"guidePin",title:"Exam Technique Guide",meta:"How markers award marks",icon:"💡"},
-      {id:"confusedPin",title:"Confused Standards",meta:"Standards that mix students up",icon:"🔄"},
-      {id:"formulasVaultPin",title:"Formulas Vault",meta:"Interactive formula practice",icon:"🔐"},
-      {id:"flashcardPin",title:"Glossary",meta:"Key terms at a glance",icon:"📖"},
-      {id:"buzzwordsPin",title:"Buzzwords Ledger",meta:"Words that strengthen answers",icon:"📝"},
-      {id:"bossFightPin",title:"Boss Fight",meta:"Challenge your weak areas",icon:"⚔️"},
-      {id:"codeRedPin",title:"Code Red",meta:"High-pressure scenarios",icon:"🔴"},
-      {id:"decisionTreePin",title:"Decision Trees",meta:"Pick the right treatment",icon:"📈"}
-    ].filter(function(t){return (t.title+" "+t.meta).toLowerCase().indexOf(q)>=0;}).slice(0,5);
-    if(!stdHits.length&&!tools.length){
-      box.innerHTML='<div class="hsr-empty">No matches · مفيش نتائج</div>';
-      box.classList.add("open");
-      return;
-    }
+    var searchIcons={"IFRS 1":"🚀","IFRS 2":"🌟","IFRS 3":"🧩","IFRS 5":"🏷️","IFRS 6":"⛏️","IFRS 7":"👁️","IFRS 8":"📊","IFRS 9":"💳","IFRS 10":"🌐","IFRS 11":"🤝","IFRS 12":"📂","IFRS 13":"🎯","IFRS 15":"📜","IFRS 16":"🔑","IFRS 17":"☂️","IAS 1":"📑","IAS 2":"📦","IAS 7":"💸","IAS 8":"🛠️","IAS 10":"📅","IAS 12":"🧾","IAS 16":"🏗️","IAS 19":"👥","IAS 20":"🏛️","IAS 21":"💱","IAS 23":"📈","IAS 24":"🕸️","IAS 27":"📄","IAS 28":"🤛","IAS 29":"📉","IAS 32":"⚖️","IAS 33":"🍕","IAS 34":"⏳","IAS 36":"💥","IAS 37":"⚠️","IAS 38":"💡","IAS 40":"🏢","IAS 41":"🌾"};
+    var standards=STD.filter(function(x){return (x.code+" "+x.title+" "+(x.meta||"")).toLowerCase().indexOf(q)>=0;}).slice(0,8);
+    var items=[
+      {cat:"Practice · التمارين",id:"practiceHubPin",title:"Practice Hub",meta:"Classic · Innovative · MCQs · True/False · Calculations",icon:"🎯",keys:"practice classic innovative mcq true false calculation exam"},
+      {cat:"Practice · التمارين",id:"practicePin",title:"Core Practice",meta:"Mixed question types and exam-style drills",icon:"📝",keys:"core practice questions drills"},
+      {cat:"Tools · الأدوات",id:"studyToolsPin",title:"Study Toolkit",meta:"Technique · comparisons · formulas · memory aids",icon:"🧰",keys:"tool toolkit study technique comparison memory"},
+      {cat:"Tools · الأدوات",id:"formulasVaultPin",title:"Formulas Vault",meta:"Interactive formula practice",icon:"🔐",keys:"formula formulas vault"},
+      {cat:"Features · الخصائص",id:"bossFightPin",title:"Boss Fight",meta:"Challenge your weak areas",icon:"⚔️",keys:"boss fight weak areas"},
+      {cat:"Features · الخصائص",id:"decisionTreePin",title:"Decision Trees",meta:"Visual routes through tricky standards",icon:"🌳",keys:"decision tree tricky"},
+      {cat:"Features · الخصائص",id:"codeRedPin",title:"Code Red",meta:"High-pressure rapid revision",icon:"🚨",keys:"code red rapid revision"},
+      {cat:"Tools · الأدوات",id:"flashcardPin",title:"Glossary",meta:"Key terms at a glance",icon:"📖",keys:"glossary terms flashcard"},
+      {cat:"Today · التقدم",id:"progressPin",title:"Today’s Challenge & Progress",meta:"Daily challenge, accuracy and weak areas",icon:"📊",keys:"today challenge progress accuracy weak"}
+    ];
+    var hits=items.filter(function(x){return (x.title+" "+x.meta+" "+x.keys).toLowerCase().indexOf(q)>=0;});
     var html="";
-    if(stdHits.length){
-      html+='<div class="hsr-group">Standards · المعايير</div>';
-      stdHits.forEach(function(s){
-        html+='<button type="button" class="hsr-item" data-hsr-std="'+s.code+'"><span class="hsr-code">'+s.code+'</span><span><div class="hsr-title">'+s.title+'</div><div class="hsr-meta">'+(s.meta||"").replace(/&middot;/g,"·").replace(/&amp;/g,"&")+'</div></span></button>';
-      });
-    }
-    if(tools.length){
-      html+='<div class="hsr-group">Tools · أدوات</div>';
-      tools.forEach(function(t){
-        html+='<button type="button" class="hsr-item" data-hsr-tool="'+t.id+'"><span class="hsr-code">'+t.icon+'</span><span><div class="hsr-title">'+t.title+'</div><div class="hsr-meta">'+t.meta+'</div></span></button>';
-      });
-    }
-    box.innerHTML=html;
-    box.classList.add("open");
-    try{
-      var inp=document.getElementById("homeSearchInput");
-      if(inp){
-        var r=inp.getBoundingClientRect();
-        box.style.position="fixed";
-        box.style.left=r.left+"px";
-        box.style.width=r.width+"px";
-        box.style.top=(r.bottom+6)+"px";
-        box.style.right="auto";
-        box.style.zIndex="99999";
-      }
-    }catch(e){}
-    box.querySelectorAll("[data-hsr-std]").forEach(function(btn){
-      btn.addEventListener("click",function(){
-        var code=btn.getAttribute("data-hsr-std");
-        box.classList.remove("open");
-        if(typeof selectStandard==="function")selectStandard(code);
-        else if(typeof openStandardsOverlay==="function"){openStandardsOverlay();}
-      });
-    });
-    box.querySelectorAll("[data-hsr-tool]").forEach(function(btn){
-      btn.addEventListener("click",function(){
-        var pin=btn.getAttribute("data-hsr-tool");
-        box.classList.remove("open");
-        var el=document.getElementById(pin);
-        if(el)el.click();
-      });
-    });
+    if(standards.length){html+='<div class="hsr-group">Standards · المعايير</div>';standards.forEach(function(x){html+='<button type="button" class="hsr-item" data-search-standard="'+x.code.replace(/"/g,"&quot;")+'"><span class="hsr-code">'+(searchIcons[x.code]||'📘')+'</span><span><div class="hsr-title">'+x.code+' — '+x.title+'</div><div class="hsr-meta">'+(x.meta||"Study standard")+'</div></span></button>';});}
+    var groups={};hits.forEach(function(x){(groups[x.cat]||(groups[x.cat]=[])).push(x);});
+    Object.keys(groups).forEach(function(cat){html+='<div class="hsr-group">'+cat+'</div>';groups[cat].forEach(function(x){html+='<button type="button" class="hsr-item" data-search-pin="'+x.id+'"><span class="hsr-code">'+x.icon+'</span><span><div class="hsr-title">'+x.title+'</div><div class="hsr-meta">'+x.meta+'</div></span></button>';});});
+    if(!html)html='<div class="hsr-empty">No matches — try a standard, practice type, tool, or feature.</div>';
+    box.innerHTML=html;box.classList.add("open");
+    box.querySelectorAll("[data-search-standard]").forEach(function(b){b.onclick=function(){box.classList.remove("open");if(typeof selectStandard==="function")selectStandard(b.getAttribute("data-search-standard"));};});
+    box.querySelectorAll("[data-search-pin]").forEach(function(b){b.onclick=function(){box.classList.remove("open");var id=b.getAttribute("data-search-pin"),el=document.getElementById(id);if(el)el.click();else if(id==="progressPin"&&typeof renderProgressDashboard==="function")renderProgressDashboard();};});
   }
   window.runHomeGlobalSearch=runHomeGlobalSearch;
 
@@ -5193,5 +5186,76 @@ window.STANDARDS=window.STANDARDS||window.__STD_INDEX;
 })();
 </script>
 
+
+<script id="student-discovery-upgrades-js">
+(function(){
+  var iconMap={
+    'IFRS 3':['🤝','Acquisition · goodwill'], 'IFRS 5':['🏷️','Held for sale · discontinued operations'],
+    'IFRS 9':['💳','Financial instruments · impairment'], 'IFRS 15':['💰','Revenue · 5-step model'],
+    'IFRS 16':['🔑','Leases · right-of-use assets'], 'IFRS 13':['⚖️','Fair value · measurement'],
+    'IAS 2':['📦','Inventories · cost and NRV'], 'IAS 7':['💧','Cash flows · operating activities'],
+    'IAS 8':['📝','Policies · estimates · errors'], 'IAS 10':['📅','Events after reporting period'],
+    'IAS 12':['🧾','Income taxes · deferred tax'], 'IAS 16':['🏭','PPE · depreciation'],
+    'IAS 19':['👥','Employee benefits · pensions'], 'IAS 21':['🌍','Foreign exchange · currency'],
+    'IAS 23':['🏗️','Borrowing costs · capitalization'], 'IAS 28':['🔗','Associates · equity method'],
+    'IAS 32':['💳','Presentation · liability/equity'], 'IAS 33':['📈','Earnings per share'],
+    'IAS 36':['🛡️','Impairment · goodwill'], 'IAS 37':['⚠️','Provisions · contingencies'],
+    'IAS 38':['💡','Intangibles · development'], 'IAS 40':['🏢','Investment property'],
+    'IAS 41':['🌱','Agriculture · biological assets'], 'CF':['🧭','Conceptual framework'],
+    'IFRS S1':['🌿','Sustainability disclosures'], 'IFRS S2':['🌡️','Climate disclosures'],
+    'IFRS SME':['🏪','Small and medium-sized entities'], 'IESBA':['🧭','Ethics · fundamental principles']
+  };
+  var highYield={'IFRS 3':1,'IFRS 9':1,'IFRS 15':1,'IFRS 16':1,'IAS 2':1,'IAS 7':1,'IAS 8':1,'IAS 12':1,'IAS 16':1,'IAS 21':1,'IAS 23':1,'IAS 28':1,'IAS 32':1,'IAS 36':1,'IAS 37':1,'IAS 38':1};
+  function esc(v){return String(v||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function decorate(){
+    document.querySelectorAll('#standardList .std-item').forEach(function(el){
+      if(el.dataset.upgraded)return; el.dataset.upgraded='1';
+      var code=el.getAttribute('data-code')||''; var std=(window.STANDARDS||[]).find(function(x){return x.code===code;})||{};
+      var info=iconMap[code]||[(code.indexOf('IFRS')===0?'📘':code.indexOf('IAS')===0?'📚':'📄'),std.meta||'Study reference'];
+      el.classList.add(code.indexOf('IFRS')===0?'std-ifrs':code.indexOf('IAS')===0?'std-ias':'std-other');
+      var title=el.querySelector('.title'); if(!title)return;
+      var copy=document.createElement('span'); copy.className='std-copy';
+      copy.innerHTML='<span class="title">'+title.textContent+'</span><span class="std-meta">'+esc(info[1])+'</span>';
+      var icon=document.createElement('span'); icon.className='std-topic-icon'; icon.textContent=info[0];
+      title.replaceWith(copy); el.insertBefore(icon,el.firstChild);
+      if(highYield[code]){var p=el.querySelector('.priority-badge'); if(p)p.title='High-yield / core exam standard';}
+    });
+  }
+  var list=document.getElementById('standardList'); if(list){new MutationObserver(decorate).observe(list,{childList:true,subtree:true});decorate();}
+
+  var original=window.runHomeGlobalSearch;
+  window.runHomeGlobalSearch=function(q){
+    q=(q||'').trim().toLowerCase(); if(!q){if(original)original(q);return;}
+    var box=document.getElementById('homeSearchResults'); if(!box){if(original)original(q);return;}
+    var std=(window.STANDARDS||window.__STD_INDEX||[]).filter(function(s){return (s.code+' '+s.title+' '+(s.meta||'')).toLowerCase().indexOf(q)>=0;}).slice(0,7);
+    var entries=[
+      {id:'practiceHubPin',title:'Practice Hub',meta:'Classic · Innovative · MCQs · calculations',icon:'🎯'},
+      {id:'studyToolsPin',title:'Study Toolkit',meta:'Technique · comparisons · formulas · memory aids',icon:'🧰'},
+      {id:'formulasVaultPin',title:'Formulas Vault',meta:'Interactive formula practice',icon:'🔐'},
+      {id:'bossFightPin',title:'Boss Fight',meta:'Challenge your weak areas',icon:'⚔️'},
+      {id:'decisionTreePin',title:'Decision Trees',meta:'Visual routes through tricky standards',icon:'🌳'},
+      {id:'codeRedPin',title:'Code Red',meta:'High-pressure rapid revision',icon:'🚨'},
+      {id:'progressPin',title:"Today's Challenge & Progress",meta:'Track readiness and daily revision',icon:'📊'}
+    ].filter(function(x){return (x.title+' '+x.meta).toLowerCase().indexOf(q)>=0;});
+    var html='';
+    if(std.length){html+='<div class="hsr-group">Standards · المعايير</div>';std.forEach(function(s){var inf=iconMap[s.code]||['📘',s.meta||'Study standard'];html+='<button class="hsr-item" type="button" data-upg-std="'+esc(s.code)+'"><span class="hsr-code">'+inf[0]+'</span><span><div class="hsr-title">'+esc(s.code)+' — '+esc(s.title)+(highYield[s.code]?' <span class="priority-badge tier1">⭐</span>':'')+'</div><div class="hsr-meta">'+esc(inf[1])+'</div></span></button>';});}
+    if(entries.length){html+='<div class="hsr-group">Practice · Tools · Features</div>';entries.forEach(function(x){html+='<button class="hsr-item" type="button" data-upg-pin="'+x.id+'"><span class="hsr-code">'+x.icon+'</span><span><div class="hsr-title">'+esc(x.title)+'</div><div class="hsr-meta">'+esc(x.meta)+'</div></span></button>';});}
+    if(!html){html='<div class="hsr-empty">No matches yet — try a standard, tool, or feature name.</div>';}
+    box.innerHTML=html; box.classList.add('open');
+    box.querySelectorAll('[data-upg-std]').forEach(function(b){b.onclick=function(){box.classList.remove('open');if(typeof selectStandard==='function')selectStandard(b.dataset.upgStd);};});
+    box.querySelectorAll('[data-upg-pin]').forEach(function(b){b.onclick=function(){box.classList.remove('open');var pin=b.dataset.upgPin,el=document.getElementById(pin);if(el)el.click();else if(pin==='practiceHubPin'&&typeof renderPracticeHub==='function')renderPracticeHub();else if(pin==='studyToolsPin'&&typeof renderStudyToolsHub==='function')renderStudyToolsHub();else if(pin==='progressPin'&&typeof renderProgressDashboard==='function')renderProgressDashboard();};});
+  };
+  window.runHomeGlobalSearch=original;
+})();
+</script>
+
+<script id="unique-standard-icons">
+(function(){
+var M={'IAS 1':'📑','IAS 2':'📦','IAS 7':'💸','IAS 8':'🛠️','IAS 10':'📅','IAS 12':'🧾','IAS 16':'🏗️','IAS 19':'👥','IAS 20':'🏛️','IAS 21':'💱','IAS 23':'📈','IAS 24':'🕸️','IAS 27':'📄','IAS 28':'🤛','IAS 29':'📉','IAS 32':'⚖️','IAS 33':'🍕','IAS 34':'⏳','IAS 36':'💥','IAS 37':'⚠️','IAS 38':'💡','IAS 40':'🏢','IAS 41':'🌾','IFRS 1':'🚀','IFRS 2':'🌟','IFRS 3':'🧩','IFRS 5':'🏷️','IFRS 6':'⛏️','IFRS 7':'👁️','IFRS 8':'📊','IFRS 9':'💳','IFRS 10':'🌐','IFRS 11':'🤝','IFRS 12':'📂','IFRS 13':'🎯','IFRS 15':'📜','IFRS 16':'🔑','IFRS 17':'☂️'};
+function paint(root){(root||document).querySelectorAll('.std-topic-icon,.std-direct-icon,.ov-direct-icon').forEach(function(el){var item=el.closest('[data-code]');var code=item&&item.getAttribute('data-code');if(code&&M[code]&&el.textContent!==M[code])el.textContent=M[code];});}
+function boot(){paint(document);var list=document.getElementById('standardList');if(list&&!list.dataset.uniqueIcons){new MutationObserver(function(){paint(list)}).observe(list,{childList:true,subtree:true});list.dataset.uniqueIcons='1';}var body=document.body;if(body&&!body.dataset.uniqueIcons){new MutationObserver(function(){paint(document)}).observe(body,{childList:true,subtree:true});body.dataset.uniqueIcons='1';}}
+boot();document.addEventListener('DOMContentLoaded',boot);
+})();
+</script>
 </body>
 </html>
