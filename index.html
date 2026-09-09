@@ -206,6 +206,14 @@ body{font-size:13.5px !important;}
 }
 
 .tc-guidance-note{position:relative;margin:16px 0 18px;padding:13px 16px 12px;background:linear-gradient(135deg,rgba(255,255,255,.72),var(--teal-soft));border:1px solid var(--teal);border-radius:10px;box-shadow:0 5px 14px rgba(46,110,104,.10);overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}.tc-guidance-note::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(180deg,var(--accent),var(--teal));}.tc-guidance-ar{font-size:13.5px;line-height:1.75;font-weight:700;color:var(--ink);}.tc-guidance-en{font-size:11.5px;line-height:1.55;color:var(--ink-soft);font-style:italic;}.tc-guidance-divider{font-size:8px;color:var(--accent);line-height:1;margin:1px 0;}body.dark-mode .tc-guidance-note{background:linear-gradient(135deg,var(--card),var(--teal-soft));box-shadow:0 5px 14px rgba(0,0,0,.16);}@media(max-width:600px){.tc-guidance-note{padding:12px 13px;}.tc-guidance-ar{font-size:13px;}.tc-guidance-en{font-size:11px;}}
+
+/* Space optimization: standards list uses the full sidebar; no empty left column. */
+@media(min-width:1180px){
+  .sidebar-space-optimized{width:330px!important;flex-direction:column!important;overflow:hidden!important;}
+  .sidebar-space-optimized .sidebar-col-a{display:none!important;}
+  .sidebar-space-optimized .sidebar-col-b{display:flex!important;flex:1 1 auto!important;width:100%!important;min-width:0!important;height:100%!important;overflow:hidden!important;flex-direction:column!important;}
+  .sidebar-space-optimized .sidebar-col-b .standard-list{flex:1 1 auto!important;overflow-y:auto!important;min-height:0!important;}
+}
 </style>
   <!-- DipIFRS PWA and CBE practice tools -->
   <link rel="manifest" href="./manifest.json">
@@ -719,7 +727,7 @@ body.icp-modal-open{overflow:hidden;}
 </div>
 
 <div class="layout">
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar sidebar-space-optimized" id="sidebar">
 	    <div class="sidebar-col-a">
 	    <div class="sidebar-pins-grid sidebar-pins-reordered sidebar-pins-v4">
 	      <div class="sidebar-group-label">Study path</div>
