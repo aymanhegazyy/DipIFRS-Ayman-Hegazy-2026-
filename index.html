@@ -6291,6 +6291,37 @@ body.dark-mode #tqModal .tq-sc-btn{background:#20262A;color:#A8B5AE;border-color
 .ah-path{margin-top:10px;margin-bottom:10px;}
 .ah-path-head{margin-bottom:8px;}
 </style>
+
+<style>
+/* Compact progress and toolkit cards: icon and title share one line. */
+.home-progress-group .tool-card,
+.home-toolkit-group .tool-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:0;
+  padding:12px 16px;
+}
+.home-progress-group .tool-card .tc-hint,
+.home-toolkit-group .tool-card .tc-hint{
+  display:none;
+}
+.home-progress-group .tool-card .tc-icon-wrap,
+.home-toolkit-group .tool-card .tc-icon-wrap{
+  flex:0 0 auto;
+  margin:0;
+}
+.home-progress-group .tool-card h3,
+.home-toolkit-group .tool-card h3{
+  margin:0;
+  line-height:1.25;
+  flex:1;
+}
+.home-toolkit-group > .tool-group-label{
+  font-size:13px;
+  line-height:1.25;
+}
+</style>
 <style>
 /* Home workspace: keep the study flow in one clear vertical sequence. */
 .home-workspace-layout{display:flex;flex-direction:column;gap:18px;margin-top:4px;}
