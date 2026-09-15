@@ -1690,7 +1690,36 @@ body.perf-paused .home-badge-ring {
 .under-process-label{font-family:var(--font-mono);font-size:.82em;color:var(--rust);font-weight:700;}button.home-icp-card:has(.under-process-label){opacity:1;background:#F3F0FB !important;border:2px solid #9B7FD4 !important;}
 .home-icp-card:has(.under-process-label) .under-process-label{color:#6B4FA8;}
 .home-icp-card:has(.under-process-label) .hicp-btn{background:#6B4FA8 !important;color:#fff !important;}
-.similarity-disclaimer{margin:10px 14px;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink-soft);font-size:11px;line-height:1.6;}</style>
+.similarity-disclaimer{margin:10px 14px;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink-soft);font-size:11px;line-height:1.6;}
+/* ===== Kept improvements (NOT home redesign) ===== */
+/* Sticky jumps */
+.jump-row-main{position:sticky;top:0;z-index:40;background:var(--paper);padding:10px 0 12px;margin-bottom:16px;border-bottom:1px solid var(--line-soft);backdrop-filter:blur(6px)}
+body.dark-mode .jump-row-main{background:rgba(20,24,27,.92)}
+/* Version badge */
+.version-badge{display:inline-block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.04em;background:var(--teal-soft);color:var(--teal);border:1px solid var(--teal);padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle}
+/* Progress export/import bar */
+.progress-tools-bar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 8px;padding:12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
+.progress-tools-bar button{font-family:var(--font-mono);font-size:11px;font-weight:600;padding:7px 14px;border-radius:16px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.progress-tools-bar button:hover{border-color:var(--teal);color:var(--teal)}
+.progress-tools-bar .pt-export{background:var(--teal);color:#fff;border-color:var(--teal)}
+.progress-tools-bar .pt-import{background:var(--slate);color:#fff;border-color:var(--slate)}
+/* In-standard search */
+.std-page-search-wrap{margin:0 0 14px;position:sticky;top:48px;z-index:35;background:var(--paper);padding:8px 0;border-bottom:1px solid var(--line-soft)}
+.std-page-search-wrap input{width:100%;padding:10px 14px;border:1.5px solid var(--line);border-radius:20px;font-family:var(--font-body);font-size:13.5px;background:var(--card);color:var(--ink)}
+.std-page-search-wrap input:focus{outline:none;border-color:var(--teal)}
+.std-search-hit{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px;background:var(--accent-soft)}
+.std-search-dim{opacity:.35}
+/* Better print */
+@media print{
+.topbar,.sidebar,.jump-row,.jump-row-main,.mark-reviewed,.download-pdf-btn,.quiz-reset,.reveal-btn,.menu-toggle,footer.site-footer,#focusModeFab,#backToTopBtn,.std-practice-card,.std-history-card,.neglected-nudge,.deepdive-transition,.read-progress-bar,.std-page-search-wrap,.progress-tools-bar{display:none!important}
+.print-credit{display:block!important;position:fixed;bottom:8px;left:0;right:0;text-align:center;font-family:var(--font-mono);font-size:9px;color:#444!important;background:#fff;padding-top:4px;z-index:9999;border-top:1px solid #ccc}
+body,body.protected{background:#fff!important;color:#111!important;font-size:12.5px!important;-webkit-user-select:auto!important;user-select:auto!important}
+main,.content-wrap,#mainContent{height:auto!important;overflow:visible!important;max-width:100%!important;padding:12px 16px 50px!important;margin:0!important}
+.std-header,.section-banner,.deepdive-divider,.sec-block,.card,.technique-box,.monkey-tactic-box,.model-answer-box,.checklist-box,.example-box,.quiz-card,.calc-card{page-break-inside:avoid;break-inside:avoid}
+.quiz-explain,.calc-solution,.pp-answer,#modelAnswerRevealArea{display:block!important}
+}
+
+</style>
 </head>
 <body>
 
@@ -1754,7 +1783,7 @@ body.perf-paused .home-badge-ring {
   </noscript>
 </div>
 
-<div class="print-credit">Ayman Hegazy &middot; 01068686561 &middot; DipIFRS Study Companion</div>
+<div class="print-credit">Ayman Hegazy — DipIFR Study Companion · Personal study use only · v2026.9.16</div>
 <footer class="site-footer" id="siteFooter">Ayman Hegazy &middot; <a href="mailto:ayman.hegazyy@yahoo.com" class="fc-email-link">ayman.hegazyy@yahoo.com</a> &middot; <a href="https://www.linkedin.com/in/ayman-hegazyy" target="_blank" rel="noopener" class="li-link">LinkedIn</a> &middot; <a href="https://www.facebook.com/share/1CKo4rFxCV/" target="_blank" rel="noopener" class="li-link">Facebook</a> &middot; <a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener" class="li-link">&#11088; Rate</a>
   <span class="fc-disclaimer">a study aid, not a substitute for the full IASB text &mdash; verify against the Red/Blue Book before the exam.</span>
   <div style="text-align:center;font-size:10px;color:var(--ink-soft);margin-top:8px;">&copy; 2026 Ayman Hegazy. All rights reserved.</div>
@@ -6350,7 +6379,7 @@ function renderPracticeHub(){
     {cls:"hc-purple",icon:"📄",title:"Exam Style Practice",hint:"Official-style questions organised by standard (2014–2024).",go:function(){renderPastPapersList();}},
     {cls:"hc-maroon",icon:"📝",title:"Full Mock Exam",hint:"Timed mixed set to test exam readiness.",go:function(){renderHome();setTimeout(function(){var e=document.getElementById("fullPracticeRandomBtn");if(e)e.scrollIntoView({behavior:"smooth",block:"center"});},120);}},
     {cls:"hc-rust",icon:"❌",title:"My Mistakes",hint:"Retry only the questions you missed.",go:function(){if(typeof renderMistakesReview==="function")renderMistakesReview();}},
-    {cls:"hc-purple",icon:"🏢",title:"Group Accounts (Under process)",hint:"CBE Consolidation Engine — under process.",go:function(){renderGroupAccounts();}}
+    {cls:"hc-purple",icon:"🏢",title:"Group Accounts — Coming soon",hint:"CBE Consolidation Engine — Coming soon.",go:function(){renderGroupAccounts();}}
   ];
   var html='<div class="guide-hero"><h1>🎯 Practice</h1><p>Test yourself with mixed drills, exam-style items, mocks and focused mistake review.</p></div><p class="hub-hint">Group Accounts is also pinned on the left for quick access.</p><div class="hub-grid">';
   cards.forEach(function(card,i){html+='<div class="hub-card '+card.cls+'" data-phub="'+i+'"><h3>'+card.icon+' '+card.title+'</h3><p>'+card.hint+'</p></div>';});
@@ -7445,5 +7474,128 @@ function setupSidebarListeners() {
   }
 })();
 </script>
+
+<script>
+/* ===== Kept improvements: progress tools + standard search + weak open (NO home redesign) ===== */
+(function(){
+  'use strict';
+  var VERSION = '2026.9.16';
+
+  function exportProgress(){
+    try{
+      var data={version:VERSION,exportedAt:new Date().toISOString(),answerHistory:(typeof answerHistory!=='undefined')?answerHistory:{},reviewed:(typeof reviewed!=='undefined')?reviewed:{}};
+      try{
+        data.streak=JSON.parse(localStorage.getItem('dipifr_todays30_streak')||'null');
+        data.visits=JSON.parse(localStorage.getItem('dipifr_std_visits')||'{}');
+        data.lastStandard=localStorage.getItem('dipifr_last_standard');
+        data.lastStandardTs=localStorage.getItem('dipifr_last_standard_ts');
+        data.darkMode=localStorage.getItem('ayman-ifrs-dark-mode');
+      }catch(e){}
+      var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+      var url=URL.createObjectURL(blob);
+      var a=document.createElement('a');
+      a.href=url;a.download='dipifr-progress-'+new Date().toISOString().slice(0,10)+'.json';
+      document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+      alert('Progress exported successfully.');
+    }catch(err){alert('Export failed: '+(err.message||err));}
+  }
+
+  function importProgress(){
+    var input=document.createElement('input');
+    input.type='file';input.accept='.json,application/json';
+    input.onchange=function(e){
+      var file=e.target.files[0];if(!file)return;
+      var reader=new FileReader();
+      reader.onload=function(ev){
+        try{
+          var data=JSON.parse(ev.target.result);
+          if(!data||typeof data!=='object')throw new Error('Invalid file');
+          if(!window.confirm('Import progress and overwrite current data on this device?'))return;
+          if(data.answerHistory){answerHistory=data.answerHistory;try{localStorage.setItem('ayman-ifrs-answer-history',JSON.stringify(answerHistory));}catch(e){}}
+          if(data.reviewed){reviewed=data.reviewed;try{localStorage.setItem('ayman-ifrs-reviewed-standards',JSON.stringify(reviewed));}catch(e){}}
+          if(data.streak)try{localStorage.setItem('dipifr_todays30_streak',JSON.stringify(data.streak));}catch(e){}
+          if(data.visits)try{localStorage.setItem('dipifr_std_visits',JSON.stringify(data.visits));}catch(e){}
+          if(data.lastStandard)try{localStorage.setItem('dipifr_last_standard',data.lastStandard);if(data.lastStandardTs)localStorage.setItem('dipifr_last_standard_ts',data.lastStandardTs);}catch(e){}
+          alert('Progress imported. Reloading…');location.reload();
+        }catch(err){alert('Import failed: '+(err.message||err));}
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  }
+
+  function injectProgressTools(){
+    var resetWrap=document.querySelector('.reset-progress-wrap');
+    if(!resetWrap||document.getElementById('progressToolsBar'))return;
+    var bar=document.createElement('div');
+    bar.className='progress-tools-bar';bar.id='progressToolsBar';
+    bar.innerHTML='<button type="button" class="pt-export" id="exportProgressBtn">⬇ Export Progress</button><button type="button" class="pt-import" id="importProgressBtn">⬆ Import Progress</button>';
+    resetWrap.parentNode.insertBefore(bar,resetWrap);
+    document.getElementById('exportProgressBtn').onclick=exportProgress;
+    document.getElementById('importProgressBtn').onclick=importProgress;
+  }
+
+  function addVersionBadge(){
+    var tagline=document.querySelector('.brand .tagline');
+    if(tagline&&!document.querySelector('.version-badge')){
+      var badge=document.createElement('span');
+      badge.className='version-badge';badge.textContent='v'+VERSION;
+      tagline.appendChild(document.createTextNode(' '));
+      tagline.appendChild(badge);
+    }
+  }
+
+  function injectStandardSearch(){
+    var wrap=document.getElementById('contentWrap');
+    if(!wrap)return;
+    var header=wrap.querySelector('.std-header');
+    if(!header||document.getElementById('stdPageSearch'))return;
+    var box=document.createElement('div');
+    box.className='std-page-search-wrap';
+    box.innerHTML='<input type="search" id="stdPageSearch" placeholder="Search inside this standard…" autocomplete="off">';
+    header.insertAdjacentElement('afterend',box);
+    var input=document.getElementById('stdPageSearch');
+    var sections=wrap.querySelectorAll('.sec-block,.card,.technique-box,.monkey-tactic-box,.example-box,.deepdive-divider,.model-answer-box,.checklist-box,.calc-card,.quiz-card,.qsum-card');
+    input.addEventListener('input',function(){
+      var q=(input.value||'').trim().toLowerCase();
+      sections.forEach(function(el){
+        el.classList.remove('std-search-hit','std-search-dim');
+        if(!q)return;
+        var text=(el.textContent||'').toLowerCase();
+        if(text.indexOf(q)!==-1)el.classList.add('std-search-hit');
+        else el.classList.add('std-search-dim');
+      });
+    });
+  }
+
+  function openWeakAreasByDefault(){
+    var body=document.getElementById('rcWeakBody');
+    if(!body)return;
+    if(body.querySelector('.rc-weak-item,.rc-start-weakest,.weak-item')){
+      body.style.display='block';
+      var head=document.querySelector('[data-rc-collapse="rcWeakBody"]');
+      if(head){var arrow=head.querySelector('.rc-collapse-arrow');if(arrow)arrow.textContent='▾';}
+    }
+  }
+
+  function enhance(){
+    addVersionBadge();
+    injectProgressTools();
+    injectStandardSearch();
+    openWeakAreasByDefault();
+  }
+
+  var wrap=document.getElementById('contentWrap');
+  if(wrap){
+    var t=null;
+    new MutationObserver(function(){clearTimeout(t);t=setTimeout(enhance,60);}).observe(wrap,{childList:true});
+  }
+  function boot(){setTimeout(enhance,200);setTimeout(enhance,800);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+  window.exportDipifrProgress=exportProgress;
+  window.importDipifrProgress=importProgress;
+})();
+</script>
+
 </body>
 </html>
