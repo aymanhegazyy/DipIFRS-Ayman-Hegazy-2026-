@@ -54,7 +54,9 @@ body.dark-mode .std-item-other .code{color:#EF9A9A;font-weight:800;}body.dark-mo
 .std-topic-icon{font-size:13px;flex:0 0 auto;line-height:1;}
 .std-topic-icon-full{font-size:.75em;margin-right:8px;}.std-item.active .code{color:var(--teal);}.priority-badge{flex:0 0 auto;display:inline-block;font-size:10px;line-height:1;cursor:help;}.priority-badge.tier1{filter:none;}.priority-badge.tier2{color:#D9A94A;}.priority-badge.tier3{color:var(--ink-soft);opacity:.6;font-size:9px;}.roadmap-phase{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:12px;}.roadmap-phase h3{font-size:15px;margin:0 0 8px;color:var(--ink);}.roadmap-phase p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0 0 10px;}.roadmap-chips{font-family:var(--font-mono);font-size:12px;line-height:1.8;background:var(--paper);border-radius:6px;padding:8px 12px;color:var(--ink);}.roadmap-tier1{border-left:4px solid #C0392B;}.roadmap-tier2{border-left:4px solid #D97706;}.roadmap-tier3{border-left:4px solid #D4B106;}.std-item .title{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.std-item .check{flex:0 0 auto;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent;}.std-item .check.status-red{background:var(--rust);border-color:var(--rust);color:#fff;}.std-item .check.status-yellow{background:var(--accent);border-color:var(--accent);color:var(--ink);}.std-item .check.status-green{background:var(--teal);border-color:var(--teal);color:#fff;}.no-results{padding:20px 14px;font-size:12.5px;color:var(--ink-soft);font-style:italic;}main{flex:1;min-width:0;min-height:0;overflow-y:auto;}
 .read-progress-bar{position:sticky;top:0;left:0;height:3px;width:0%;background:var(--teal);z-index:50;transition:width .1s linear;}
-@media print{.read-progress-bar{display:none !important;}}.content-wrap{max-width:900px;margin:0 auto;padding:26px 24px 100px;}.empty-state{padding:60px 30px;text-align:center;color:var(--ink-soft);}.empty-state .big{font-family:var(--font-display);font-size:26px;margin-bottom:8px;color:var(--ink);}.home-hero{text-align:center;padding:4px 0 18px;margin-bottom:20px;}
+@media print{.read-progress-bar{display:none !important;}}.content-wrap{max-width:900px;margin:0 auto;padding:26px 24px 100px;}
+@media (min-width:1300px){.content-wrap{max-width:1140px;}}
+@media (min-width:1600px){.content-wrap{max-width:1280px;}}.empty-state{padding:60px 30px;text-align:center;color:var(--ink-soft);}.empty-state .big{font-family:var(--font-display);font-size:26px;margin-bottom:8px;color:var(--ink);}.home-hero{text-align:center;padding:4px 0 18px;margin-bottom:20px;}
 /* Home-page-only teal theme: calm dominant palette for long study sessions.
    Warm gold/rust stays reserved for reward moments (Daily Challenge card,
    streak badge, Pressure-mode indicator) — intentionally left untouched. */
@@ -3439,6 +3441,7 @@ function renderCodeRedCase(){
       _crAnswered=true;
       _crScore.total++;
       if(reason==="correct"){ _crScore.correct++; if(typeof playCorrectDing==="function") playCorrectDing(); }
+      if(typeof recordAnswer==="function")recordAnswer(item.standard,"cr"+_crCurrentId,reason==="correct");
       document.querySelectorAll(".cr-line").forEach(function(le){
         const idx=parseInt(le.getAttribute("data-cr-line"),10);
         if(item.lines[idx].isBreach)le.classList.add("cr-line-revealed");
@@ -4380,6 +4383,7 @@ function drawEcs(){
       var step=c.steps[stepIdx];
       var correct = oi===step.correct;
       _ecsState.answered[stepIdx]=oi;
+      if(typeof recordAnswer==="function")recordAnswer(c.code,"ecs"+_ecsState.idx+"_step"+stepIdx,correct);
       if(correct){ _ecsState.score++; if(typeof playCorrectDing==="function") playCorrectDing(); }
       if(stepIdx===_ecsState.currentStep && _ecsState.currentStep<2){
         _ecsState.currentStep++;
@@ -4567,6 +4571,7 @@ function tleCheckOrder(qi){
   var correct = picked.every(function(origIdx, pos){ return origIdx===pos; });
   if(_tleState.answered[qi]!==undefined) return;
   _tleState.answered[qi]=correct?1:0;
+  if(typeof recordAnswer==="function")recordAnswer(q.code,"tle"+qi,correct);
   if(correct){ _tleState.score++; if(typeof playCorrectDing==="function") playCorrectDing(); }
   var expl=document.querySelector('[data-tleexplain="'+qi+'"]');
   if(expl){ expl.style.display="block"; expl.innerHTML = (correct?'<div class="fv-expl-header fv-expl-correct">\u2705 Correct order!</div>':'<div class="fv-expl-header fv-expl-incorrect">\u274c Not quite \u2014 here\'s the correct order:</div>') + tleSolutionCardHtml(q); }
@@ -4590,6 +4595,7 @@ function renderThinkExaminerSession(){
       var correctVal = q.correct;
       var correct = oi===correctVal;
       _tleState.answered[qi]=oi;
+      if(typeof recordAnswer==="function")recordAnswer(q.code,"tle"+qi,correct);
       if(correct){ _tleState.score++; if(typeof playCorrectDing==="function") playCorrectDing(); }
       document.querySelectorAll('.quiz-option[data-tleqi="'+qi+'"]').forEach(function(b){
         b.classList.add("disabled");
@@ -4887,7 +4893,11 @@ function wireInvCore(container,stateKey,invIdx,rewire){
       var c=INVESTIGATION_CASES[invIdx];
       var q=c.questions.find(function(x){return x.id===qid;});
       st.asked[qid]=true;
-      if(q.isKey){st.keyFound=true;if(typeof playCorrectDing==="function")playCorrectDing();}
+      if(q.isKey){
+        st.keyFound=true;
+        if(typeof playCorrectDing==="function")playCorrectDing();
+        if(typeof recordAnswer==="function")recordAnswer(getInvestigationOwner(c),"inv"+invIdx,true);
+      }
       container.innerHTML=embeddedInvInnerHtml(stateKey,invIdx);
       rewire();
     });
@@ -4927,7 +4937,9 @@ function wireBfCore(container,stateKey,bfIdx,rewire){
       var bf=BOSS_FIGHT_DATA[bfIdx];
       var word=btn.getAttribute('data-ebf-word');
       var correctWord=bf.blanks[st.selectedBlank-1];
-      if(word===correctWord){st.filled[st.selectedBlank]=word;st.selectedBlank=null;}
+      var isCorrect=word===correctWord;
+      if(typeof recordAnswer==="function")recordAnswer(bf.code,"bf"+bfIdx+"_blank"+st.selectedBlank,isCorrect);
+      if(isCorrect){st.filled[st.selectedBlank]=word;st.selectedBlank=null;}
       container.innerHTML=embeddedBfInnerHtml(stateKey,bfIdx);
       rewire();
     });
@@ -4967,7 +4979,10 @@ function wireDtCore(container,stateKey,dtIdx,rewire){
       var ans=btn.getAttribute('data-edt-ans');
       st.path.push({q:node.q,answer:ans==='yes'?'Yes':'No'});
       st.currentNodeId=ans==='yes'?node.yes:node.no;
-      if(!(st.currentNodeId in dt.nodes)&&typeof playCorrectDing==="function")playCorrectDing();
+      if(!(st.currentNodeId in dt.nodes)){
+        if(typeof playCorrectDing==="function")playCorrectDing();
+        if(typeof recordAnswer==="function")recordAnswer(getDecisionTreeOwner(dt),"dt"+dtIdx,true);
+      }
       container.innerHTML=embeddedDtInnerHtml(stateKey,dtIdx);
       rewire();
     });
@@ -5015,6 +5030,7 @@ function wireEmbeddedEcs(cardIdx){
       var step=st.prepared.steps[stepIdx];
       var correct=oi===step.correct;
       st.answered[stepIdx]=oi;
+      if(typeof recordAnswer==="function")recordAnswer(st.prepared.code,"ecs"+st.ecsIdx+"_step"+stepIdx,correct);
       if(correct){ st.score++; if(typeof playCorrectDing==="function") playCorrectDing(); }
       if(stepIdx===st.currentStep && st.currentStep<2){ st.currentStep++; }
       container.innerHTML=embeddedEcsInnerHtml(cardIdx,st.ecsIdx);
@@ -5066,6 +5082,7 @@ function wireEmbeddedTle(cardIdx){
       var oi=parseInt(btn.getAttribute('data-etle-oi'),10);
       var correct=oi===st.q.correct;
       st.answered=oi;
+      if(typeof recordAnswer==="function")recordAnswer(st.q.code,"etle"+cardIdx,correct);
       if(correct){ if(typeof playCorrectDing==="function") playCorrectDing(); }
       container.innerHTML=embeddedTleInnerHtml(cardIdx,st.scenarioIdx);
       wireEmbeddedTle(cardIdx);
@@ -5081,6 +5098,7 @@ function wireEmbeddedTle(cardIdx){
         var correct=st.orderPicks.every(function(oi,pos){return oi===pos;});
         st.answered=1;
         st.orderCorrect=correct;
+        if(typeof recordAnswer==="function")recordAnswer(st.q.code,"etle"+cardIdx,correct);
         if(correct){ if(typeof playCorrectDing==="function") playCorrectDing(); }
       }
       container.innerHTML=embeddedTleInnerHtml(cardIdx,st.scenarioIdx);
@@ -5213,7 +5231,9 @@ function wireEmbeddedFv(cardIdx){
       if(st.answered!==undefined) return;
       var oi=parseInt(btn.getAttribute('data-efv-oi'),10);
       st.answered=oi;
-      if(oi===st.q.correct){ if(typeof playCorrectDing==="function") playCorrectDing(); }
+      var fvCorrect=oi===st.q.correct;
+      if(typeof recordAnswer==="function"){var fvGroup=(fvAllFormulas()[st.itemIdx]||{}).group||"IFRS 9";recordAnswer(fvGroup,"fv"+cardIdx,fvCorrect);}
+      if(fvCorrect){ if(typeof playCorrectDing==="function") playCorrectDing(); }
       container.innerHTML=embeddedFvInnerHtml(cardIdx,st.itemIdx);
       wireEmbeddedFv(cardIdx);
     });
