@@ -5369,7 +5369,7 @@ function openMultiStandardModal(){
   var modal=document.createElement('div');
   modal.id='mselModal';
   modal.className='msel-overlay';
-  modal.innerHTML='<div class="msel-panel"><div class="msel-head"><h3>اختر مجموعة معايير للتمرين</h3><button type="button" class="msel-close" id="mselCloseBtn">&times;</button></div><div class="msel-list">'+rows+'</div><div class="msel-footer"><span id="mselCount">0 معيار مختار</span><button type="button" class="msel-start-btn" id="mselStartBtn" disabled>ابدأ التمرين &rarr;</button></div></div>';
+  modal.innerHTML='<div class="msel-panel"><div class="msel-head"><h3>اختر مجموعة معايير للتمرين</h3><button type="button" class="msel-close" id="mselCloseBtn">&times;</button></div><div class="msel-list">'+rows+'</div><div class="msel-footer"><span id="mselCount" dir="rtl">0 معيار مختار</span><button type="button" class="msel-start-btn" id="mselStartBtn" disabled>ابدأ التمرين &rarr;</button></div></div>';
   document.body.appendChild(modal);
   modal.addEventListener('click',function(e){if(e.target===modal)closeMselModal();});
   document.getElementById('mselCloseBtn').addEventListener('click',closeMselModal);
@@ -6335,7 +6335,7 @@ function setupSidebarListeners() {
       <section class="tc-card tc-card-compact tc-card-blue" id="todaysChallengeCard">
         <div class="tc-fire-ring"><span class="tc-fire">&#128293;</span></div>
         <h2>تحدي اليوم &mdash; Daily IFRS Challenge</h2>
-        <p class="tc-sub-ar">30 سؤال &middot; 30 دقيقة &middot; خليط عشوائي جديد كل مرة</p>
+        <p class="tc-sub-ar" dir="rtl">30 سؤال &middot; 30 دقيقة &middot; خليط عشوائي جديد كل مرة</p>
         <p class="tc-sub-en">30 questions &middot; 30 min &middot; a fresh random mix every time</p>
         ${(function(){try{const d=JSON.parse(localStorage.getItem("dipifr_todays30_streak")||"null");return d&&d.streak>1?'<div class="tc-streak-badge">&#128293; '+d.streak+'-day streak</div>':'';}catch(e){return '';}})()}
         <button type="button" class="me-start-btn tc-start-btn" id="startTodaysChallengeBtn">&#128640; يلا شوف إنت فين؟ &mdash; Start now</button>
