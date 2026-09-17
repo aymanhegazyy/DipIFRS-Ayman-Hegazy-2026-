@@ -1776,7 +1776,7 @@ main,.content-wrap,#mainContent{height:auto!important;overflow:visible!important
   <div class="global-back-btn" id="globalBackBtn" style="display:none;">&#8592; Back</div>
   <div class="brand">
     <span class="mark mark-sparkle" id="homeBrandLink" style="cursor:pointer;">Ayman <em>Hegazy</em><span class="sparkle s1">&#10022;</span><span class="sparkle s2">&#10022;</span><span class="sparkle s3">&#10022;</span></span>
-    <span class="tagline"><a href="https://www.linkedin.com/in/ayman-hegazyy" target="_blank" rel="noopener" class="li-link">LinkedIn</a> &middot; <a href="https://www.facebook.com/share/1CKo4rFxCV/" target="_blank" rel="noopener" class="li-link">Facebook</a> &middot; <a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener" class="li-link">&#11088; Rate This Guide</a> &middot; <span class="li-link" id="aboutLinkBtn" style="cursor:pointer;">&#8505; About</span> &middot; DipIFR Companion &middot; 2026 Edition</span>
+    <span class="tagline"><a href="https://www.linkedin.com/in/ayman-hegazyy" target="_blank" rel="noopener" class="li-link">LinkedIn</a> &middot; <a href="https://www.facebook.com/share/1CKo4rFxCV/" target="_blank" rel="noopener" class="li-link">Facebook</a> &middot; <a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener" class="li-link">&#11088; Rate This Guide</a> &middot; <span class="li-link" id="aboutLinkBtn" style="cursor:pointer;">&#8505; About</span></span>
   </div>
   <div class="progress-wrap">
     <button type="button" class="dark-mode-toggle" id="darkModeToggle">&#127769; Dark</button>
@@ -7372,7 +7372,7 @@ function setupSidebarListeners() {
 /* ===== Kept improvements: progress tools + standard search + weak open (NO home redesign) ===== */
 (function(){
   'use strict';
-  var VERSION = '2026.9.16';
+  var VERSION = '09.26';
 
   function exportProgress(){
     try{
@@ -7432,7 +7432,7 @@ function setupSidebarListeners() {
     var tagline=document.querySelector('.brand .tagline');
     if(tagline&&!document.querySelector('.version-badge')){
       var badge=document.createElement('span');
-      badge.className='version-badge';badge.textContent='v'+VERSION;
+      badge.className='version-badge';badge.textContent=VERSION+' Edition';
       tagline.appendChild(document.createTextNode(' '));
       tagline.appendChild(badge);
     }
