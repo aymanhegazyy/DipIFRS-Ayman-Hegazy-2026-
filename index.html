@@ -216,6 +216,13 @@ body.dark-mode .warning-en{color:#D9A94A;}.motivational-quote{text-align:center;
 .rc-row-text{font-size:12.5px;color:var(--ink);}
 .rc-row-text b{font-family:var(--font-mono);font-size:14px;}
 .rc-continue-row-icon{background:var(--teal-soft);color:var(--teal);}
+.jm-view-toggle{display:flex;gap:8px;margin:0 0 16px;}
+.jm-toggle-btn{padding:8px 14px;border-radius:20px;border:1.5px solid var(--line);font-size:12.5px;font-weight:700;cursor:pointer;color:var(--ink-soft);}
+.jm-toggle-btn.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+.jm-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:16px;font-size:11px;color:var(--ink-soft);}
+.jm-legend span{display:flex;align-items:center;gap:5px;}
+.jm-dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+.jm-node:hover circle{filter:brightness(1.1);}
 .rc-continue-row{cursor:pointer;}
 @media (min-width:900px){.rc-continue-row{display:none;}}
 .rc-stat{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:70px;}
@@ -2829,14 +2836,79 @@ function getStandardStats(e){const t=Object.values(answerHistory).filter(t=>t.co
     return {code:s.code,title:s.title,attempted:attempted,accuracyPct:accuracyPct,status:status};
   });
 }
+function buildJourneyMapSvg(){
+  var cols=[70,220,370];
+  var rowH=110;
+  var n=STANDARDS.length;
+  var nodes=STANDARDS.map(function(std,i){
+    var row=Math.floor(i/3);
+    var posInRow=i%3;
+    var colIdx=(row%2===0)?posInRow:(2-posInRow);
+    var x=cols[colIdx];
+    var y=70+row*rowH;
+    var stats=getStandardStats(std.code);
+    var status='none';
+    if(stats.attempted>0){
+      if(stats.accuracyPct>=80)status='strong';
+      else if(stats.accuracyPct>=60)status='ok';
+      else status='weak';
+    }
+    return {code:std.code,title:std.title,x:x,y:y,status:status,pct:stats.accuracyPct};
+  });
+  var totalHeight=70+(Math.ceil(n/3)-1)*rowH+90;
+  var pathD='';
+  nodes.forEach(function(node,i){
+    if(i===0){pathD+='M'+node.x+','+node.y;}
+    else{
+      var prev=nodes[i-1];
+      var midY=(prev.y+node.y)/2;
+      pathD+=' C'+prev.x+','+midY+' '+node.x+','+midY+' '+node.x+','+node.y;
+    }
+  });
+  var statusColor={none:'#C9CDC7',weak:'#D9704A',ok:'#D9A94A',strong:'#4CAF7D'};
+  var circles=nodes.map(function(node,i){
+    var color=statusColor[node.status];
+    var labelShort=node.code.replace('IFRS ','F').replace('IAS ','A').replace('IESBA','ES').replace('IFRS SME','SME');
+    return '<g class="jm-node" data-jm-code="'+node.code+'" style="cursor:pointer;">'+
+      '<circle cx="'+node.x+'" cy="'+node.y+'" r="26" fill="'+color+'" stroke="#fff" stroke-width="3"></circle>'+
+      '<text x="'+node.x+'" y="'+(node.y+5)+'" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="monospace">'+labelShort+'</text>'+
+      '<text x="'+node.x+'" y="'+(node.y+42)+'" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="monospace">'+(node.pct!==null?node.pct+'%':'')+'</text>'+
+      '</g>';
+  }).join('');
+  return '<svg viewBox="0 0 440 '+totalHeight+'" width="100%" style="max-width:440px;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">'+
+    '<path d="'+pathD+'" fill="none" stroke="#C9CDC7" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"></path>'+
+    circles+
+    '</svg>';
+}
+function renderJourneyMapView(){
+  var html='<div class="jm-legend"><span><span class="jm-dot" style="background:#4CAF7D"></span>Strong (80%+)</span><span><span class="jm-dot" style="background:#D9A94A"></span>OK (60-79%)</span><span><span class="jm-dot" style="background:#D9704A"></span>Needs work</span><span><span class="jm-dot" style="background:#C9CDC7"></span>Not started</span></div>'+buildJourneyMapSvg();
+  document.getElementById('jmMapContainer').innerHTML=html;
+  document.querySelectorAll('.jm-node').forEach(function(g){
+    g.addEventListener('click',function(){selectStandard(g.getAttribute('data-jm-code'));});
+  });
+}
 function renderStandardsBreakdownPage(){
   recordNav(renderStandardsBreakdownPage,[]);
   activeCode="STDBREAKDOWN";
   clearAllPins();
-  var html='<div class="guide-hero"><h1>&#128202; Standard-by-Standard Breakdown</h1></div>'+renderIfrsHeatMap()+'<div class="rc-back-row"><span class="ns-btn" id="backToReviewCenter">&larr; Back to Review Center</span></div>';
+  var html='<div class="guide-hero"><h1>&#128202; Standard-by-Standard Breakdown</h1></div><div class="jm-view-toggle"><span class="jm-toggle-btn active" id="jmListToggle">&#128203; List View</span><span class="jm-toggle-btn" id="jmMapToggle">&#128506;&#65039; Map View (Preview)</span></div><div id="jmListContainer">'+renderIfrsHeatMap()+'</div><div id="jmMapContainer" style="display:none;"></div><div class="rc-back-row"><span class="ns-btn" id="backToReviewCenter">&larr; Back to Review Center</span></div>';
   document.getElementById("contentWrap").innerHTML=html;
   document.getElementById("mainContent").scrollTop=0;
   renderList();
+  var listToggle=document.getElementById('jmListToggle'),mapToggle=document.getElementById('jmMapToggle');
+  if(listToggle&&mapToggle){
+    listToggle.addEventListener('click',function(){
+      listToggle.classList.add('active');mapToggle.classList.remove('active');
+      document.getElementById('jmListContainer').style.display='';
+      document.getElementById('jmMapContainer').style.display='none';
+    });
+    mapToggle.addEventListener('click',function(){
+      mapToggle.classList.add('active');listToggle.classList.remove('active');
+      document.getElementById('jmListContainer').style.display='none';
+      document.getElementById('jmMapContainer').style.display='';
+      renderJourneyMapView();
+    });
+  }
   document.querySelectorAll(".heat-cell").forEach(function(c){c.addEventListener("click",function(){renderStandardHeatMapDetail(c.getAttribute("data-heat-code"));});});
   var backBtn=document.getElementById("backToReviewCenter");
   if(backBtn)backBtn.addEventListener("click",renderProgressDashboard);
