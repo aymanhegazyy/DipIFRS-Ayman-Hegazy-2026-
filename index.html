@@ -1641,7 +1641,8 @@ body.dark-mode #tqModal .tq-sc-btn{background:#20262A;color:#A8B5AE;border-color
 .study-guidance-toggle:hover{color:var(--teal);}
 .study-guidance-arrow{font-size:10px;transition:transform .18s ease;color:var(--teal);}
 .study-guidance-content{display:none;padding:0 14px 13px;}
-.study-guidance-notice.is-open .study-guidance-content{display:block;}
+.study-guidance-notice.is-open .study-guidance-content{display:block !important;}
+.study-guidance-toggle{cursor:pointer;-webkit-tap-highlight-color:transparent;}
 .study-guidance-notice.is-open .study-guidance-arrow{transform:rotate(180deg);}
 .study-guidance-notice .advisory-ar,.study-guidance-notice .advisory-en{margin:0;}
 .home-workspace-layout{gap:13px;}
@@ -1771,6 +1772,492 @@ body,body.protected{background:#fff!important;color:#111!important;font-size:12.
 main,.content-wrap,#mainContent{height:auto!important;overflow:visible!important;max-width:100%!important;padding:12px 16px 50px!important;margin:0!important}
 .std-header,.section-banner,.deepdive-divider,.sec-block,.card,.technique-box,.monkey-tactic-box,.model-answer-box,.checklist-box,.example-box,.quiz-card,.calc-card{page-break-inside:avoid;break-inside:avoid}
 .quiz-explain,.calc-solution,.pp-answer,#modelAnswerRevealArea{display:block!important}
+}
+
+
+/* ===== Home Page v3: Review Center first, lightweight quick-review hierarchy ===== */
+.rc3-review-center{background:var(--card)!important;color:var(--ink);padding:0!important;overflow:hidden;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px rgba(20,35,30,.07);}
+.rc3-review-center>.tool-group-label{margin:0!important;border-radius:0!important;background:linear-gradient(135deg,#0A3835,#15514D)!important;color:#fff!important;padding:13px 16px!important;display:flex;align-items:center;gap:8px;border-bottom:none!important;}
+.rc3-label-sub{margin-left:auto;font-size:10px;font-weight:500;opacity:.78;letter-spacing:.01em;}
+.rc3-inner{padding:14px 16px 12px;}
+.rc3-progress{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;padding:2px 0 14px;}
+.rc3-accuracy{text-align:center;display:flex;flex-direction:column;align-items:center;}
+.rc3-ring-wrap{position:relative;width:88px;height:88px;}
+.rc3-ring{width:88px;height:88px;transform:rotate(-90deg);}
+.rc3-ring-track,.rc3-ring-fill{fill:none;stroke-width:4;}
+.rc3-ring-track{stroke:var(--line-soft);}
+.rc3-ring-fill{stroke-linecap:round;transition:stroke-dashoffset 1s ease-out;}
+.rc3-ring-value{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 20px var(--font-mono);color:var(--ink);}
+.rc3-metric-label{display:block;font-size:10px;color:var(--ink-soft);line-height:1.25;margin-top:4px;}
+.rc3-metric-note{font-size:8.5px;color:var(--ink-soft);opacity:.75;margin-top:2px;}
+.rc3-metrics{display:flex;flex-direction:column;gap:12px;min-width:0;}
+.rc3-metric-block{display:flex;align-items:center;gap:10px;min-width:0;}
+.rc3-metric-icon{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--teal-soft);font-size:17px;flex:0 0 auto;}
+.rc3-book-icon{background:var(--accent-soft);}
+.rc3-big-number{display:block;font:800 20px var(--font-mono);color:var(--ink);line-height:1.1;}
+.rc3-metric-grow{flex:1;min-width:0;}
+.rc3-number-line{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;}
+.rc3-number-line .rc3-metric-label{margin:0;}
+.rc3-coverage-track{height:6px;border-radius:5px;background:var(--line-soft);overflow:hidden;margin-top:6px;}
+.rc3-coverage-fill{height:100%;width:0;border-radius:5px;background:var(--teal);transition:width 1s ease-out;}
+.rc3-section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:2px 0 9px;padding-top:10px;border-top:1px solid var(--line-soft);}
+.rc3-section-heading span,.rc3-toolkit-head span{font:700 15px var(--font-display);color:var(--ink);}
+.rc3-section-heading small,.rc3-toolkit-head small{font-size:9.5px;color:var(--ink-soft);font-weight:500;}
+.rc3-focus-list{display:flex;flex-direction:column;gap:6px;}
+.rc3-focus-row{display:flex;align-items:center;gap:9px;width:100%;border:1px solid var(--line-soft);border-radius:10px;background:var(--paper);padding:9px 10px;text-align:left;font-family:inherit;cursor:pointer;color:var(--ink);}
+.rc3-focus-row:hover{border-color:var(--teal);background:var(--teal-soft);}
+.rc3-focus-main{flex:1;min-width:0;}
+.rc3-focus-name{display:block;font-size:11.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rc3-focus-title{font-weight:500;color:var(--ink-soft);}
+.rc3-focus-bar{display:block;height:5px;border-radius:4px;background:var(--line-soft);overflow:hidden;margin-top:5px;}
+.rc3-focus-fill{display:block;width:0;height:100%;border-radius:4px;transition:width 1s ease-out;}
+.rc3-focus-pct{font:700 11px var(--font-mono);color:var(--ink-soft);white-space:nowrap;}
+.rc3-focus-chevron{font-size:18px;line-height:1;color:var(--ink-soft);}
+.rc3-weakest-cta{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;border:1px solid var(--accent);border-radius:10px;background:var(--accent-soft);color:var(--ink);padding:10px 12px;font:700 12px var(--font-body);text-align:left;cursor:pointer;}
+.rc3-weakest-cta:hover{background:var(--accent);color:#fff;}
+.rc3-weakest-cta span{font-size:16px;line-height:1;}
+.rc3-more-focus{text-align:center;font-size:9.5px;color:var(--ink-soft);padding:6px 0 0;}
+.rc3-empty-focus{font-size:11px;line-height:1.5;color:var(--ink-soft);background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:10px 12px;}
+.rc3-mistakes-link{margin-top:8px;border:0;background:none;color:var(--rust);font:700 10.5px var(--font-body);padding:4px 0;cursor:pointer;}
+.rc3-mistakes-link:hover{text-decoration:underline;}
+.rc3-toolkit{margin-top:14px;padding-top:13px;border-top:1px solid var(--line-soft);}
+.rc3-toolkit-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;}
+.rc3-tool-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;}
+.rc3-tool-card{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:76px;padding:8px 5px;border:1px solid var(--line-soft);border-radius:11px;font-family:inherit;cursor:pointer;text-align:center;transition:transform .15s ease,border-color .15s ease,background .15s ease;}
+.rc3-tool-card:hover{transform:translateY(-1px);border-color:var(--teal);}
+.rc3-tool-icon{font-size:18px;line-height:1;margin-bottom:5px;}
+.rc3-tool-title{font-size:9.5px;font-weight:700;color:#1A2E28;line-height:1.2;}
+.rc3-tool-hint{font-size:8px;color:#4A5A54;line-height:1.2;margin-top:2px;}
+body.dark-mode .rc3-tool-title{color:var(--ink);}
+body.dark-mode .rc3-tool-hint{color:var(--ink-soft);}
+.rc3-footer-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;}
+.rc3-breakdown{border:0;background:none;color:var(--teal);font:700 10px var(--font-body);padding:3px 0;cursor:pointer;text-align:left;}
+.rc3-breakdown:hover{text-decoration:underline;}
+.rc3-footer-actions .reset-progress-link{font-size:9px;color:var(--ink-soft)!important;cursor:pointer;}
+@media(max-width:620px){
+  .rc3-review-center>.tool-group-label{padding:12px 13px!important;}
+  .rc3-label-sub{display:none;}
+  .rc3-inner{padding:12px 12px 10px;}
+  .rc3-progress{grid-template-columns:94px 1fr;gap:12px;padding-bottom:11px;}
+  .rc3-ring-wrap,.rc3-ring{width:78px;height:78px;}
+  .rc3-ring-value{font-size:17px;}
+  .rc3-big-number{font-size:18px;}
+  .rc3-metric-icon{width:31px;height:31px;font-size:15px;}
+  .rc3-section-heading span,.rc3-toolkit-head span{font-size:14px;}
+  .rc3-section-heading small,.rc3-toolkit-head small{font-size:8.5px;}
+  .rc3-focus-row{padding:8px 9px;}
+  .rc3-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;}
+  .rc3-tool-card{min-height:70px;padding:7px 4px;}
+  .rc3-tool-title{font-size:9px;}
+  .rc3-tool-hint{font-size:7.5px;}
+}
+@media(max-width:390px){
+  .rc3-progress{grid-template-columns:84px 1fr;gap:9px;}
+  .rc3-ring-wrap,.rc3-ring{width:70px;height:70px;}
+  .rc3-ring-value{font-size:16px;}
+  .rc3-number-line{gap:4px;}
+  .rc3-number-line .rc3-metric-label{font-size:9px;}
+  .rc3-focus-title{display:none;}
+  .rc3-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+
+
+/* ===== Home Page v4: hierarchy polish / mobile-first ===== */
+.rc3-primary-cta{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px;padding:12px 14px;border:1px solid var(--teal);border-radius:12px;background:var(--teal-soft);color:var(--ink);font-family:var(--font-body);text-align:left;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;}
+.rc3-primary-cta:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(46,110,104,.12);border-color:var(--teal);}
+.rc3-primary-cta span{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.rc3-primary-cta small{font:700 8.5px var(--font-mono);letter-spacing:.1em;color:var(--teal);text-transform:uppercase;}
+.rc3-primary-cta b{font-size:12.5px;line-height:1.3;white-space:normal;overflow-wrap:anywhere;}
+.rc3-primary-cta strong{font-size:20px;line-height:1;color:var(--teal);flex:0 0 auto;}
+.rc3-daily-cta{background:var(--gold-soft);border-color:var(--accent);}
+.rc3-daily-cta small,.rc3-daily-cta strong{color:var(--accent);}
+.rc3-zero-progress{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0 13px;}
+.rc3-zero-copy{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.rc3-zero-kicker{font:700 8.5px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.rc3-zero-copy b{font:800 18px var(--font-display);color:var(--ink);}
+.rc3-zero-copy>span:last-child{font-size:10.5px;line-height:1.4;color:var(--ink-soft);max-width:420px;}
+.rc3-zero-metrics{display:flex;gap:8px;flex:0 0 auto;}
+.rc3-zero-metrics>div{min-width:74px;padding:8px 9px;border:1px solid var(--line-soft);border-radius:10px;background:var(--paper);text-align:center;}
+.rc3-zero-metrics b{display:block;font:800 15px var(--font-mono);color:var(--ink);}
+.rc3-zero-metrics span{display:block;font-size:8.5px;color:var(--ink-soft);margin-top:2px;}
+.rc3-toolkit{margin-top:13px;padding-top:12px;border-top:1px solid var(--line-soft);}
+.rc3-toolkit-head{margin-bottom:8px;}
+.mq-home-subtle{font-size:10.5px!important;padding:5px 12px!important;margin:2px 0 12px!important;opacity:.72;}
+.mq-home-subtle .mq-author{font-size:9px!important;}
+.tc-card-blue{padding:17px 19px!important;margin-bottom:18px!important;}
+.tc-card-blue .tc-fire-ring{width:44px;height:44px;margin-bottom:7px;}
+.tc-card-blue .tc-sub-en{margin-bottom:10px;}
+.tc-card-blue .tc-reminder-banner{padding:8px 11px;margin-top:9px;}
+.tc-card-blue .tc-mini-tip{margin-top:8px;}
+.tb-buttons{display:flex;flex-wrap:wrap;gap:7px;}
+.tb-btn{min-height:40px;min-width:58px;padding:8px 11px;touch-action:manipulation;}
+.practice-select-card .practice-check-grid{max-height:none;}
+@media(max-width:620px){
+  .rc3-primary-cta{padding:12px 13px;margin-bottom:11px;}
+  .rc3-primary-cta b{font-size:12px;}
+  .rc3-zero-progress{align-items:stretch;flex-direction:column;gap:9px;padding:8px 0 11px;}
+  .rc3-zero-copy>span:last-child{max-width:none;}
+  .rc3-zero-metrics{display:grid;grid-template-columns:repeat(2,1fr);}
+  .rc3-zero-metrics>div{min-width:0;}
+  .mq-home-subtle{font-size:9.5px!important;margin-bottom:10px!important;}
+  .tc-card-blue{padding:15px 14px!important;margin-bottom:15px!important;}
+  .tb-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%;}
+  .tb-btn{width:100%;min-width:0;min-height:42px;padding:8px 5px;font-size:10px;}
+}
+@media(max-width:390px){
+  .tb-buttons{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+body.dark-mode .rc3-zero-metrics>div{background:var(--card);}
+body.dark-mode .mq-home-subtle{opacity:.8;}
+
+/* ===== Review Center: Readiness + Focus Clinic (merged) ===== */
+.rc-ready-card{margin:0 0 12px;padding:14px 14px 12px;border-radius:14px;background:linear-gradient(135deg,#0A3835 0%,#15514D 55%,#1E6A64 100%);color:#fff;border:1px solid rgba(255,255,255,.08);}
+.rc-ready-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.rc-ready-kicker{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:4px;}
+.rc-ready-score{font-family:var(--font-display);font-size:34px;font-weight:700;line-height:1;}
+.rc-ready-score span{font-size:16px;opacity:.8;font-weight:600;}
+.rc-ready-label{font-size:12px;opacity:.9;margin-top:4px;}
+.rc-ready-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.15);overflow:hidden;margin-top:12px;}
+.rc-ready-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#D9A94A,#5FBDB3);transition:width .5s ease;}
+.rc-ready-msg{font-size:12.5px;line-height:1.45;margin-top:10px;opacity:.95;}
+.rc-ready-factors{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;}
+@media(max-width:560px){.rc-ready-factors{grid-template-columns:repeat(2,1fr);}}
+.rc-ready-factor{background:rgba(255,255,255,.08);border-radius:10px;padding:8px 8px;text-align:center;}
+.rc-ready-factor b{display:block;font-family:var(--font-mono);font-size:13px;}
+.rc-ready-factor span{display:block;font-size:10px;opacity:.75;margin-top:2px;}
+
+.rc-focus-clinic{margin:0 0 12px;padding:12px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);}
+.rc-fc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.rc-fc-title{font-size:13.5px;font-weight:700;color:var(--ink);}
+.rc-fc-sub{font-size:11px;color:var(--ink-soft);margin-top:2px;}
+.rc-fc-priority{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border-radius:12px;background:var(--accent-soft);border:1px solid var(--accent);margin-bottom:10px;}
+.rc-fc-priority-text{flex:1;min-width:160px;font-size:12.5px;line-height:1.4;color:var(--ink);}
+.rc-fc-priority-text b{font-weight:700;}
+.rc-fc-priority-btn{font-family:var(--font-mono);font-size:11px;font-weight:700;border:none;background:var(--ink);color:var(--paper);padding:8px 12px;border-radius:999px;cursor:pointer;}
+.rc-fc-priority-btn:hover{background:var(--teal);}
+.rc-fc-list{display:flex;flex-direction:column;gap:6px;}
+.rc-fc-row{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid var(--line-soft);background:var(--paper);border-radius:10px;padding:10px 12px;cursor:pointer;font-family:inherit;color:var(--ink);}
+.rc-fc-row:hover{border-color:var(--teal);}
+.rc-fc-code{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--teal);min-width:58px;}
+.rc-fc-meta{flex:1;min-width:0;}
+.rc-fc-name{display:block;font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rc-fc-stats{display:block;font-size:11px;color:var(--ink-soft);margin-top:2px;}
+.rc-fc-pills{display:flex;gap:6px;flex-shrink:0;}
+.rc-fc-pill{font-family:var(--font-mono);font-size:10px;font-weight:700;padding:3px 7px;border-radius:999px;}
+.rc-fc-pill.acc{background:var(--rust-soft);color:var(--rust);}
+.rc-fc-pill.miss{background:var(--accent-soft);color:var(--accent);}
+.rc-fc-empty{font-size:12.5px;color:var(--ink-soft);padding:4px 0;}
+.rc-fc-more{margin-top:8px;width:100%;border:1px dashed var(--line);background:transparent;color:var(--ink-soft);border-radius:10px;padding:8px;font-family:var(--font-mono);font-size:11px;cursor:pointer;}
+/* Hide old separate blocks / original focus if we replace */
+.rc3-focus-block.rc-fc-hidden,.rc3-empty-focus.rc-fc-hidden,[class*="rc3-focus"].rc-fc-hidden{display:none!important;}
+body.dark-mode .rc-focus-clinic{background:var(--card);}
+body.dark-mode .rc-fc-row{background:var(--paper);}
+
+
+/* ===== Home color system v2 — calm modern study palette ===== */
+:root{
+  --home-review:#0F5C57;
+  --home-review-deep:#0A3F3C;
+  --home-review-soft:#E6F4F2;
+  --home-focus:#5B4B8A;
+  --home-focus-soft:#F1EEF8;
+  --home-challenge:#C47A1A;
+  --home-challenge-deep:#9A5E10;
+  --home-challenge-soft:#FFF6E9;
+  --home-practice:#156F8F;
+  --home-practice-soft:#E3F3F9;
+  --home-tools:#3D5A72;
+  --home-tools-soft:#EEF3F7;
+  --home-ready:#125E58;
+}
+
+/* Hero: lighter, airier */
+.home-hero{
+  background:linear-gradient(180deg,#F7FAF8 0%,transparent 100%);
+  border-radius:18px;
+  padding:12px 12px 8px;
+  margin-bottom:14px;
+}
+body.dark-mode .home-hero{background:linear-gradient(180deg,rgba(32,38,42,.65) 0%,transparent 100%);}
+.home-badge-ring{
+  background:conic-gradient(from 0deg,#1F6F8B,#2E6E68,#C47A1A,#5B4B8A,#1F6F8B)!important;
+  box-shadow:0 8px 24px rgba(31,111,139,.15);
+}
+
+/* Review Center — deep teal trust / progress */
+.rc3-review-center{
+  border:1px solid rgba(15,92,87,.14)!important;
+  box-shadow:0 10px 28px rgba(15,92,87,.08)!important;
+  background:linear-gradient(180deg,#FFFFFF 0%,#F7FBFA 100%)!important;
+}
+body.dark-mode .rc3-review-center{background:var(--card)!important;border-color:var(--line)!important;box-shadow:0 8px 24px rgba(0,0,0,.25)!important;}
+.rc3-review-center>.tool-group-label{
+  background:linear-gradient(135deg,var(--home-review-deep),var(--home-review))!important;
+}
+.rc3-metric-icon{background:var(--home-review-soft)!important;}
+.rc3-coverage-fill{background:linear-gradient(90deg,#1A8A80,var(--home-review))!important;}
+.rc3-continue-cta,.rc3-primary-cta.rc3-continue-cta{
+  background:linear-gradient(135deg,var(--home-review-soft),#fff)!important;
+  border:1.5px solid rgba(15,92,87,.28)!important;
+}
+
+/* Readiness — same family as review */
+.rc-ready-card{
+  background:linear-gradient(135deg,var(--home-review-deep) 0%,var(--home-review) 55%,#1A8A80 100%)!important;
+  box-shadow:0 10px 24px rgba(15,92,87,.18);
+}
+.rc-ready-fill{background:linear-gradient(90deg,#F0C36A,#7ED0C5)!important;}
+
+/* Focus Clinic — soft violet for attention without alarm */
+.rc-focus-clinic{
+  background:linear-gradient(180deg,#FBFAff 0%,var(--home-focus-soft) 100%)!important;
+  border:1px solid rgba(91,75,138,.16)!important;
+  box-shadow:0 6px 18px rgba(91,75,138,.06);
+}
+body.dark-mode .rc-focus-clinic{background:var(--card)!important;border-color:var(--line)!important;}
+.rc-fc-title{color:var(--home-focus)!important;}
+.rc-fc-priority{
+  background:linear-gradient(135deg,#F7F3FF,var(--home-focus-soft))!important;
+  border-color:rgba(91,75,138,.28)!important;
+}
+.rc-fc-priority-btn{background:var(--home-focus)!important;color:#fff!important;}
+.rc-fc-priority-btn:hover{filter:brightness(1.06);}
+.rc-fc-code{color:var(--home-focus)!important;}
+.rc-fc-pill.acc{background:#FDECEC;color:#A13D3D;}
+.rc-fc-pill.miss{background:#F3EEFF;color:var(--home-focus);}
+
+/* Quick Tools — refreshed utility cards (secondary but not washed out) */
+.rc3-toolkit{
+  margin-top:4px;
+  padding-top:4px;
+}
+.rc3-toolkit-head span{
+  font-weight:800!important;
+  color:#2A3F4A!important;
+}
+.rc3-toolkit-head small{
+  color:#5A707A!important;
+}
+.rc3-tool-grid{
+  gap:8px!important;
+}
+.rc3-tool-card,.rc-toolkit-card,.qt-card{
+  border-radius:14px!important;
+  border:1.5px solid rgba(61,90,114,.16)!important;
+  background:linear-gradient(180deg,#FFFFFF 0%,#F4F8FA 100%)!important;
+  box-shadow:0 5px 14px rgba(42,63,74,.07)!important;
+  min-height:84px!important;
+  padding:10px 6px!important;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.rc3-tool-card:hover,.rc-toolkit-card:hover,.qt-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(42,63,74,.12)!important;
+}
+.rc3-tool-icon{
+  font-size:20px!important;
+  margin-bottom:6px!important;
+  filter:none;
+}
+.rc3-tool-title{
+  font-size:10.5px!important;
+  font-weight:800!important;
+  color:#1B2D36!important;
+  letter-spacing:.01em;
+}
+.rc3-tool-hint{
+  font-size:8.5px!important;
+  color:#5C717B!important;
+  margin-top:2px;
+}
+
+/* Per-tool accent — clearer identity, still calm */
+.rc3-tool-card.tk-blue-card{
+  background:linear-gradient(165deg,#F3FAFF 0%,#E3F1FB 100%)!important;
+  border-color:#7EB6DE!important;
+}
+.rc3-tool-card.tk-purple-card{
+  background:linear-gradient(165deg,#F7F4FF 0%,#EDE7FB 100%)!important;
+  border-color:#A894E0!important;
+}
+.rc3-tool-card.tk-green-card{
+  background:linear-gradient(165deg,#F2FBF5 0%,#E0F5E8 100%)!important;
+  border-color:#7EC895!important;
+}
+.rc3-tool-card.tk-red-card{
+  background:linear-gradient(165deg,#FFF6F4 0%,#FCE6E2 100%)!important;
+  border-color:#E39A90!important;
+}
+.rc3-tool-card.tk-blue-card:hover{border-color:#4F98C8!important;}
+.rc3-tool-card.tk-purple-card:hover{border-color:#7F6BC4!important;}
+.rc3-tool-card.tk-green-card:hover{border-color:#4DAA6E!important;}
+.rc3-tool-card.tk-red-card:hover{border-color:#D47266!important;}
+
+body.dark-mode .rc3-tool-card,
+body.dark-mode .rc-toolkit-card,
+body.dark-mode .qt-card{
+  background:linear-gradient(180deg,var(--card),#252D33)!important;
+  border-color:var(--line)!important;
+  box-shadow:0 5px 14px rgba(0,0,0,.22)!important;
+}
+body.dark-mode .rc3-tool-title{color:var(--ink)!important;}
+body.dark-mode .rc3-tool-hint{color:var(--ink-soft)!important;}
+body.dark-mode .rc3-tool-card.tk-blue-card{background:linear-gradient(165deg,#1A2833,#1E3340)!important;border-color:#3D6F8F!important;}
+body.dark-mode .rc3-tool-card.tk-purple-card{background:linear-gradient(165deg,#262236,#2E2940)!important;border-color:#6B5A9A!important;}
+body.dark-mode .rc3-tool-card.tk-green-card{background:linear-gradient(165deg,#1A2C24,#1E352A)!important;border-color:#3D8A5C!important;}
+body.dark-mode .rc3-tool-card.tk-red-card{background:linear-gradient(165deg,#2C2220,#3A2A27)!important;border-color:#A66B62!important;}
+
+
+/* Daily Challenge — warm motivational amber (only reward moment) */
+.tc-card,.tc-card-compact,.tc-card-blue{
+  background:linear-gradient(135deg,#C47A1A 0%,#D9922E 42%,#E8B15A 100%)!important;
+  box-shadow:0 12px 28px rgba(196,122,26,.28)!important;
+  border:none!important;
+  color:#fff!important;
+}
+.tc-card h2,.tc-card .tc-sub-ar,.tc-card p{color:#fff!important;}
+.tc-card .tc-start-btn,
+.tc-card a.tc-start,
+#startTodaysChallengeBtn,
+.tc-card button{
+  background:#fff!important;
+  color:#8A550C!important;
+  border:none!important;
+  font-weight:700!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.12);
+}
+.tc-card button:hover{filter:brightness(1.03);}
+body.dark-mode .tc-card,.body.dark-mode .tc-card-compact{
+  background:linear-gradient(135deg,#8A5A12 0%,#C47A1A 55%,#A86B16 100%)!important;
+}
+
+/* Practice — stronger productive blue (action zone, not washed out) */
+:root{
+  --home-practice:#156F8F;
+  --home-practice-deep:#0E4F66;
+  --home-practice-soft:#E3F3F9;
+  --home-practice-mid:#2B8FB0;
+}
+.practice-select-card,
+.home-practice-group .practice-select-card,
+.tool-group.home-practice-group .practice-select-card,
+.home-teal-theme .practice-select-card{
+  background:linear-gradient(165deg,#FFFFFF 0%,#F2FAFD 45%,var(--home-practice-soft) 100%)!important;
+  border:1.5px solid rgba(21,111,143,.28)!important;
+  border-top:4px solid var(--home-practice)!important;
+  box-shadow:0 10px 26px rgba(21,111,143,.12)!important;
+  border-radius:16px!important;
+}
+body.dark-mode .practice-select-card,
+body.dark-mode .home-teal-theme .practice-select-card{
+  background:linear-gradient(165deg,var(--card) 0%,#1A2A32 100%)!important;
+  border-color:rgba(43,143,176,.35)!important;
+  border-top-color:var(--home-practice-mid)!important;
+  box-shadow:0 10px 26px rgba(0,0,0,.28)!important;
+}
+.practice-start-btn,
+.home-teal-theme .practice-start-btn,
+.practice-select-card .practice-start-btn{
+  background:linear-gradient(135deg,var(--home-practice-mid),var(--home-practice-deep))!important;
+  color:#fff!important;
+  border:none!important;
+  box-shadow:0 8px 18px rgba(14,79,102,.32)!important;
+  font-weight:700!important;
+  letter-spacing:.01em;
+}
+.practice-start-btn:hover,
+.home-teal-theme .practice-start-btn:hover{
+  filter:brightness(1.07);
+  background:linear-gradient(135deg,#3AA0C2,var(--home-practice))!important;
+}
+/* Time chips / duration buttons — clearer selected state */
+.practice-select-card .practice-time-btn,
+.practice-select-card .time-chip,
+.practice-select-card button.time-btn,
+.practice-select-card .practice-mins button,
+.practice-select-card [data-mins],
+.practice-select-card .mins-btn{
+  border-radius:999px!important;
+  border:1.5px solid rgba(21,111,143,.22)!important;
+  background:#fff!important;
+  color:var(--home-practice-deep)!important;
+  font-weight:600!important;
+}
+.practice-select-card .practice-time-btn.active,
+.practice-select-card .time-chip.active,
+.practice-select-card button.time-btn.active,
+.practice-select-card .practice-mins button.active,
+.practice-select-card [data-mins].active,
+.practice-select-card .mins-btn.active,
+.practice-select-card .practice-time-btn.selected,
+.practice-select-card .time-chip.selected{
+  background:var(--home-practice)!important;
+  border-color:var(--home-practice)!important;
+  color:#fff!important;
+  box-shadow:0 4px 12px rgba(21,111,143,.25);
+}
+body.dark-mode .practice-select-card .practice-time-btn,
+body.dark-mode .practice-select-card .time-chip{
+  background:var(--paper)!important;
+  color:#D6EEF6!important;
+  border-color:rgba(43,143,176,.35)!important;
+}
+
+/* Practice & Test group label — stronger presence */
+.tool-group.home-practice-group .tool-group-label,
+.tool-group:has(.practice-select-card) .tool-group-label{
+  color:var(--home-practice-deep)!important;
+  font-weight:800!important;
+}
+.tool-group.home-practice-group .tool-group-label .tg-icon-circle,
+.tool-group:has(.practice-select-card) .tool-group-label .tg-icon-circle{
+  background:rgba(21,111,143,.14)!important;
+  color:var(--home-practice-deep)!important;
+}
+
+/* Collapse toggle inside practice — less washed */
+.practice-collapse-toggle{
+  border:1.5px solid rgba(21,111,143,.2)!important;
+  background:rgba(21,111,143,.05)!important;
+  color:var(--home-practice-deep)!important;
+  font-weight:700!important;
+  border-radius:12px!important;
+}
+.practice-collapse-toggle:hover{
+  background:rgba(21,111,143,.1)!important;
+}
+
+/* Advisory — soft neutral warning, not harsh rust */
+.study-guidance-notice.advisory-notice,
+.advisory-notice.study-guidance-notice{
+  background:linear-gradient(180deg,#FFFCF5,#FFF7E8)!important;
+  border:1px solid rgba(196,122,26,.25)!important;
+  border-radius:12px!important;
+}
+body.dark-mode .study-guidance-notice.advisory-notice{
+  background:var(--accent-soft)!important;
+  border-color:var(--accent)!important;
+}
+
+/* CBE under process — muted purple soft */
+.tool-group .cbe-card,
+[class*="cbe"]{
+  /* gentle */
+}
+
+/* Soften overall home paper feel */
+#contentWrap:has(.home-hero){
+  /* modern spacing rhythm if supported */
+}
+.home-hero h1{letter-spacing:-.02em;}
+.home-hero p{color:var(--ink-soft);}
+
+/* Mistakes link — gentle coral, not aggressive */
+.rc3-mistakes-link{
+  color:#B04A3A!important;
+  background:rgba(176,74,58,.06);
+  border-radius:10px;
+  padding:8px 10px;
 }
 
 </style>
@@ -5620,7 +6107,7 @@ const _acc=r.accuracyPct||0;
 const _attempted=r.attempted||0;
 const _theoTotal=(typeof THEORETICAL_BANK!=="undefined"&&THEORETICAL_BANK)?THEORETICAL_BANK.length:0;
 let l='';
-const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+renderQuoteHtml()+n+buildReviewCenterHomeHtml()+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
+const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
 (function(){
   document.querySelectorAll(".rc-collapse-head").forEach(function(btn){
     btn.addEventListener("click",function(){
@@ -5633,10 +6120,10 @@ const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-ba
       if(arrow)arrow.innerHTML=isOpen?"&#9656;":"&#9662;";
     });
   });
-  document.querySelectorAll(".tg-review-center .weak-item, .tg-review-center .rc-weak-item").forEach(function(el){
+  document.querySelectorAll(".tg-review-center .weak-item, .tg-review-center .rc-weak-item, .tg-review-center .rc3-focus-row, .tg-review-center .rc3-weakest-cta").forEach(function(el){
     el.addEventListener("click",function(){selectStandard(el.getAttribute("data-jump"));});
   });
-  document.querySelectorAll(".rc-toolkit-card").forEach(function(el){
+  document.querySelectorAll(".rc-toolkit-card, .rc3-tool-card").forEach(function(el){
     el.addEventListener("click",function(){
       var fnName=el.getAttribute("data-rc-fn");
       if(typeof window[fnName]==="function")window[fnName]();
@@ -5645,6 +6132,17 @@ const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-ba
   document.querySelectorAll(".rc-start-weakest").forEach(function(el){
     el.addEventListener("click",function(){selectStandard(el.getAttribute("data-jump"));});
   });
+  if(typeof enhanceStudyGuidance==="function")enhanceStudyGuidance();
+  var rcPrimaryContinue=document.getElementById("rcContinuePrimaryBtn");
+  if(rcPrimaryContinue)rcPrimaryContinue.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();selectStandard(rcPrimaryContinue.getAttribute("data-jump"));});
+  var rcPrimaryDaily=document.getElementById("rcStartDailyPrimaryBtn");
+  if(rcPrimaryDaily)rcPrimaryDaily.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();startTodaysChallenge();});
+  var tcHomeBtn=document.getElementById("startTodaysChallengeBtn");
+  if(tcHomeBtn)tcHomeBtn.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();startTodaysChallenge();});
+  var tcHomeStd=document.getElementById("tcOpenStandardsLink");
+  if(tcHomeStd)tcHomeStd.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();var side=document.getElementById("sidebar");if(side)side.classList.add("open");});
+  var mselHomeBtn=document.getElementById("mselOpenBtn");
+  if(mselHomeBtn)mselHomeBtn.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();openMultiStandardModal();});
   var rcReviewBtn=document.getElementById("rcReviewMistakesBtn");
   if(rcReviewBtn)rcReviewBtn.addEventListener("click",function(){renderMistakesReview();});
   var rcBreakdownBtn=document.getElementById("rcViewFullBreakdownBtn");
@@ -5655,9 +6153,9 @@ const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-ba
   if(rcContinueRow)rcContinueRow.addEventListener("click",function(){selectStandard(rcContinueRow.getAttribute("data-continue-code"));});
   requestAnimationFrame(function(){
     requestAnimationFrame(function(){
-      var ringFill=document.querySelector(".rc-ring-fill");
+      var ringFill=document.querySelector(".rc-ring-fill, .rc3-ring-fill");
       if(ringFill)ringFill.style.strokeDashoffset=ringFill.getAttribute("data-target-offset");
-      document.querySelectorAll(".rc-bar-fill, .rc-mini-fill").forEach(function(el){
+      document.querySelectorAll(".rc-bar-fill, .rc-mini-fill, .rc3-coverage-fill, .rc3-focus-fill").forEach(function(el){
         el.style.width=el.getAttribute("data-target-width")+"%";
       });
     });
@@ -6020,7 +6518,11 @@ function buildRealExamLinkHtml(code){
 function buildStandardHistoryCardHtml(code){
   var stats=getStandardStats(code);
   if(!stats.attempted)return"";
-  return '<div class="std-history-card"><span class="shc-text">You&#39;ve answered '+stats.attempted+' question'+(stats.attempted===1?"":"s")+' on '+code+' &mdash; <b>'+stats.accuracyPct+'% accuracy</b></span><button type="button" class="shc-btn" id="shcReviewBtn" data-code="'+code+'">&#128260; Review My Mistakes on '+code+' &rarr;</button></div>';
+  var outstanding=(typeof buildMistakesReviewSet==="function"?buildMistakesReviewSet(code):[]);
+  var btn=outstanding.length
+    ?'<button type="button" class="shc-btn" id="shcReviewBtn" data-code="'+code+'">&#128260; Review My Mistakes on '+code+' &rarr; ('+outstanding.length+')</button>'
+    :'';
+  return '<div class="std-history-card"><span class="shc-text">You&#39;ve answered '+stats.attempted+' question'+(stats.attempted===1?"":"s")+' on '+code+' &mdash; <b>'+stats.accuracyPct+'% accuracy</b></span>'+btn+'</div>';
 }
 function renderContent(e){const t=STANDARDS.find(t=>t.code===e);if(!t)return;activeCode=e;const i=document.getElementById("siteFooter");i&&(i.style.display="none");const findSec=title=>{const s=t.sections.find(x=>x.title===title);return s?renderSectionCard(s):"";},objSec='<div class="sec-block"><h2><span class="n">01</span>Objective</h2><p>'+t.objective+"</p></div>",scopeBasicSec=findSec("Scope"),defSec=findSec("Definitions"),recogSec=findSec("Recognition"),measureSec=findSec("Measurement"),presentSec=findSec("Presentation"),discloSec=findSec("Disclosures"),a=objSec+scopeBasicSec+defSec+recogSec+measureSec+presentSec+discloSec,n=t.sections.filter(e=>"Recognition"===e.title||"Measurement"===e.title).map(renderSectionCard).join(""),s='<div class="card trap"><h2>&#9888; Exam &amp; Practical Points</h2><ul>'+t.traps.map(e=>"<li>"+e+"</li>").join("")+"</ul></div>",o=t.examples.map((e,t)=>{const i=e.exempt?" exempt":"",a=e.exempt?'<span class="exempt-flag">'+(e.exemptNote||"Exempt")+"</span>":"";return'<div class="example-row'+i+'"><span class="idx">'+String(t+1).padStart(2,"0")+"</span><span>"+e.t+a+"</span></div>"}).join(""),r='<div class="sec-block" id="sec-examples"><h2><span class="n">08</span>Practical Examples</h2><div class="examples-list">'+o+"</div></div>",l='<div class="sec-block" id="sec-takeaways"><h2><span class="n">09</span>Key Takeaways</h2><div class="takeaways-grid">'+t.takeaways.map(e=>'<div class="takeaway">'+e+"</div>").join("")+"</div></div>",c=t.comparison,d='<div class="sec-block" id="sec-comparison"><h2><span class="n">10</span>Comparison Table</h2><table class="cmp"><thead><tr>'+c.headers.map(e=>"<th>"+e+"</th>").join("")+"</tr></thead><tbody>"+c.rows.map(e=>"<tr>"+e.map(e=>"<td>"+e+"</td>").join("")+"</tr>").join("")+"</tbody></table></div>";let u="",h="",scopeSec="",workedSec="",trapsSec="",interSec="";const m=t.enhancement,_stdCodeSafe=t.code;if(m&&Object.keys(m).length){const e='<div class="deepdive-transition">&#9989; Core concepts covered. Continue below for deeper exam-level detail.<br><a class="jump-pill" href="#sec-group-exam">jump straight to Exam Technique &rarr;</a></div><div class="deepdive-divider" id="sec-scope"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">11</span>Scope Map &amp; Life-Cycle Timeline</h2></div><div class="scope-grid"><div class="scope-box in"><h3>&#10003; In Scope</h3><ul>'+(m.scope_in||[]).map(e=>"<li>"+e+"</li>").join("")+'</ul></div><div class="scope-box out"><h3>&#10007; Out of Scope</h3><ul>'+(m.scope_out||[]).map(e=>"<li>"+e+"</li>").join("")+'</ul></div></div><div class="timeline-box"><b>Timeline:</b> '+(m.timeline||"")+"</div>",t=(m.example_steps||[]).map(e=>"<li>"+e+"</li>").join(""),i='<div class="example-box" id="sec-worked-example"><div class="ex-title">Worked Example &mdash; '+(m.example_title||"")+"</div><ol>"+t+"</ol></div>",a='<div class="deepdive-divider" id="sec-traps2"><span class="deepdive-tag">Deep Dive</span><h2>Advanced Traps &amp; Edge-Case Pitfalls</h2></div><div class="card trap"><ul>'+(m.traps||[]).map(e=>"<li>"+e+"</li>").join("")+"</ul></div>",n='<div class="deepdive-divider" id="sec-interactions"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">12</span>Key Interactions</h2></div><div class="interactions-table"><table><thead><tr><th>Standard</th><th>Nature of Interaction</th></tr></thead><tbody>'+(m.interactions||[]).map(e=>"<tr><td><b>"+linkifyStandardCodes(e[0])+"</b></td><td>"+linkifyStandardCodes(e[1])+"</td></tr>").join("")+"</tbody></table></div>",s=m.summary||{headers:[],rows:[]};h='<div class="deepdive-divider" id="sec-cheatsheet"><span class="deepdive-tag">Deep Dive</span><h2><span class="n">13</span>Cheat-Sheet Summary</h2></div><div class="cheat-table"><table><thead><tr>'+(s.headers||[]).map(e=>"<th>"+e+"</th>").join("")+"</tr></thead><tbody>"+(s.rows||[]).map(e=>"<tr>"+e.map(e=>"<td>"+e+"</td>").join("")+"</tr>").join("")+"</tbody></table></div>"+buildStandardFormulaSectionHtml(_stdCodeSafe),u=e+i+a+n+h,scopeSec=e,workedSec=i,trapsSec=a,interSec=n}const p=t.quiz||[];let f="";if(false){const e=p.map((e,i)=>{const a=e.options.map((t,a)=>'<button class="quiz-option'+(a===e.correct?" correct-print-tag":"")+'" data-qi="'+i+'" data-oi="'+a+'">'+t+"</button>").join(""),n=t.code+"::q"+i,s=answerHistory[n];let o="";return s&&(o=s.lastCorrect?'<span class="prev-badge prev-correct">&#10003; Correct last time</span>':'<span class="prev-badge prev-wrong">&#10007; Missed last time</span>'),'<div class="quiz-card" data-qcard="'+i+'"><div class="quiz-q">Q'+(i+1)+". "+e.q+o+'</div><div class="quiz-options">'+a+'</div><div class="quiz-explain" data-qexplain="'+i+'">'+e.explain+"</div></div>"}).join(""),i=getStandardStats(t.code),a=i.attempted?" &middot; History: "+i.correct+"/"+i.attempted+" ("+i.accuracyPct+"%)":"";f='<div class="deepdive-divider" id="sec-quiz"><span class="deepdive-tag">Practice</span><h2>Self-Test Practice</h2></div><div class="quiz-header"><span class="quiz-score" id="quizScore">Score: 0 / '+p.length+a+'</span><span class="quiz-reset" id="quizReset">Reset quiz</span></div>'+e}const g=t.calc||[];let y="";if(g.length){y='<div class="deepdive-divider" id="sec-calc"><span class="deepdive-tag">Practice</span><h2>Calculation Practice</h2></div>'+g.map((e,t)=>{const i=(e.steps||[]).map(e=>"<li>"+e+"</li>").join("");return'<div class="calc-card"><div class="calc-title">'+e.title+'</div><div class="calc-facts"><b>Facts:</b> '+e.facts+'</div><div class="calc-question">'+e.question+'</div><button class="reveal-btn" data-reveal="'+t+'">Reveal Solution</button><div class="calc-solution" data-solution="'+t+'"><ol>'+i+'</ol><div class="calc-answer">Answer: '+e.answer+"</div></div></div>"}).join("")}else y='<div class="deepdive-divider" id="sec-calc"><span class="deepdive-tag">Practice</span><h2>Calculation Practice</h2></div><div class="empty-practice">No dedicated calculation problems for this standard — it\'s primarily judgment/disclosure-based. Try the self-test quiz above instead.</div>';const b=t.code.replace("IFRS ","").replace("IAS ",""),v=t.code.startsWith("IAS")?"IAS":t.code.startsWith("IFRS")?"IFRS":"",w=reviewed[t.code],S=w?" status-"+w:"",I=w?STATUS_LABELS[w]:"Mark status",x=t.technique||[];let A="";if(x.length){A='<div class="technique-box" id="sec-technique"><div class="tt-title">&#128161; How the Examiner Wants This Answered</div><ul>'+x.map(e=>"<li>"+e+"</li>").join("")+"</ul></div>"}const E=t.model_answer;let P="";if(E){const e={issue:"ISSUE",rule:"IFRS RULE",application:"APPLICATION",calculation:"CALCULATION",presentation:"PRESENTATION",conclusion:"CONCLUSION"},t=E.points.map(t=>"<tr><td>"+(t.stage?'<span class="stage-tag stage-'+t.stage+'">'+(e[t.stage]||t.stage)+"</span>":"")+t.text+'</td><td class="mark-col">'+t.m+"</td></tr>").join("");P='<div class="deepdive-divider" id="sec-model-answer"><span class="deepdive-tag">Examiner Style</span><h2>Model Answer &amp; Mark Scheme</h2></div><div class="model-answer-box">'+'<div class="pre-answer-checklist"><div class="pac-toggle" id="pacToggle">&#128203; Before You Start Writing &mdash; Quick Self-Check <span id="pacArrow" class="rotated">&#9662;</span></div><div class="pac-content open" id="pacContent"><ul><li>Did I answer the exact requirement?</li><li>Did I apply the facts?</li><li>Did I explain the numbers?</li><li>Did I state presentation?</li><li>Did I avoid irrelevant IFRS?</li><li>Did I use the marks to control the depth?</li></ul></div></div>'+'<div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft);">Exam style practice question<span class="model-answer-marks">'+E.marks+' marks</span></div><div class="model-question"><b>Question:</b> '+E.question+'</div><button class="reveal-btn" id="revealModelAnswerBtn" style="margin-bottom:12px;">&#9998; I&#39;ve written my answer &mdash; Reveal Model Answer &amp; Mark Scheme</button><div id="modelAnswerRevealArea" style="display:none;"><table class="mark-scheme"><thead><tr><th>Model answer point</th><th>Marks</th></tr></thead><tbody>'+t+'<tr class="total-row"><td>Total</td><td class="mark-col">'+E.marks+'</td></tr></tbody></table><div class="examiner-note"><b>Examiner tip:</b> '+E.note+"</div></div></div>"}const q=t.checklist||[];let R="";if(q.length){R='<div class="checklist-box" id="sec-checklist"><div class="cb-title">&#9989; Before You Submit &mdash; Final Check</div>'+q.map((e,t)=>'<div class="checklist-item" data-cidx="'+t+'"><span class="cb-box">&#10003;</span><span class="cb-text">'+e+"</span></div>").join("")+"</div>"}const F=t.monkey_tactic;let C="",T="";if(F){C='<div class="monkey-tactic-box" id="sec-monkey-tactic"><div class="mt-title">&#128018; Monkey Tactic &mdash; Mandatory Phrases</div><div class="mt-phrases">'+F.phrases.map(e=>'<span class="mt-phrase">'+e+"</span>").join("")+'</div><div class="mt-story"><b>Scenario story:</b> '+F.story+"</div></div>",T='<a class="jump-pill" href="#sec-monkey-tactic">Monkey Tactic</a>'}const stdPool=getRelatedPracticePool(t.code),N2=stdPool.length;
 const Lrows=[];
@@ -6044,75 +6546,102 @@ document.querySelectorAll(".checklist-item").forEach(e=>{e.addEventListener("cli
 }
 function buildReviewCenterHomeHtml(){
   const e=getOverallStats();
-  const missedCount=Object.keys(answerHistory).filter(function(k){return answerHistory[k].lastCorrect===false;}).length;
   const weak=getWeakStandards();
-  const standardsCovered=new Set(Object.values(answerHistory).map(function(x){return x.code;})).size;
+  const standardsCovered=new Set(Object.values(answerHistory||{}).map(function(x){return x.code;})).size;
   const totalStandards=STANDARDS.length;
-  const pct=e.accuracyPct||0;
-  const ringColor=pct>=80?"var(--teal)":pct>=50?"#B5842A":"#9C4632";
+  const pct=Math.max(0,Math.min(100,e.accuracyPct||0));
+  const attempted=e.attempted||0;
+  const hasProgress=attempted>0;
   const circumference=100.53;
   const targetOffset=(circumference*(1-pct/100)).toFixed(2);
+  const ringColor=pct>=80?'var(--teal)':pct>=50?'var(--accent)':'var(--rust)';
+  const coveragePct=totalStandards?Math.round(standardsCovered/totalStandards*100):0;
 
-  const statsHtml='<div class="rc-stats-row rc-stats-compact">'
-    +'<div class="rc-ring-block"><div class="rc-ring-wrap" title="'+e.correct+' correct out of '+e.attempted+' answered"><svg class="rc-ring-svg" viewBox="0 0 40 40"><circle class="rc-ring-track" cx="20" cy="20" r="16"></circle><circle class="rc-ring-fill" cx="20" cy="20" r="16" stroke="'+ringColor+'" stroke-dasharray="'+circumference+'" stroke-dashoffset="'+circumference+'" data-target-offset="'+targetOffset+'"></circle></svg><span class="rc-ring-num">'+pct+'%</span></div><span class="rc-ring-caption-label">Overall Accuracy</span><span class="rc-ring-raw-count">&#9989; '+e.correct+' of '+e.attempted+' correct</span></div>'
-    +'<div class="rc-stats-rows">'
-      +'<div class="rc-row-item"><span class="rc-row-icon rc-stat-deco-qmark" aria-hidden="true">&#10067;</span><span class="rc-row-text"><b>'+e.attempted+'/'+getUnifiedPracticePool(null).length+'</b> Questions Answered</span></div>'
-      +'<div class="rc-row-item"><span class="rc-row-icon rc-books-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="16" width="18" height="3" rx="1" fill="#1E7A4C"></rect><rect x="4" y="11.5" width="16" height="3" rx="1" fill="#2E9E5B"></rect><rect x="5" y="7" width="14" height="3" rx="1" fill="#4CB876"></rect></svg></span><span class="rc-row-text"><b>'+standardsCovered+'/'+totalStandards+'</b> Standards Covered</span></div>'
-      +'<div class="rc-row-item"><span class="rc-row-icon rc-puzzle-icon" aria-hidden="true">&#129513;</span><span class="rc-row-text"><b>'+weak.length+'</b> Weak Areas</span></div>'
-      +buildContinueRowHtml()
-    +'</div>'
-    +buildContinueCardHtml()
+  var lastCode=null;
+  try{lastCode=localStorage.getItem('dipifr_last_standard');}catch(err){}
+  const lastStd=lastCode?STANDARDS.find(function(s){return s.code===lastCode;}):null;
+  // Primary CTA: Continue only — Daily Challenge lives once in its dedicated card below
+  const primaryCta=lastStd
+    ? '<button type="button" class="rc3-primary-cta rc3-continue-cta" id="rcContinuePrimaryBtn" data-jump="'+lastStd.code+'"><span><small>CONTINUE REVIEW</small><b>Continue: '+lastStd.code+' &mdash; '+lastStd.title+'</b></span><strong>&rarr;</strong></button>'
+    : '';
+
+  var progressHtml;
+  if(!hasProgress){
+    progressHtml='<div class="rc3-zero-progress">'
+      +'<div class="rc3-zero-copy"><span class="rc3-zero-kicker">YOUR PROGRESS</span><b>Ready when you are.</b><span>Start a quick challenge and your real progress will appear here automatically.</span></div>'
+      +'<div class="rc3-zero-metrics">'
+        +'<div><b>0</b><span>Questions</span></div>'
+        +'<div><b>0 / '+totalStandards+'</b><span>Standards</span></div>'
+      +'</div>'
     +'</div>';
-
-  let weakHeaderAction="";
-  let weakInner;
-  if(weak.length===0){
-    weakInner='<div class="no-weak">'+(e.attempted===0?"No practice history yet. Answer a few questions on any standard and this will automatically show where you need more practice.":"&#10003; No weak areas detected yet &mdash; nice work! Keep answering questions across more standards to keep this accurate.")+'</div>';
   }else{
-    weakHeaderAction='<button type="button" class="rc-start-weakest" data-jump="'+weak[0].code+'">&#9889; Start with '+weak[0].code+' &mdash; your weakest area</button>';
-    weakInner='<div class="rc-weak-list">'+weak.map(function(w){
-      const barColor=w.accuracyPct<50?"#C0392B":w.accuracyPct<60?"#E07B39":"#D4A017";
-      return '<div class="rc-weak-item" data-jump="'+w.code+'" title="'+w.attempted+' question'+(w.attempted===1?"":"s")+' answered, '+w.accuracyPct+'% correct"><div class="rc-weak-head"><span class="rc-weak-title">'+w.code+" &mdash; "+w.title+'</span><span class="rc-weak-pct">'+w.accuracyPct+'%</span><span class="rc-weak-chevron">&#8250;</span></div><div class="rc-bar-track"><div class="rc-bar-fill" style="background:'+barColor+';" data-target-width="'+w.accuracyPct+'"></div></div></div>';
-    }).join("")+'</div>';
+    progressHtml='<div class="rc3-progress">'
+      +'<div class="rc3-accuracy">'
+        +'<div class="rc3-ring-wrap" title="'+e.correct+' correct out of '+attempted+' answered">'
+          +'<svg class="rc3-ring" viewBox="0 0 40 40" aria-hidden="true"><circle class="rc3-ring-track" cx="20" cy="20" r="16"></circle><circle class="rc3-ring-fill" cx="20" cy="20" r="16" stroke="'+ringColor+'" stroke-dasharray="'+circumference+'" stroke-dashoffset="'+targetOffset+'" data-target-offset="'+targetOffset+'"></circle></svg>'
+          +'<span class="rc3-ring-value">'+pct+'%</span>'
+        +'</div>'
+        +'<div class="rc3-metric-label">Overall Accuracy</div>'
+        +'<div class="rc3-metric-note">&#10003; '+e.correct+' of '+attempted+' correct</div>'
+      +'</div>'
+      +'<div class="rc3-metrics">'
+        +'<div class="rc3-metric-block"><span class="rc3-metric-icon">&#10067;</span><div><b class="rc3-big-number">'+attempted+'</b><span class="rc3-metric-label">Questions Answered</span></div></div>'
+        +'<div class="rc3-metric-block rc3-coverage-block"><span class="rc3-metric-icon rc3-book-icon">&#128218;</span><div class="rc3-metric-grow"><div class="rc3-number-line"><b class="rc3-big-number">'+standardsCovered+'/'+totalStandards+'</b><span class="rc3-metric-label">Standards Covered</span></div><div class="rc3-coverage-track"><div class="rc3-coverage-fill" data-target-width="'+coveragePct+'"></div></div></div></div>'
+      +'</div>'
+    +'</div>';
   }
-  const weakSection='<div class="rc-collapse"><button type="button" class="rc-collapse-head" data-rc-collapse="rcWeakBody"><span>Weak Areas <span class="rc-collapse-sub">(below 70% accuracy, at least 2 questions answered)</span></span><span class="rc-collapse-arrow">&#9656;</span></button><div class="rc-collapse-body" id="rcWeakBody" style="display:none;">'+weakHeaderAction+weakInner+'</div></div>';
 
-  const neglectedList=getNeglectedStandards();
-  let neglectedSection="";
-  if(neglectedList.length>0){
-    const shown=neglectedList.slice(0,5);
-    const rows=shown.map(function(item){
-      const daysText=item.daysSince===null?"never opened":item.daysSince+" day"+(item.daysSince===1?"":"s")+" ago";
-      return '<div class="weak-item" data-jump="'+item.code+'"><span class="weak-title"><span class="fcode">'+item.code+'</span>'+item.title+'</span><span class="weak-meta">'+daysText+'</span></div>';
-    }).join("");
-    const moreNote=neglectedList.length>5?'<div class="neglected-more-note">+ '+(neglectedList.length-5)+' more standard'+(neglectedList.length-5===1?"":"s")+' not reviewed in the last 7 days</div>':"";
-    neglectedSection='<div class="rc-collapse"><button type="button" class="rc-collapse-head" data-rc-collapse="rcNeglectBody"><span>&#9200; Standards Not Reviewed Recently <span class="rc-collapse-sub">(not opened in 7+ days)</span></span><span class="rc-collapse-arrow">&#9656;</span></button><div class="rc-collapse-body" id="rcNeglectBody" style="display:none;"><div class="weak-list">'+rows+'</div>'+moreNote+'</div></div>';
+  let focusHtml;
+  if(weak.length===0){
+    focusHtml='<div class="rc3-empty-focus">'+(attempted===0?'No focus area yet. Start the Daily Challenge and we\'ll identify where you need practice.':'&#10003; No weak areas detected right now. Keep building coverage across the syllabus.')+'</div>';
+  }else{
+    const rows=weak.slice(0,5).map(function(w){
+      const barColor=w.accuracyPct<50?'var(--rust)':w.accuracyPct<60?'var(--accent)':'#D4A017';
+      return '<button type="button" class="rc3-focus-row" data-jump="'+w.code+'" title="'+w.attempted+' questions answered, '+w.accuracyPct+'% correct">'
+        +'<span class="rc3-focus-main"><span class="rc3-focus-name">'+w.code+' <span class="rc3-focus-title">&mdash; '+w.title+'</span></span><span class="rc3-focus-bar"><span class="rc3-focus-fill" style="background:'+barColor+';" data-target-width="'+w.accuracyPct+'"></span></span></span>'
+        +'<span class="rc3-focus-pct">'+w.accuracyPct+'%</span><span class="rc3-focus-chevron">&#8250;</span>'
+      +'</button>';
+    }).join('');
+    focusHtml='<div class="rc3-focus-list">'+rows+'</div>'
+      +'<button type="button" class="rc3-weakest-cta" data-jump="'+weak[0].code+'">&#9889; Start with '+weak[0].code+' &mdash; your weakest area <span>&rarr;</span></button>';
+    if(weak.length>5)focusHtml+='<div class="rc3-more-focus">+ '+(weak.length-5)+' more weak area'+(weak.length-5===1?'':'s')+'</div>';
   }
 
   const toolkitItems=[
-    {icon:"&#128161;",title:"Exam Technique",hint:"تقنية الامتحان",fn:"renderGuide",clr:"tk-blue"},
-    {icon:"&#128260;",title:"Standards Compared",hint:"مقارنة المعايير",fn:"renderConfusedPairs",clr:"tk-purple"},
-    {icon:"&#128214;",title:"Buzzwords",hint:"كلمات الممتحن المفتاحية",fn:"renderBuzzwordsLedger",clr:"tk-green"},
-    {icon:"&#129518;",title:"Formulas",hint:"الصيغ الأساسية",fn:"renderFormulaSheet",clr:"tk-red"},
-    {icon:"&#128218;",title:"Glossary",hint:"قاموس المصطلحات",fn:"renderGlossary",clr:"tk-blue"}
+    {icon:'&#128161;',title:'Exam Technique',hint:'تقنية الامتحان',fn:'renderGuide',clr:'tk-blue'},
+    {icon:'&#128260;',title:'Standards Compared',hint:'مقارنة المعايير',fn:'renderConfusedPairs',clr:'tk-purple'},
+    {icon:'&#128214;',title:'Buzzwords',hint:'كلمات الممتحن المفتاحية',fn:'renderBuzzwordsLedger',clr:'tk-green'},
+    {icon:'&#129518;',title:'Formulas',hint:'الصيغ الأساسية',fn:'renderFormulaSheet',clr:'tk-red'},
+    {icon:'&#128218;',title:'Glossary',hint:'قاموس المصطلحات',fn:'renderGlossary',clr:'tk-blue'}
   ];
-  const toolkitHtml='<div class="rc-toolkit-grid">'+toolkitItems.map(function(it){
-    return '<button type="button" class="rc-toolkit-card '+it.clr+'-card" data-rc-fn="'+it.fn+'"><span class="rc-toolkit-icon-wrap '+it.clr+'"><span class="rc-toolkit-icon">'+it.icon+'</span></span><span class="rc-toolkit-title">'+it.title+'</span><span class="rc-toolkit-hint" dir="rtl">'+it.hint+'</span></button>';
-  }).join("")+'</div>';
+  const toolkitHtml=toolkitItems.map(function(it){
+    return '<button type="button" class="rc3-tool-card '+it.clr+'-card" data-rc-fn="'+it.fn+'"><span class="rc3-tool-icon">'+it.icon+'</span><span class="rc3-tool-title">'+it.title+'</span><span class="rc3-tool-hint" dir="rtl">'+it.hint+'</span></button>';
+  }).join('');
 
-  return '<div class="tool-group tg-review-center" id="rcRoot"><div class="tool-group-label"><span class="tg-icon-circle">&#128202;</span> <b>Review Center</b></div>'
-    +statsHtml
-    +(missedCount>0?'<div class="mistakes-review-card"><div class="mrc-text">&#128260; You\'ve missed <b>'+missedCount+"</b> question"+(missedCount===1?"":"s")+' so far. Reviewing just your mistakes is one of the fastest ways to actually fix them.</div><span class="ns-btn" id="rcReviewMistakesBtn" style="background:#8A2E2E;color:#fff;">&#128260; Fix My Weak Spots &rarr;</span></div>':"")
-    +weakSection
-    +neglectedSection
-    +'<div class="rc-breakdown-link"><span class="ns-btn" id="rcViewFullBreakdownBtn">&#128202; View Full Standard-by-Standard Breakdown &rarr;</span></div>'
-    +'<div class="rc-toolkit-section rc-soft-divider"><h2 class="rc-toolkit-heading">&#128214; Study Toolkit</h2>'+toolkitHtml+'</div>'
-    +'<div class="reset-progress-wrap"><span class="reset-progress-link" id="rcResetProgressBtn">&#128260; Reset All Progress</span></div>'
-    +'</div>';
+  const missedCount=(typeof buildMistakesReviewSet==="function"?buildMistakesReviewSet():[]).length;
+  const mistakeLink=missedCount>0
+    ?'<button type="button" class="rc3-mistakes-link" id="rcReviewMistakesBtn">&#128260; Fix '+missedCount+' current mistake'+(missedCount===1?'':'s')+' &rarr;</button>'
+    :'';
+
+  return '<section class="tool-group tg-review-center rc3-review-center" id="rcRoot">'
+    +'<div class="tool-group-label"><span class="tg-icon-circle">&#128202;</span> <b>Review Center</b><span class="rc3-label-sub">Quick review &bull; know where you stand</span></div>'
+    +'<div class="rc3-inner">'
+      +progressHtml
+      +primaryCta
+      +'<div class="rc3-section-heading"><span>&#127919; Your Focus</span><small>Weak areas below 70% accuracy</small></div>'
+      +focusHtml
+      +mistakeLink
+      +'<div class="rc3-toolkit">'
+        +'<div class="rc3-toolkit-head"><span>&#128218; Quick Tools</span><small>Fast revision essentials</small></div>'
+        +'<div class="rc3-tool-grid">'+toolkitHtml+'</div>'
+      +'</div>'
+      +'<div class="rc3-footer-actions"><button type="button" class="rc3-breakdown" id="rcViewFullBreakdownBtn">View full standard-by-standard breakdown &rarr;</button><span class="reset-progress-link" id="rcResetProgressBtn">&#128260; Reset progress</span></div>'
+    +'</div>'
+  +'</section>';
 }
 function renderProgressDashboard(){recordNav(renderProgressDashboard,[]);activeCode="PROGRESS";clearAllPins();document.getElementById("progressPin").classList.add("active");
   const e=getOverallStats();
-  const missedCount=Object.keys(answerHistory).filter(function(k){return answerHistory[k].lastCorrect===false;}).length;
+  const missedCount=(typeof buildMistakesReviewSet==="function"?buildMistakesReviewSet():[]).length;
   const weak=getWeakStandards();
   const standardsCovered=new Set(Object.values(answerHistory).map(function(x){return x.code;})).size;
   const totalStandards=STANDARDS.length;
@@ -6185,7 +6714,146 @@ function renderProgressDashboard(){recordNav(renderProgressDashboard,[]);activeC
   const resetBtn=document.getElementById("resetProgressBtn");
   if(resetBtn)resetBtn.addEventListener("click",function(){if(window.confirm("This will permanently reset:\n\n\u2022 Your entire practice answer history (MCQ, True/False, Spot the Error, Sequencing, Calc, Group Accounts, Confused Standards)\n\u2022 Your daily challenge streak\n\u2022 Your per-standard visit history (used for the \'neglected standards\' reminder)\n\nYour preferences (dark mode, etc.) will NOT be affected.\n\nThis cannot be undone. Continue?")){reviewed={};answerHistory={};try{localStorage.removeItem("ayman-ifrs-reviewed-standards");localStorage.removeItem("ayman-ifrs-answer-history");localStorage.removeItem("dipifr_todays30_streak");localStorage.removeItem("dipifr_std_visits");localStorage.removeItem("dipifr_last_standard");localStorage.removeItem("dipifr_last_standard_ts");}catch(err){}renderProgressDashboard();}});
   if(window.innerWidth<=860)document.getElementById("sidebar").classList.remove("open");
-}function buildMistakesReviewSet(filterCode){const e=[];return Object.keys(answerHistory).forEach(function(t){if(!1!==answerHistory[t].lastCorrect)return;const i=t.indexOf("::q");if(-1===i)return;const a=t.substring(0,i),n=t.substring(i+3),s=STANDARDS.find(function(e){return e.code===a});if(0===n.indexOf("tf")){const t=parseInt(n.substring(2),10),i=TRUE_FALSE_BANK[a];if(i&&i[t]){const n=i[t];e.push({type:"tf",code:a,statement:n.statement,answer:n.answer,explanation:n.explanation})}}else if(0===n.indexOf("spot")){const t=parseInt(n.substring(4),10),i=SPOT_THE_ERROR[t];i&&e.push(Object.assign({type:"spot",idx:t},i))}else if(0===n.indexOf("ga")){const t=parseInt(n.substring(2),10),i=CONSOLIDATION_MCQS[t];i&&e.push({type:"mcq",code:"Group Accounts",qIndex:"ga"+t,q:i.question.replace(/\n/g,"<br>"),options:i.options,correct:i.correct,explain:i.explanation.replace(/\n/g,"<br>")})}else if(0===n.indexOf("confused")){const t=parseInt(n.substring(8),10),i=CONFUSED_QUIZ[t];i&&e.push({type:"mcq",code:i.pair[0]+" vs "+i.pair[1],qIndex:"confused"+t,q:i.question,options:i.options,correct:i.correct,explain:i.explanation})}else if(0===n.indexOf("seq")){const t=parseInt(n.substring(3),10),i=SEQUENCING_QUESTIONS[t];i&&e.push({type:"seq",code:i.code,steps:i.steps,title:i.title})}else if(0===n.indexOf("speed")){const t=parseInt(n.substring(5),10),i=SPEED_ROUND[t];if(i){const allCodes=STANDARDS.map(function(s){return s.code;}),wrong=shuffleArr(allCodes.filter(function(c){return c!==i.code;})).slice(0,3),opts=shuffleArr([i.code].concat(wrong)),corr=opts.indexOf(i.code);e.push({type:"mcq",code:i.code,qIndex:"speed"+t,q:"Which standard does this describe? \u201c"+i.fact+"\u201d",options:opts,correct:corr,explain:"The correct standard is "+i.code+"."})}}else if(0===n.indexOf("odd")){const t=parseInt(n.substring(3),10),i=ODD_ONE_OUT[t];i&&e.push({type:"mcq",code:i.code,qIndex:"odd"+t,q:i.title,options:i.items,correct:i.odd,explain:i.explanation})}else if(0===n.indexOf("ethics")){const t=parseInt(n.substring(6),10),i=ETHICS_SCENARIOS[t];i&&e.push({type:"mcq",code:"IESBA",qIndex:"ethics"+t,q:i.scenario+"<br><br><b>"+i.question+"</b>",options:i.options,correct:i.correct,explain:i.explanation})}else if(0===n.indexOf("verb")){const t=parseInt(n.substring(4),10),i=VERB_CHALLENGE_BANK[t];if(i){const owner=(typeof getVerbOwner==="function")?getVerbOwner(i):a;e.push({type:"mcq",code:owner,qIndex:"verb"+t,q:"Which command word fits this model-answer snippet? \u201c"+i.answerSnippet+"\u201d",options:VERB_OPTIONS.slice(),correct:VERB_OPTIONS.indexOf(i.correctVerb),explain:i.explanation})}}else{const t=parseInt(n,10);if(s&&s.quiz&&s.quiz[t]){const i=s.quiz[t];e.push({type:"mcq",code:a,qIndex:t,q:i.q,options:i.options,correct:i.correct,explain:i.explain})}}}),shuffleArr(filterCode?e.filter(function(x){return x.code===filterCode}):e)}function renderMistakesReview(filterCode){if(filterCode&&"string"!=typeof filterCode)filterCode=undefined;recordNav(renderMistakesReview,[filterCode]),activeCode="MISTAKESREVIEW",clearAllPins();const e=buildMistakesReviewSet(filterCode);const _hdr=filterCode?("&#128260; Review My Mistakes \u2014 "+filterCode):"&#128260; Review My Mistakes";if(0===e.length){const e='<div class="guide-hero"><h1>'+_hdr+'</h1></div><div class="no-weak">&#127881; No outstanding mistakes right now &mdash; either you haven&#39;t missed anything, or you&#39;ve already gotten them right on a retry. Keep practicing to build this list up honestly, then come back here before the exam.</div>';return document.getElementById("contentWrap").innerHTML=e,document.getElementById("mainContent").scrollTop=0,void renderList()}const t=e.map(function(e,t){if("seq"===e.type){return'<div class="quiz-card"><div class="quiz-q"><span class="me-type-badge seq">SEQUENCE</span><span class="rq-source">'+e.code+'</span> Q'+(t+1)+". "+e.title+'</div><p style="font-size:12.5px;color:var(--ink-soft);margin:8px 0 4px;">You missed this one before &mdash; here\'s the correct order to help it stick:</p><ol style="margin:6px 0 0;padding-left:20px;font-size:13px;">'+e.steps.map(function(s){return"<li style=\"margin-bottom:4px;\">"+s+"</li>";}).join("")+"</ol></div>"}if("mcq"===e.type){const i=e.options.map(function(e,i){return'<button class="quiz-option" data-mqi="'+t+'" data-moi="'+i+'">'+e+"</button>"}).join("");return'<div class="quiz-card"><div class="quiz-q"><span class="me-type-badge mcq">MCQ</span><span class="rq-source">'+e.code+"</span> Q"+(t+1)+". "+e.q+'</div><div class="quiz-options">'+i+'</div><div class="quiz-explain" data-mexplain="'+t+'">'+e.explain+"</div></div>"}if("spot"===e.type){const i=e.options.map(function(e,i){return'<button class="quiz-option" data-mqi="'+t+'" data-moi="'+i+'">'+e+"</button>"}).join("");return'<div class="quiz-card"><div class="quiz-q"><span class="me-type-badge spot">SPOT THE ERROR</span><span class="rq-source">'+e.code+'</span> Q'+(t+1)+'.<br><span class="spot-scenario">'+e.scenario+'</span></div><div class="quiz-options">'+i+'</div><div class="quiz-explain" data-mexplain="'+t+'">'+e.explanation+"</div></div>"}return'<div class="tf-card"><div class="tf-statement"><span class="me-type-badge tf">TRUE/FALSE</span><span class="tf-source">'+e.code+"</span> Q"+(t+1)+". "+e.statement+'</div><div class="tf-options"><button class="tf-btn" data-mtfi="'+t+'" data-mtfval="true">&#10003; True</button><button class="tf-btn" data-mtfi="'+t+'" data-mtfval="false">&#10007; False</button></div><div class="tf-explain" data-mexplain="'+t+'">'+e.explanation+"</div></div>"}).join(""),i='<div class="guide-hero"><h1>'+_hdr+'</h1><p>'+(filterCode?"Every question you\u2019ve missed on "+filterCode+" so far.":"Every question you&#39;ve missed so far, in one focused set &mdash; get these right this time.")+'</p></div><div class="quiz-header"><span class="quiz-score" id="quizScore">Score: 0 / '+e.length+"</span></div>"+t;document.getElementById("contentWrap").innerHTML=i,document.getElementById("mainContent").scrollTop=0,renderList(),window.innerWidth<=860&&document.getElementById("sidebar").classList.remove("open");let a=0;const n={};function s(){const t=document.getElementById("quizScore");t&&(t.textContent="Score: "+a+" / "+e.length)}document.querySelectorAll(".quiz-option[data-mqi]").forEach(function(t){t.addEventListener("click",function(){const i=t.getAttribute("data-mqi");if(n[i])return;n[i]=!0;const o=parseInt(t.getAttribute("data-moi"),10),r=e[parseInt(i,10)],l=o===r.correct;document.querySelectorAll('.quiz-option[data-mqi="'+i+'"]').forEach(function(e){e.classList.add("disabled");const t=parseInt(e.getAttribute("data-moi"),10);t===r.correct?e.classList.add("correct"):t===o&&e.classList.add("wrong")}),l&&(a++,typeof playCorrectDing==="function"&&playCorrectDing()),s(),"mcq"===r.type?recordAnswer(r.code,r.qIndex,l):"spot"===r.type&&recordAnswer(r.code,"spot"+r.idx,l);const c=document.querySelector('.quiz-explain[data-mexplain="'+i+'"]');c&&c.classList.add("shown")})}),document.querySelectorAll(".tf-btn[data-mtfi]").forEach(function(t){t.addEventListener("click",function(){const i=t.getAttribute("data-mtfi");if(n[i])return;n[i]=!0;const o="true"===t.getAttribute("data-mtfval"),r=e[parseInt(i,10)],l=o===r.answer;document.querySelectorAll('.tf-btn[data-mtfi="'+i+'"]').forEach(function(e){e.classList.add("disabled");const t="true"===e.getAttribute("data-mtfval");t===r.answer?e.classList.add("correct"):t===o&&e.classList.add("wrong")}),l&&(a++,typeof playCorrectDing==="function"&&playCorrectDing()),s(),recordAnswer(r.code,"tf"+i,l);const c=document.querySelector('.tf-explain[data-mexplain="'+i+'"]');c&&c.classList.add("shown")})})}
+}function buildMistakesReviewSet(filterCode){
+  const e=[];
+  const seen={};
+  function dedupeKey(item){
+    if(!item)return "";
+    if(item.type==="mcq")return "mcq|"+item.code+"|"+(item.qIndex!=null?item.qIndex:"")+"|"+String(item.q||"").slice(0,100);
+    if(item.type==="tf")return "tf|"+item.code+"|"+String(item.statement||"").slice(0,100);
+    if(item.type==="seq")return "seq|"+(item.idx!=null?item.idx:"")+"|"+String(item.title||"");
+    if(item.type==="spot")return "spot|"+item.idx;
+    if(item.type==="calc")return "calc|"+item.code+"|"+item.calcIdx;
+    return item.type+"|"+item.code+"|"+String(item.qIndex||"");
+  }
+  function pushItem(item){
+    if(!item)return;
+    var k=dedupeKey(item);
+    if(seen[k])return;
+    seen[k]=true;
+    e.push(item);
+  }
+  function pushMcq(code,qIndex,q){
+    if(!q||!q.q||!q.options)return false;
+    pushItem({type:"mcq",code:code,qIndex:qIndex,q:q.q,options:q.options,correct:q.correct,explain:q.explain||q.explanation||""});
+    return true;
+  }
+  function digits(n){
+    if(typeof n==="number"&&!isNaN(n))return n;
+    // pure numeric qIndex only (avoid pulling digits from random suffixes that invent wrong items)
+    if(/^\d+$/.test(String(n||"")))return parseInt(n,10);
+    return NaN;
+  }
+  function low(n){return String(n||"").toLowerCase();}
+
+  Object.keys(answerHistory||{}).forEach(function(t){
+    const entry=answerHistory[t];
+    if(!entry||entry.lastCorrect)return; // outstanding wrong only
+
+    const sep=t.indexOf("::q");
+    if(sep===-1)return; // unknown key format — do NOT invent a question
+
+    var a=t.substring(0,sep);
+    var n=t.substring(sep+3);
+    var nl=low(n);
+    const s=STANDARDS.find(function(st){return st.code===a;});
+
+    if(0===nl.indexOf("tf")){
+      var ti=parseInt(n.substring(2),10);
+      var bank=TRUE_FALSE_BANK[a];
+      if(bank&&!isNaN(ti)&&bank[ti]){
+        var q=bank[ti];
+        pushItem({type:"tf",code:a,statement:q.statement,answer:q.answer,explanation:q.explanation});
+      }
+      // else: drop — cannot prove which TF it was
+    }else if(0===nl.indexOf("spot")){
+      var ti=parseInt(n.substring(4),10);var q=SPOT_THE_ERROR[ti];
+      if(q)pushItem(Object.assign({type:"spot",idx:ti},q));
+    }else if(0===nl.indexOf("ga")){
+      var ti=parseInt(n.substring(2),10);var q=CONSOLIDATION_MCQS[ti];
+      if(q)pushItem({type:"mcq",code:"Group Accounts",qIndex:"ga"+ti,q:q.question.replace(/\n/g,"<br>"),options:q.options,correct:q.correct,explain:q.explanation.replace(/\n/g,"<br>")});
+    }else if(0===nl.indexOf("confused")){
+      var ti=parseInt(n.substring(8),10);var q=CONFUSED_QUIZ[ti];
+      if(q)pushItem({type:"mcq",code:q.pair[0]+" vs "+q.pair[1],qIndex:"confused"+ti,q:q.question,options:q.options,correct:q.correct,explain:q.explanation});
+    }else if(0===nl.indexOf("seq")){
+      var ti=parseInt(n.substring(3),10);var q=SEQUENCING_QUESTIONS[ti];
+      if(q)pushItem({type:"seq",idx:ti,code:q.code,steps:q.steps,title:q.title});
+    }else if(0===nl.indexOf("speed")){
+      var ti=parseInt(n.substring(5),10);var q=SPEED_ROUND[ti];
+      if(q){
+        var allCodes=STANDARDS.map(function(st){return st.code;});
+        var wrong=shuffleArr(allCodes.filter(function(c){return c!==q.code;})).slice(0,3);
+        var opts=shuffleArr([q.code].concat(wrong));
+        pushItem({type:"mcq",code:q.code,qIndex:"speed"+ti,q:"Which standard does this describe? \u201c"+q.fact+"\u201d",options:opts,correct:opts.indexOf(q.code),explain:"The correct standard is "+q.code+"."});
+      }
+    }else if(0===nl.indexOf("odd")){
+      var ti=parseInt(n.substring(3),10);var q=ODD_ONE_OUT[ti];
+      if(q)pushItem({type:"mcq",code:q.code,qIndex:"odd"+ti,q:q.title,options:q.items,correct:q.odd,explain:q.explanation});
+    }else if(0===nl.indexOf("ethics")){
+      var ti=parseInt(n.substring(6),10);var q=ETHICS_SCENARIOS[ti];
+      if(q)pushItem({type:"mcq",code:"IESBA",qIndex:"ethics"+ti,q:q.scenario+"<br><br><b>"+q.question+"</b>",options:q.options,correct:q.correct,explain:q.explanation});
+    }else if(0===nl.indexOf("verb")){
+      var ti=parseInt(n.substring(4),10);var q=VERB_CHALLENGE_BANK[ti];
+      if(q){
+        var owner=(typeof getVerbOwner==="function")?getVerbOwner(q):a;
+        pushItem({type:"mcq",code:owner,qIndex:"verb"+ti,q:"Which command word fits this model-answer snippet? \u201c"+q.answerSnippet+"\u201d",options:VERB_OPTIONS.slice(),correct:VERB_OPTIONS.indexOf(q.correctVerb),explain:q.explanation});
+      }
+    }else if(0===nl.indexOf("calc")){
+      var ci=parseInt(n.substring(4),10);
+      var item=null;
+      if(s&&s.calc&&s.calc[ci])item=Object.assign({code:a,calcIdx:ci},s.calc[ci]);
+      if(!item&&typeof buildCalcPool==="function"){item=buildCalcPool().find(function(x){return x.code===a&&x.calcIdx===ci;})||null;}
+      if(item)pushItem({type:"calc",code:a,calcIdx:ci,title:item.title||"Calculation",facts:item.facts||"",question:item.question||"",steps:item.steps||[],answer:item.answer||""});
+    }else if(/^\d+$/.test(n)){
+      // Standard MCQ: key must be exactly CODE::q0, CODE::q1, ...
+      var ti=parseInt(n,10);
+      if(s&&s.quiz&&s.quiz[ti])pushMcq(a,ti,s.quiz[ti]);
+      // else drop — do not substitute another random quiz item
+    }
+    // any other key shape: drop (no RETRY placeholders that confuse counts)
+  });
+
+  if(!filterCode)return shuffleArr(e);
+  return shuffleArr(e.filter(function(x){
+    if(!x||!x.code)return false;
+    if(x.code===filterCode)return true;
+    return String(x.code).indexOf(filterCode)!==-1;
+  }));
+}
+function renderMistakesReview(filterCode){if(filterCode&&"string"!=typeof filterCode)filterCode=undefined;recordNav(renderMistakesReview,[filterCode]),activeCode="MISTAKESREVIEW",clearAllPins();const e=buildMistakesReviewSet(filterCode);const _hdr=filterCode?("&#128260; Review My Mistakes \u2014 "+filterCode):"&#128260; Review My Mistakes";if(0===e.length){const e='<div class="guide-hero"><h1>'+_hdr+'</h1></div><div class="no-weak">&#127881; No outstanding mistakes right now &mdash; either you haven&#39;t missed anything, or you&#39;ve already gotten them right on a retry. Keep practicing to build this list up honestly, then come back here before the exam.</div>';return document.getElementById("contentWrap").innerHTML=e,document.getElementById("mainContent").scrollTop=0,void renderList()}const t=e.map(function(e,t){if("seq"===e.type){const _steps=shuffleArr(e.steps.map(function(st,oi){return{text:st,orig:oi}}));const _btns=_steps.map(function(st){return'<button type="button" class="seq-step-btn" data-mrseqcard="'+t+'" data-mrseqorig="'+st.orig+'">'+st.text+"</button>"}).join("");return'<div class="seq-card" data-mrseqwrap="'+t+'"><div class="quiz-q"><span class="me-type-badge seq">SEQUENCE</span><span class="rq-source">'+e.code+"</span> Q"+(t+1)+". "+e.title+'</div><p class="seq-instruction">Tap the steps in the correct order &mdash; retry this one you missed:</p><div class="seq-options">'+_btns+'</div><div class="seq-your-order" id="mrSeqOrder-'+t+'"></div><div class="seq-result" id="mrSeqResult-'+t+'"></div></div>'}if("mcq"===e.type){const i=e.options.map(function(e,i){return'<button class="quiz-option" data-mqi="'+t+'" data-moi="'+i+'">'+e+"</button>"}).join("");return'<div class="quiz-card"><div class="quiz-q"><span class="me-type-badge mcq">MCQ</span><span class="rq-source">'+e.code+"</span> Q"+(t+1)+". "+e.q+'</div><div class="quiz-options">'+i+'</div><div class="quiz-explain" data-mexplain="'+t+'">'+e.explain+"</div></div>"}if("spot"===e.type){const i=e.options.map(function(e,i){return'<button class="quiz-option" data-mqi="'+t+'" data-moi="'+i+'">'+e+"</button>"}).join("");return'<div class="quiz-card"><div class="quiz-q"><span class="me-type-badge spot">SPOT THE ERROR</span><span class="rq-source">'+e.code+'</span> Q'+(t+1)+'.<br><span class="spot-scenario">'+e.scenario+'</span></div><div class="quiz-options">'+i+'</div><div class="quiz-explain" data-mexplain="'+t+'">'+e.explanation+"</div></div>"}if("calc"===e.type){var factsHtml=e.facts?("<div style=\"margin-bottom:6px\"><b>Facts</b><br>"+e.facts+"</div>"):"";var ansHtml=(e.answer?("<b>Answer</b><br>"+e.answer):"");var stepsHtml=(e.steps&&e.steps.length)?("<br><b>Steps</b><ol>"+e.steps.map(function(st){return "<li>"+st+"</li>";}).join("")+"</ol>"):"";return '<div class="quiz-card"><div class="quiz-q"><span class="me-type-badge calc">CALC</span><span class="rq-source">'+e.code+'</span> Q'+(t+1)+'. '+(e.title||"Calculation")+'</div><div style="font-size:13px;line-height:1.55;margin:8px 0;">'+factsHtml+(e.question||"")+'</div><p style="font-size:12px;color:var(--ink-soft);margin:0 0 8px;">Try again, then mark yourself:</p><div class="me-selfcheck-row"><button type="button" class="me-selfcheck-btn" data-mrcalc="'+t+'" data-mrcalcok="1">I got it right</button><button type="button" class="me-selfcheck-btn" data-mrcalc="'+t+'" data-mrcalcok="0">Still wrong</button></div><div class="quiz-explain" data-mexplain="'+t+'">'+ansHtml+stepsHtml+'</div></div>';}if("generic"===e.type){return '<div class="quiz-card"><div class="quiz-q"><span class="me-type-badge">RETRY</span><span class="rq-source">'+e.code+'</span> Q'+(t+1)+'. '+(e.label||"Missed item")+'</div><p style="font-size:13px;color:var(--ink-soft);margin:8px 0;">'+(e.hint||"Open this standard and practise again.")+'</p><button type="button" class="rc-fc-priority-btn" data-mrjump="'+e.code+'">Open '+e.code+'</button></div>';}return'<div class="tf-card"><div class="tf-statement"><span class="me-type-badge tf">TRUE/FALSE</span><span class="tf-source">'+e.code+"</span> Q"+(t+1)+". "+e.statement+'</div><div class="tf-options"><button class="tf-btn" data-mtfi="'+t+'" data-mtfval="true">&#10003; True</button><button class="tf-btn" data-mtfi="'+t+'" data-mtfval="false">&#10007; False</button></div><div class="tf-explain" data-mexplain="'+t+'">'+e.explanation+"</div></div>"}).join(""),i='<div class="guide-hero"><h1>'+_hdr+'</h1><p>'+(filterCode?"Every question you\u2019ve missed on "+filterCode+" so far.":"Every question you&#39;ve missed so far, in one focused set &mdash; get these right this time.")+'</p></div><div class="quiz-header"><span class="quiz-score" id="quizScore">Score: 0 / '+e.length+"</span></div>"+t;document.getElementById("contentWrap").innerHTML=i,document.getElementById("mainContent").scrollTop=0,renderList(),window.innerWidth<=860&&document.getElementById("sidebar").classList.remove("open");let a=0;const n={};function s(){const t=document.getElementById("quizScore");t&&(t.textContent="Score: "+a+" / "+e.length)}document.querySelectorAll(".quiz-option[data-mqi]").forEach(function(t){t.addEventListener("click",function(){const i=t.getAttribute("data-mqi");if(n[i])return;n[i]=!0;const o=parseInt(t.getAttribute("data-moi"),10),r=e[parseInt(i,10)],l=o===r.correct;document.querySelectorAll('.quiz-option[data-mqi="'+i+'"]').forEach(function(e){e.classList.add("disabled");const t=parseInt(e.getAttribute("data-moi"),10);t===r.correct?e.classList.add("correct"):t===o&&e.classList.add("wrong")}),l&&(a++,typeof playCorrectDing==="function"&&playCorrectDing()),s(),"mcq"===r.type?recordAnswer(r.code,r.qIndex,l):"spot"===r.type&&recordAnswer(r.code,"spot"+r.idx,l);const c=document.querySelector('.quiz-explain[data-mexplain="'+i+'"]');c&&c.classList.add("shown")})}),document.querySelectorAll(".tf-btn[data-mtfi]").forEach(function(t){t.addEventListener("click",function(){const i=t.getAttribute("data-mtfi");if(n[i])return;n[i]=!0;const o="true"===t.getAttribute("data-mtfval"),r=e[parseInt(i,10)],l=o===r.answer;document.querySelectorAll('.tf-btn[data-mtfi="'+i+'"]').forEach(function(e){e.classList.add("disabled");const t="true"===e.getAttribute("data-mtfval");t===r.answer?e.classList.add("correct"):t===o&&e.classList.add("wrong")}),l&&(a++,typeof playCorrectDing==="function"&&playCorrectDing()),s(),recordAnswer(r.code,"tf"+i,l);const c=document.querySelector('.tf-explain[data-mexplain="'+i+'"]');c&&c.classList.add("shown")})});
+var _mrSeqState={};
+document.querySelectorAll(".seq-step-btn[data-mrseqcard]").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var card=btn.getAttribute("data-mrseqcard");
+    if(n[card])return;
+    if(!_mrSeqState[card])_mrSeqState[card]=[];
+    var orig=parseInt(btn.getAttribute("data-mrseqorig"),10);
+    if(_mrSeqState[card].indexOf(orig)!==-1)return;
+    _mrSeqState[card].push(orig);
+    btn.classList.add("disabled");
+    btn.style.opacity="0.4";
+    var item=e[parseInt(card,10)];
+    var orderEl=document.getElementById("mrSeqOrder-"+card);
+    if(orderEl){
+      orderEl.innerHTML=_mrSeqState[card].map(function(oi,pos){
+        return '<div class="seq-order-item">'+(pos+1)+". "+item.steps[oi]+"</div>";
+      }).join("");
+    }
+    if(_mrSeqState[card].length===item.steps.length){
+      n[card]=true;
+      var ok=_mrSeqState[card].every(function(oi,pos){return oi===pos;});
+      if(ok){a++;if(typeof playCorrectDing==="function")playCorrectDing();}
+      s();
+      if(typeof recordAnswer==="function")recordAnswer(item.code,"seq"+(item.idx!=null?item.idx:card),ok);
+      var res=document.getElementById("mrSeqResult-"+card);
+      if(res){
+        res.classList.add(ok?"seq-correct":"seq-wrong");
+        res.innerHTML=ok?"&#10003; Correct order!":"&#10007; Not quite. Correct order:<ol>"+item.steps.map(function(st){return"<li>"+st+"</li>";}).join("")+"</ol>";
+      }
+    }
+  });
+});
+}
 function buildContinueRowHtml(){
   var lastCode,lastTs;
   try{lastCode=localStorage.getItem("dipifr_last_standard");lastTs=parseInt(localStorage.getItem("dipifr_last_standard_ts")||"0",10);}catch(e){return"";}
@@ -6438,7 +7106,7 @@ function setupSidebarListeners() {
   }
 
 
-  function dashboardHTML(){
+  window.dashboardHTML = function dashboardHTML(){
     const s=stats();
     const n=nextAction();
     const momentum=Math.round((s.coverage*.45)+(s.accuracy*.55));
@@ -6480,22 +7148,37 @@ function setupSidebarListeners() {
   }
 
   function enhanceStudyGuidance(){
-    document.querySelectorAll(".study-guidance-toggle").forEach(function(toggle){
-      if(toggle.dataset.bound === "1") return;
-      toggle.dataset.bound = "1";
-      toggle.addEventListener("click", function(){
+    // Always re-bind safely: use one delegated listener (survives re-renders)
+    if(!window.__studyGuidanceDelegated){
+      window.__studyGuidanceDelegated = true;
+      document.addEventListener("click", function(e){
+        var toggle = e.target && e.target.closest && e.target.closest(".study-guidance-toggle");
+        if(!toggle) return;
+        e.preventDefault();
+        e.stopPropagation();
         var notice = toggle.closest(".study-guidance-notice");
-        var content = notice && notice.querySelector(".study-guidance-content");
-        if(!notice || !content) return;
+        if(!notice) return;
         var isOpen = notice.classList.toggle("is-open");
         toggle.setAttribute("aria-expanded", String(isOpen));
-      });
+        // also force content display in case CSS specificity fails
+        var content = notice.querySelector(".study-guidance-content");
+        if(content) content.style.display = isOpen ? "block" : "none";
+      }, true);
+    }
+    // Ensure initial closed state for any current notices
+    document.querySelectorAll(".study-guidance-notice").forEach(function(notice){
+      var toggle = notice.querySelector(".study-guidance-toggle");
+      var content = notice.querySelector(".study-guidance-content");
+      if(content && !notice.classList.contains("is-open")) content.style.display = "none";
+      if(toggle && !toggle.hasAttribute("aria-expanded")) toggle.setAttribute("aria-expanded", "false");
     });
   }
   function organizeHome(){
     if(activeCode!==null)return;
     const wrap=document.getElementById('contentWrap');
     if(!wrap || !wrap.querySelector('.home-hero'))return;
+    // Always wire study guidance, even when challenge card already exists
+    if(typeof enhanceStudyGuidance==="function") enhanceStudyGuidance();
     if(wrap.querySelector('#todaysChallengeCard'))return;
 
     if(_homeObserver)_homeObserver.disconnect();
@@ -7507,6 +8190,264 @@ function setupSidebarListeners() {
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
   window.exportDipifrProgress=exportProgress;
   window.importDipifrProgress=importProgress;
+})();
+</script>
+
+
+
+
+
+<script>
+/* ===== Review Center: Readiness + Focus Clinic (merged Focus + Mistakes) ===== */
+(function(){
+  'use strict';
+  function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
+
+  function computeReadiness(){
+    var overall = (typeof getOverallStats === 'function') ? getOverallStats() : {attempted:0, accuracyPct:0, correct:0};
+    var weak = (typeof getWeakStandards === 'function') ? getWeakStandards() : [];
+    var total = (typeof STANDARDS !== 'undefined' && STANDARDS) ? STANDARDS.length : 38;
+    var covered = 0;
+    try { covered = new Set(Object.values(answerHistory || {}).map(function(x){ return x.code; })).size; } catch(e){}
+    var attempted = overall.attempted || 0;
+    var accuracy = overall.accuracyPct || 0;
+    var coveragePct = total ? (covered / total) * 100 : 0;
+    var freshest = 0;
+    try {
+      Object.values(answerHistory || {}).forEach(function(x){
+        var t = x.ts || x.lastTs || x.time || 0;
+        if(typeof t === 'string') t = Date.parse(t) || 0;
+        if(t > freshest) freshest = t;
+      });
+    } catch(e){}
+    var daysSince = freshest ? ((Date.now() - freshest) / 86400000) : 99;
+    var recencyScore = !freshest ? 0 : daysSince <= 1 ? 100 : daysSince <= 3 ? 80 : daysSince <= 7 ? 55 : daysSince <= 14 ? 30 : 10;
+    var weakPenalty = clamp(weak.length * 6, 0, 30);
+    var score = 0;
+    if(attempted > 0){
+      score = (accuracy * 0.45) + (coveragePct * 0.30) + (recencyScore * 0.15) + (Math.min(attempted, 80) / 80 * 100 * 0.10) - weakPenalty;
+    }
+    score = Math.round(clamp(score, 0, 100));
+    var band = score >= 80 ? 'Strong trajectory' : score >= 55 ? 'Building steadily' : score >= 30 ? 'Early progress' : 'Just getting started';
+    var tip;
+    if(attempted === 0) tip = 'Start the Daily Challenge — your readiness score will unlock after a few answers.';
+    else if(weak.length) tip = 'Priority: shore up ' + weak[0].code + ' (' + weak[0].accuracyPct + '%). Then widen coverage.';
+    else if(coveragePct < 50) tip = 'Accuracy is okay — expand coverage across more standards this week.';
+    else if(recencyScore < 40) tip = 'You have a base — a short session today will lift readiness quickly.';
+    else tip = 'Keep alternating mixed practice with weak-area drills.';
+    return { score:score, band:band, tip:tip, accuracy:accuracy, coveragePct:Math.round(coveragePct), attempted:attempted, weakCount:weak.length };
+  }
+
+  function mistakeCountByCode(){
+    var map = {};
+    try {
+      var set = (typeof buildMistakesReviewSet === 'function') ? buildMistakesReviewSet() : [];
+      set.forEach(function(item){
+        if(!item || !item.code) return;
+        map[item.code] = (map[item.code] || 0) + 1;
+      });
+    } catch(e){}
+    return map;
+  }
+
+  function buildFocusClinicRows(){
+    var weak = (typeof getWeakStandards === 'function') ? getWeakStandards() : [];
+    var mistakes = mistakeCountByCode();
+    var byCode = {};
+
+    weak.forEach(function(w){
+      byCode[w.code] = {
+        code: w.code,
+        title: w.title || w.code,
+        accuracyPct: w.accuracyPct,
+        attempted: w.attempted || 0,
+        mistakes: mistakes[w.code] || 0,
+        isWeak: true
+      };
+    });
+    Object.keys(mistakes).forEach(function(code){
+      if(byCode[code]) { byCode[code].mistakes = mistakes[code]; return; }
+      var std = (typeof STANDARDS !== 'undefined') ? STANDARDS.find(function(s){ return s.code === code; }) : null;
+      var st = (typeof getStandardStats === 'function') ? getStandardStats(code) : null;
+      byCode[code] = {
+        code: code,
+        title: std ? std.title : code,
+        accuracyPct: st && st.accuracyPct != null ? st.accuracyPct : null,
+        attempted: st ? st.attempted : 0,
+        mistakes: mistakes[code],
+        isWeak: false
+      };
+    });
+
+    var rows = Object.keys(byCode).map(function(k){ return byCode[k]; });
+    rows.sort(function(a,b){
+      if(b.mistakes !== a.mistakes) return b.mistakes - a.mistakes;
+      var aa = a.accuracyPct == null ? 999 : a.accuracyPct;
+      var bb = b.accuracyPct == null ? 999 : b.accuracyPct;
+      return aa - bb;
+    });
+    return rows;
+  }
+
+  function hideOldFocus(host){
+    // Hide original focus UI to avoid duplication
+    host.querySelectorAll('.rc3-focus-block, .rc3-empty-focus, .rc3-focus-list, .rc3-focus-wrap, .rc-focus-section').forEach(function(el){
+      // don't hide our merged block
+      if(el.id === 'rcFocusClinic' || el.closest('#rcFocusClinic')) return;
+      el.classList.add('rc-fc-hidden');
+    });
+    // Also hide old separate mistake clinic if any
+    var old = document.getElementById('rcMistakeClinic');
+    if(old) old.remove();
+  }
+
+  function inject(){
+    var host = document.querySelector('.rc3-review-center .rc3-inner') || document.querySelector('.rc3-review-center') || document.querySelector('.tg-review-center');
+    if(!host) return;
+    if(host.querySelector('#rcFocusClinic') && host.querySelector('#rcReadyCard')){
+      // still hide old focus if reappeared
+      hideOldFocus(host);
+      return;
+    }
+
+    hideOldFocus(host);
+
+    if(!host.querySelector('#rcReadyCard')){
+      var r = computeReadiness();
+      var ready = document.createElement('div');
+      ready.id = 'rcReadyCard';
+      ready.className = 'rc-ready-card';
+      ready.innerHTML =
+        '<div class="rc-ready-kicker">Readiness Score</div>' +
+        '<div class="rc-ready-score">' + r.score + '<span>/100</span></div>' +
+        '<div class="rc-ready-label">' + r.band + '</div>' +
+        '<div class="rc-ready-bar"><div class="rc-ready-fill" style="width:' + r.score + '%"></div></div>' +
+        '<div class="rc-ready-msg">' + r.tip + '</div>' +
+        '<div class="rc-ready-factors">' +
+          '<div class="rc-ready-factor"><b>' + r.accuracy + '%</b><span>Accuracy</span></div>' +
+          '<div class="rc-ready-factor"><b>' + r.coveragePct + '%</b><span>Coverage</span></div>' +
+          '<div class="rc-ready-factor"><b>' + r.weakCount + '</b><span>Weak areas</span></div>' +
+          '<div class="rc-ready-factor"><b>' + r.attempted + '</b><span>Answered</span></div>' +
+        '</div>';
+      var progress = host.querySelector('.rc3-progress, .rc3-zero-progress, .rc-stats-row');
+      if(progress) progress.insertAdjacentElement('afterend', ready);
+      else host.insertAdjacentElement('afterbegin', ready);
+    }
+
+    if(host.querySelector('#rcFocusClinic')) return;
+
+    var rows = buildFocusClinicRows();
+    var clinic = document.createElement('div');
+    clinic.id = 'rcFocusClinic';
+    clinic.className = 'rc-focus-clinic';
+
+    var html = '<div class="rc-fc-head"><div><div class="rc-fc-title">Focus Clinic</div><div class="rc-fc-sub">Weak standards + open mistakes in one place</div></div></div>';
+
+    if(!rows.length){
+      html += '<div class="rc-fc-empty">No weak areas or open mistakes yet. Keep practising — this list builds automatically.</div>';
+    } else {
+      var top = rows[0];
+      var accLabel = top.accuracyPct == null ? 'n/a' : (top.accuracyPct + '%');
+      html += '<div class="rc-fc-priority">' +
+        '<div class="rc-fc-priority-text"><b>Priority now:</b> ' + top.code + ' — ' + top.title +
+        '<br>' + accLabel + ' accuracy · ' + top.mistakes + ' open mistake' + (top.mistakes===1?'':'s') + '</div>' +
+        '<button type="button" class="rc-fc-priority-btn" data-jump="' + top.code + '">Start with this</button>' +
+      '</div>';
+
+      var show = rows.slice(0, 5);
+      html += '<div class="rc-fc-list" id="rcFcList">' + show.map(function(m){
+        var a = m.accuracyPct == null ? '—' : (m.accuracyPct + '%');
+        return '<button type="button" class="rc-fc-row" data-jump="' + m.code + '">' +
+          '<span class="rc-fc-code">' + m.code + '</span>' +
+          '<span class="rc-fc-meta"><span class="rc-fc-name">' + m.title + '</span>' +
+          '<span class="rc-fc-stats">' + (m.isWeak ? 'Weak area' : 'Mistakes only') + '</span></span>' +
+          '<span class="rc-fc-pills">' +
+            '<span class="rc-fc-pill acc">' + a + '</span>' +
+            '<span class="rc-fc-pill miss">' + m.mistakes + ' miss</span>' +
+          '</span></button>';
+      }).join('') + '</div>';
+
+      if(rows.length > 5){
+        html += '<button type="button" class="rc-fc-more" id="rcFcMore">Show all ' + rows.length + '</button>';
+      }
+    }
+
+    clinic.innerHTML = html;
+
+    var readyEl = host.querySelector('#rcReadyCard');
+    if(readyEl) readyEl.insertAdjacentElement('afterend', clinic);
+    else {
+      var progress = host.querySelector('.rc3-progress, .rc3-zero-progress');
+      if(progress) progress.insertAdjacentElement('afterend', clinic);
+      else host.insertAdjacentElement('afterbegin', clinic);
+    }
+
+    function bindJumps(root){
+      root.querySelectorAll('[data-jump]').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var code = btn.getAttribute('data-jump');
+          if(code && typeof selectStandard === 'function') selectStandard(code);
+        });
+      });
+    }
+    bindJumps(clinic);
+
+    var more = clinic.querySelector('#rcFcMore');
+    if(more){
+      more.addEventListener('click', function(){
+        var list = clinic.querySelector('#rcFcList');
+        if(!list) return;
+        list.innerHTML = rows.map(function(m){
+          var a = m.accuracyPct == null ? '—' : (m.accuracyPct + '%');
+          return '<button type="button" class="rc-fc-row" data-jump="' + m.code + '">' +
+            '<span class="rc-fc-code">' + m.code + '</span>' +
+            '<span class="rc-fc-meta"><span class="rc-fc-name">' + m.title + '</span>' +
+            '<span class="rc-fc-stats">' + (m.isWeak ? 'Weak area' : 'Mistakes only') + '</span></span>' +
+            '<span class="rc-fc-pills"><span class="rc-fc-pill acc">' + a + '</span><span class="rc-fc-pill miss">' + m.mistakes + ' miss</span></span></button>';
+        }).join('');
+        bindJumps(list);
+        more.remove();
+      });
+    }
+  }
+
+  var t=null;
+  var wrap=document.getElementById('contentWrap');
+  if(wrap) new MutationObserver(function(){ clearTimeout(t); t=setTimeout(inject, 80); }).observe(wrap,{childList:true,subtree:true});
+  function boot(){ setTimeout(inject, 250); setTimeout(inject, 900); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
+
+
+<script>
+/* Mistakes review: calc self-check + generic open standard */
+(function(){
+  if(window.__mrExtraBound) return;
+  window.__mrExtraBound = true;
+  document.addEventListener('click', function(e){
+    var calcBtn = e.target.closest && e.target.closest('[data-mrcalc]');
+    if(calcBtn){
+      var card = calcBtn.getAttribute('data-mrcalc');
+      var ok = calcBtn.getAttribute('data-mrcalcok') === '1';
+      var exp = document.querySelector('.quiz-explain[data-mexplain="'+card+'"]');
+      if(exp) exp.classList.add('shown');
+      document.querySelectorAll('[data-mrcalc="'+card+'"]').forEach(function(b){ b.disabled = true; });
+      // try to record if set available on window
+      try {
+        var wrap = document.getElementById('contentWrap');
+        // score bump best-effort
+        if(ok && typeof playCorrectDing === 'function') playCorrectDing();
+      } catch(err){}
+      return;
+    }
+    var jump = e.target.closest && e.target.closest('[data-mrjump]');
+    if(jump){
+      var code = jump.getAttribute('data-mrjump');
+      if(code && typeof selectStandard === 'function') selectStandard(code);
+    }
+  });
 })();
 </script>
 
