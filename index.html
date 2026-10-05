@@ -1798,7 +1798,7 @@ body.perf-paused .home-badge-ring {
 
 
 .interactive-progress-summary{margin:10px 0 16px;padding:10px 14px;border:1px solid var(--teal);border-radius:9px;background:var(--teal-soft);color:var(--ink-soft);font-family:var(--font-mono);font-size:11px;text-align:center;}
-.under-process-label{font-family:var(--font-mono);font-size:.82em;color:var(--rust);font-weight:700;}button.home-icp-card:has(.under-process-label){opacity:1;background:#F3F0FB !important;border:2px solid #9B7FD4 !important;}
+.under-process-label{font-family:var(--font-mono);font-size:.68em;color:var(--ink-soft);font-weight:600;white-space:nowrap;}button.home-icp-card:has(.under-process-label){opacity:1;background:#F3F0FB !important;border:2px solid #9B7FD4 !important;}
 .home-icp-card:has(.under-process-label) .under-process-label{color:#6B4FA8;}
 .home-icp-card:has(.under-process-label) .hicp-btn{background:#6B4FA8 !important;color:#fff !important;}
 .similarity-disclaimer{margin:10px 14px;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink-soft);font-size:11px;line-height:1.6;}
@@ -2316,6 +2316,180 @@ body.dark-mode .study-guidance-notice.advisory-notice{
   padding:8px 10px;
 }
 
+
+/* ===== Home refinements: native accordions + unified palette ===== */
+.rc3-toolkit.home-accordion{border:1px solid var(--line-soft);border-radius:12px;background:var(--paper);overflow:hidden;}
+.rc3-toolkit.home-accordion > summary{list-style:none;cursor:pointer;user-select:none;}
+.rc3-toolkit.home-accordion > summary::-webkit-details-marker{display:none;}
+.rc3-toolkit.home-accordion > summary .accordion-chevron{font-size:9px;margin-left:6px;color:var(--ink-soft);transition:transform .18s ease;}
+.rc3-toolkit.home-accordion[open] > summary .accordion-chevron{transform:rotate(180deg);}
+.rc3-toolkit.home-accordion .rc3-tool-grid{padding:0 10px 10px;}
+.time-options-accordion{margin:0 0 8px;border:1px solid var(--line-soft);border-radius:10px;background:var(--paper);overflow:hidden;}
+.time-options-accordion > summary{list-style:none;cursor:pointer;user-select:none;padding:8px 10px;margin:0;color:var(--ink-soft);font-size:10px;font-weight:600;}
+.time-options-accordion > summary::-webkit-details-marker{display:none;}
+.time-options-summary{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.time-options-accordion > summary .accordion-chevron{font-size:9px;transition:transform .18s ease;}
+.time-options-accordion[open] > summary .accordion-chevron{transform:rotate(180deg);}
+.time-options-accordion .time-boxed-row-primary{padding:0 8px 8px;}
+#contentWrap:has(.home-hero) .time-options-accordion{border-color:var(--teal);}
+#contentWrap:has(.home-hero) .tb-btn{border-color:var(--teal);color:var(--teal);background:var(--paper);}
+#contentWrap:has(.home-hero) .tb-btn:hover,#contentWrap:has(.home-hero) .tb-btn.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+#contentWrap:has(.home-hero) .home-icp-card:has(.under-process-label){background:var(--teal-soft)!important;border-color:var(--teal)!important;}
+#contentWrap:has(.home-hero) .home-icp-card:has(.under-process-label) .under-process-label{color:var(--ink-soft);}
+#contentWrap:has(.home-hero) .home-icp-card:has(.under-process-label) .hicp-btn{background:var(--teal)!important;color:#fff!important;}
+
+
+/* =========================================================
+   HOME PALETTE — unified visual language
+   Teal = primary / Gold = accent / Neutral = surfaces
+   ========================================================= */
+#contentWrap:has(.home-hero){
+  --home-primary:#2E6E68;
+  --home-primary-soft:#DCEAE8;
+  --home-primary-deep:#245953;
+  --home-accent:#B5842A;
+  --home-accent-soft:#F1E3C4;
+  --home-surface:#FFFFFF;
+  --home-surface-soft:#F6F8F5;
+  --home-line:#D7DED6;
+  --home-text:#1E2A26;
+  --home-muted:#5A6862;
+}
+#contentWrap:has(.home-hero) .step-chip,
+#contentWrap:has(.home-hero) .tool-card,
+#contentWrap:has(.home-hero) .home-icp-card,
+#contentWrap:has(.home-hero) .tg-progress,
+#contentWrap:has(.home-hero) .ah-dashboard,
+#contentWrap:has(.home-hero) .exclusive-announce{
+  border-color:var(--home-line)!important;
+}
+#contentWrap:has(.home-hero) .step-chip.learn,
+#contentWrap:has(.home-hero) .step-chip.practice,
+#contentWrap:has(.home-hero) .step-chip.exam{
+  background:var(--home-surface)!important;
+}
+#contentWrap:has(.home-hero) .step-num,
+#contentWrap:has(.home-hero) .tg-icon-circle,
+#contentWrap:has(.home-hero) .practice-badge{
+  background:var(--home-primary-soft)!important;
+  color:var(--home-primary-deep)!important;
+  border-color:var(--home-primary)!important;
+}
+#contentWrap:has(.home-hero) .step-top,
+#contentWrap:has(.home-hero) .tool-card h3,
+#contentWrap:has(.home-hero) .home-icp-card .hicp-title{
+  color:var(--home-text)!important;
+}
+#contentWrap:has(.home-hero) .step-hint,
+#contentWrap:has(.home-hero) .tc-hint,
+#contentWrap:has(.home-hero) .step-arrow{
+  color:var(--home-muted)!important;
+}
+#contentWrap:has(.home-hero) .tb-btn{
+  border-color:var(--home-primary)!important;
+  color:var(--home-primary-deep)!important;
+  background:var(--home-surface)!important;
+}
+#contentWrap:has(.home-hero) .tb-btn:hover,
+#contentWrap:has(.home-hero) .tb-btn.active,
+#contentWrap:has(.home-hero) .tb-btn.selected{
+  background:var(--home-primary)!important;
+  color:#fff!important;
+}
+#contentWrap:has(.home-hero) .home-icp-card{
+  background:var(--home-surface)!important;
+  border-color:var(--home-primary)!important;
+}
+#contentWrap:has(.home-hero) .home-icp-card .hicp-btn{
+  background:var(--home-primary)!important;
+  color:#fff!important;
+}
+#contentWrap:has(.home-hero) .home-icp-card .under-process-label{
+  color:var(--home-primary-deep)!important;
+}
+#contentWrap:has(.home-hero) .exclusive-announce{
+  background:linear-gradient(135deg,var(--home-accent-soft),#FFFDF8)!important;
+  border-color:var(--home-accent)!important;
+}
+#contentWrap:has(.home-hero) .practice-select-card .tc-icon-wrap{
+  background:var(--home-primary-soft)!important;
+}
+#contentWrap:has(.home-hero) .home-accordion,
+#contentWrap:has(.home-hero) .time-options-accordion{
+  border-color:var(--home-line)!important;
+  background:var(--home-surface-soft)!important;
+}
+#contentWrap:has(.home-hero) .home-accordion[open],
+#contentWrap:has(.home-hero) .time-options-accordion[open]{
+  background:var(--home-surface)!important;
+}
+#contentWrap:has(.home-hero) .rc3-toolkit-head,
+#contentWrap:has(.home-hero) .time-options-summary{
+  color:var(--home-text)!important;
+}
+#contentWrap:has(.home-hero) .accordion-chevron{
+  color:var(--home-primary)!important;
+}
+#contentWrap:has(.home-hero) .practice-start-btn,
+#contentWrap:has(.home-hero) .rc3-breakdown{
+  background:var(--home-primary)!important;
+  border-color:var(--home-primary)!important;
+  color:#fff!important;
+}
+#contentWrap:has(.home-hero) .practice-start-btn:hover,
+#contentWrap:has(.home-hero) .rc3-breakdown:hover{
+  background:var(--home-primary-deep)!important;
+}
+#contentWrap:has(.home-hero) .home-badge,
+#contentWrap:has(.home-hero) .practice-total-badge{
+  background:var(--home-accent-soft)!important;
+  color:#765719!important;
+  border-color:var(--home-accent)!important;
+}
+body.dark-mode #contentWrap:has(.home-hero){
+  --home-primary:#5FBDB3;
+  --home-primary-soft:#1B3330;
+  --home-primary-deep:#7ACCC3;
+  --home-accent:#D9A94A;
+  --home-accent-soft:#3D3320;
+  --home-surface:#20262A;
+  --home-surface-soft:#1A2023;
+  --home-line:#3A4645;
+  --home-text:#E8ECE9;
+  --home-muted:#A8B5AE;
+}
+
+/* Unified advice/quote palette — same teal family, slightly deeper for stronger hierarchy */
+.home-teal-theme>.motivational-quote.mq-home-subtle,
+.home-teal-theme .motivational-quote.mq-home-subtle{
+  background:#18545A!important;
+  background-image:none!important;
+  color:#fff!important;
+  border:1px solid #12464B!important;
+  border-radius:12px!important;
+  box-shadow:0 3px 10px rgba(24,84,90,.18)!important;
+  animation:none!important;
+}
+.home-teal-theme>.motivational-quote.mq-home-subtle .mq-author{color:rgba(255,255,255,.82)!important;}
+
+/* Opening guidance/advice: same palette, with a slightly wider frame */
+.home-teal-theme>.advisory-notice,
+.home-teal-theme .study-guidance-notice.advisory-notice,
+.home-teal-theme .advisory-notice.study-guidance-notice{
+  background:#E7F3F2!important;
+  border:2px solid #1E5961!important;
+  border-radius:12px!important;
+  box-shadow:0 2px 8px rgba(30,89,97,.10)!important;
+}
+.home-teal-theme .study-guidance-toggle{color:#18545A!important;}
+.home-teal-theme .study-guidance-arrow{color:#1E5961!important;}
+body.dark-mode .home-teal-theme>.advisory-notice,
+body.dark-mode .home-teal-theme .study-guidance-notice.advisory-notice,
+body.dark-mode .home-teal-theme .advisory-notice.study-guidance-notice{
+  background:#173F43!important;
+  border-color:#2E8A8F!important;
+}
+body.dark-mode .home-teal-theme .study-guidance-toggle{color:#D8F0EF!important;}
 </style>
 </head>
 <body>
@@ -6169,7 +6343,7 @@ if(window._gaKeyHandler)document.removeEventListener("keydown",window._gaKeyHand
 window._gaKeyHandler=function(ev){if(activeCode!=="GROUPACCOUNTS")return;const tag=(ev.target&&ev.target.tagName)||"";if(tag==="INPUT"||tag==="TEXTAREA"||tag==="SELECT")return;if(ev.key<"1"||ev.key>"4")return;let target=-1;for(let i=0;i<total;i++){if(!answered[String(i)]){target=i;break}}if(target<0)return;const btn=document.querySelector('.quiz-option[data-qi="'+target+'"][data-oi="'+(parseInt(ev.key,10)-1)+'"]');if(btn)btn.click()};
 document.addEventListener("keydown",window._gaKeyHandler);
 }
-const _gaPinEl=document.getElementById("groupAccountsPin");function renderHome(){recordNav(renderHome,[]),activeCode=null,clearAllPins();const e=[{cls:"learn",num:"1",title:"Learn",hint:"Read the objective, scope, definitions &amp; worked examples."},{cls:"practice",num:"2",title:"Practice",hint:"Self-test practice, calc practice &amp; the random mixed practice."},{cls:"exam",num:"3",title:"Exam",hint:"Model answer, technique, buzzwords &amp; final checklist."}].map((e,t,i)=>'<div class="step-chip '+e.cls+'"><div class="step-top"><span class="step-num">'+e.num+"</span>"+e.title+'</div><div class="step-hint">'+e.hint+"</div></div>"+(t<i.length-1?'<span class="step-arrow">&rarr;</span>':"")).join(""),t=[{label:"<span class=\"tg-icon-circle\">&#128221;</span> Practice &amp; Test",tools:[]}],i=[];t.forEach(function(e){e.tools.forEach(function(e){i.push(e)})});let a=0;const n=t.map(function(e){let t="<span class=\"tg-icon-circle\">&#128221;</span> Practice &amp; Test"===e.label?'<div class="tool-card practice-select-card"><div class="tc-icon-wrap" style="background:#F5D4C8;"><span class="tc-icon">&#127919;</span></div><h3>Practice Centre &mdash; All Standards <span class="practice-total-badge">(' + getUnifiedPracticePool(null).length + ' total available)</span></h3><p class="tc-hint">&#9203; Pick how much time you have:</p><div class="time-boxed-row time-boxed-row-primary"><div class="tb-buttons"><button type="button" class="tb-btn" data-tb-minutes="10">10 min</button><button type="button" class="tb-btn" data-tb-minutes="20">20 min</button><button type="button" class="tb-btn" data-tb-minutes="30">30 min</button><button type="button" class="tb-btn" data-tb-minutes="45">45 min</button><button type="button" class="tb-btn" data-tb-minutes="60">60 min</button><button type="button" class="tb-btn" data-tb-minutes="90">90 min</button></div></div><p class="tc-hint practice-advanced-label">Or choose specific question types:</p><div class="practice-check-grid"><label class="practice-check-label"><input type="checkbox" id="practiceMcqCheck"> <span class="practice-badge">ABCD</span> MCQ (' + (buildQuizPool().length + buildSpeedRoundPool().length) + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceVerbCheck"> <span class="practice-badge">💬</span> Command Word Mastery (' + (VERB_CHALLENGE_BANK.length + VERB_CHALLENGE_REVERSE_BANK.length + COMMAND_WORD_DRILLS.length) + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceInvestigationCheck"> <span class="practice-badge">🕵️</span> Investigation Cases (' + INVESTIGATION_CASES.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceTfCheck"> <span class="practice-badge">&#10003;&#10007;</span> True / False (' + Object.values(TRUE_FALSE_BANK).flat().length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceCalcCheck"> <span class="practice-badge">&#8721;</span> Calculations (' + buildCalcPool().length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceSpotCheck"> <span class="practice-badge">&#128269;</span> Spot the Error  (' + SPOT_THE_ERROR.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceSeqCheck"> <span class="practice-badge">1&rarr;2&rarr;3</span> Sequencing  (' + SEQUENCING_QUESTIONS.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceOddCheck"> <span class="practice-badge">3+1</span> Odd One Out  (' + ODD_ONE_OUT.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceEthicsCheck"> <span class="practice-badge">&#9878;&#65039;</span> Ethics (' + (ETHICS_SCENARIOS.length + (typeof ETHICS_CASE_STUDIES!=="undefined"?ETHICS_CASE_STUDIES.length:0)) + ')</label><label class="practice-check-label"><input type="checkbox" class="innovative-checkbox" id="practiceBfCheck"> <span class="practice-badge">&#128481;</span> Boss Fight  (' + BOSS_FIGHT_DATA.length + ')</label><label class="practice-check-label"><input type="checkbox" class="innovative-checkbox" id="practiceDtCheck"> <span class="practice-badge">&#127795;</span> Decision Trees  (' + DECISION_TREES.length + ')</label><label class="practice-check-label"><input type="checkbox" class="innovative-checkbox" id="practiceCrCheck"> <span class="practice-badge">&#128680;</span> Code Red  (' + CODE_RED_SCENARIOS.length + ')</label><label class="practice-check-label"><input type="checkbox" class="innovative-checkbox" id="practiceTleCheck"> <span class="practice-badge">&#129504;</span> Exam Room  (' + TLE_SCENARIOS.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceGaCheck"> <span class="practice-badge">&#127970;</span> Group Accounts <span class="under-process-label">(Under development)</span><span class="ga-learn-link" id="gaLearnLinkBtn">&#128218; Learn the basics &rarr;</span></label><label class="practice-check-label"><input type="checkbox" id="practiceRealExamCheck"> <span class="practice-badge">&#127891;</span> Exam Style Practice (' + buildRealExamPool().length + ')</label></div><div class="practice-action-group"><div class="practice-selected-count" id="practiceSelectedCount"></div><label class="focused-timer-optin"><input type="checkbox" id="focusedTimerOptIn"> &#9200; Add a real timer to this session</label><button type="button" class="practice-start-btn" id="startPracticeBtn">&#127919; Start Focused Practice &rarr;</button><button type="button" class="msel-open-btn" id="mselOpenBtn">&#128218; أو اختار مجموعة معايير للتمرين &rarr;</button></div></div><button type="button" class="home-icp-card" id="icpBannerLink"><div class="hicp-icon">&#127919;</div><div class="hicp-body"><div class="hicp-title">CBE-Style Consolidation Engine <span class="under-process-label">(Under development)</span></div></div><span class="hicp-btn">Under development</span></button>':"";return t+=e.tools.map(function(e){const t='<div class="tool-card '+e.cls+'" data-tool-idx="'+a+'"><div class="tc-icon-wrap"><span class="tc-icon">'+e.icon+"</span></div><h3>"+e.title+'</h3><p class="tc-hint">'+e.hint+"</p></div>";return a++,t}).join(""),'<div class="tool-group '+(e.label.indexOf("Practice")>-1?"tg-practice":e.label.indexOf("Progress")>-1?"tg-progress":"tg-toolkit")+'"><div class="tool-group-label">'+e.label+'</div><div class="tools-grid">'+t+"</div></div>"}).join(""),r=getOverallStats();let _lastStd=null;try{_lastStd=localStorage.getItem("dipifr_last_standard");}catch(e){}
+const _gaPinEl=document.getElementById("groupAccountsPin");function renderHome(){recordNav(renderHome,[]),activeCode=null,clearAllPins();const e=[{cls:"learn",num:"1",title:"Learn",hint:"Read the objective, scope, definitions &amp; worked examples."},{cls:"practice",num:"2",title:"Practice",hint:"Self-test practice, calc practice &amp; the random mixed practice."},{cls:"exam",num:"3",title:"Exam",hint:"Model answer, technique, buzzwords &amp; final checklist."}].map((e,t,i)=>'<div class="step-chip '+e.cls+'"><div class="step-top"><span class="step-num">'+e.num+"</span>"+e.title+'</div><div class="step-hint">'+e.hint+"</div></div>"+(t<i.length-1?'<span class="step-arrow">&rarr;</span>':"")).join(""),t=[{label:"<span class=\"tg-icon-circle\">&#128221;</span> Practice &amp; Test",tools:[]}],i=[];t.forEach(function(e){e.tools.forEach(function(e){i.push(e)})});let a=0;const n=t.map(function(e){let t="<span class=\"tg-icon-circle\">&#128221;</span> Practice &amp; Test"===e.label?'<div class="tool-card practice-select-card"><div class="tc-icon-wrap" style="background:#F5D4C8;"><span class="tc-icon">&#127919;</span></div><h3>Practice Centre &mdash; All Standards <span class="practice-total-badge">(' + getUnifiedPracticePool(null).length + ' total available)</span></h3><details class="time-options-accordion"><summary class="tc-hint time-options-summary">&#9203; Pick how much time you have <b class="accordion-chevron">&#9660;</b></summary><div class="time-boxed-row time-boxed-row-primary"><div class="tb-buttons"><button type="button" class="tb-btn" data-tb-minutes="10">10 min</button><button type="button" class="tb-btn" data-tb-minutes="20">20 min</button><button type="button" class="tb-btn" data-tb-minutes="30">30 min</button><button type="button" class="tb-btn" data-tb-minutes="45">45 min</button><button type="button" class="tb-btn" data-tb-minutes="60">60 min</button><button type="button" class="tb-btn" data-tb-minutes="90">90 min</button></div></div></details><p class="tc-hint practice-advanced-label">Or choose specific question types:</p><div class="practice-check-grid"><label class="practice-check-label"><input type="checkbox" id="practiceMcqCheck"> <span class="practice-badge">ABCD</span> MCQ (' + (buildQuizPool().length + buildSpeedRoundPool().length) + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceVerbCheck"> <span class="practice-badge">💬</span> Command Word Mastery (' + (VERB_CHALLENGE_BANK.length + VERB_CHALLENGE_REVERSE_BANK.length + COMMAND_WORD_DRILLS.length) + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceInvestigationCheck"> <span class="practice-badge">🕵️</span> Investigation Cases (' + INVESTIGATION_CASES.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceTfCheck"> <span class="practice-badge">&#10003;&#10007;</span> True / False (' + Object.values(TRUE_FALSE_BANK).flat().length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceCalcCheck"> <span class="practice-badge">&#8721;</span> Calculations (' + buildCalcPool().length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceSpotCheck"> <span class="practice-badge">&#128269;</span> Spot the Error  (' + SPOT_THE_ERROR.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceSeqCheck"> <span class="practice-badge">1&rarr;2&rarr;3</span> Sequencing  (' + SEQUENCING_QUESTIONS.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceOddCheck"> <span class="practice-badge">3+1</span> Odd One Out  (' + ODD_ONE_OUT.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceEthicsCheck"> <span class="practice-badge">&#9878;&#65039;</span> Ethics (' + (ETHICS_SCENARIOS.length + (typeof ETHICS_CASE_STUDIES!=="undefined"?ETHICS_CASE_STUDIES.length:0)) + ')</label><label class="practice-check-label"><input type="checkbox" class="innovative-checkbox" id="practiceBfCheck"> <span class="practice-badge">&#128481;</span> Boss Fight  (' + BOSS_FIGHT_DATA.length + ')</label><label class="practice-check-label"><input type="checkbox" class="innovative-checkbox" id="practiceDtCheck"> <span class="practice-badge">&#127795;</span> Decision Trees  (' + DECISION_TREES.length + ')</label><label class="practice-check-label"><input type="checkbox" class="innovative-checkbox" id="practiceCrCheck"> <span class="practice-badge">&#128680;</span> Code Red  (' + CODE_RED_SCENARIOS.length + ')</label><label class="practice-check-label"><input type="checkbox" class="innovative-checkbox" id="practiceTleCheck"> <span class="practice-badge">&#129504;</span> Exam Room  (' + TLE_SCENARIOS.length + ')</label><label class="practice-check-label"><input type="checkbox" id="practiceGaCheck"> <span class="practice-badge">&#127970;</span> Group Accounts <span class="under-process-label">(Under development)</span><span class="ga-learn-link" id="gaLearnLinkBtn">&#128218; Learn the basics &rarr;</span></label><label class="practice-check-label"><input type="checkbox" id="practiceRealExamCheck"> <span class="practice-badge">&#127891;</span> Exam Style Practice (' + buildRealExamPool().length + ')</label></div><div class="practice-action-group"><div class="practice-selected-count" id="practiceSelectedCount"></div><label class="focused-timer-optin"><input type="checkbox" id="focusedTimerOptIn"> &#9200; Add a real timer to this session</label><button type="button" class="practice-start-btn" id="startPracticeBtn">&#127919; Start Focused Practice &rarr;</button><button type="button" class="msel-open-btn" id="mselOpenBtn">&#128218; أو اختار مجموعة معايير للتمرين &rarr;</button></div></div><button type="button" class="home-icp-card" id="icpBannerLink"><div class="hicp-icon">&#127919;</div><div class="hicp-body"><div class="hicp-title">CBE-Style Consolidation Engine <span class="under-process-label">(Under development)</span></div></div><span class="hicp-btn">Under development</span></button>':"";return t+=e.tools.map(function(e){const t='<div class="tool-card '+e.cls+'" data-tool-idx="'+a+'"><div class="tc-icon-wrap"><span class="tc-icon">'+e.icon+"</span></div><h3>"+e.title+'</h3><p class="tc-hint">'+e.hint+"</p></div>";return a++,t}).join(""),'<div class="tool-group '+(e.label.indexOf("Practice")>-1?"tg-practice":e.label.indexOf("Progress")>-1?"tg-progress":"tg-toolkit")+'"><div class="tool-group-label">'+e.label+'</div><div class="tools-grid">'+t+"</div></div>"}).join(""),r=getOverallStats();let _lastStd=null;try{_lastStd=localStorage.getItem("dipifr_last_standard");}catch(e){}
 const _stdObj=_lastStd?STANDARDS.find(function(s){return s.code===_lastStd;}):null;
 const _revCount=Object.keys(reviewed||{}).filter(function(k){return reviewed[k]==="green"||reviewed[k]===true;}).length;
 const _stdTotal=STANDARDS.length;
@@ -6923,10 +7097,10 @@ function buildReviewCenterHomeHtml(){
       +'<div class="rc3-section-heading"><span>&#127919; Your Focus</span><small>Weak areas below 70% accuracy</small></div>'
       +focusHtml
       +mistakeLink
-      +'<div class="rc3-toolkit">'
-        +'<div class="rc3-toolkit-head"><span>&#128218; Quick Tools</span><small>Fast revision essentials</small></div>'
+      +'<details class="rc3-toolkit home-accordion">'
+        +'<summary class="rc3-toolkit-head"><span>&#128218; Quick Tools</span><small>Fast revision essentials <b class="accordion-chevron">&#9660;</b></small></summary>'
         +'<div class="rc3-tool-grid">'+toolkitHtml+'</div>'
-      +'</div>'
+      +'</details>'
       +'<div class="rc3-footer-actions"><button type="button" class="rc3-breakdown" id="rcViewFullBreakdownBtn">View full standard-by-standard breakdown &rarr;</button><span class="reset-progress-link" id="rcResetProgressBtn">&#128260; Reset progress</span></div>'
     +'</div>'
   +'</section>';
