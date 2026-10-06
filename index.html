@@ -729,12 +729,12 @@ body.dark-mode .exclusive-announce{background:linear-gradient(135deg,#3D3320,#33
 .ah-quick{padding:15px 18px 18px}
 @keyframes tcCardShimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}.tc-card{background:linear-gradient(120deg,#9C4632,#B5842A,#C97B5A,#B5842A,#9C4632);background-size:300% 100%;animation:tcCardShimmer 6s ease-in-out infinite;border-radius:14px;padding:20px 22px;margin-bottom:22px;color:#fff;box-shadow:0 4px 16px rgba(156,70,50,.25);}
 .tc-card-compact{background:var(--teal) !important;animation:none !important;box-shadow:none !important;}
-.tc-card-blue{background:linear-gradient(135deg,#A8611E 0%,#D9711F 55%,#E89A4D 100%) !important;text-align:center;}
+.tc-card-blue{background:linear-gradient(135deg,#174C49 0%,#236B64 58%,#2E8177 100%) !important;text-align:center;border:1px solid rgba(181,132,42,.38);}.tc-card-blue .tc-fire-ring{background:rgba(181,132,42,.22);border:1px solid rgba(255,255,255,.16);}.tc-card-blue .tc-start-btn{color:#174C49 !important;border:2px solid #B5842A !important;box-shadow:0 4px 12px rgba(0,0,0,.12);}.tc-card-blue .tc-mini-tip-link{color:#F4E6C2 !important;}.tc-card-blue .tc-mini-tip-link:hover{color:#fff !important;}
 .tc-fire-ring{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
 .tc-card-blue h2{font-family:var(--font-display);font-size:17px;margin:0 0 4px;color:#fff;}
 .tc-sub-ar{font-size:12px;color:rgba(255,255,255,.85);margin:0 0 4px;}
 .tc-sub-en{font-size:11px;color:rgba(255,255,255,.7);margin:0 0 14px;}
-.tc-start-btn{width:100%;display:block;background:#fff !important;color:#1E5FA8 !important;animation:tcPulseGold 2s ease-in-out infinite;}
+.tc-start-btn{width:100%;display:block;background:#fff !important;color:#174C49 !important;animation:tcPulseGold 2s ease-in-out infinite;}
 @keyframes tcPulseGold{0%,100%{box-shadow:0 0 0 0 rgba(255,209,102,.6);}50%{box-shadow:0 0 0 9px rgba(255,209,102,0);}}
 .tc-card-compact #startTodaysChallengeBtn{width:100%;display:block;text-align:center;}
 .tc-mini-tip{font-size:11px;color:rgba(255,255,255,.85);text-align:center;margin:10px 0 0;font-weight:600;}
@@ -2491,7 +2491,90 @@ body.dark-mode .home-teal-theme .advisory-notice.study-guidance-notice{
 }
 body.dark-mode .home-teal-theme .study-guidance-toggle{color:#D8F0EF!important;}
 </style>
-</head>
+<style id="daily-ifrs-orange-gold-final">
+/* FINAL DAILY IFRS CHALLENGE PALETTE — orange / brown / gold only */
+.tc-hero-reference{
+  background:linear-gradient(120deg,#3A2117 0%,#6B351F 42%,#A84F24 72%,#C86A2B 100%)!important;
+  border:1px solid rgba(255,193,91,.78)!important;
+  box-shadow:0 16px 38px rgba(82,38,18,.32)!important;
+}
+.tc-hero-reference:before{
+  background:radial-gradient(circle at 72% 35%,rgba(255,196,76,.26),transparent 58%)!important;
+}
+.tc-reference-trophy{
+  border-color:#FFD36A!important;
+  background:rgba(255,194,76,.11)!important;
+  box-shadow:0 0 0 7px rgba(255,194,76,.05)!important;
+}
+.tc-reference-en-title{color:#FFD36A!important;}
+.tc-reference-icon{
+  border-color:#FFD36A!important;
+  color:#FFD36A!important;
+}
+.tc-reference-divider{background:rgba(255,205,116,.55)!important;}
+.tc-hero-reference .tc-start-btn{
+  background:linear-gradient(90deg,#FFD36A 0%,#FFB52E 48%,#F39A25 100%)!important;
+  color:#3A2117!important;
+  box-shadow:0 9px 22px rgba(255,177,46,.34)!important;
+}
+.tc-hero-reference .tc-start-btn:hover{filter:saturate(1.12) brightness(1.03)!important;}
+.tc-glow{
+  background:rgba(255,174,60,.18)!important;
+  box-shadow:0 0 70px rgba(255,177,61,.20)!important;
+}
+.tc-paper{color:#5B2C1B!important;}
+.tc-paper i.checked{border-color:#C86A2B!important;}
+.tc-clock{border-color:#A84F24!important;}
+.tc-clock:before,.tc-clock:after{background:#6B351F!important;}
+.tc-clock span{background:#6B351F!important;}
+.tc-clip{background:#FFD36A!important;}
+.tc-books b{
+  background:linear-gradient(90deg,#6B351F,#8F4726)!important;
+  border-left-color:#FFD36A!important;
+}
+.tc-books b:nth-child(2){
+  background:linear-gradient(90deg,#8A4325,#A95A2A)!important;
+  border-left-color:#FFC45B!important;
+}
+.tc-books b:nth-child(3){
+  background:linear-gradient(90deg,#B87522,#D89A32)!important;
+  border-left-color:#FFE08A!important;
+}
+.tc-reference-bottom{border-top-color:rgba(255,204,112,.48)!important;}
+.tc-reference-bottom .tc-reminder-bell{
+  border-color:#FFD36A!important;
+  background:rgba(255,195,77,.10)!important;
+}
+.tc-reference-bottom .tc-reminder-text b,
+.tc-reference-bottom .tc-mini-tip-link span,
+.tc-reference-bottom .tc-mini-tip-link b{color:#FFD36A!important;}
+.tc-reference-bottom .tc-mini-tip-link{border-left-color:rgba(255,204,112,.48)!important;}
+</style>
+<style id="daily-ifrs-background-final">
+/* ONLY the Daily IFRS Challenge card background */
+#todaysChallengeCard.tc-hero-reference,
+.home-teal-theme #todaysChallengeCard.tc-hero-reference,
+body #todaysChallengeCard.tc-hero-reference{
+  background: linear-gradient(135deg, #2B1710 0%, #4A2415 24%, #7A3519 52%, #B65322 78%, #E07A2D 100%) !important;
+  background-color: #5A2A18 !important;
+  border-color: #E7A93B !important;
+  box-shadow: 0 18px 42px rgba(74,36,21,.42) !important;
+}
+#todaysChallengeCard.tc-hero-reference::before{
+  background:
+    radial-gradient(circle at 78% 30%, rgba(255,190,66,.34), transparent 34%),
+    radial-gradient(circle at 18% 75%, rgba(224,122,45,.28), transparent 38%) !important;
+}
+#todaysChallengeCard.tc-hero-reference .tc-reference-bottom{
+  background: linear-gradient(90deg, rgba(43,23,16,.42), rgba(122,53,25,.28), rgba(43,23,16,.42)) !important;
+}
+</style>
+<style id="daily-challenge-final-readability">
+/* Daily IFRS Challenge — final visual adjustment only */
+#todaysChallengeCard{background:linear-gradient(135deg,#5a2d18 0%,#8f451f 42%,#c86f2d 72%,#e7a33a 100%) !important;border-color:#b66a2b !important;}
+#todaysChallengeCard .tc-mini-tip-link{font-family:Arial,"Noto Sans Arabic",Tahoma,sans-serif !important;font-size:15px !important;font-weight:700 !important;line-height:1.7 !important;color:#fff8e8 !important;background:rgba(77,38,18,.78) !important;border:1px solid rgba(255,220,150,.65) !important;text-shadow:0 1px 2px rgba(0,0,0,.45) !important;padding:10px 14px !important;border-radius:10px !important;}
+#todaysChallengeCard .tc-mini-tip-link:hover{background:rgba(66,31,14,.92) !important;color:#fff !important;}
+</style></head>
 <body>
 <div id="eyeProtectOverlay" aria-hidden="true"></div>
 <div class="topbar">
@@ -6352,7 +6435,7 @@ const _acc=r.accuracyPct||0;
 const _attempted=r.attempted||0;
 const _theoTotal=(typeof THEORETICAL_BANK!=="undefined"&&THEORETICAL_BANK)?THEORETICAL_BANK.length:0;
 let l='';
-const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><p class="home-greeting" id="homeGreeting"></p><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
+const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><div class="dipifrs-chase" aria-label="Motivational DipIFRS animation"><div class="dipifrs-track"><div class="dipifrs-runner" aria-hidden="true">🏃‍♂️</div><div class="dipifrs-certificate" aria-hidden="true"><span class="dipifrs-ribbon">★</span><span class="dipifrs-cert-title">DipIFRS</span><span class="dipifrs-cert-sub">ACHIEVED</span></div></div><div class="dipifrs-caption"><span>Keep moving.</span><b>DipIFRS is ahead.</b></div></div><p class="home-greeting" id="homeGreeting"></p><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
 (function(){
   document.querySelectorAll(".rc-collapse-head").forEach(function(btn){
     btn.addEventListener("click",function(){
@@ -7654,15 +7737,40 @@ function setupSidebarListeners() {
       
       <div class="advisory-notice study-guidance-notice"><button type="button" class="study-guidance-toggle" aria-expanded="false"><span>&#9888;&#65039; إرشادات مهمة للمراجعة</span><span class="study-guidance-arrow" aria-hidden="true">▼</span></button><div class="study-guidance-content"><div class="advisory-ar" dir="rtl"><b>تنبيه وإخلاء مسؤولية قانونية:</b><br>هذا المحتوى مورد تعليمي مستقل للمراجعة والتدريب فقط، وليس تابعًا أو معتمدًا أو مرتبطًا بأي شراكة رسمية مع جمعية المحاسبين القانونيين المعتمدين (ACCA)، ولا يحل محل موادها أو إرشاداتها أو منصتها الرسمية. جميع العلامات التجارية وحقوق النشر المتعلقة بـACCA ملك حصري لها. أي تشابه بين الأسئلة الواردة هنا وأي مواد صادرة عن الجمعية محض مصادفة غير مقصودة. المحتوى للاستخدام الشخصي والتعليمي فقط، ويُحظر إعادة نشره أو استغلاله تجاريًا.<br><br><b>إرشادات مهمة للمراجعة:</b><br>استخدم هذا الموقع للمراجعة السريعة وتثبيت المفاهيم والتدرب على أنماط الأسئلة المختلفة. يتضمن أسئلة وتمارين مبتكرة صُممت لتنشيط الذاكرة وتطوير مهارة ترتيب خطوات الحل وفهم المنطق المحاسبي وراء كل إجابة، لذلك قد تختلف بعض التمارين شكلًا عن أسئلة الامتحان التقليدية. احرص قبل الامتحان بوقت كافٍ على خوض تجربة كاملة على منصة ACCA الرسمية، مع التدريب على إدارة الوقت والتنقل بين أجزاء السؤال — فالتعوّد على بيئة الامتحان الفعلية جزء أساسي من استعدادك، ويجب الالتزام الكامل بتعليمات وقواعد الجمعية الرسمية في كل ما يخص المنهج والمؤهل.<br><br><b>ملاحظة بشأن دقة المحتوى:</b><br>بُذل جهد كبير لمراجعة المحتوى، ومع ذلك قد تظل هناك أخطاء غير مقصودة أو معلومات تحتاج تحديثًا مع تطور المعايير، دون أدنى مسؤولية قانونية. لو لاحظت أي خطأ، يرجى إرسال التفاصيل عبر وسائل التواصل الموضحة أدناه.</div><div class="advisory-en"><b>Legal Disclaimer &amp; Terms of Use:</b><br>This content is an independent educational resource for study and practice only. It is not affiliated with, endorsed by, or officially partnered with ACCA, and does not replace its official materials, guidance, or platform. All ACCA trademarks and copyrights belong exclusively to ACCA. Any resemblance to official questions or materials is purely coincidental. Content is for personal and educational use only; commercial redistribution is prohibited.<br><br><b>Study Guidance:</b><br>Use this companion for quick revision, concept reinforcement, and practice across question formats. It includes original exercises designed to activate memory and strengthen solution-structuring and accounting logic, so some activities may differ in format from traditional exam questions. Well before your exam, complete a full practice session on ACCA\u2019s official platform, practising time management and navigation between question sections \u2014 familiarity with the real exam environment is essential. Students must fully comply with ACCA\u2019s official syllabus, policies, and exam regulations.<br><br><b>Accuracy &amp; Error Reporting:</b><br>Every effort has been made to review the content, but unintended errors may still occur as standards evolve, without legal liability. If you notice an error, please report it via the contact details below.</div></div></div>`;
     return welcomeHtml+`
-      <section class="tc-card tc-card-compact tc-card-blue" id="todaysChallengeCard">
-        <div class="tc-fire-ring"><span class="tc-fire">&#128293;</span></div>
-        <h2>تحدي اليوم &mdash; Daily IFRS Challenge</h2>
-        <p class="tc-sub-ar" dir="rtl">30 سؤال &middot; 30 دقيقة &middot; خليط عشوائي جديد كل مرة</p>
-        <p class="tc-sub-en">30 questions &middot; 30 min &middot; a fresh random mix every time</p>
-        ${(function(){try{const d=JSON.parse(localStorage.getItem("dipifr_todays30_streak")||"null");return d&&d.streak>1?'<div class="tc-streak-badge">&#128293; '+d.streak+'-day streak</div>':'';}catch(e){return '';}})()}
-        <button type="button" class="me-start-btn tc-start-btn" id="startTodaysChallengeBtn">&#128640; يلا شوف إنت فين؟ &mdash; Start now</button>
-        <div class="tc-reminder-banner"><span class="tc-reminder-bell">&#128276;</span><span class="tc-reminder-text">تذكير: حافظ على الاستمرار، القليل كل يوم يصنع الفرق<br><span dir="ltr">Little every day, big results.</span></span></div>
-        <button type="button" class="tc-mini-tip tc-mini-tip-link" id="tcOpenStandardsLink">أو راجع معيار بالكامل وتمرّن عليه من صفحته الخاصة &rarr;</button>
+      <section class="tc-card tc-card-compact tc-card-blue tc-hero-reference" id="todaysChallengeCard">
+        <div class="tc-reference-main">
+          <div class="tc-reference-copy">
+            <div class="tc-reference-title-row">
+              <div class="tc-reference-trophy" aria-hidden="true">&#127942;</div>
+              <div>
+                <h2>تحدي اليوم</h2>
+                <div class="tc-reference-en-title">Daily IFRS Challenge</div>
+              </div>
+            </div>
+            <div class="tc-reference-stats">
+              <div class="tc-reference-stat"><span class="tc-reference-icon">?</span><div><b>30 سؤال</b><small>30 questions</small></div></div>
+              <div class="tc-reference-divider"></div>
+              <div class="tc-reference-stat"><span class="tc-reference-icon">&#9201;</span><div><b>30 دقيقة</b><small>30 min</small></div></div>
+              <div class="tc-reference-divider"></div>
+              <div class="tc-reference-stat"><span class="tc-reference-icon">&#128260;</span><div><b>خليط عشوائي جديد كل مرة</b><small>a fresh random mix every time</small></div></div>
+            </div>
+            ${(function(){try{const d=JSON.parse(localStorage.getItem("dipifr_todays30_streak")||"null");return d&&d.streak>1?'<div class="tc-streak-badge">&#128293; '+d.streak+'-day streak</div>':'';}catch(e){return '';}})()}
+            <button type="button" class="me-start-btn tc-start-btn" id="startTodaysChallengeBtn">&#128640; يلا شوف إنت فين؟ &mdash; <span>Start now</span> <b>&rarr;</b></button>
+          </div>
+          <div class="tc-reference-art" aria-hidden="true">
+            <div class="tc-glow"></div>
+            <div class="tc-clipboard">
+              <div class="tc-clip"> </div>
+              <div class="tc-paper"><strong>IFRS</strong><i></i><i></i><i></i><i class="checked"></i></div>
+              <div class="tc-clock"><span></span></div>
+            </div>
+            <div class="tc-books"><b>IFRS</b><b>STANDARDS</b><b>SUCCESS</b></div>
+          </div>
+        </div>
+        <div class="tc-reference-bottom">
+          <div class="tc-reminder-banner"><span class="tc-reminder-bell">&#128276;</span><span class="tc-reminder-text"><b>تذكير:</b> حافظ على الاستمرار، القليل كل يوم يصنع الفرق<br><span dir="ltr">Little every day, big results.</span></span></div>
+          <button type="button" class="tc-mini-tip tc-mini-tip-link" id="tcOpenStandardsLink"><span>&#128214;</span> أو راجع معيار بالكامل وتمرّن عليه من صفحته الخاصة <b>&rarr;</b></button>
+        </div>
       </section>
       ${pathAndAdvisoryHtml}`;
   }
@@ -9009,5 +9117,169 @@ function setupSidebarListeners() {
 })();
 </script>
 
+
+<style id="home-dark-contrast-final">
+/* HOME FINAL COLOR/CONTRAST PASS */
+:root{--home-teal:#176B66;--home-teal-deep:#0E4F4B;--home-teal-mid:#23847D;--home-teal-soft:#E7F4F2;--home-gold:#B47A16;--home-gold-soft:#FFF4DA;}
+.home-hero{background:linear-gradient(180deg,#F1F8F6 0%,rgba(241,248,246,.15) 100%)!important;border:1px solid rgba(23,107,102,.16);}
+.home-greeting,.home-hero h1 em{color:var(--home-teal)!important;}
+.home-hero p{color:#52635F!important;}
+.rc3-review-center{border-color:rgba(23,107,102,.24)!important;}
+.rc3-review-center>.tool-group-label{background:linear-gradient(135deg,var(--home-teal-deep),var(--home-teal))!important;}
+.rc3-metric-icon{background:#DDEFEA!important;color:var(--home-teal-deep)!important;}
+.rc3-continue-cta{color:var(--home-teal-deep)!important;}
+.rc-focus-clinic{border-color:rgba(23,107,102,.22)!important;background:linear-gradient(180deg,#F7FBFA,#EAF5F3)!important;}
+.rc-fc-title,.rc-fc-code{color:var(--home-teal-deep)!important;}
+.rc-fc-priority{background:#E5F2F0!important;border-color:#74AAA4!important;}
+.rc-fc-priority-btn{background:var(--home-teal-deep)!important;}
+.rc-fc-pill.miss{background:#E3F1EF!important;color:var(--home-teal-deep)!important;}
+.rc3-toolkit-head span{color:var(--home-teal-deep)!important;}
+.rc3-toolkit-head small{color:#526D68!important;}
+.rc3-tool-card.tk-blue-card,.rc3-tool-card.tk-purple-card,.rc3-tool-card.tk-green-card,.rc3-tool-card.tk-red-card{background:#F4F8F7!important;border-color:#91B8B3!important;}
+.rc3-tool-card.tk-blue-card:hover,.rc3-tool-card.tk-purple-card:hover,.rc3-tool-card.tk-green-card:hover,.rc3-tool-card.tk-red-card:hover{border-color:var(--home-teal)!important;}
+.tc-card,.tc-card-compact,.tc-card-blue{background:linear-gradient(135deg,#0E4F4B 0%,#176B66 58%,#23847D 100%)!important;border:1.5px solid #58A9A0!important;}
+.tc-card h2,.tc-card .tc-sub-ar,.tc-card p,.tc-card .tc-hint{color:#FFFFFF!important;}
+.tc-card .tc-start-btn,.tc-card a.tc-start,#startTodaysChallengeBtn,.tc-card button{background:#FFF8E8!important;color:#0E4F4B!important;border:1.5px solid #D7A73B!important;}
+.practice-select-card{border-top-color:var(--home-teal)!important;}
+.practice-start-btn{background:var(--home-teal)!important;color:#fff!important;}
+.home-icp-card{border-color:#4B9A92!important;background:var(--card)!important;}
+.hicp-title{color:var(--home-teal-deep)!important;}
+.hicp-btn{background:var(--home-teal)!important;color:#fff!important;}
+.exclusive-announce{background:linear-gradient(135deg,#E7F4F2,#FFF7E3)!important;border-color:#B58A38!important;}
+.ea-title{color:#263B37!important;}
+.ea-body{color:#52635F!important;}
+.ea-tag{color:var(--home-teal-deep)!important;border-color:#78AFA9!important;}
+.hps-item{border-color:#9AB8B3!important;}
+.hps-num{color:var(--home-teal)!important;}
+.time-options-toggle{color:var(--home-teal-deep)!important;border-color:#75AAA4!important;background:#E8F4F2!important;}
+.tb-button{border-color:#72A9A3!important;color:var(--home-teal-deep)!important;background:#F3F9F8!important;}
+.tb-button.active,.tb-button:hover{background:var(--home-teal)!important;color:#fff!important;border-color:var(--home-teal)!important;}
+.advisory-notice{background:#E4F2EF!important;border-color:#4F958E!important;color:#203B37!important;}
+
+/* Dark mode: no washed-out text, borders or controls */
+body.dark-mode .home-hero{background:linear-gradient(180deg,#1A2B2D 0%,#171E21 100%)!important;border-color:#3C7872!important;}
+body.dark-mode .home-hero p{color:#C5D4D0!important;}
+body.dark-mode .home-greeting,body.dark-mode .home-hero h1 em{color:#72D1C7!important;}
+body.dark-mode .rc3-review-center{background:#1C2529!important;border-color:#3E817A!important;}
+body.dark-mode .rc3-review-center>.tool-group-label{background:linear-gradient(135deg,#0E4F4B,#176B66)!important;}
+body.dark-mode .rc3-metric-icon{background:#24423F!important;color:#7BD4CA!important;}
+body.dark-mode .rc3-continue-cta{background:#213B39!important;border-color:#4F958E!important;color:#BFE8E2!important;}
+body.dark-mode .rc-focus-clinic{background:#1C292B!important;border-color:#407B75!important;}
+body.dark-mode .rc-fc-title,body.dark-mode .rc-fc-code{color:#7BD4CA!important;}
+body.dark-mode .rc-fc-priority{background:#243B3A!important;border-color:#4E938B!important;}
+body.dark-mode .rc-fc-priority-btn{background:#176B66!important;color:#fff!important;}
+body.dark-mode .rc-fc-pill.miss{background:#273C3A!important;color:#A9E2DA!important;}
+body.dark-mode .rc3-toolkit-head span{color:#D8ECE8!important;}
+body.dark-mode .rc3-toolkit-head small{color:#AFC4BF!important;}
+body.dark-mode .rc3-tool-card.tk-blue-card,body.dark-mode .rc3-tool-card.tk-purple-card,body.dark-mode .rc3-tool-card.tk-green-card,body.dark-mode .rc3-tool-card.tk-red-card{background:#202C30!important;border-color:#47766F!important;}
+body.dark-mode .rc3-tool-title{color:#E5F1EE!important;}
+body.dark-mode .rc3-tool-hint{color:#B4C7C3!important;}
+body.dark-mode .tc-card,body.dark-mode .tc-card-compact,body.dark-mode .tc-card-blue{background:linear-gradient(135deg,#0B3E3B 0%,#125B56 58%,#18736C 100%)!important;border-color:#5DB7AC!important;}
+body.dark-mode .tc-card h2,body.dark-mode .tc-card .tc-sub-ar,body.dark-mode .tc-card p,body.dark-mode .tc-card .tc-hint{color:#F5FFFD!important;}
+body.dark-mode .tc-card .tc-start-btn,body.dark-mode .tc-card a.tc-start,body.dark-mode #startTodaysChallengeBtn,body.dark-mode .tc-card button{background:#FFF1C9!important;color:#123D39!important;border-color:#D8A83A!important;}
+body.dark-mode .practice-select-card{background:#202C30!important;border-color:#4B7F79!important;border-top-color:#65C3B8!important;}
+body.dark-mode .practice-start-btn{background:#176B66!important;color:#fff!important;}
+body.dark-mode .home-icp-card{background:#202C30!important;border-color:#58A9A0!important;}
+body.dark-mode .hicp-title{color:#D9EEEA!important;}
+body.dark-mode .hicp-desc{color:#B6C9C5!important;}
+body.dark-mode .hicp-btn{background:#176B66!important;color:#fff!important;}
+body.dark-mode .exclusive-announce{background:linear-gradient(135deg,#233B39,#302B20)!important;border-color:#A88945!important;}
+body.dark-mode .ea-title{color:#EDF7F4!important;}
+body.dark-mode .ea-body{color:#BFD0CC!important;}
+body.dark-mode .ea-tag{background:#202C30!important;color:#D4ECE7!important;border-color:#5A958D!important;}
+body.dark-mode .hps-item{background:#1D272B!important;border-color:#426A65!important;}
+body.dark-mode .hps-num{color:#72D1C7!important;}
+body.dark-mode .hps-label{color:#B8C9C5!important;}
+body.dark-mode .time-options-toggle{background:#203A38!important;color:#BFE8E2!important;border-color:#4F958E!important;}
+body.dark-mode .tb-button{background:#202C30!important;color:#CBE1DD!important;border-color:#4D7771!important;}
+body.dark-mode .tb-button.active,body.dark-mode .tb-button:hover{background:#176B66!important;color:#fff!important;border-color:#6AC6BC!important;}
+body.dark-mode .advisory-notice{background:#203A38!important;border-color:#58A9A0!important;color:#D6EAE6!important;}
+</style>
+<style id="dipifrs-chase-animation">
+/* DipIFRS motivational chase animation */
+.dipifrs-chase{position:relative;max-width:560px;margin:2px auto 13px;padding:4px 8px 2px;text-align:center;overflow:hidden;border-radius:14px;}
+.dipifrs-track{position:relative;height:52px;display:flex;align-items:center;justify-content:flex-start;padding:0 8px;border-bottom:1px dashed rgba(23,107,102,.28);}
+.dipifrs-track::before{content:"";position:absolute;left:8px;right:8px;bottom:-1px;height:3px;border-radius:99px;background:linear-gradient(90deg,rgba(23,107,102,.08),rgba(23,107,102,.28),rgba(180,122,22,.38));}
+.dipifrs-runner{position:absolute;right:4%;bottom:7px;font-size:30px;line-height:1;z-index:2;filter:drop-shadow(0 2px 2px rgba(0,0,0,.12));animation:dipRun 7.2s cubic-bezier(.22,.72,.18,1) infinite;}
+.dipifrs-certificate{position:absolute;right:4%;bottom:5px;width:112px;height:38px;border:1.5px solid #B47A16;border-radius:9px;background:linear-gradient(135deg,#FFF9E9,#FFF0C9);box-shadow:0 4px 10px rgba(180,122,22,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;z-index:1;animation:dipCert 4.8s ease-in-out infinite;}
+.dipifrs-ribbon{position:absolute;left:-5px;top:-7px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#B47A16;color:#fff;font-size:9px;box-shadow:0 2px 4px rgba(0,0,0,.12);}
+.dipifrs-cert-title{font-family:var(--font-mono);font-size:12px;font-weight:900;letter-spacing:.08em;color:#6F4B0D;}
+.dipifrs-cert-sub{font-family:var(--font-mono);font-size:6.5px;font-weight:800;letter-spacing:.12em;color:#8A6A28;margin-top:3px;}
+.dipifrs-caption{display:flex;justify-content:center;gap:5px;align-items:center;margin-top:6px;font-size:9.5px;color:var(--ink-soft);letter-spacing:.01em;}
+.dipifrs-caption b{color:var(--home-teal,#176B66);font-weight:800;}
+@keyframes dipRun{0%{right:3%;transform:translateY(0) scaleX(-1)}8%{transform:translateY(-2px) scaleX(-1)}18%{transform:translateY(0) scaleX(-1)}72%{right:76%;transform:translateY(-1px) scaleX(-1)}82%{right:79%;transform:translateY(-1px) scaleX(-1)}88%{right:79%;transform:translateY(-1px) scaleX(-1)}94%{right:79%;transform:translateY(-1px) scaleX(-1)}100%{right:3%;transform:translateY(0) scaleX(-1)}}
+@keyframes dipCert{0%,66%{transform:translateY(0) scale(1);box-shadow:0 4px 10px rgba(180,122,22,.18)}76%{transform:translateY(-3px) scale(1.04);box-shadow:0 7px 18px rgba(180,122,22,.3)}86%{transform:translateY(-1px) scale(1.02);box-shadow:0 5px 13px rgba(180,122,22,.24)}100%{transform:translateY(0) scale(1)}}
+body.dark-mode .dipifrs-chase{background:rgba(23,107,102,.08);}
+body.dark-mode .dipifrs-track{border-bottom-color:rgba(114,209,199,.28);}
+body.dark-mode .dipifrs-track::before{background:linear-gradient(90deg,rgba(114,209,199,.08),rgba(114,209,199,.3),rgba(217,169,74,.45));}
+body.dark-mode .dipifrs-certificate{background:linear-gradient(135deg,#302B1F,#3A301C);border-color:#D9A94A;box-shadow:0 4px 12px rgba(217,169,74,.2);}
+body.dark-mode .dipifrs-cert-title{color:#F2D58D;}
+body.dark-mode .dipifrs-cert-sub{color:#D8C28A;}
+body.dark-mode .dipifrs-caption b{color:#72D1C7;}
+@media (max-width:600px){.dipifrs-chase{margin-top:1px;margin-bottom:11px}.dipifrs-track{height:48px}.dipifrs-runner{font-size:27px}.dipifrs-certificate{width:98px;height:35px}.dipifrs-cert-title{font-size:10.5px}.dipifrs-caption{font-size:9px}}
+@media (prefers-reduced-motion:reduce){.dipifrs-runner,.dipifrs-certificate{animation:none}.dipifrs-runner{right:58%}.dipifrs-certificate{transform:scale(1.03)}}
+
+/* Stronger visibility for the full-standard study link */
+.tc-mini-tip-link{color:#163F3B !important;font-weight:800 !important;text-shadow:0 1px 0 rgba(255,255,255,.35);}
+body.dark-mode .tc-mini-tip-link{color:#E5F3F0 !important;font-weight:800 !important;text-shadow:0 1px 2px rgba(0,0,0,.35);}
+</style>
 </body>
 </html>
+
+<style id="daily-challenge-reference-override">
+/* ===== Daily Challenge home hero: reference-style treatment only ===== */
+.tc-hero-reference{
+  position:relative!important; overflow:hidden!important; text-align:initial!important;
+  padding:0!important; border-radius:22px!important;
+  background:linear-gradient(120deg,#063F4B 0%,#07586A 48%,#087D7C 100%)!important;
+  border:1px solid rgba(72,226,220,.65)!important;
+  box-shadow:0 16px 38px rgba(4,67,79,.28)!important;
+}
+.tc-hero-reference:before{content:"";position:absolute;inset:-20% -5% auto 50%;height:150%;background:radial-gradient(circle,rgba(255,207,73,.16),transparent 58%);pointer-events:none;}
+.tc-reference-main{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(250px,.8fr);align-items:center;min-height:360px;padding:32px 34px 22px;}
+.tc-reference-copy{min-width:0;}
+.tc-reference-title-row{display:flex;align-items:center;gap:18px;margin-bottom:28px;}
+.tc-reference-trophy{width:72px;height:72px;border:2px solid #FFD34E;border-radius:18px;display:grid;place-items:center;font-size:38px;background:rgba(255,211,78,.08);box-shadow:0 0 0 7px rgba(255,211,78,.04);}
+.tc-reference-title-row h2{font-family:var(--font-display);font-size:clamp(29px,3.4vw,46px)!important;line-height:1.05;margin:0!important;color:#fff!important;font-weight:800!important;}
+.tc-reference-en-title{font-size:clamp(19px,2.1vw,30px);font-weight:800;color:#FFD34E;line-height:1.1;margin-top:5px;}
+.tc-reference-stats{display:flex;align-items:center;gap:17px;flex-wrap:wrap;margin:0 0 25px;}
+.tc-reference-stat{display:flex;align-items:center;gap:10px;color:#fff;}
+.tc-reference-stat b{display:block;font-size:15px;line-height:1.25;}
+.tc-reference-stat small{display:block;color:rgba(255,255,255,.76);font-size:11px;margin-top:3px;}
+.tc-reference-icon{width:38px;height:38px;border:2px solid #FFD34E;border-radius:50%;display:grid;place-items:center;color:#49E2DB;font-weight:900;font-size:21px;flex:0 0 auto;}
+.tc-reference-divider{width:1px;height:43px;background:rgba(82,229,221,.5);}
+.tc-hero-reference .tc-start-btn{display:flex!important;align-items:center;justify-content:center;gap:9px;width:min(100%,610px)!important;min-height:60px;border-radius:32px!important;background:linear-gradient(90deg,#FFD34E,#FFB92E)!important;color:#102D31!important;border:0!important;font-size:17px!important;font-weight:900!important;box-shadow:0 9px 22px rgba(255,187,45,.25)!important;}
+.tc-hero-reference .tc-start-btn:hover{transform:translateY(-2px);filter:saturate(1.08);}
+.tc-hero-reference .tc-start-btn b{font-size:24px;margin-left:5px;}
+.tc-reference-art{position:relative;height:290px;display:flex;align-items:center;justify-content:center;}
+.tc-glow{position:absolute;width:270px;height:270px;border-radius:50%;background:rgba(42,218,218,.13);box-shadow:0 0 70px rgba(41,221,220,.13);}
+.tc-clipboard{position:relative;width:150px;height:205px;transform:rotate(5deg);filter:drop-shadow(0 16px 13px rgba(0,0,0,.25));z-index:2;}
+.tc-paper{position:absolute;inset:14px 8px 0;background:#F6F4EA;border-radius:7px;padding:29px 15px;color:#124C55;box-shadow:inset 0 0 0 2px rgba(9,75,84,.08);}
+.tc-paper strong{font-size:28px;display:block;margin-bottom:18px;}
+.tc-paper i{display:block;height:7px;background:#A9B9B8;border-radius:5px;margin:11px 0;width:78%;opacity:.8;}
+.tc-paper i:nth-of-type(2){width:62%;}.tc-paper i:nth-of-type(3){width:72%;}.tc-paper i.checked{width:20px;height:20px;border:3px solid #17A69C;background:#FFF;margin-top:16px;}
+.tc-clip{position:absolute;z-index:3;left:50%;top:0;transform:translateX(-50%);width:54px;height:28px;border-radius:8px 8px 4px 4px;background:#FFD34E;box-shadow:0 4px 5px rgba(0,0,0,.15);}
+.tc-clock{position:absolute;z-index:4;right:-30px;bottom:-22px;width:105px;height:105px;border-radius:50%;background:#F1EBD8;border:9px solid #087C7C;box-shadow:0 8px 14px rgba(0,0,0,.25);display:grid;place-items:center;}
+.tc-clock:before{content:"";width:4px;height:35px;background:#0C5962;position:absolute;top:16px;border-radius:4px;transform:rotate(18deg);transform-origin:bottom;}
+.tc-clock:after{content:"";width:34px;height:4px;background:#0C5962;position:absolute;left:26px;top:52px;border-radius:4px;transform:rotate(-18deg);transform-origin:right;}
+.tc-clock span{width:8px;height:8px;border-radius:50%;background:#0C5962;z-index:2;}
+.tc-books{position:absolute;right:-4px;bottom:13px;width:142px;z-index:1;display:flex;flex-direction:column;gap:4px;transform:rotate(-2deg);} 
+.tc-books b{height:31px;border-radius:5px 8px 8px 5px;display:flex;align-items:center;padding-left:19px;color:#F8F4E6;font-size:12px;letter-spacing:.04em;box-shadow:0 4px 5px rgba(0,0,0,.18);background:linear-gradient(90deg,#0A7777,#115C69);border-left:5px solid #FFD34E;}
+.tc-books b:nth-child(2){background:linear-gradient(90deg,#156B79,#0D5264);border-left-color:#53D8D0;}.tc-books b:nth-child(3){background:linear-gradient(90deg,#9B6820,#B8842C);border-left-color:#FFD34E;}
+.tc-reference-bottom{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch;border-top:1px solid rgba(82,229,221,.42);margin:0 20px;padding:16px 0 20px;}
+.tc-reference-bottom .tc-reminder-banner{margin:0!important;background:transparent!important;border:0!important;border-radius:0!important;justify-content:flex-start!important;padding:0 20px 0 12px!important;box-shadow:none!important;}
+.tc-reference-bottom .tc-reminder-bell{width:52px;height:52px;border:2px solid #FFD34E;border-radius:50%;display:grid;place-items:center;font-size:25px;background:rgba(255,211,78,.08);flex:0 0 auto;}
+.tc-reference-bottom .tc-reminder-text{font-size:13px!important;color:#fff!important;line-height:1.65;}
+.tc-reference-bottom .tc-reminder-text b{color:#FFD34E;}
+.tc-reference-bottom .tc-mini-tip-link{margin:0!important;padding:0 15px!important;border-left:1px solid rgba(82,229,221,.42)!important;color:#fff!important;text-decoration:none!important;text-align:center!important;display:flex!important;align-items:center;justify-content:center;gap:8px;line-height:1.6;}
+.tc-reference-bottom .tc-mini-tip-link span{font-size:24px;color:#FFD34E;}.tc-reference-bottom .tc-mini-tip-link b{color:#FFD34E;font-size:19px;}
+@media(max-width:760px){
+ .tc-reference-main{grid-template-columns:1fr;min-height:0;padding:24px 18px 18px;}
+ .tc-reference-title-row{margin-bottom:20px;gap:12px;}.tc-reference-trophy{width:58px;height:58px;font-size:31px;border-radius:15px;}
+ .tc-reference-stats{gap:11px;margin-bottom:19px;}.tc-reference-divider{display:none;}
+ .tc-reference-stat{flex:1 1 45%;}.tc-reference-stat:last-child{flex-basis:100%;}
+ .tc-reference-art{height:205px;margin-top:2px;}.tc-reference-bottom{grid-template-columns:1fr;margin:0 12px;padding:13px 0 16px;gap:13px;}
+ .tc-reference-bottom .tc-mini-tip-link{border-left:0!important;border-top:1px solid rgba(82,229,221,.35)!important;padding-top:13px!important;}
+ .tc-hero-reference .tc-start-btn{font-size:15px!important;min-height:55px;}
+}
+</style>
