@@ -6246,7 +6246,7 @@ const _acc=r.accuracyPct||0;
 const _attempted=r.attempted||0;
 const _theoTotal=(typeof THEORETICAL_BANK!=="undefined"&&THEORETICAL_BANK)?THEORETICAL_BANK.length:0;
 let l='';
-const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><div class="home-run-track"><span class="home-hurdle" style="left:18%;">&#128679;</span><span class="home-hurdle" style="left:44%;">&#128679;</span><span class="home-hurdle" style="left:64%;">&#128679;</span><span class="home-runner">&#127939;</span><span class="home-run-goal">&#11088; <b>DipIFR</b><br><small>AHEAD</small></span></div><p class="home-run-caption" id="homeGreeting"></p><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
+const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><div class="home-run-track"><span class="home-hurdle" style="left:18%;">&#128679;</span><span class="home-hurdle" style="left:44%;">&#128679;</span><span class="home-hurdle" style="left:64%;">&#128679;</span><span class="home-runner">&#127939;</span><span class="home-run-goal">&#11088; <b>DipIFR</b><br><small>AHEAD</small></span></div><p class="home-run-caption" id="homeGreeting" dir="rtl"></p><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
 (function(){
   document.querySelectorAll(".rc-collapse-head").forEach(function(btn){
     btn.addEventListener("click",function(){
@@ -7375,10 +7375,10 @@ function setHomeGreeting(){
     var name=(typeof getStudentName==="function"?getStudentName():"");
     var namePart=name?(" يا "+name):"";
     var msg;
-    if(h>=5&&h<12) msg="&#127749; صباح الخير"+namePart+" — <b>DipIFR is ahead.</b> جاهز تبدأ بسؤال؟";
-    else if(h>=12&&h<17) msg="&#9728;&#65039; وسط يومك"+namePart+" — <b>DipIFR is ahead.</b> دقيقتين كفاية";
-    else if(h>=17&&h<22) msg="&#127769; آخر اليوم"+namePart+" — <b>DipIFR is ahead.</b> أقوى وقت للمراجعة";
-    else msg="&#128164; لسه صاحي"+(name?" يا "+name:"")+"؟ <b>DipIFR is ahead.</b> سؤال واحد كمان";
+    if(h>=5&&h<12) msg="&#127749; صباح الخير"+namePart+"، جاهز تقرّب خطوة من <b>DipIFR</b> النهارده؟";
+    else if(h>=12&&h<17) msg="&#9728;&#65039; وسط يومك"+namePart+"، دقيقتين كفاية تقرّبك من <b>DipIFR</b>";
+    else if(h>=17&&h<22) msg="&#127769; آخر اليوم"+namePart+"، أقوى وقت تقرّب فيه من <b>DipIFR</b>";
+    else msg="&#128164; لسه صاحي"+(name?" يا "+name:"")+"؟ خطوة واحدة كمان تقرّبك من <b>DipIFR</b>";
     el.innerHTML=msg;
   }
   try{
