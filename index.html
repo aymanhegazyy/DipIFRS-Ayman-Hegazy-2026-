@@ -80,6 +80,14 @@ body.dark-mode .std-item-other .code{color:#EF9A9A;font-weight:800;}body.dark-mo
 .home-teal-theme .advisory-notice{background:var(--teal-soft);border-color:var(--teal);}
 .home-badge-ring{position:relative;width:64px;height:64px;border-radius:50%;margin:0 auto 10px;padding:3px;display:flex;align-items:center;justify-content:center;background:conic-gradient(from 0deg,#9C4632,#B5842A,#2E6E68,#3D5A72,#9C4632);animation:glossaryRingSpin 4s linear infinite;}
 .home-greeting{text-align:center;font-size:12.5px;color:var(--teal);font-weight:600;margin:8px 0 0;}
+.welcome-name-overlay{position:fixed;inset:0;background:rgba(10,20,18,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;}
+.welcome-name-card{background:linear-gradient(160deg,#0E4A46 0%,#1E6E68 60%,#D9A94A 160%);border-radius:20px;padding:32px 26px;max-width:340px;width:100%;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.4);animation:welcomeNameIn .35s ease-out;}
+@keyframes welcomeNameIn{0%{opacity:0;transform:scale(.92) translateY(10px);}100%{opacity:1;transform:scale(1) translateY(0);}}
+.welcome-name-badge{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#D9A94A 70%);border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:800;font-size:20px;color:#3A2E0E;margin:0 auto 14px;}
+.welcome-name-card h2{color:#fff;font-size:20px;margin:0 0 6px;}
+.welcome-name-card p{color:rgba(255,255,255,.85);font-size:13px;margin:0 0 16px;}
+.welcome-name-input{width:100%;box-sizing:border-box;padding:11px 14px;border-radius:10px;border:none;font-size:14px;text-align:center;margin-bottom:14px;font-family:var(--font-body);}
+.welcome-name-btn{width:100%;padding:11px;border-radius:10px;border:none;background:#fff;color:#0E4A46;font-weight:800;font-size:14px;cursor:pointer;font-family:var(--font-mono);}
 .home-run-track{position:relative;max-width:360px;margin:18px auto 4px;height:46px;border-bottom:2px dashed var(--line);}
 .home-runner{position:absolute;bottom:-14px;left:0;font-size:24px;animation:homeRunLoop 4.5s linear infinite;transform:scaleX(-1);display:inline-block;z-index:2;}
 .home-hurdle{position:absolute;bottom:-12px;font-size:16px;z-index:1;}
@@ -7364,11 +7372,13 @@ function setHomeGreeting(){
   var el=document.getElementById("homeGreeting");
   if(el){
     var h=new Date().getHours();
+    var name=(typeof getStudentName==="function"?getStudentName():"");
+    var namePart=name?(" يا "+name):"";
     var msg;
-    if(h>=5&&h<12) msg="&#127749; صباح الخير — <b>DipIFR is ahead.</b> جاهز تبدأ بسؤال؟";
-    else if(h>=12&&h<17) msg="&#9728;&#65039; وسط يومك — <b>DipIFR is ahead.</b> دقيقتين كفاية";
-    else if(h>=17&&h<22) msg="&#127769; آخر اليوم — <b>DipIFR is ahead.</b> أقوى وقت للمراجعة";
-    else msg="&#128164; لسه صاحي؟ <b>DipIFR is ahead.</b> سؤال واحد كمان";
+    if(h>=5&&h<12) msg="&#127749; صباح الخير"+namePart+" — <b>DipIFR is ahead.</b> جاهز تبدأ بسؤال؟";
+    else if(h>=12&&h<17) msg="&#9728;&#65039; وسط يومك"+namePart+" — <b>DipIFR is ahead.</b> دقيقتين كفاية";
+    else if(h>=17&&h<22) msg="&#127769; آخر اليوم"+namePart+" — <b>DipIFR is ahead.</b> أقوى وقت للمراجعة";
+    else msg="&#128164; لسه صاحي"+(name?" يا "+name:"")+"؟ <b>DipIFR is ahead.</b> سؤال واحد كمان";
     el.innerHTML=msg;
   }
   try{
@@ -7379,6 +7389,33 @@ function setHomeGreeting(){
       fireEl.style.fontSize=size+"px";
     }
   }catch(e){}
+}
+function getStudentName(){
+  try{ return localStorage.getItem("dipifr_student_name")||""; }catch(e){ return ""; }
+}
+function initWelcomeName(){
+  var overlay=document.getElementById("welcomeNameOverlay");
+  if(!overlay)return;
+  var existing=getStudentName();
+  if(existing){ overlay.style.display="none"; return; }
+  overlay.style.display="flex";
+  var input=document.getElementById("welcomeNameInput");
+  var btn=document.getElementById("welcomeNameSubmit");
+  function submit(){
+    var name=(input.value||"").trim();
+    if(!name)return;
+    try{ localStorage.setItem("dipifr_student_name",name); }catch(e){}
+    overlay.style.display="none";
+    if(typeof setHomeGreeting==="function")setHomeGreeting();
+  }
+  btn.addEventListener("click",submit);
+  input.addEventListener("keydown",function(e){ if(e.key==="Enter")submit(); });
+  setTimeout(function(){input.focus();},200);
+}
+if(document.readyState==="loading"){
+  document.addEventListener("DOMContentLoaded",initWelcomeName);
+}else{
+  initWelcomeName();
 }
 function initListenMode(){
   var btn=document.getElementById("listenModeToggle");
@@ -8984,5 +9021,14 @@ function setupSidebarListeners() {
 })();
 </script>
 
+<div id="welcomeNameOverlay" class="welcome-name-overlay" style="display:none;">
+  <div class="welcome-name-card">
+    <div class="welcome-name-badge">AH</div>
+    <h2>&#128075; Welcome!</h2>
+    <p>What should we call you?</p>
+    <input type="text" id="welcomeNameInput" class="welcome-name-input" placeholder="Your name" maxlength="30">
+    <button type="button" id="welcomeNameSubmit" class="welcome-name-btn">Let's go &rarr;</button>
+  </div>
+</div>
 </body>
 </html>
