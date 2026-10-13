@@ -84,6 +84,12 @@ body.dark-mode .std-item-other .code{color:#EF9A9A;font-weight:800;}body.dark-mo
 .practice-selectall-row{display:flex;gap:10px;margin-bottom:10px;}
 .practice-selectall-btn{font-family:var(--font-mono);font-size:11px;font-weight:700;padding:5px 12px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;}
 .practice-selectall-btn:hover{border-color:var(--teal);color:var(--teal);}
+.home-other-project-card{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--accent);border-radius:16px;padding:14px 16px;margin-top:14px;text-decoration:none;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:transform .12s ease,box-shadow .12s ease;}
+.home-other-project-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.1);}
+.hopc-icon{font-size:26px;flex:0 0 auto;}
+.hopc-body{display:flex;flex-direction:column;}
+.hopc-title{font-size:13.5px;font-weight:700;color:var(--ink);}
+.hopc-sub{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
 .welcome-name-overlay{position:fixed;inset:0;background:rgba(10,20,18,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;}
 .welcome-name-card{background:linear-gradient(160deg,#0E4A46 0%,#1E6E68 60%,#D9A94A 160%);border-radius:20px;padding:32px 26px;max-width:340px;width:100%;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.4);animation:welcomeNameIn .35s ease-out;}
 @keyframes welcomeNameIn{0%{opacity:0;transform:scale(.92) translateY(10px);}100%{opacity:1;transform:scale(1) translateY(0);}}
@@ -342,10 +348,11 @@ body.dark-mode .motivational-quote{box-shadow:0 4px 14px rgba(0,0,0,.4);}.motiva
 .home-teal-theme>.home-hero{order:1;}
 .home-teal-theme>.motivational-quote{order:2;margin:0 0 16px;}
 .home-teal-theme>.tc-card-blue{order:3;}
-.home-teal-theme>.tg-review-center{order:4;margin-top:18px;}
-.home-teal-theme>.tg-practice{order:5;}
-.home-teal-theme>.advisory-notice{order:6;}
-.home-teal-theme>.home-rate-link{order:7;}
+.home-teal-theme>.home-other-project-card{order:4;}
+.home-teal-theme>.tg-review-center{order:5;margin-top:18px;}
+.home-teal-theme>.tg-practice{order:6;}
+.home-teal-theme>.advisory-notice{order:7;}
+.home-teal-theme>.home-rate-link{order:8;}
 .flipcard-counter{text-align:center;font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);margin-bottom:10px;}
 .flipcard-outer{max-width:420px;margin:0 auto 18px;height:220px;border-radius:16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12);}
 .flipcard-face{width:100%;height:100%;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box;}
@@ -7696,6 +7703,13 @@ function setupSidebarListeners() {
         <div class="tc-reminder-banner"><span class="tc-reminder-bell">&#128276;</span><span class="tc-reminder-text">تذكير: حافظ على الاستمرار، القليل كل يوم يصنع الفرق<br><span dir="ltr">Little every day, big results.</span></span></div>
         <button type="button" class="tc-mini-tip tc-mini-tip-link" id="tcOpenStandardsLink">أو راجع معيار بالكامل وتمرّن عليه من صفحته الخاصة &rarr;</button>
       </section>
+      <a href="https://aymanhegazyy.github.io/Real_world_accounting/#arlearn-role" target="_blank" rel="noopener" class="home-other-project-card">
+        <span class="hopc-icon">&#128188;</span>
+        <span class="hopc-body">
+          <span class="hopc-title">مشروعي التاني: المحاسبة في العالم الحقيقي</span>
+          <span class="hopc-sub">Explore real-world accounting practice &rarr;</span>
+        </span>
+      </a>
       ${pathAndAdvisoryHtml}`;
   }
 
