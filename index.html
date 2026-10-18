@@ -817,15 +817,17 @@ body.dark-mode .exclusive-announce{background:linear-gradient(135deg,#3D3320,#33
 .ah-next h3{margin:3px 0 3px;font-family:var(--font-display);font-size:18px}
 .ah-next p{margin:0;font-size:12px;color:var(--ink-soft)}
 .ah-quick{padding:15px 18px 18px}
-@keyframes tcCardShimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}.tc-card{background:linear-gradient(120deg,#9C4632,#B5842A,#C97B5A,#B5842A,#9C4632);background-size:300% 100%;animation:tcCardShimmer 6s ease-in-out infinite;border-radius:16px;padding:20px 22px;margin-bottom:22px;color:#fff;box-shadow:0 4px 16px rgba(156,70,50,.25);}
+@keyframes tcCardShimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}.tc-card{background:linear-gradient(120deg,#9C4632,#B5842A,#C97B5A,#B5842A,#9C4632);background-size:300% 100%;animation:tcCardShimmer 6s ease-in-out infinite;border-radius:16px;padding:10px 12px;margin-bottom:22px;color:#fff;box-shadow:0 4px 16px rgba(156,70,50,.25);}
 .tc-card-compact{background:var(--teal) !important;animation:none !important;box-shadow:none !important;}
 .tc-card-blue{background:linear-gradient(135deg,#A8611E 0%,#D9711F 55%,#E89A4D 100%) !important;text-align:center;}
 .tc-card{position:relative;}
 .tc-card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"><circle cx="10" cy="12" r="1.4" fill="white" opacity="0.18"/><circle cx="45" cy="40" r="1.1" fill="white" opacity="0.14"/><circle cx="60" cy="15" r="1.6" fill="white" opacity="0.16"/></svg>');background-repeat:repeat;z-index:0;}
 .tc-card>*{position:relative;z-index:1;}
-.tc-fire-ring{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;animation:tcFireGlow 2s ease-in-out infinite;}
+.tc-fire-ring{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex:0 0 auto;animation:tcFireGlow 2s ease-in-out infinite;}
+.tc-header-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;}
+.tc-header-row h2{margin:0!important;}
 @keyframes tcFireGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,210,120,.55);}50%{box-shadow:0 0 0 12px rgba(255,210,120,0);}}
-.tc-card-blue h2{font-family:var(--font-display);font-size:17px;margin:0 0 4px;color:#fff;}
+.tc-card-blue h2{font-family:var(--font-display);font-size:14.5px;margin:0 0 3px;color:#fff;}
 .tc-sub-ar{font-size:12px;color:rgba(255,255,255,.85);margin:0 0 4px;}
 .tc-sub-en{font-size:11px;color:rgba(255,255,255,.7);margin:0 0 14px;}
 .tc-start-btn{width:100%;display:block;background:#fff !important;color:#1E5FA8 !important;animation:tcPulseGold 2s ease-in-out infinite;}
@@ -1776,6 +1778,7 @@ body.dark-mode #tqModal .tq-sc-btn{background:#20262A;color:#A8B5AE;border-color
 .practice-collapse-toggle:hover{border-color:var(--accent);background:var(--accent-soft);}
 .practice-collapse-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
 .practice-select-card.practice-options-collapsed .practice-check-grid{display:none!important;}
+.practice-check-grid{max-height:280px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--card);box-shadow:inset 0 -8px 10px -8px rgba(0,0,0,.08);}
 .practice-collapse-arrow{transition:transform .15s ease;}
 .practice-select-card:not(.practice-options-collapsed) .practice-collapse-arrow{transform:rotate(180deg);}
 .std-practice-card.spc-list-collapsed .spc-list{display:none!important;}
@@ -1973,9 +1976,9 @@ main,.content-wrap,#mainContent{height:auto!important;overflow:visible!important
 .rc3-toolkit{margin-top:14px;padding-top:13px;border-top:1px solid var(--line-soft);}
 .rc3-toolkit-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;}
 .rc3-tool-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;}
-.rc3-tool-card{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:76px;padding:8px 5px;border:1px solid var(--line-soft);border-radius:16px;font-family:inherit;cursor:pointer;text-align:center;transition:transform .15s ease,border-color .15s ease,background .15s ease;}
+.rc3-tool-card{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;padding:8px 6px;border:1px solid var(--line-soft);border-radius:22px;font-family:inherit;cursor:pointer;text-align:center;transition:transform .15s ease,border-color .15s ease,background .15s ease;}
 .rc3-tool-card:hover{transform:translateY(-1px);border-color:var(--teal);}
-.rc3-tool-icon{font-size:18px;line-height:1;margin-bottom:5px;}
+.rc3-tool-icon{font-size:15px;line-height:1;margin-bottom:5px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.1);}
 .rc3-tool-title{font-size:9.5px;font-weight:700;color:#1A2E28;line-height:1.2;}
 .rc3-tool-hint{font-size:8px;color:#4A5A54;line-height:1.2;margin-top:2px;}
 body.dark-mode .rc3-tool-title{color:var(--ink);}
@@ -2041,7 +2044,7 @@ body.dark-mode .rc3-tool-hint{color:var(--ink-soft);}
 .tc-card-blue .tc-mini-tip{margin-top:8px;}
 .tb-buttons{display:flex;flex-wrap:wrap;gap:7px;}
 .tb-btn{min-height:40px;min-width:58px;padding:8px 11px;touch-action:manipulation;}
-.practice-select-card .practice-check-grid{max-height:none;}
+.practice-select-card .practice-check-grid{max-height:280px;}
 @media(max-width:620px){
   .rc3-primary-cta{padding:12px 13px;margin-bottom:11px;}
   .rc3-primary-cta b{font-size:12px;}
@@ -2192,12 +2195,12 @@ body.dark-mode .rc-focus-clinic{background:var(--card)!important;border-color:va
   gap:8px!important;
 }
 .rc3-tool-card,.rc-toolkit-card,.qt-card{
-  border-radius:16px!important;
+  border-radius:26px!important;
   border:1.5px solid rgba(61,90,114,.16)!important;
   background:linear-gradient(180deg,#FFFFFF 0%,#F4F8FA 100%)!important;
   box-shadow:none!important;
-  min-height:84px!important;
-  padding:10px 6px!important;
+  min-height:0!important;
+  padding:8px 6px!important;
   transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
 .rc3-tool-card:hover,.rc-toolkit-card:hover,.qt-card:hover{
@@ -6292,7 +6295,7 @@ const _acc=r.accuracyPct||0;
 const _attempted=r.attempted||0;
 const _theoTotal=(typeof THEORETICAL_BANK!=="undefined"&&THEORETICAL_BANK)?THEORETICAL_BANK.length:0;
 let l='';
-const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><div class="home-run-track"><span class="home-hurdle" style="left:18%;">&#128679;</span><span class="home-hurdle" style="left:44%;">&#128679;</span><span class="home-hurdle" style="left:64%;">&#128679;</span><span class="home-runner">&#127939;</span><span class="home-run-goal">&#11088; <b>DipIFR</b><br><small>AHEAD</small></span></div><p class="home-run-caption" id="homeGreeting" dir="rtl"></p><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),(typeof checkResumeSession==="function"&&checkResumeSession()),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
+const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),(typeof checkResumeSession==="function"&&checkResumeSession()),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
 (function(){
   document.querySelectorAll(".rc-collapse-head").forEach(function(btn){
     btn.addEventListener("click",function(){
@@ -7196,7 +7199,7 @@ function buildReviewCenterHomeHtml(){
     {icon:'&#129513;',title:'Key Terms Quiz',hint:'اختبر مصطلحاتك',fn:'renderKeyTermsQuiz',clr:'tk-purple',badge:'&#128293; Hot'}
   ];
   const toolkitHtml=toolkitItems.map(function(it){
-    return '<button type="button" class="rc3-tool-card '+it.clr+'-card" data-rc-fn="'+it.fn+'" style="position:relative;">'+(it.badge?'<span class="rc3-tool-badge">'+it.badge+'</span>':'')+'<span class="rc3-tool-icon">'+it.icon+'</span><span class="rc3-tool-title">'+it.title+'</span><span class="rc3-tool-hint" dir="rtl">'+it.hint+'</span></button>';
+    return '<button type="button" class="rc3-tool-card '+it.clr+'-card" data-rc-fn="'+it.fn+'" style="position:relative;">'+(it.badge?'<span class="rc3-tool-badge">'+it.badge+'</span>':'')+'<span class="rc3-tool-icon">'+it.icon+'</span><span class="rc3-tool-title">'+it.title+'</span></button>';
   }).join('');
 
   const missedCount=(typeof buildMistakesReviewSet==="function"?buildMistakesReviewSet():[]).length;
@@ -7820,9 +7823,7 @@ function setupSidebarListeners() {
       <div class="advisory-notice study-guidance-notice"><button type="button" class="study-guidance-toggle" aria-expanded="false"><span>&#9888;&#65039; إرشادات مهمة للمراجعة</span><span class="study-guidance-arrow" aria-hidden="true">▼</span></button><div class="study-guidance-content"><div class="advisory-ar" dir="rtl"><b>تنبيه وإخلاء مسؤولية قانونية:</b><br>هذا المحتوى مورد تعليمي مستقل للمراجعة والتدريب فقط، وليس تابعًا أو معتمدًا أو مرتبطًا بأي شراكة رسمية مع جمعية المحاسبين القانونيين المعتمدين (ACCA)، ولا يحل محل موادها أو إرشاداتها أو منصتها الرسمية. جميع العلامات التجارية وحقوق النشر المتعلقة بـACCA ملك حصري لها. أي تشابه بين الأسئلة الواردة هنا وأي مواد صادرة عن الجمعية محض مصادفة غير مقصودة. المحتوى للاستخدام الشخصي والتعليمي فقط، ويُحظر إعادة نشره أو استغلاله تجاريًا.<br><br><b>إرشادات مهمة للمراجعة:</b><br>استخدم هذا الموقع للمراجعة السريعة وتثبيت المفاهيم والتدرب على أنماط الأسئلة المختلفة. يتضمن أسئلة وتمارين مبتكرة صُممت لتنشيط الذاكرة وتطوير مهارة ترتيب خطوات الحل وفهم المنطق المحاسبي وراء كل إجابة، لذلك قد تختلف بعض التمارين شكلًا عن أسئلة الامتحان التقليدية. احرص قبل الامتحان بوقت كافٍ على خوض تجربة كاملة على منصة ACCA الرسمية، مع التدريب على إدارة الوقت والتنقل بين أجزاء السؤال — فالتعوّد على بيئة الامتحان الفعلية جزء أساسي من استعدادك، ويجب الالتزام الكامل بتعليمات وقواعد الجمعية الرسمية في كل ما يخص المنهج والمؤهل.<br><br><b>ملاحظة بشأن دقة المحتوى:</b><br>بُذل جهد كبير لمراجعة المحتوى، ومع ذلك قد تظل هناك أخطاء غير مقصودة أو معلومات تحتاج تحديثًا مع تطور المعايير، دون أدنى مسؤولية قانونية. لو لاحظت أي خطأ، يرجى إرسال التفاصيل عبر وسائل التواصل الموضحة أدناه.</div><div class="advisory-en"><b>Legal Disclaimer &amp; Terms of Use:</b><br>This content is an independent educational resource for study and practice only. It is not affiliated with, endorsed by, or officially partnered with ACCA, and does not replace its official materials, guidance, or platform. All ACCA trademarks and copyrights belong exclusively to ACCA. Any resemblance to official questions or materials is purely coincidental. Content is for personal and educational use only; commercial redistribution is prohibited.<br><br><b>Study Guidance:</b><br>Use this companion for quick revision, concept reinforcement, and practice across question formats. It includes original exercises designed to activate memory and strengthen solution-structuring and accounting logic, so some activities may differ in format from traditional exam questions. Well before your exam, complete a full practice session on ACCA\u2019s official platform, practising time management and navigation between question sections \u2014 familiarity with the real exam environment is essential. Students must fully comply with ACCA\u2019s official syllabus, policies, and exam regulations.<br><br><b>Accuracy &amp; Error Reporting:</b><br>Every effort has been made to review the content, but unintended errors may still occur as standards evolve, without legal liability. If you notice an error, please report it via the contact details below.</div></div></div>`;
     return welcomeHtml+`
       <section class="tc-card tc-card-compact tc-card-blue" id="todaysChallengeCard">
-        <div class="tc-fire-ring"><span class="tc-fire">&#128293;</span></div>
-        <h2>تحدي اليوم &mdash; Daily IFRS Challenge</h2>
-        <p class="tc-sub-ar" dir="rtl">30 سؤال &middot; 30 دقيقة &middot; خليط عشوائي جديد كل مرة</p>
+        <div class="tc-header-row"><div class="tc-fire-ring"><span class="tc-fire">&#128293;</span></div><h2>تحدي اليوم &mdash; Daily IFRS Challenge</h2></div>
         <p class="tc-sub-en">30 questions &middot; 30 min &middot; a fresh random mix every time</p>
         ${(function(){try{const d=JSON.parse(localStorage.getItem("dipifr_todays30_streak")||"null");return d&&d.streak>1?'<div class="tc-streak-badge">&#128293; '+d.streak+'-day streak</div>':'';}catch(e){return '';}})()}
         <button type="button" class="me-start-btn tc-start-btn" id="startTodaysChallengeBtn">&#128640; يلا شوف إنت فين؟ &mdash; Start now</button>
@@ -8829,7 +8830,7 @@ function setupSidebarListeners() {
 /* ===== Kept improvements: progress tools + standard search + weak open (NO home redesign) ===== */
 (function(){
   'use strict';
-  var VERSION = '09.26';
+  var VERSION = '10.26';
 
   function exportProgress(){
     try{
