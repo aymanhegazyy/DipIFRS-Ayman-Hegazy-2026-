@@ -364,6 +364,11 @@ body.dark-mode .motivational-quote{box-shadow:0 4px 14px rgba(0,0,0,.4);}.motiva
 .home-teal-theme>.motivational-quote{order:2;margin:0 0 16px;}
 .home-teal-theme>.tc-card-blue{order:3;}
 .home-teal-theme>.home-other-project-card{order:4;}
+.home-teal-theme>.home-resume-banner{order:4;}
+.home-resume-banner{display:flex;align-items:center;gap:10px;background:var(--teal-soft);border:1.5px dashed var(--teal);border-radius:14px;padding:12px 14px;margin-top:14px;}
+.home-resume-icon{font-size:22px;flex:0 0 auto;}
+.home-resume-text{flex:1;font-size:12.5px;color:var(--ink);font-weight:600;}
+.home-resume-btn{flex:0 0 auto;background:var(--teal);color:#fff;border:none;border-radius:10px;padding:8px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:var(--font-mono);}
 .home-teal-theme>.tg-review-center{order:5;margin-top:18px;}
 .home-teal-theme>.tg-practice{order:6;}
 .home-teal-theme>.advisory-notice{order:7;}
@@ -492,7 +497,7 @@ body.dark-mode .motivational-quote{box-shadow:0 4px 14px rgba(0,0,0,.4);}.motiva
 .practice-advanced-label{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line-soft);font-size:11.5px;color:var(--ink-soft);}
 .focused-timer-optin{display:block;font-size:12px;color:var(--ink-soft);margin:8px 0;cursor:pointer;}
 .focused-count-optin{display:block;font-size:12px;color:var(--ink-soft);margin:8px 0;}
-.focused-count-input{width:90px;padding:4px 8px;border:1px solid var(--line);border-radius:6px;font-family:var(--font-mono);font-size:12px;margin-left:6px;background:var(--card);color:var(--ink);}
+.focused-count-input{width:130px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;font-family:var(--font-mono);font-size:12px;margin-left:6px;background:var(--card);color:var(--ink);min-height:30px;}
 .practice-selected-count.count-warn-big{color:var(--rust);font-weight:700;}
 .tb-label{display:block;font-size:11.5px;color:var(--ink-soft);margin-bottom:8px;}
 .tb-slider-wrap{max-width:360px;margin:10px auto 4px;text-align:center;}
@@ -6287,7 +6292,7 @@ const _acc=r.accuracyPct||0;
 const _attempted=r.attempted||0;
 const _theoTotal=(typeof THEORETICAL_BANK!=="undefined"&&THEORETICAL_BANK)?THEORETICAL_BANK.length:0;
 let l='';
-const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><div class="home-run-track"><span class="home-hurdle" style="left:18%;">&#128679;</span><span class="home-hurdle" style="left:44%;">&#128679;</span><span class="home-hurdle" style="left:64%;">&#128679;</span><span class="home-runner">&#127939;</span><span class="home-run-goal">&#11088; <b>DipIFR</b><br><small>AHEAD</small></span></div><p class="home-run-caption" id="homeGreeting" dir="rtl"></p><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
+const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><div class="home-run-track"><span class="home-hurdle" style="left:18%;">&#128679;</span><span class="home-hurdle" style="left:44%;">&#128679;</span><span class="home-hurdle" style="left:64%;">&#128679;</span><span class="home-runner">&#127939;</span><span class="home-run-goal">&#11088; <b>DipIFR</b><br><small>AHEAD</small></span></div><p class="home-run-caption" id="homeGreeting" dir="rtl"></p><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),(typeof checkResumeSession==="function"&&checkResumeSession()),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
 (function(){
   document.querySelectorAll(".rc-collapse-head").forEach(function(btn){
     btn.addEventListener("click",function(){
@@ -6407,6 +6412,7 @@ const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-ba
   const selectAllBtn=document.getElementById("practiceSelectAllBtn");
   const clearAllBtn=document.getElementById("practiceClearAllBtn");
   if(selectAllBtn)selectAllBtn.addEventListener("click",function(){
+    if(!confirm("This selects every question type — potentially 1,000+ questions. Continue?"))return;
     Object.values(ids).forEach(function(id){
       const el=document.getElementById(id);
       if(el && !el.disabled)el.checked=true;
@@ -6422,7 +6428,7 @@ const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-ba
   });
   update();
 })();
-const d=document.getElementById("startPracticeBtn");d&&d.addEventListener("click",function(e){e.stopPropagation();_isTodaysChallenge=false;_isTimeBoxed=false;_isMultiStandard=false;_isOrderedGa=false;const t={mcq:document.getElementById("practiceMcqCheck").checked,speed:document.getElementById("practiceMcqCheck").checked,verb:document.getElementById("practiceVerbCheck").checked,commandword:document.getElementById("practiceVerbCheck").checked,inv:document.getElementById("practiceInvestigationCheck").checked,tf:document.getElementById("practiceTfCheck").checked,spot:document.getElementById("practiceSpotCheck").checked,seq:document.getElementById("practiceSeqCheck").checked,calc:document.getElementById("practiceCalcCheck").checked,ga:document.getElementById("practiceGaCheck").checked,odd:document.getElementById("practiceOddCheck").checked,ethics:document.getElementById("practiceEthicsCheck").checked,theoretical:false,bf:document.getElementById("practiceBfCheck").checked,dt:document.getElementById("practiceDtCheck").checked,cr:document.getElementById("practiceCrCheck").checked,tle:document.getElementById("practiceTleCheck").checked,ecs:document.getElementById("practiceEthicsCheck").checked,realexam:document.getElementById("practiceRealExamCheck").checked,scramble:document.getElementById("practiceScrambleCheck").checked};if(!(t.mcq||t.speed||t.verb||t.commandword||t.inv||t.tf||t.spot||t.seq||t.calc||t.ga||t.odd||t.ethics||t.theoretical||t.bf||t.dt||t.cr||t.tle||t.ecs||t.realexam||t.scramble)){var warnEl=document.getElementById("practiceSelectedCount");if(warnEl){warnEl.textContent="\u26A0\uFE0F Hold up \u2014 pick a question type first!";warnEl.style.color="var(--rust)";warnEl.style.fontWeight="700";warnEl.classList.remove("shake-warn");void warnEl.offsetWidth;warnEl.classList.add("shake-warn");}return;}const focusedTimerOn=document.getElementById("focusedTimerOptIn")&&document.getElementById("focusedTimerOptIn").checked;const countInputEl=document.getElementById("focusedCountInput");const countVal=countInputEl&&countInputEl.value?parseInt(countInputEl.value,10):null;_focusedCountLimit=(countVal&&countVal>0)?countVal:null;const focusedCount=buildFullPracticePool(t).length;renderMockExam(focusedTimerOn,t,null,null,true,focusedTimerOn?focusedCount:undefined)});const simBtn=document.getElementById("fullPracticeRandomBtn");simBtn&&simBtn.addEventListener("click",function(e){e.stopPropagation();_isTodaysChallenge=false;const allFlags={mcq:!0,speed:!0,verb:!0,commandword:!0,inv:!0,tf:!0,spot:!0,seq:!0,calc:!0,ga:!0,odd:!0,ethics:!0,theoretical:!0,bf:!0,dt:!0,cr:!0,tle:!0,ecs:!0,realexam:!0};renderMockExam(!0,allFlags,null,50,!0)});(function(){
+const d=document.getElementById("startPracticeBtn");d&&d.addEventListener("click",function(e){e.stopPropagation();_isTodaysChallenge=false;_isTimeBoxed=false;_isMultiStandard=false;_isOrderedGa=false;const t={mcq:document.getElementById("practiceMcqCheck").checked,speed:document.getElementById("practiceMcqCheck").checked,verb:document.getElementById("practiceVerbCheck").checked,commandword:document.getElementById("practiceVerbCheck").checked,inv:document.getElementById("practiceInvestigationCheck").checked,tf:document.getElementById("practiceTfCheck").checked,spot:document.getElementById("practiceSpotCheck").checked,seq:document.getElementById("practiceSeqCheck").checked,calc:document.getElementById("practiceCalcCheck").checked,ga:document.getElementById("practiceGaCheck").checked,odd:document.getElementById("practiceOddCheck").checked,ethics:document.getElementById("practiceEthicsCheck").checked,theoretical:false,bf:document.getElementById("practiceBfCheck").checked,dt:document.getElementById("practiceDtCheck").checked,cr:document.getElementById("practiceCrCheck").checked,tle:document.getElementById("practiceTleCheck").checked,ecs:document.getElementById("practiceEthicsCheck").checked,realexam:document.getElementById("practiceRealExamCheck").checked,scramble:document.getElementById("practiceScrambleCheck").checked};if(!(t.mcq||t.speed||t.verb||t.commandword||t.inv||t.tf||t.spot||t.seq||t.calc||t.ga||t.odd||t.ethics||t.theoretical||t.bf||t.dt||t.cr||t.tle||t.ecs||t.realexam||t.scramble)){var warnEl=document.getElementById("practiceSelectedCount");if(warnEl){warnEl.textContent="\u26A0\uFE0F Hold up \u2014 pick a question type first!";warnEl.style.color="var(--rust)";warnEl.style.fontWeight="700";warnEl.classList.remove("shake-warn");void warnEl.offsetWidth;warnEl.classList.add("shake-warn");}return;}const focusedTimerOn=document.getElementById("focusedTimerOptIn")&&document.getElementById("focusedTimerOptIn").checked;const countInputEl=document.getElementById("focusedCountInput");const countVal=countInputEl&&countInputEl.value?parseInt(countInputEl.value,10):null;_focusedCountLimit=(countVal&&countVal>0)?countVal:null;try{localStorage.setItem("dipifr_last_session",JSON.stringify({flags:t,countLimit:_focusedCountLimit,ts:Date.now()}));}catch(err){}const focusedCount=buildFullPracticePool(t).length;renderMockExam(focusedTimerOn,t,null,null,true,focusedTimerOn?focusedCount:undefined)});const simBtn=document.getElementById("fullPracticeRandomBtn");simBtn&&simBtn.addEventListener("click",function(e){e.stopPropagation();_isTodaysChallenge=false;const allFlags={mcq:!0,speed:!0,verb:!0,commandword:!0,inv:!0,tf:!0,spot:!0,seq:!0,calc:!0,ga:!0,odd:!0,ethics:!0,theoretical:!0,bf:!0,dt:!0,cr:!0,tle:!0,ecs:!0,realexam:!0};renderMockExam(!0,allFlags,null,50,!0)});(function(){
   var TB_VALUES=[10,20,30,45,60,90];
   var TB_EMOJIS=["\u26a1","\ud83d\ude0a","\ud83c\udfaf","\ud83d\udcaa","\ud83d\udd25","\ud83d\ude80"];
   var TB_MOODS=["\u26a1 Quick and light","\ud83d\ude0a A nice warm-up","\ud83c\udfaf Focused session","\ud83d\udcaa Solid effort","\ud83d\udd25 Serious session","\ud83d\ude80 Full power mode"];
@@ -7543,6 +7549,27 @@ if(document.readyState==="loading"){
 }else{
   initWelcomeName();
 }
+function checkResumeSession(){
+  var banner=document.getElementById("resumeSessionBanner");
+  if(!banner)return;
+  try{
+    var raw=localStorage.getItem("dipifr_last_session");
+    if(!raw){banner.style.display="none";return;}
+    var saved=JSON.parse(raw);
+    var hoursAgo=(Date.now()-saved.ts)/36e5;
+    if(hoursAgo>24 || hoursAgo<0){banner.style.display="none";return;}
+    var selectedTypes=Object.keys(saved.flags||{}).filter(function(k){return saved.flags[k];});
+    if(selectedTypes.length===0){banner.style.display="none";return;}
+    banner.innerHTML='<span class="home-resume-icon">&#9203;</span><span class="home-resume-text">You have a practice session from earlier &mdash; pick up where you left off?</span><button type="button" class="home-resume-btn" id="resumeSessionBtn">Resume &rarr;</button>';
+    banner.style.display="flex";
+    var btn=document.getElementById("resumeSessionBtn");
+    if(btn)btn.addEventListener("click",function(){
+      _isTodaysChallenge=false;_isTimeBoxed=false;_isMultiStandard=false;_isOrderedGa=false;
+      _focusedCountLimit=(saved.countLimit&&saved.countLimit>0)?saved.countLimit:null;
+      renderMockExam(false,saved.flags,null,null,true);
+    });
+  }catch(e){banner.style.display="none";}
+}
 function initListenMode(){
   var btn=document.getElementById("listenModeToggle");
   if(!btn)return;
@@ -7809,6 +7836,7 @@ function setupSidebarListeners() {
           <span class="hopc-sub">Explore real-world accounting practice &rarr;</span><span class="hopc-tagline">&#10024; من النظرية للتطبيق الفعلي</span>
         </span>
       </a>
+      <div id="resumeSessionBanner" class="home-resume-banner" style="display:none;"></div>
       ${pathAndAdvisoryHtml}`;
   }
 
