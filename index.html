@@ -84,6 +84,49 @@ body.dark-mode .std-item-other .code{color:#EF9A9A;font-weight:800;}body.dark-mo
 .practice-selectall-row{display:flex;gap:10px;margin-bottom:10px;}
 .practice-selectall-btn{font-family:var(--font-mono);font-size:11px;font-weight:700;padding:5px 12px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;}
 .practice-selectall-btn:hover{border-color:var(--teal);color:var(--teal);}
+
+.mco-wrap{max-width:520px;margin:0 auto;}
+.mco-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.mco-name{font-weight:800;font-size:15px;color:var(--ink);}
+.mco-reset{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--ink-soft);cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;padding:7px 12px;min-height:34px;}
+.mco-confirm{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--rust-soft);border:1.5px solid var(--rust);border-radius:12px;padding:10px 12px;margin-bottom:10px;font-size:12.5px;color:var(--ink);}
+.mco-confirm[hidden]{display:none;}
+.mco-confirm span{flex:1 1 100%;font-weight:700;}
+.mco-confirm button{font-family:var(--font-mono);font-size:12px;font-weight:800;border-radius:10px;padding:8px 14px;min-height:36px;cursor:pointer;}
+.mco-confirm-yes{background:var(--rust);color:var(--paper);border:none;}
+.mco-confirm-no{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+.mco-meters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.mco-meter{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;}
+.mco-meter-top{display:flex;justify-content:space-between;gap:6px;font-size:11px;font-weight:700;color:var(--ink);}
+.mco-val{font-family:var(--font-mono);}
+.mco-bar{height:7px;border-radius:4px;background:var(--line-soft);margin-top:6px;overflow:hidden;}
+.mco-fill{height:100%;border-radius:4px;transition:width .7s ease,background .3s ease;}
+.mco-story{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;}
+.mco-tag{display:inline-block;font-family:var(--font-mono);font-size:10px;font-weight:800;background:var(--slate);color:#fff;padding:2px 8px;border-radius:10px;margin-right:6px;}
+.mco-ep{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);}
+.mco-title{font-weight:800;font-size:14.5px;margin:8px 0 6px;color:var(--ink);}
+.mco-text{font-size:13px;line-height:1.6;color:var(--ink);margin:0 0 8px;}
+.mco-banner{background:var(--gold-soft);border:1px dashed var(--accent);border-radius:12px;padding:9px 12px;font-size:12px;line-height:1.6;margin-bottom:12px;color:var(--ink);}
+.mco-result{border-radius:14px;padding:14px;margin-bottom:12px;border:1.5px solid var(--line);background:var(--card);}
+.mco-result.good{border-color:var(--teal);background:var(--teal-soft);}
+.mco-result.bad{border-color:var(--rust);background:var(--rust-soft);}
+.mco-result-head{font-weight:800;font-size:14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;color:var(--ink);}
+.mco-why{font-size:12.5px;line-height:1.6;color:var(--ink);margin:0 0 8px;padding-top:8px;border-top:1px dashed var(--line);}
+.mco-chip{display:inline-block;font-family:var(--font-mono);font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:10px;margin:2px 4px 2px 0;}
+.mco-chip.up{background:var(--teal-soft);color:var(--teal);border:1px solid var(--teal);}
+.mco-chip.down{background:var(--rust-soft);color:var(--rust);border:1px solid var(--rust);}
+.mco-input{display:block;width:100%;box-sizing:border-box;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;margin:8px 0 12px;background:var(--card);color:var(--ink);font-family:var(--font-body);}
+.mco-opinion{border-radius:14px;padding:14px;margin-bottom:12px;border:1.5px solid var(--line);background:var(--card);}
+.mco-opinion.good{border-color:var(--teal);background:var(--teal-soft);}
+.mco-opinion.mid{border-color:var(--accent);background:var(--gold-soft);}
+.mco-opinion.bad{border-color:var(--rust);background:var(--rust-soft);}
+.mco-op-title{font-weight:800;font-size:15px;margin-bottom:6px;color:var(--ink);}
+.mco-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:12.5px;color:var(--ink);}
+.mco-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.mco-tip{color:var(--ink-soft);}
+.mco-btn{display:block;width:100%;box-sizing:border-box;padding:11px 14px;border:none;border-radius:12px;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:13px;font-weight:800;cursor:pointer;margin-top:4px;}
+.mco-actions .mco-btn{width:auto;flex:1 1 150px;}
+
 .home-other-project-card{position:relative;display:flex;align-items:center;gap:12px;background:linear-gradient(120deg,#5B3A8E 0%,#8A5FC7 42%,#D9A94A 100%);background-size:220% 100%;border-radius:16px;padding:16px 18px;margin-top:14px;text-decoration:none;cursor:pointer;box-shadow:0 8px 22px rgba(91,58,142,.35);transition:transform .12s ease;animation:hopcShimmerBg 4s ease-in-out infinite,hopcGlow 2.4s ease-in-out infinite;z-index:0;overflow:hidden;}
 .home-other-project-card::after{content:"";position:absolute;top:-50%;left:-30%;width:40%;height:200%;background:rgba(255,255,255,.25);transform:rotate(20deg);animation:hopcSweep 3.5s ease-in-out infinite;}
 @keyframes hopcSweep{0%{left:-30%;}50%{left:130%;}100%{left:130%;}}
@@ -6414,8 +6457,17 @@ const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-ba
   });
   const selectAllBtn=document.getElementById("practiceSelectAllBtn");
   const clearAllBtn=document.getElementById("practiceClearAllBtn");
+  var selectAllArmed=false,selectAllTimer=null;
   if(selectAllBtn)selectAllBtn.addEventListener("click",function(){
-    if(!confirm("This selects every question type — potentially 1,000+ questions. Continue?"))return;
+    if(!selectAllArmed){
+      selectAllArmed=true;
+      selectAllBtn.innerHTML="&#9888;&#65039; Tap again to select ALL";
+      clearTimeout(selectAllTimer);
+      selectAllTimer=setTimeout(function(){selectAllArmed=false;selectAllBtn.innerHTML="&#9989; Select All";},4000);
+      return;
+    }
+    selectAllArmed=false;clearTimeout(selectAllTimer);
+    selectAllBtn.innerHTML="&#9989; Select All";
     Object.values(ids).forEach(function(id){
       const el=document.getElementById(id);
       if(el && !el.disabled)el.checked=true;
@@ -6649,8 +6701,177 @@ function resolveMistakeQuestion(code, key){
     var item=BOSS_FIGHT_DATA[parseInt(m[1],10)];
     if(item && item.code===code) return {text:item.title+" \u2014 fill-in-the-blank technical recall", explanation:null, typeLabel:"Boss Fight"};
   }
+  if(m=key.match(/^company(\d+)$/)){
+    var ce=COMPANY_EPISODES[parseInt(m[1],10)];
+    if(ce&&ce.code===code){
+      var bestOpt=ce.options.filter(function(o){return o.ok;})[0];
+      return {text:ce.title+" — "+ce.story, explanation:"<b>Best decision:</b> "+bestOpt.t+"<br><br>"+ce.why, typeLabel:"My Company"};
+    }
+  }
   return null;
 }
+
+const COMPANY_EPISODES=[{"code": "IFRS 15", "title": "The prepaid subscription", "story": "Your first big customer pays EGP 240,000 up front on 1 October for a 12-month subscription to your service, delivered evenly over the following year. Your financial year ends on 31 December. How do you record it in this year's accounts?", "options": [{"t": "Recognise the full EGP 240,000 as revenue now — the cash is already in the bank.", "d": [-5, 6, -5, -2], "out": "Profit jumps, but the auditor points out that 9 of the 12 months of service haven't been delivered yet.", "ok": false}, {"t": "Recognise EGP 60,000 as revenue (3 of 12 months) and carry EGP 180,000 forward as a contract liability.", "d": [3, 2, 3, 2], "out": "A modest profit figure, but the auditor can trace every pound of revenue to service actually delivered.", "ok": true}, {"t": "Recognise EGP 120,000 now and the rest next year — half and half keeps things simple.", "d": [-3, 3, -3, -1], "out": "It looks tidy, but the split has no link to when the service is actually delivered.", "ok": false}], "why": "IFRS 15 recognises revenue as each performance obligation is satisfied — here, over time as the service is delivered. Three of the twelve months have passed: 240,000 × 3/12 = 60,000 of revenue. The remaining 180,000 is a contract liability until the service is delivered. When the cash arrives doesn't decide when revenue is recognised."}, {"code": "IAS 16", "title": "The new machine", "story": "To expand production you buy a machine: purchase price EGP 80,000, delivery and installation EGP 6,000, testing before it is ready EGP 2,000, and staff training EGP 3,000 — EGP 91,000 in total. What goes on the balance sheet as the machine's cost?", "options": [{"t": "Capitalise all EGP 91,000 — the training was needed to run the machine.", "d": [-4, 4, -4, -2], "out": "The asset looks bigger and profit looks better, but the auditor flags the training cost straight away.", "ok": false}, {"t": "Capitalise EGP 88,000 (price + delivery and installation + testing) and expense the EGP 3,000 training.", "d": [3, -1, 3, 2], "out": "The machine is carried at exactly what it cost to get it ready for use — the auditor ticks it off.", "ok": true}, {"t": "Capitalise only the EGP 80,000 price and expense the other EGP 11,000.", "d": [-2, -2, -3, -1], "out": "Over-cautious: costs of getting the asset ready for use belong in its cost, so profit is understated.", "ok": false}], "why": "Under IAS 16, cost includes the purchase price plus all costs directly attributable to bringing the asset to the location and condition it needs to operate — delivery, installation and testing. Staff training is specifically excluded and is expensed. 80,000 + 6,000 + 2,000 = 88,000 capitalised; the 3,000 training goes to profit or loss."}, {"code": "IAS 37", "title": "The lawsuit", "story": "A supplier sues your company over a disputed contract. Your lawyers say it is probable (roughly 70%) that you will lose, and the best estimate of damages is EGP 400,000, reliably measurable. What do you do?", "options": [{"t": "Mention it in the notes only, as a contingent liability — nothing has been decided yet.", "d": [-5, 5, -5, -2], "out": "Profit is untouched, but the auditor says a probable outflow with a reliable estimate can't be left in a note.", "ok": false}, {"t": "Recognise a provision of EGP 400,000 and disclose the nature of the claim.", "d": [3, -2, 3, 2], "out": "It hurts profit, but investors see a company that tells the truth about its risks.", "ok": true}, {"t": "Recognise 70% × EGP 400,000 = EGP 280,000, weighting the amount by probability.", "d": [-3, -1, -3, -1], "out": "The maths looks clever, but probability-weighting isn't how a single obligation is measured.", "ok": false}], "why": "A provision is recognised when there is a present obligation from a past event, an outflow is probable (more likely than not) and the amount can be estimated reliably — all met here. For a single obligation, the best estimate is the most likely outcome, not a probability-weighted average (that approach is for large populations of similar items). A contingent liability is only disclosed when an outflow is merely possible."}, {"code": "IFRS 16", "title": "The new head office lease", "story": "You sign a 5-year lease for a head office: EGP 100,000 per year, paid at the end of each year. Your incremental borrowing rate is 8% and the 5-year annuity factor at 8% is 3.9927. How does the lease appear in your accounts at the start?", "options": [{"t": "Record nothing at the start — just expense EGP 100,000 rent each year, like an operating lease.", "d": [-5, 4, -5, -2], "out": "Your balance sheet looks lighter, but the auditor reminds you that this is the old IAS 17 treatment for lessees.", "ok": false}, {"t": "Recognise a right-of-use asset and a lease liability of EGP 399,270 (100,000 × 3.9927).", "d": [3, -1, 3, 2], "out": "The balance sheet now shows the obligation honestly, and the auditor agrees with the discounting.", "ok": true}, {"t": "Recognise a lease liability of EGP 500,000 — the total of all the payments.", "d": [-3, -2, -3, -1], "out": "Too high: the auditor points out that future payments must be discounted to present value.", "ok": false}], "why": "IFRS 16 requires a lessee to recognise a right-of-use asset and a lease liability for virtually all leases. The liability is the present value of the future lease payments, discounted at the rate implicit in the lease or the lessee's incremental borrowing rate: 100,000 × 3.9927 = 399,270. An undiscounted total ignores the time value of money, and expensing rent with nothing on the balance sheet is the old IAS 17 model for lessees."}, {"code": "IAS 2", "title": "The unsold stock", "story": "A competitor slashes its prices. Your warehouse holds goods that cost EGP 150,000; you now expect to sell them for EGP 130,000, after spending EGP 10,000 on selling costs. At what amount do you carry the inventory?", "options": [{"t": "Keep it at EGP 150,000 — that is what you paid, and prices may recover.", "d": [-4, 5, -4, -2], "out": "Profit stays high on paper, but the stock is carried above what it can realistically earn.", "ok": false}, {"t": "Write it down to EGP 120,000 (net realisable value) and expense the EGP 30,000 write-down.", "d": [3, -2, 3, 2], "out": "A painful but honest hit — the stock is now carried at what you can actually recover.", "ok": true}, {"t": "Write it down to EGP 130,000, the expected selling price.", "d": [-2, -1, -3, -1], "out": "Close, but the auditor notes you forgot to deduct the costs of selling.", "ok": false}], "why": "IAS 2 measures inventory at the lower of cost and net realisable value. NRV = estimated selling price − estimated costs to complete and sell = 130,000 − 10,000 = 120,000. Since NRV is below cost (150,000), the write-down of 30,000 is recognised immediately; hoping prices recover doesn't allow the stock to stay at cost.", "cb": {"ref": 1, "right": {"t": "📬 Earlier this year the auditor noticed how cleanly you handled the machine costs — they are more relaxed with your inventory numbers.", "d": [2, 0, 0, 1]}, "wrong": {"t": "📬 Earlier this year the auditor challenged the training costs you capitalised on the machine — they are now double-checking everything you book.", "d": [-3, 0, -2, -1]}}}, {"code": "IAS 36", "title": "The machine that underperforms", "story": "A key machine's carrying amount is EGP 500,000. Sales have dropped, so you test it for impairment: its fair value less costs of disposal is EGP 380,000 and its value in use is EGP 420,000. How big is the impairment loss?", "options": [{"t": "EGP 120,000 — compare the carrying amount with the lower figure, EGP 380,000.", "d": [-3, -3, -3, -1], "out": "You've over-impaired: the loss is too big because the wrong comparison figure was used.", "ok": false}, {"t": "EGP 80,000 — recoverable amount is the higher of the two figures, EGP 420,000.", "d": [3, -2, 3, 2], "out": "The loss is measured exactly right, and the auditor accepts the working.", "ok": true}, {"t": "None — the machine is still working, so there is no loss.", "d": [-5, 5, -5, -2], "out": "The auditor disagrees: being in use doesn't stop an asset from being impaired.", "ok": false}], "why": "An asset is impaired when its carrying amount exceeds its recoverable amount — the HIGHER of fair value less costs of disposal and value in use (the entity is assumed to choose the better route). Recoverable amount = max(380,000; 420,000) = 420,000, so the impairment loss = 500,000 − 420,000 = 80,000."}, {"code": "IAS 10", "title": "Bad news after the year end", "story": "Your year ends on 31 December. On 15 January a major customer that owed you EGP 90,000 at the year end goes bankrupt — its financial trouble was already building at 31 December. The accounts are authorised for issue on 10 March. What do you do?", "options": [{"t": "Ignore it in this year's accounts — it happened after the year end, so record the loss next year.", "d": [-5, 5, -5, -2], "out": "Profit looks better, but the auditor says the receivable was already impaired at the year end.", "ok": false}, {"t": "Adjust this year's accounts: recognise the loss on the receivable now, because the event confirms conditions at the year end.", "d": [3, -2, 3, 2], "out": "The year-end receivable now reflects reality, and the auditor signs off on the adjustment.", "ok": true}, {"t": "Leave the figures alone but disclose it as a non-adjusting event.", "d": [-3, 2, -3, -1], "out": "Disclosure alone isn't enough here — the numbers themselves need to change.", "ok": false}], "why": "Under IAS 10, events between the reporting date and the date the statements are authorised for issue are either adjusting (they provide evidence of conditions that existed at the reporting date) or non-adjusting (conditions that arose after it). A customer's bankruptcy that confirms a receivable was already impaired is adjusting, so the year-end figures change. Non-adjusting events — such as a fire after the year end — are only disclosed.", "cb": {"ref": 2, "right": {"t": "📬 Investors liked the way you handled the lawsuit earlier this year — your credibility is paying off.", "d": [0, 0, 0, 2]}, "wrong": {"t": "📬 Investors noticed the lawsuit never showed up as a provision earlier this year, and they are asking tougher questions about your disclosures.", "d": [0, 0, -2, -3]}}}, {"code": "IFRS 3", "title": "The acquisition", "story": "Your company buys 100% of a smaller competitor for EGP 900,000. The fair value of its identifiable net assets is EGP 700,000. You also paid EGP 20,000 in legal and advisory fees. How do you account for the deal?", "options": [{"t": "Goodwill of EGP 220,000 — the fees are part of the cost of buying the business.", "d": [-4, 3, -4, -2], "out": "Goodwill is overstated: the fees were swept into it when they should have gone to profit or loss.", "ok": false}, {"t": "Goodwill of EGP 200,000, and expense the EGP 20,000 fees.", "d": [3, -1, 3, 2], "out": "The goodwill figure is clean, and the fees hit profit exactly where the standard says they should.", "ok": true}, {"t": "Goodwill of EGP 200,000, plus a separate EGP 20,000 intangible asset for the fees.", "d": [-3, 2, -3, -1], "out": "The auditor points out that deal fees don't create an asset of their own.", "ok": false}], "why": "Under IFRS 3, goodwill = consideration transferred − fair value of identifiable net assets acquired (100% acquired, so no non-controlling interest) = 900,000 − 700,000 = 200,000. Acquisition-related costs such as legal and advisory fees are expensed as incurred — they are not part of the consideration transferred and don't create an asset.", "cb": {"ref": 0, "right": {"t": "📬 Lenders financing the acquisition praised how reliably you recognised revenue earlier this year.", "d": [2, 0, 0, 2]}, "wrong": {"t": "📬 Lenders financing the acquisition noticed your early revenue recognition earlier this year and are questioning the quality of your earnings.", "d": [-2, 0, -2, -3]}}}, {"code": "IAS 38", "title": "The new product", "story": "Your team is developing a new product. The research phase cost EGP 60,000. Then technical feasibility is demonstrated and every other recognition criterion is met, and a further EGP 90,000 of development costs are incurred. How do you account for the EGP 150,000?", "options": [{"t": "Capitalise all EGP 150,000 as an intangible asset — it is all part of creating the product.", "d": [-4, 5, -4, -2], "out": "The asset and profit both look bigger, but the auditor points out that research costs can never be capitalised.", "ok": false}, {"t": "Expense the EGP 60,000 of research and capitalise the EGP 90,000 of development costs.", "d": [3, -1, 3, 2], "out": "The line between research and development is drawn exactly where the standard puts it.", "ok": true}, {"t": "Expense all EGP 150,000 — it is safer to keep everything out of the balance sheet.", "d": [-3, -3, -3, -1], "out": "Too cautious: once the criteria are met, capitalising development costs isn't optional.", "ok": false}], "why": "Under IAS 38, research costs are always expensed. Development costs MUST be capitalised once all the criteria are demonstrated (technical feasibility, intention and ability to complete and use or sell, probable future economic benefits, adequate resources, reliable measurement). So 60,000 is expensed and 90,000 is capitalised. Expensing everything 'to be safe' is not a permitted choice once the criteria are met."}, {"code": "IAS 12", "title": "The tax surprise", "story": "Your equipment has a carrying amount of EGP 80,000, but its tax base is only EGP 50,000 because the tax authority allows faster depreciation. The tax rate is 25%. What do you record for deferred tax on this asset?", "options": [{"t": "Nothing — only the current tax payable is recorded.", "d": [-4, 4, -4, -2], "out": "Profit stays higher, but the auditor says a taxable temporary difference exists and must be recognised.", "ok": false}, {"t": "A deferred tax liability of EGP 7,500 — 25% × the EGP 30,000 difference.", "d": [3, -2, 3, 2], "out": "The auditor agrees: tax relief was taken early, so more tax will be payable in the future.", "ok": true}, {"t": "A deferred tax asset of EGP 7,500, because tax relief was received early.", "d": [-3, 4, -3, -1], "out": "The right number but the wrong side: getting tax relief early means MORE tax later, not less.", "ok": false}], "why": "IAS 12 requires a deferred tax liability for taxable temporary differences. Carrying amount 80,000 exceeds the tax base 50,000 by 30,000: recovering the asset will produce taxable income of 80,000 but only 50,000 of tax deductions. Deferred tax liability = 30,000 × 25% = 7,500. Using the whole carrying amount (80,000 × 25%) would be a common mistake — only the difference counts."}, {"code": "IFRS 9", "title": "The bond portfolio", "story": "At the start of the year you buy a corporate bond at par for EGP 500,000, paying a 6% annual coupon. Your business model is to hold it and collect the contractual cash flows, which are solely payments of principal and interest. By year end rising market interest rates cut its market value to EGP 460,000. Ignore credit losses. How do you measure it?", "options": [{"t": "Write it down to EGP 460,000 and take the EGP 40,000 loss to profit or loss.", "d": [-4, -3, -4, -2], "out": "You've applied a fair-value model to an asset that is held to collect cash flows.", "ok": false}, {"t": "Keep it at amortised cost, EGP 500,000, and recognise EGP 30,000 of interest income.", "d": [3, 1, 3, 2], "out": "The market-price swing is ignored, exactly as the hold-to-collect model intends.", "ok": true}, {"t": "Write it down to EGP 460,000 through other comprehensive income.", "d": [-3, 1, -3, -1], "out": "That treatment needs a business model of both collecting AND selling — which isn't yours.", "ok": false}], "why": "Under IFRS 9, a debt instrument whose cash flows are solely payments of principal and interest, held in a business model to collect contractual cash flows, is measured at amortised cost. Changes in market value are ignored. The bond stays at 500,000 and interest income is 500,000 × 6% = 30,000. Fair value through profit or loss or through OCI would apply under different business models."}, {"code": "IAS 8", "title": "The machine wears out sooner", "story": "Four years ago you bought a machine for EGP 100,000 with a 10-year life and no residual value, depreciated straight-line at EGP 10,000 a year. Its carrying amount is now EGP 60,000. Engineers now say it will only last 3 more years from today. How do you account for this?", "options": [{"t": "Restate the previous years' depreciation as if a 7-year life had always been used.", "d": [-4, 2, -4, -2], "out": "The auditor stops you: a change in estimate isn't a reason to rewrite the past.", "ok": false}, {"t": "Spread the EGP 60,000 carrying amount over the 3 remaining years — EGP 20,000 a year — with no restatement.", "d": [3, -2, 3, 2], "out": "The change takes effect from now on, and the past figures stay untouched.", "ok": true}, {"t": "Keep charging EGP 10,000 a year — changing it now would look inconsistent.", "d": [-3, 3, -3, -1], "out": "Consistency isn't a reason to ignore new information about the asset's life.", "ok": false}], "why": "A revised useful life is a change in accounting estimate. IAS 8 requires it to be applied prospectively — from the date of the change — with no restatement of prior periods, and IAS 16 requires the useful life to be reviewed and revised when expectations change. Remaining depreciable amount 60,000 ÷ 3 remaining years = 20,000 a year."}, {"code": "IAS 21", "title": "The foreign supplier", "story": "On 1 November you buy goods from an overseas supplier for USD 10,000 on credit, when the rate is EGP 48 per USD. At your 31 December year end the invoice is still unpaid, the goods are still unsold, and the rate is EGP 50 per USD. What do you do at the year end?", "options": [{"t": "Leave the payable at EGP 480,000 — that was the amount when the deal was done.", "d": [-4, 4, -4, -2], "out": "Your liability is understated: it will cost EGP 500,000 to settle at today's rate.", "ok": false}, {"t": "Retranslate the payable to EGP 500,000 and recognise the EGP 20,000 exchange loss in profit or loss.", "d": [3, -2, 3, 2], "out": "The monetary liability now reflects the closing rate, and the loss goes where it belongs.", "ok": true}, {"t": "Retranslate the payable to EGP 500,000 and add the EGP 20,000 to the cost of the inventory.", "d": [-3, 3, -3, -1], "out": "The auditor points out that exchange differences on a payable aren't part of inventory cost.", "ok": false}], "why": "Under IAS 21, a foreign-currency purchase is first recorded at the spot rate (10,000 × 48 = 480,000). A monetary item such as a payable is retranslated at the closing rate at each reporting date (10,000 × 50 = 500,000), and the exchange difference (20,000 loss) goes to profit or loss. The inventory itself is non-monetary and stays at its historical cost of 480,000."}, {"code": "IAS 23", "title": "The warehouse build", "story": "You borrow EGP 1,000,000 at 8% to build a new warehouse, which is a qualifying asset. The money is spent immediately and construction runs for 9 months, from 1 January to 30 September, when the warehouse is ready for use. The loan stays outstanding until 31 December. Total interest for the year is EGP 80,000. How do you account for it?", "options": [{"t": "Expense all EGP 80,000 as a finance cost.", "d": [-3, -3, -3, -1], "out": "Too cautious: interest on a qualifying asset's construction period must be capitalised.", "ok": false}, {"t": "Capitalise EGP 60,000 (the 9 months of construction) and expense the remaining EGP 20,000.", "d": [3, -1, 3, 2], "out": "Capitalisation stops the moment the warehouse is ready for use, and the auditor agrees.", "ok": true}, {"t": "Capitalise all EGP 80,000 — the loan was taken out for the warehouse.", "d": [-4, 4, -4, -2], "out": "You kept capitalising after the warehouse was ready for use, which isn't allowed.", "ok": false}], "why": "IAS 23 requires borrowing costs directly attributable to the construction of a qualifying asset to be capitalised — but only while the activities to prepare the asset are in progress. Capitalisation ceases when the asset is substantially ready for use. Here 80,000 × 9/12 = 60,000 is capitalised, and the remaining 80,000 − 60,000 = 20,000 is expensed.", "cb": {"ref": 3, "right": {"t": "📬 The bank financing the warehouse saw your lease liability properly on the balance sheet earlier this year and trusts your gearing figures.", "d": [2, 0, 0, 2]}, "wrong": {"t": "📬 The bank financing the warehouse noticed your lease obligations weren't on the balance sheet earlier this year — it is recalculating your gearing and asking harder questions.", "d": [-3, 0, -2, -2]}}}, {"code": "IFRS 5", "title": "The machine for sale", "story": "Management commits to selling a machine with a carrying amount of EGP 200,000. It is available for immediate sale as it stands, a buyer is being actively sought, and a sale within 12 months is highly probable. Its fair value less costs to sell is EGP 170,000. How do you account for it?", "options": [{"t": "Leave it in property, plant and equipment at EGP 200,000 and keep depreciating — it is still in use.", "d": [-4, 3, -4, -2], "out": "The auditor says the sale plan changes how the asset must be classified and measured.", "ok": false}, {"t": "Reclassify it as held for sale, stop depreciating it, and write it down to EGP 170,000 (a EGP 30,000 loss).", "d": [3, -3, 3, 2], "out": "The asset is now shown at the lower of its carrying amount and fair value less costs to sell.", "ok": true}, {"t": "Reclassify it as held for sale at EGP 200,000 and stop depreciating; recognise any loss when it is sold.", "d": [-3, 4, -3, -1], "out": "Close, but the write-down has to be recognised now, not when the sale completes.", "ok": false}], "why": "IFRS 5 requires a non-current asset that meets the held-for-sale criteria to be presented separately and measured at the lower of its carrying amount and fair value less costs to sell: min(200,000; 170,000) = 170,000. The 30,000 write-down is recognised immediately in profit or loss, and depreciation stops from the classification date.", "cb": {"ref": 5, "right": {"t": "📬 The auditor trusts your valuation judgements after how you handled the earlier impairment test.", "d": [2, 0, 0, 1]}, "wrong": {"t": "📬 Given how the earlier impairment test was handled, the auditor is scrutinising your fair value estimates for the machine you plan to sell.", "d": [-3, 0, -2, -1]}}}, {"code": "IFRS 15", "title": "The ticket seller", "story": "Your company sells concert tickets on behalf of a promoter. The promoter sets the prices and is responsible for the event; you never take ownership of the tickets, carry no unsold-ticket risk, and keep a 10% commission. This year you sold EGP 500,000 of tickets. What revenue do you report?", "options": [{"t": "EGP 500,000 of revenue, with EGP 450,000 as cost of sales — you sold the tickets.", "d": [-5, 5, -5, -2], "out": "Revenue looks far bigger, but the auditor says you never controlled the tickets before they reached customers.", "ok": false}, {"t": "EGP 50,000 — just your commission, because you act as an agent.", "d": [3, -2, 3, 2], "out": "Only what you actually earn is shown as revenue, and the auditor agrees you are an agent.", "ok": true}, {"t": "Nothing until each concert takes place, then the EGP 50,000 commission.", "d": [-3, -2, -3, -1], "out": "As an agent, your job — arranging the sale — is done when the ticket is sold, not when the show happens.", "ok": false}], "why": "Under IFRS 15, an entity is a principal if it controls the specified good or service before it is transferred to the customer — indicated by being primarily responsible for fulfilment, bearing inventory risk, and having discretion over price. Here the promoter has all three, so you are an agent. An agent reports revenue as the net amount it is entitled to keep: 500,000 × 10% = 50,000, not gross ticket sales.", "cb": {"ref": 0, "right": {"t": "📬 The auditor remembers how carefully you timed revenue on the prepaid subscription earlier this year, so your principal-versus-agent assessment gets a quick review.", "d": [2, 0, 0, 1]}, "wrong": {"t": "📬 After the earlier revenue-timing problem, the auditor is reviewing your revenue judgements line by line.", "d": [-3, 0, -2, -1]}}}, {"code": "IAS 7", "title": "The financed equipment", "story": "You buy equipment costing EGP 200,000. You pay EGP 50,000 in cash, and a bank lends the other EGP 150,000 directly to the supplier — you never receive that money. How does this appear in your statement of cash flows?", "options": [{"t": "An investing outflow of EGP 200,000 and a financing inflow of EGP 150,000 — show the whole deal.", "d": [-4, 0, -4, -2], "out": "It looks complete, but you never actually received or paid that EGP 150,000 in cash.", "ok": false}, {"t": "An investing outflow of EGP 50,000 only, with the EGP 150,000 financed purchase disclosed elsewhere in the notes.", "d": [3, 0, 3, 2], "out": "The statement shows only real cash movements, and the rest is properly disclosed.", "ok": true}, {"t": "An investing outflow of EGP 200,000 and no financing inflow.", "d": [-3, 0, -3, -1], "out": "That overstates the cash you spent — only EGP 50,000 left your bank account.", "ok": false}], "why": "Under IAS 7, the statement of cash flows reports only actual movements of cash and cash equivalents. Investing and financing transactions that don't use cash — such as equipment financed directly by a lender — are excluded from the statement and disclosed elsewhere in the financial statements. Only the EGP 50,000 cash payment is an investing outflow."}, {"code": "IAS 33", "title": "The bonus issue", "story": "Your profit attributable to ordinary shareholders is EGP 600,000. You had 1,000,000 ordinary shares in issue all year. On 1 October you made a 1-for-4 bonus issue — one new share for every four held, for no payment. What is basic earnings per share for the year?", "options": [{"t": "EGP 0.56 — weight the 250,000 bonus shares for 3 of the 12 months.", "d": [-4, 0, -4, -2], "out": "That's the method for shares issued for cash — a bonus issue is treated differently.", "ok": false}, {"t": "EGP 0.48 — treat all 1,250,000 shares as outstanding for the whole year.", "d": [3, 0, 3, 2], "out": "The bonus shares are adjusted as if issued at the start, giving the correct EPS.", "ok": true}, {"t": "EGP 0.60 — ignore the bonus shares, since no cash came in.", "d": [-5, 0, -5, -2], "out": "Ignoring the bonus issue overstates EPS, which must be adjusted for it.", "ok": false}], "why": "IAS 33 adjusts the number of shares for a bonus issue retrospectively, as if it had happened at the start of the earliest period presented, because no resources were received — so time-weighting doesn't apply (it does for issues at full market price). 1-for-4 bonus: 1,000,000 + 250,000 = 1,250,000 shares. Basic EPS = 600,000 ÷ 1,250,000 = 0.48."}, {"code": "IAS 24", "title": "The consultant next door", "story": "A company wholly owned by your Finance Director's spouse provided consulting services to you this year at normal market prices: EGP 120,000 in total, of which EGP 20,000 is still unpaid at the year end. Do you have to disclose anything?", "options": [{"t": "No — the prices are at market rates, so there is nothing unusual to report.", "d": [-5, 0, -5, -2], "out": "The auditor says the question isn't whether the price was fair — it's whether the party is related.", "ok": false}, {"t": "Yes — disclose the relationship, the EGP 120,000 of transactions and the EGP 20,000 outstanding balance.", "d": [3, 0, 3, 2], "out": "Users of your accounts can now see exactly where a related party is involved.", "ok": true}, {"t": "Only if the prices were above market rates.", "d": [-4, 0, -4, -2], "out": "Disclosure doesn't depend on whether the terms were favourable or not.", "ok": false}], "why": "IAS 24 requires disclosure of related-party relationships, transactions and outstanding balances. An entity controlled by a close family member (such as the spouse) of key management personnel is a related party. Disclosure is required whether or not the transactions were at market prices — the aim is to show users where related parties could influence results. Here: the relationship, the 120,000 of transactions and the 20,000 outstanding.", "cb": {"ref": 2, "right": {"t": "📬 Investors who saw how openly you reported the lawsuit earlier this year are inclined to trust your related-party notes too.", "d": [0, 0, 0, 2]}, "wrong": {"t": "📬 Investors are still sceptical after the earlier lawsuit disclosure, so they are reading your related-party notes closely.", "d": [0, 0, -2, -3]}}}, {"code": "IAS 40", "title": "The rental building", "story": "You buy a building for EGP 5,000,000 to rent out to tenants. Your accounting policy is the fair value model. At the year end its fair value is EGP 5,400,000. How do you account for the EGP 400,000 increase?", "options": [{"t": "Don't recognise it — unrealised gains only count when you sell.", "d": [-3, -2, -4, -1], "out": "Under the fair value model the gain has to be recognised at the year end, sold or not.", "ok": false}, {"t": "Recognise the EGP 400,000 gain in profit or loss, and don't depreciate the building.", "d": [3, 2, 3, 2], "out": "The building is carried at fair value and the gain lands in profit exactly where IAS 40 puts it.", "ok": true}, {"t": "Recognise the EGP 400,000 in other comprehensive income as a revaluation surplus.", "d": [-4, -1, -4, -2], "out": "That's the IAS 16 revaluation treatment — investment property works differently.", "ok": false}], "why": "Under IAS 40's fair value model, investment property is remeasured to fair value at each reporting date, and the change — here 5,400,000 − 5,000,000 = 400,000 — goes to profit or loss, not OCI. The building is not depreciated under this model. This differs from the IAS 16 revaluation model, where increases are taken to OCI."}];
+var MCO_KEY="dipifr_company_v3";
+var MCO_METERS=[{k:"a",icon:"🔍",label:"Auditor confidence"},{k:"p",icon:"📈",label:"Reported profit"},{k:"c",icon:"✅",label:"Compliance"},{k:"r",icon:"🤝",label:"Investor reputation"}];
+function renderReviewCenter(){
+  renderHome();
+  setTimeout(function(){
+    var rc=document.querySelector(".tg-review-center");
+    if(rc&&rc.scrollIntoView)rc.scrollIntoView({block:"start"});
+  },60);
+}
+var mcoState=null;
+function mcoEsc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");}
+function mcoClamp(v){return Math.max(0,Math.min(100,v));}
+function mcoLoad(){try{var r=localStorage.getItem(MCO_KEY);if(!r)return null;var s=JSON.parse(r);if(!s||!Array.isArray(s.order)||s.order.length!==COMPANY_EPISODES.length||typeof s.ep!=="number"||!s.m)return null;return s;}catch(e){return null;}}
+function mcoSave(){try{localStorage.setItem(MCO_KEY,JSON.stringify(mcoState));}catch(e){}}
+function mcoMakeOrder(){
+  var n=COMPANY_EPISODES.length,placed={},order=[];
+  while(order.length<n){
+    var avail=[];
+    for(var i=0;i<n;i++){
+      if(placed[i])continue;
+      var cb=COMPANY_EPISODES[i].cb;
+      if(!cb||placed[cb.ref])avail.push(i);
+    }
+    var pick=avail[Math.floor(Math.random()*avail.length)];
+    placed[pick]=true;order.push(pick);
+  }
+  return order;
+}
+function mcoFresh(name){return {name:name,order:mcoMakeOrder(),ep:0,m:{a:30,p:55,c:30,r:30},hist:{},cb:{},showResult:false,last:null};}
+function mcoApply(d){MCO_METERS.forEach(function(mt,i){mcoState.m[mt.k]=mcoClamp(mcoState.m[mt.k]+d[i]);});}
+function mcoColor(v){return v>=60?"var(--teal)":(v>=35?"var(--accent)":"var(--rust)");}
+function mcoMetersHtml(vals){
+  return '<div class="mco-meters">'+MCO_METERS.map(function(mt){
+    var v=vals[mt.k];
+    return '<div class="mco-meter"><div class="mco-meter-top"><span>'+mt.icon+' '+mt.label+'</span><span class="mco-val" data-mk="'+mt.k+'">'+v+'</span></div><div class="mco-bar"><div class="mco-fill" data-mk="'+mt.k+'" style="width:'+v+'%;background:'+mcoColor(v)+';"></div></div></div>';
+  }).join("")+'</div>';
+}
+function mcoAnimate(vals){
+  setTimeout(function(){
+    MCO_METERS.forEach(function(mt){
+      var f=document.querySelector('.mco-fill[data-mk="'+mt.k+'"]');
+      var l=document.querySelector('.mco-val[data-mk="'+mt.k+'"]');
+      if(f){f.style.width=vals[mt.k]+"%";f.style.background=mcoColor(vals[mt.k]);}
+      if(l)l.textContent=vals[mt.k];
+    });
+  },60);
+}
+function mcoChips(d){
+  return MCO_METERS.map(function(mt,i){var v=d[i];if(!v)return "";return `<span class="mco-chip ${v>0?"up":"down"}">${mt.label} ${v>0?"+":"−"}${Math.abs(v)}</span>`;}).join("");
+}
+function mcoHeader(s){return `<div class="mco-head"><div class="mco-name">🏢 ${mcoEsc(s.name)}</div><button type="button" class="mco-reset" id="mcoResetBtn">↺ Reset</button></div><div class="mco-confirm" id="mcoConfirm" hidden><span>Reset your company and start over?</span><button type="button" class="mco-confirm-yes" id="mcoResetYes">Yes, reset</button><button type="button" class="mco-confirm-no" id="mcoResetNo">Cancel</button></div>`;}
+function mcoOpinion(m){
+  if(m.a>=65&&m.c>=65)return {t:"Unmodified (clean) audit opinion",d:"The auditor signs off — in this simulation, your statements give a true and fair view.",cls:"good"};
+  if(m.a>=45)return {t:"Qualified audit opinion",d:"The auditor has reservations about some of your accounting treatments.",cls:"mid"};
+  return {t:"Adverse audit opinion",d:"The auditor concludes your financial statements can't be relied on.",cls:"bad"};
+}
+function renderMyCompany(){
+  recordNav(renderMyCompany,[]);
+  activeCode="MYCOMPANY";
+  clearAllPins();
+  mcoState=mcoLoad();
+  var html='<div class="guide-hero"><h1>&#127970; My Company</h1><p>Run your own company through real accounting decisions. Every choice moves four gauges, and later episodes remember what you did.</p></div><div class="mco-wrap" id="mcoWrap"></div><div class="rc-back-row"><span class="ns-btn" id="backToReviewCenterMco">&larr; Back to Review Center</span></div>';
+  document.getElementById("contentWrap").innerHTML=html;
+  document.getElementById("mainContent").scrollTop=0;
+  renderList();
+  mcoDraw(null);
+  var b=document.getElementById("backToReviewCenterMco");
+  if(b)b.addEventListener("click",function(){renderReviewCenter();});
+}
+function mcoDraw(prev){
+  var wrap=document.getElementById("mcoWrap");
+  if(!wrap)return;
+  var mc=document.getElementById("mainContent");if(mc)mc.scrollTop=0;
+  var s=mcoState;
+  if(!s){mcoNameScreen(wrap);return;}
+  var N=COMPANY_EPISODES.length;
+  if(s.showResult&&s.last){mcoResultScreen(wrap,prev);}
+  else if(s.ep>=N){mcoFinalScreen(wrap,prev);}
+  else{mcoEpisodeScreen(wrap,prev);}
+  var rb=document.getElementById("mcoResetBtn"),cf=document.getElementById("mcoConfirm");
+  if(rb&&cf){
+    rb.addEventListener("click",function(){cf.hidden=!cf.hidden;});
+    document.getElementById("mcoResetNo").addEventListener("click",function(){cf.hidden=true;});
+    document.getElementById("mcoResetYes").addEventListener("click",function(){
+      try{localStorage.removeItem(MCO_KEY);}catch(e){}
+      mcoState=null;mcoDraw(null);
+    });
+  }
+}
+function mcoNameScreen(wrap){
+  wrap.innerHTML=`<div class="mco-story"><div class="mco-title">🎉 Congratulations — you are the new Finance Director!</div><p class="mco-text">Before your first day: what is your company called?</p><input type="text" id="mcoNameInput" class="mco-input" maxlength="30" placeholder="e.g. Nile Holdings" autocomplete="off"><button type="button" class="mco-btn" id="mcoNameBtn">Open for business &rarr;</button></div>`;
+  var inp=document.getElementById("mcoNameInput"),btn=document.getElementById("mcoNameBtn");
+  function go(){var n=(inp.value||"").trim();if(!n)return;mcoState=mcoFresh(n);mcoSave();mcoDraw(null);}
+  btn.addEventListener("click",go);
+  inp.addEventListener("keydown",function(e){if(e.key==="Enter")go();});
+}
+function mcoEpisodeScreen(wrap,prev){
+  var s=mcoState,N=COMPANY_EPISODES.length,id=s.order[s.ep],ep=COMPANY_EPISODES[id],before=null;
+  if(ep.cb&&!s.cb[id]){
+    var ref=s.hist[ep.cb.ref];
+    if(ref){
+      var pick=ref.ok?ep.cb.right:ep.cb.wrong;
+      before=Object.assign({},s.m);
+      mcoApply(pick.d);
+      s.cb[id]={t:pick.t,d:pick.d};
+      mcoSave();
+    }
+  }
+  var cbInfo=s.cb[id];
+  var startVals=prev||before||s.m;
+  var opts=ep.options.slice();
+  for(var i=opts.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=opts[i];opts[i]=opts[j];opts[j]=tmp;}
+  wrap.innerHTML=mcoHeader(s)+mcoMetersHtml(startVals)
+    +(cbInfo?`<div class="mco-banner">${cbInfo.t} ${mcoChips(cbInfo.d)}</div>`:"")
+    +`<div class="mco-story"><span class="mco-tag">${ep.code}</span><span class="mco-ep">Episode ${s.ep+1} of ${N}</span><div class="mco-title">${ep.title}</div><p class="mco-text">${ep.story}</p></div>`
+    +`<div class="quiz-options">`+opts.map(function(o,k){return `<button type="button" class="quiz-option" data-mcoopt="${k}">${o.t}</button>`;}).join("")+`</div>`;
+  if(prev||before)mcoAnimate(s.m);
+  wrap.querySelectorAll("[data-mcoopt]").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var opt=opts[parseInt(btn.getAttribute("data-mcoopt"),10)];
+      var prevVals=Object.assign({},s.m);
+      mcoApply(opt.d);
+      var best=ep.options.filter(function(o){return o.ok;})[0];
+      s.hist[id]={ok:!!opt.ok};
+      s.last={ep:id,code:ep.code,title:ep.title,chosen:opt.t,ok:!!opt.ok,out:opt.out,best:best.t,why:ep.why,d:opt.d};
+      s.ep=s.ep+1;s.showResult=true;mcoSave();
+      if(opt.ok&&typeof playCorrectDing==="function")playCorrectDing();
+      if(typeof recordAnswer==="function")recordAnswer(ep.code,"company"+s.last.ep,!!opt.ok);
+      mcoDraw(prevVals);
+    });
+  });
+}
+function mcoResultScreen(wrap,prev){
+  var s=mcoState,r=s.last,N=COMPANY_EPISODES.length,isLast=s.ep>=N;
+  wrap.innerHTML=mcoHeader(s)+mcoMetersHtml(prev||s.m)
+    +`<div class="mco-result ${r.ok?"good":"bad"}"><div class="mco-result-head"><span>${r.ok?"✅ Sound decision":"❌ Not quite"}</span><span class="mco-tag">${r.code}</span></div>`
+    +`<p class="mco-text"><b>Your decision:</b> ${r.chosen}</p><p class="mco-text"><b>What happened:</b> ${r.out}</p>`
+    +(r.ok?"":`<p class="mco-text"><b>Best decision:</b> ${r.best}</p>`)
+    +`<p class="mco-why"><b>Why:</b> ${r.why}</p><div>${mcoChips(r.d)}</div></div>`
+    +`<button type="button" class="mco-btn" id="mcoNextBtn">${isLast?"See your audit result &rarr;":"Next episode &rarr;"}</button>`;
+  if(prev)mcoAnimate(s.m);
+  document.getElementById("mcoNextBtn").addEventListener("click",function(){s.showResult=false;mcoSave();mcoDraw(null);});
+}
+function mcoFinalScreen(wrap,prev){
+  var s=mcoState,N=COMPANY_EPISODES.length;
+  var good=s.order.filter(function(id){var h=s.hist[id];return h&&h.ok;}).length;
+  var op=mcoOpinion(s.m);
+  var rows=s.order.map(function(id){var e=COMPANY_EPISODES[id],h=s.hist[id];return `<div class="mco-row"><span>${h&&h.ok?"✅":"❌"}</span><span class="mco-tag">${e.code}</span><span>${e.title}</span></div>`;}).join("");
+  wrap.innerHTML=mcoHeader(s)+mcoMetersHtml(prev||s.m)
+    +`<div class="mco-opinion ${op.cls}"><div class="mco-op-title">🧾 ${op.t}</div><p class="mco-text">${op.d}</p><p class="mco-text"><b>${good} of ${N}</b> accounting decisions were sound.</p></div>`
+    +`<div class="mco-story"><div class="mco-title">Your decisions</div>${rows}</div>`
+    +`<p class="mco-text mco-tip">${good<N?"Your ❌ decisions are saved in <b>My Mistakes</b> with the full explanation. Review them, then run another year.":"A flawless year — every decision held up under audit."}</p>`
+    +`<p class="mco-text mco-tip">💡 Notice the <b>Reported profit</b> gauge: honest accounting often shows a lower profit than cutting corners would. Aggressive choices inflate profit, but they cost you auditor confidence and compliance.</p>`
+    +`<div class="mco-actions">${good<N?'<button type="button" class="mco-btn" id="mcoMistakesBtn">📖 Open My Mistakes</button>':""}<button type="button" class="mco-btn" id="mcoAgainBtn">🔄 Run a new financial year</button></div>`;
+  if(prev)mcoAnimate(s.m);
+  var mb=document.getElementById("mcoMistakesBtn");
+  if(mb)mb.addEventListener("click",function(){renderMistakesNotebook();});
+  document.getElementById("mcoAgainBtn").addEventListener("click",function(){var nm=s.name;mcoState=mcoFresh(nm);mcoSave();mcoDraw(null);});
+}
+
 var _ktqIdx=0;
 var _ktqScore={correct:0,total:0};
 var _ktqOrder=[];
@@ -7196,7 +7417,8 @@ function buildReviewCenterHomeHtml(){
     {icon:'&#128218;',title:'Glossary',hint:'قاموس المصطلحات',fn:'renderGlossary',clr:'tk-blue'},
     {icon:'&#127183;',title:'Flash Cards',hint:'بطاقات المراجعة السريعة',fn:'renderFlipCards',clr:'tk-purple'},
     {icon:'&#128214;',title:'My Mistakes',hint:'دفتر أخطائي',fn:'renderMistakesNotebook',clr:'tk-red'},
-    {icon:'&#129513;',title:'Key Terms Quiz',hint:'اختبر مصطلحاتك',fn:'renderKeyTermsQuiz',clr:'tk-purple',badge:'&#128293; Hot'}
+    {icon:'&#129513;',title:'Key Terms Quiz',hint:'اختبر مصطلحاتك',fn:'renderKeyTermsQuiz',clr:'tk-purple',badge:'&#128293; Hot'},
+    {icon:'&#127970;',title:'My Company',hint:'شركتي',fn:'renderMyCompany',clr:'tk-green',badge:'&#10024; Magical'}
   ];
   const toolkitHtml=toolkitItems.map(function(it){
     return '<button type="button" class="rc3-tool-card '+it.clr+'-card" data-rc-fn="'+it.fn+'" style="position:relative;">'+(it.badge?'<span class="rc3-tool-badge">'+it.badge+'</span>':'')+'<span class="rc3-tool-icon">'+it.icon+'</span><span class="rc3-tool-title">'+it.title+'</span></button>';
