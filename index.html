@@ -65,7 +65,7 @@ body.dark-mode .std-item-other .code{color:#EF9A9A;font-weight:800;}body.dark-mo
 .read-progress-bar{position:sticky;top:0;left:0;height:3px;width:0%;background:var(--teal);z-index:50;transition:width .1s linear;}
 @media print{.read-progress-bar{display:none !important;}}.content-wrap{max-width:900px;margin:0 auto;padding:26px 24px 100px;}
 @media (min-width:1300px){.content-wrap{max-width:1140px;}}
-@media (min-width:1600px){.content-wrap{max-width:1280px;}}.empty-state{padding:60px 30px;text-align:center;color:var(--ink-soft);}.empty-state .big{font-family:var(--font-display);font-size:26px;margin-bottom:8px;color:var(--ink);}.home-hero{text-align:center;padding:4px 0 18px;margin-bottom:20px;position:relative;}
+@media (min-width:1600px){.content-wrap{max-width:1280px;}}.empty-state{padding:60px 30px;text-align:center;color:var(--ink-soft);}.empty-state .big{font-family:var(--font-display);font-size:26px;margin-bottom:8px;color:var(--ink);}.home-hero{text-align:center;padding:4px 0 18px;margin-bottom:20px;position:relative;} .home-greeting{display:block;min-height:1.5em;margin:12px auto 0;padding:10px 14px;max-width:680px;border-radius:12px;background:rgba(29,111,105,.09);color:var(--teal);font-weight:700;font-size:clamp(15px,2.2vw,18px);line-height:1.7;} .home-greeting:empty{display:none;}
 .home-hero::before{content:"";position:absolute;inset:0;border-radius:18px;pointer-events:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><text x="8" y="22" font-size="13" fill="%230D7377" opacity="0.05">$</text><text x="50" y="55" font-size="11" fill="%230D7377" opacity="0.045">%</text></svg>');background-repeat:repeat;z-index:0;}
 .home-hero>*{position:relative;z-index:1;}
 /* Home-page-only teal theme: calm dominant palette for long study sessions.
@@ -5936,7 +5936,7 @@ const _acc=r.accuracyPct||0;
 const _attempted=r.attempted||0;
 const _theoTotal=(typeof THEORETICAL_BANK!=="undefined"&&THEORETICAL_BANK)?THEORETICAL_BANK.length:0;
 let l='';
-const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),(typeof checkResumeSession==="function"&&checkResumeSession()),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
+const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-badge-ring"><span class="badge-sparkle b1">&#10022;</span><span class="badge-sparkle b2">&#10024;</span><span class="badge-sparkle b3">&#10022;</span><div class="home-badge">AH</div></div><h1>DipIFR Study Companion</h1><p>Learn every examinable standard, practise exam style practice questions, and track your progress in one place.</p><p class="home-hero-ar" dir="rtl">رفيقك لمراجعة معايير IFRS والتدريب والاستعداد للامتحان</p><p id="homeGreeting" class="home-greeting" dir="rtl" aria-live="polite"></p><div class="home-search-wrap"><input type="text" id="homeSearchInput" placeholder="&#128269; Search a standard, e.g. ‘lease’ or ‘IAS 12’"></div></div>'+l+buildReviewCenterHomeHtml()+dashboardHTML()+renderQuoteHtml('mq-home-subtle')+n+'<div class="home-rate-link"><a href="https://forms.gle/GJH5xphzMgVZiAmm9" target="_blank" rel="noopener">&#11088; Enjoying this guide? Rate it here — takes 10 seconds</a></div></div>';document.getElementById("contentWrap").innerHTML=c,document.getElementById("mainContent").scrollTop=0,renderList(),setHomeGreeting(),(typeof checkResumeSession==="function"&&checkResumeSession()),document.querySelectorAll(".tool-card:not(.practice-select-card)").forEach(function(e){e.addEventListener("click",function(){const t=parseInt(e.getAttribute("data-tool-idx"),10);i[t].action()})});
 (function(){
   document.querySelectorAll(".rc-collapse-head").forEach(function(btn){
     btn.addEventListener("click",function(){
@@ -7328,7 +7328,8 @@ function setHomeGreeting(){
   if(el){
     var h=new Date().getHours();
     var name=(typeof getStudentName==="function"?getStudentName():"");
-    var namePart=name?(" يا "+name):"";
+    var safeName=String(name||"").replace(/[&<>"\']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","\'":"&#39;"}[ch];});
+    var namePart=safeName?(" يا "+safeName):"";
     var msg;
     if(h>=5&&h<12) msg="&#127749; صباح الخير"+namePart+"، جاهز تقرّب خطوة من <b>DipIFR</b> النهارده؟";
     else if(h>=12&&h<17) msg="&#9728;&#65039; وسط يومك"+namePart+"، دقيقتين كفاية تقرّبك من <b>DipIFR</b>";
