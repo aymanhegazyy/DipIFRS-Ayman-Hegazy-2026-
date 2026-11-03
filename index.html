@@ -6068,8 +6068,9 @@ const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-ba
     });
   });
   var rcResetBtn=document.getElementById("rcResetProgressBtn");
-  if(rcResetBtn)rcResetBtn.addEventListener("click",function(){
-    if(window.confirm("This will permanently reset:\n\n\u2022 Your entire practice answer history (MCQ, True/False, Spot the Error, Sequencing, Calc, Group Accounts, Confused Standards)\n\u2022 Your daily challenge streak\n\u2022 Your per-standard visit history (used for the \'neglected standards\' reminder)\n\nYour preferences (dark mode, etc.) will NOT be affected.\n\nThis cannot be undone. Continue?")){
+  if(rcResetBtn){var rcRA=false; rcResetBtn.addEventListener("click",function(){
+    if(!rcRA){rcRA=true; rcResetBtn.textContent="⚠️ Tap again to RESET ALL progress"; rcResetBtn.style.color="var(--rust)"; setTimeout(function(){rcRA=false; rcResetBtn.textContent="🗑 Reset progress"; rcResetBtn.style.color="";},4000); return;} rcRA=false; rcResetBtn.textContent="🗑 Reset progress"; rcResetBtn.style.color="";
+{
       reviewed={};answerHistory={};
       try{
         localStorage.removeItem("ayman-ifrs-reviewed-standards");
@@ -6081,7 +6082,7 @@ const c='<div class="home-teal-theme"><div class="home-hero"><div class="home-ba
       }catch(err){}
       renderHome();
     }
-  });
+  });}
 })();
 (function(){
   var cb=document.getElementById("homeContinueBtn");
@@ -7232,7 +7233,7 @@ function renderProgressDashboard(){recordNav(renderProgressDashboard,[]);activeC
     if(typeof window[fnName]==="function")window[fnName]();
   });});
   const resetBtn=document.getElementById("resetProgressBtn");
-  if(resetBtn)resetBtn.addEventListener("click",function(){if(window.confirm("This will permanently reset:\n\n\u2022 Your entire practice answer history (MCQ, True/False, Spot the Error, Sequencing, Calc, Group Accounts, Confused Standards)\n\u2022 Your daily challenge streak\n\u2022 Your per-standard visit history (used for the \'neglected standards\' reminder)\n\nYour preferences (dark mode, etc.) will NOT be affected.\n\nThis cannot be undone. Continue?")){reviewed={};answerHistory={};try{localStorage.removeItem("ayman-ifrs-reviewed-standards");localStorage.removeItem("ayman-ifrs-answer-history");localStorage.removeItem("dipifr_todays30_streak");localStorage.removeItem("dipifr_std_visits");localStorage.removeItem("dipifr_last_standard");localStorage.removeItem("dipifr_last_standard_ts");}catch(err){}renderProgressDashboard();}});
+  if(resetBtn){var rsA=false; resetBtn.addEventListener("click",function(){if(!rsA){rsA=true; resetBtn.textContent="⚠️ Tap again to RESET ALL"; resetBtn.style.color="var(--rust)"; setTimeout(function(){rsA=false; resetBtn.textContent="🗑 Reset progress"; resetBtn.style.color="";},4000); return;} rsA=false; resetBtn.textContent="🗑 Reset progress"; resetBtn.style.color="";{reviewed={};answerHistory={};try{localStorage.removeItem("ayman-ifrs-reviewed-standards");localStorage.removeItem("ayman-ifrs-answer-history");localStorage.removeItem("dipifr_todays30_streak");localStorage.removeItem("dipifr_std_visits");localStorage.removeItem("dipifr_last_standard");localStorage.removeItem("dipifr_last_standard_ts");}catch(err){}renderProgressDashboard();}});}
   if(window.innerWidth<=860)document.getElementById("sidebar").classList.remove("open");
 }function buildMistakesReviewSet(filterCode){
   const e=[];
@@ -8286,15 +8287,13 @@ function setupSidebarListeners() {
     modeBtn._wired = true;
     modeBtn.addEventListener('click', function(){
       if(icpMode === 'practice'){
-        if(confirm('Start Exam Mode?\n\nAll hints and instant checking will be disabled. You will have 45 minutes, and your answers will only be checked when you submit or time runs out.\n\nYour current entries will be cleared.')){
-          setIcpMode('exam');
-        }
+        if(!modeBtn._armed){modeBtn._armed=true; modeBtn.textContent='⚠️ Tap again to START Exam'; modeBtn.style.color='var(--rust)'; setTimeout(function(){modeBtn._armed=false; modeBtn.textContent='🎯 Start Exam Mode'; modeBtn.style.color='';},4000); return;} modeBtn._armed=false; modeBtn.textContent='🎯 Start Exam Mode'; modeBtn.style.color=''; setIcpMode('exam');
       } else {
-        if(confirm('Exit Exam Mode without submitting?')) setIcpMode('practice');
+        if(!modeBtn._exitA){modeBtn._exitA=true; modeBtn.textContent='⚠️ Tap again to EXIT'; modeBtn.style.color='var(--rust)'; setTimeout(function(){modeBtn._exitA=false; modeBtn.textContent='Exit Exam Mode'; modeBtn.style.color='';},4000); return;} modeBtn._exitA=false; setIcpMode('practice');
       }
     });
     submitBtn.addEventListener('click', function(){
-      if(confirm('Submit your exam now?')) finishIcpExam(false);
+      if(!submitBtn._armed){submitBtn._armed=true; submitBtn.textContent='⚠️ Tap again to SUBMIT'; submitBtn.style.color='var(--rust)'; setTimeout(function(){submitBtn._armed=false; submitBtn.textContent='Submit Exam'; submitBtn.style.color='';},4000); return;} submitBtn._armed=false; finishIcpExam(false);
     });
   }
 
@@ -8464,7 +8463,7 @@ function setupSidebarListeners() {
     if(weakBtn) weakBtn.addEventListener('click', toggleWeakPanel);
     var resetBtn = document.getElementById('tqResetProgress');
     if(resetBtn) resetBtn.addEventListener('click', function(){
-      if(confirm('مسح كل تقييمات المراجعة؟')){
+      if(!resetBtn._armed){resetBtn._armed=true; resetBtn.textContent='⚠️ Tap again to clear all'; resetBtn.style.color='var(--rust)'; setTimeout(function(){resetBtn._armed=false; resetBtn.textContent='🗑 Reset'; resetBtn.style.color='';},4000); return;} resetBtn._armed=false; resetBtn.textContent='🗑 Reset'; resetBtn.style.color='';{
         saveRatings({});
         document.querySelectorAll('#tqModal .tq-sc-btn').forEach(function(b){ b.classList.remove('chosen'); });
         refreshProgress();
@@ -8800,7 +8799,7 @@ function setupSidebarListeners() {
         try{
           var data=JSON.parse(ev.target.result);
           if(!data||typeof data!=='object')throw new Error('Invalid file');
-          if(!window.confirm('Import progress and overwrite current data on this device?'))return;
+          if(!window._impArmed){window._impArmed=true; var _ib=document.activeElement; if(_ib&&_ib.textContent){_ib.dataset.ot=_ib.textContent; _ib.textContent='⚠️ Tap again to IMPORT'; _ib.style.color='var(--rust)';} setTimeout(function(){window._impArmed=false; if(_ib&&_ib.dataset.ot){_ib.textContent=_ib.dataset.ot; _ib.style.color='';}},4000); return;} window._impArmed=false;
           if(data.answerHistory){answerHistory=data.answerHistory;try{localStorage.setItem('ayman-ifrs-answer-history',JSON.stringify(answerHistory));}catch(e){}}
           if(data.reviewed){reviewed=data.reviewed;try{localStorage.setItem('ayman-ifrs-reviewed-standards',JSON.stringify(reviewed));}catch(e){}}
           if(data.streak)try{localStorage.setItem('dipifr_todays30_streak',JSON.stringify(data.streak));}catch(e){}
