@@ -2553,6 +2553,56 @@ body[data-lang="ar"] #contentWrap .example-row{direction:rtl;}
 body[data-lang="ar"] #contentWrap .monkey-tactic-box,body[data-lang="ar"] #contentWrap .technique-box,body[data-lang="ar"] #contentWrap .checklist-box{direction:rtl;text-align:right;}
 body[data-lang="ar"] #contentWrap ul,body[data-lang="ar"] #contentWrap ol{padding-right:20px;padding-left:0;}
 .ar-keep::before{content:"("}.ar-keep::after{content:")"}.ar-keep{font-size:0.85em;opacity:0.7;}
+
+/* ===== Examiner's Chair ===== */
+.ec-wrap{max-width:720px;margin:0 auto;padding:12px;}
+.ec-hero{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;border-radius:16px;padding:24px 20px;text-align:center;margin-bottom:18px;}
+.ec-hero h1{font-size:1.5em;margin:0 0 6px;}
+.ec-hero p{opacity:.8;margin:4px 0;font-size:.92em;}
+.ec-controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;align-items:center;}
+.ec-select{flex:1;min-width:140px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--ink);font-size:.95em;}
+.ec-btn{padding:10px 20px;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:.95em;transition:background .2s;}
+.ec-btn-primary{background:var(--accent,#0d9488);color:#fff;}
+.ec-btn-primary:hover{filter:brightness(1.1);}
+.ec-btn-secondary{background:rgba(128,128,128,.15);color:var(--ink);}
+.ec-question-card{background:var(--card);border:2px solid var(--accent,#0d9488);border-radius:14px;padding:18px;margin-bottom:14px;}
+.ec-question-card h2{font-size:1.1em;margin:0 0 8px;color:var(--accent,#0d9488);}
+.ec-meta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;font-size:.88em;opacity:.8;}
+.ec-scenario{font-size:.95em;line-height:1.6;margin-bottom:10px;}
+.ec-timer-bar{height:6px;background:rgba(128,128,128,.2);border-radius:3px;overflow:hidden;margin-bottom:12px;}
+.ec-timer-fill{height:100%;background:var(--accent,#0d9488);transition:width 1s linear;border-radius:3px;}
+.ec-timer-label{text-align:center;font-size:.85em;opacity:.7;margin-bottom:8px;}
+.ec-textarea{width:100%;min-height:220px;padding:14px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--ink);font-family:inherit;font-size:.95em;line-height:1.6;resize:vertical;box-sizing:border-box;}
+.ec-textarea:disabled{opacity:.7;background:rgba(128,128,128,.08);}
+.ec-submit-row{display:flex;gap:10px;margin:12px 0;justify-content:flex-end;flex-wrap:wrap;}
+.ec-marking-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:14px;}
+.ec-marking-card h3{margin:0 0 12px;font-size:1.05em;}
+.ec-point{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(128,128,128,.12);}
+.ec-point:last-child{border-bottom:none;}
+.ec-point input[type=checkbox]{width:20px;height:20px;margin-top:2px;flex-shrink:0;accent-color:var(--accent,#0d9488);}
+.ec-point-text{flex:1;font-size:.93em;line-height:1.5;}
+.ec-point-marks{font-weight:700;color:var(--accent,#0d9488);white-space:nowrap;font-size:.9em;min-width:40px;text-align:right;}
+.ec-stage-badge{display:inline-block;font-size:.7em;padding:2px 7px;border-radius:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-right:6px;vertical-align:middle;}
+.ec-stage-rule{background:#e0f2fe;color:#0369a1;}
+.ec-stage-calculation{background:#fef3c7;color:#92400e;}
+.ec-stage-application{background:#d1fae5;color:#065f46;}
+.ec-stage-presentation{background:#ede9fe;color:#5b21b6;}
+.ec-stage-conclusion{background:#fce7f3;color:#9d174d;}
+.ec-result{text-align:center;padding:20px;border-radius:14px;margin-top:14px;}
+.ec-result-score{font-size:2em;font-weight:800;}
+.ec-result-pct{font-size:1.1em;margin:6px 0;}
+.ec-result-msg{font-size:.95em;opacity:.85;}
+.ec-result-good{background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46;}
+.ec-result-ok{background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;}
+.ec-result-weak{background:linear-gradient(135deg,#fce7f3,#fbcfe8);color:#9d174d;}
+.ec-tip{background:rgba(13,148,136,.08);border-left:3px solid var(--accent,#0d9488);padding:10px 14px;border-radius:0 10px 10px 0;margin-top:12px;font-size:.9em;line-height:1.5;}
+.ec-history-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;font-size:.9em;}
+@media(prefers-color-scheme:dark){.ec-stage-rule{background:#0c4a6e;color:#bae6fd;}.ec-stage-calculation{background:#78350f;color:#fef3c7;}.ec-stage-application{background:#064e3b;color:#a7f3d0;}.ec-stage-presentation{background:#4c1d95;color:#ddd6fe;}.ec-stage-conclusion{background:#831843;color:#fce7f3;}.ec-result-good{background:linear-gradient(135deg,#064e3b,#065f46);color:#a7f3d0;}.ec-result-ok{background:linear-gradient(135deg,#78350f,#92400e);color:#fde68a;}.ec-result-weak{background:linear-gradient(135deg,#831843,#9d174d);color:#fce7f3;}}
+
+.ec-required{font-weight:700;color:var(--accent,#0d9488);font-size:1em;padding:12px 14px;margin-top:8px;border-top:2px solid var(--accent,#0d9488);background:rgba(13,148,136,.06);border-radius:0 0 10px 10px;}
+.ec-full-answer{margin-top:4px;}
+.ec-answer-stage{margin-bottom:16px;border-left:3px solid rgba(128,128,128,.2);padding-left:12px;}
+.ec-answer-stage-header{margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid rgba(128,128,128,.1);}
 </style>
 </head>
 <body>
@@ -7155,7 +7205,8 @@ function buildReviewCenterHomeHtml(){
     {icon:'&#127183;',title:'Flash Cards',hint:'بطاقات المراجعة السريعة',fn:'renderFlipCards',clr:'tk-purple'},
     {icon:'&#128214;',title:'My Mistakes',hint:'دفتر أخطائي',fn:'renderMistakesNotebook',clr:'tk-red'},
     {icon:'&#129513;',title:'Key Terms Quiz',hint:'اختبر مصطلحاتك',fn:'renderKeyTermsQuiz',clr:'tk-purple',badge:'&#128293; Hot'},
-    {icon:'&#127970;',title:'My Company',hint:'شركتي',fn:'renderMyCompany',clr:'tk-green',badge:'&#10024; Magical',sub:mcoStatusLine()}
+    {icon:'&#127970;',title:'My Company',hint:'شركتي',fn:'renderMyCompany',clr:'tk-green',badge:'&#10024; Magical',sub:mcoStatusLine()},
+    {icon:'🎓',title:'Examiner\'s Chair',hint:'كرسي الممتحن',fn:'renderExaminersChair',clr:'tk-red',badge:'✨ New',sub:ecStatusLine()}
   ];
   const toolkitHtml=toolkitItems.map(function(it){
     return '<button type="button" class="rc3-tool-card '+it.clr+'-card" data-rc-fn="'+it.fn+'" style="position:relative;">'+(it.badge?'<span class="rc3-tool-badge">'+it.badge+'</span>':'')+'<span class="rc3-tool-icon">'+it.icon+'</span><span class="rc3-tool-title">'+it.title+'</span>'+(it.sub?'<span class="rc3-tool-sub">'+it.sub+'</span>':'')+'</button>';
@@ -9360,6 +9411,168 @@ function arStd(std) {
   if (ar.checklistAr) merged.checklist = ar.checklistAr;
   if (ar.monkey_tacticAr) merged.monkey_tactic = ar.monkey_tacticAr;
   return merged;
+}
+
+
+/* ===== Examiner's Chair ===== */
+var EC_FULL_ANSWERS={"IAS 36":"<div class=\"ec-full-model\">\n<h4>Model Answer — IAS 36 Impairment of Assets</h4>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">ISSUE & RULE</span>\n<p>The CGU has a carrying amount of EGP 6,000,000 and a recoverable amount of EGP 4,800,000. Since the carrying amount <b>exceeds</b> the recoverable amount, an <b>impairment loss</b> must be recognised in accordance with IAS 36.</p>\n<p>IAS 36 requires that when an impairment loss is allocated to a CGU, the loss must be allocated <b>first to goodwill</b>, and only then to the other assets of the unit on a <b>pro-rata basis</b> based on their relative carrying amounts.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">CALCULATION</span>\n<table class=\"ec-model-table\">\n<tr><td>Carrying amount of CGU</td><td class=\"ec-num\">6,000,000</td></tr>\n<tr><td>Recoverable amount</td><td class=\"ec-num\">(4,800,000)</td></tr>\n<tr class=\"ec-total-row\"><td><b>Total impairment loss</b></td><td class=\"ec-num\"><b>1,200,000</b></td></tr>\n</table>\n\n<p><b>Step 1 — Allocate to goodwill first:</b></p>\n<table class=\"ec-model-table\">\n<tr><td>Goodwill written down in full</td><td class=\"ec-num\">(900,000)</td></tr>\n<tr><td>Remaining loss to allocate</td><td class=\"ec-num\">300,000</td></tr>\n</table>\n\n<p><b>Step 2 — Allocate remainder pro-rata to other assets:</b></p>\n<table class=\"ec-model-table\">\n<tr><th>Asset</th><th>Carrying Amount</th><th>Ratio</th><th>Allocation</th><th>Revised CA</th></tr>\n<tr><td>Building</td><td class=\"ec-num\">3,600,000</td><td class=\"ec-num\">70.6%</td><td class=\"ec-num\">(211,800)</td><td class=\"ec-num\">3,388,200</td></tr>\n<tr><td>Equipment</td><td class=\"ec-num\">1,500,000</td><td class=\"ec-num\">29.4%</td><td class=\"ec-num\">(88,200)</td><td class=\"ec-num\">1,411,800</td></tr>\n<tr class=\"ec-total-row\"><td><b>Total</b></td><td class=\"ec-num\"><b>5,100,000</b></td><td></td><td class=\"ec-num\"><b>(300,000)</b></td><td class=\"ec-num\"><b>4,800,000</b></td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-presentation-bg\">\n<span class=\"ec-stage-badge ec-stage-presentation\">PRESENTATION</span>\n<p>The impairment loss of EGP 1,200,000 is recognised in <b>profit or loss</b>. The carrying amount of the CGU is reduced to its recoverable amount of EGP 4,800,000.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">IMPORTANT NOTE</span>\n<p>This allocation is subject to the constraint that no individual asset should be reduced below the <b>higher of</b> its own fair value less costs of disposal, its value in use (if determinable), or zero. If this floor applies, the excess would be reallocated to the remaining assets pro-rata.</p>\n</div>\n</div>","IFRS 15":"<div class=\"ec-full-model\">\n<h4>Model Answer — IFRS 15 Revenue from Contracts with Customers</h4>\n\n<div class=\"ec-model-section ec-stage-application-bg\">\n<span class=\"ec-stage-badge ec-stage-application\">STEP 1 — IDENTIFY THE CONTRACT</span>\n<p>A valid contract exists between Sidi Gaber Tech and the customer: the parties have approved it, payment terms are identified (EGP 300,000), each party's rights regarding the machine and update service are identifiable, the contract has commercial substance, and collection is probable.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-application-bg\">\n<span class=\"ec-stage-badge ec-stage-application\">STEP 2 — IDENTIFY PERFORMANCE OBLIGATIONS</span>\n<p>There are <b>two distinct performance obligations</b>:</p>\n<p>1. <b>The machine</b> — the customer can benefit from it on its own, and the promise to deliver the machine is separately identifiable from the update service.</p>\n<p>2. <b>The 2-year software update service</b> — the customer can benefit from the service on its own (it is not highly dependent on the machine delivery), and it is separately identifiable.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-application-bg\">\n<span class=\"ec-stage-badge ec-stage-application\">STEP 3 — DETERMINE TRANSACTION PRICE</span>\n<p>The transaction price is <b>EGP 300,000</b>. There is no variable consideration and no significant financing component to adjust for.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">STEP 4 — ALLOCATE TRANSACTION PRICE</span>\n<p>The transaction price is allocated to each performance obligation based on <b>relative standalone selling prices</b>:</p>\n<table class=\"ec-model-table\">\n<tr><th>Obligation</th><th>SSP</th><th>Ratio</th><th>Allocated</th></tr>\n<tr><td>Machine</td><td class=\"ec-num\">220,000</td><td class=\"ec-num\">220/320 = 68.75%</td><td class=\"ec-num\">206,250</td></tr>\n<tr><td>Update service</td><td class=\"ec-num\">100,000</td><td class=\"ec-num\">100/320 = 31.25%</td><td class=\"ec-num\">93,750</td></tr>\n<tr class=\"ec-total-row\"><td><b>Total</b></td><td class=\"ec-num\"><b>320,000</b></td><td></td><td class=\"ec-num\"><b>300,000</b></td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">STEP 5 — RECOGNISE REVENUE</span>\n<p><b>Machine (at a point in time):</b> Revenue of <b>EGP 206,250</b> is recognised when the machine is delivered and installed, as control transfers to the customer at that point.</p>\n<p><b>Update service (over time):</b> Revenue of EGP 93,750 is recognised evenly over the 2-year service period. Year 1 revenue = 93,750 × 1/2 = <b>EGP 46,875</b>.</p>\n<table class=\"ec-model-table\">\n<tr class=\"ec-total-row\"><td><b>Total Year 1 revenue</b></td><td class=\"ec-num\"><b>206,250 + 46,875 = EGP 253,125</b></td></tr>\n</table>\n</div>\n</div>","IFRS 16":"<div class=\"ec-full-model\">\n<h4>Model Answer — IFRS 16 Leases</h4>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">IFRS RULE</span>\n<p>Under IFRS 16, at the commencement date of a lease, the lessee recognises a <b>right-of-use (ROU) asset</b> and a <b>lease liability</b>. The lease liability is measured at the present value of future lease payments, discounted at the interest rate implicit in the lease or, if not readily determinable, the lessee's incremental borrowing rate.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">INITIAL MEASUREMENT</span>\n<p><b>Lease liability:</b></p>\n<table class=\"ec-model-table\">\n<tr><td>Annual payment</td><td class=\"ec-num\">400,000</td></tr>\n<tr><td>Annuity factor (4 years at 8%)</td><td class=\"ec-num\">× 3.3121</td></tr>\n<tr class=\"ec-total-row\"><td><b>Initial lease liability</b></td><td class=\"ec-num\"><b>EGP 1,324,840</b></td></tr>\n</table>\n<p><b>ROU asset</b> = EGP 1,324,840 (equal to the lease liability, as there are no initial direct costs, lease incentives, or prepayments).</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">YEAR 1 — PROFIT OR LOSS</span>\n<p><b>Depreciation of ROU asset</b> (straight-line over 4-year lease term):</p>\n<table class=\"ec-model-table\">\n<tr><td>ROU asset</td><td class=\"ec-num\">1,324,840</td></tr>\n<tr><td>÷ Lease term</td><td class=\"ec-num\">4 years</td></tr>\n<tr class=\"ec-total-row\"><td><b>Annual depreciation</b></td><td class=\"ec-num\"><b>EGP 331,210</b></td></tr>\n</table>\n\n<p><b>Interest expense on lease liability:</b></p>\n<table class=\"ec-model-table\">\n<tr><td>Opening lease liability</td><td class=\"ec-num\">1,324,840</td></tr>\n<tr><td>× Incremental borrowing rate</td><td class=\"ec-num\">8%</td></tr>\n<tr class=\"ec-total-row\"><td><b>Interest expense</b></td><td class=\"ec-num\"><b>EGP 105,987</b></td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">CLOSING LEASE LIABILITY</span>\n<table class=\"ec-model-table\">\n<tr><td>Opening lease liability</td><td class=\"ec-num\">1,324,840</td></tr>\n<tr><td>Interest expense</td><td class=\"ec-num\">105,987</td></tr>\n<tr><td>Payment made</td><td class=\"ec-num\">(400,000)</td></tr>\n<tr class=\"ec-total-row\"><td><b>Closing lease liability</b></td><td class=\"ec-num\"><b>EGP 1,030,827</b></td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-presentation-bg\">\n<span class=\"ec-stage-badge ec-stage-presentation\">PRESENTATION</span>\n<p>In the statement of profit or loss: <b>depreciation</b> of EGP 331,210 (within operating expenses) and <b>interest expense</b> of EGP 105,987 (within finance costs) are shown as <b>separate line items</b> — not combined as a single lease expense. Total P&L charge = EGP 437,197.</p>\n</div>\n</div>","IFRS 9":"<div class=\"ec-full-model\">\n<h4>Model Answer — IFRS 9 Financial Instruments</h4>\n\n<div class=\"ec-model-section ec-stage-application-bg\">\n<span class=\"ec-stage-badge ec-stage-application\">CLASSIFICATION</span>\n<p>The bond should be classified at <b>amortised cost</b> under IFRS 9. This classification requires both conditions to be met:</p>\n<p>1. <b>Business model test:</b> The bond is held within a business model whose objective is to <b>hold to collect</b> contractual cash flows — satisfied.</p>\n<p>2. <b>SPPI test:</b> The contractual cash flows represent <b>solely payments of principal and interest</b> on the principal outstanding — a fixed coupon of 5% on face value satisfies this test.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">INITIAL RECOGNITION</span>\n<p>The bond is initially recognised at <b>fair value</b>, which is the transaction price of <b>EGP 950,000</b> (assuming this equals fair value). Transaction costs are included in the initial measurement for amortised cost instruments.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">AMORTISED COST AT 31 DECEMBER 20X4</span>\n<table class=\"ec-model-table\">\n<tr><td>Opening amortised cost (1 Jan 20X4)</td><td class=\"ec-num\">950,000</td></tr>\n<tr><td>Interest income (950,000 × 6.98%)</td><td class=\"ec-num\">66,310</td></tr>\n<tr><td>Cash coupon received (1,000,000 × 5%)</td><td class=\"ec-num\">(50,000)</td></tr>\n<tr><td>Discount amortisation (66,310 − 50,000)</td><td class=\"ec-num\">16,310</td></tr>\n<tr class=\"ec-total-row\"><td><b>Closing amortised cost (31 Dec 20X4)</b></td><td class=\"ec-num\"><b>EGP 966,310</b></td></tr>\n</table>\n<p>Interest income of <b>EGP 66,310</b> is recognised in profit or loss. Note: interest income is always calculated on the <b>opening</b> amortised cost balance using the effective interest rate — not on the face value.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">IMPAIRMENT — ECL MODEL</span>\n<p>Impairment follows the <b>Expected Credit Loss (ECL) model</b> under IFRS 9. At initial recognition, the bond is classified in <b>Stage 1</b>, and a <b>12-month ECL</b> allowance is recognised. If there is a significant increase in credit risk subsequently, the bond moves to Stage 2 and a <b>lifetime ECL</b> is recognised. The ECL is measured as the probability-weighted estimate of credit losses (PD × LGD × EAD).</p>\n</div>\n</div>","IAS 16":"<div class=\"ec-full-model\">\n<h4>Model Answer — IAS 16 Property, Plant and Equipment</h4>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">DEPRECIATION — YEARS 20X2 AND 20X3</span>\n<table class=\"ec-model-table\">\n<tr><td>Original cost</td><td class=\"ec-num\">4,000,000</td></tr>\n<tr><td>Useful life</td><td class=\"ec-num\">40 years</td></tr>\n<tr class=\"ec-total-row\"><td><b>Annual depreciation</b></td><td class=\"ec-num\"><b>EGP 100,000</b></td></tr>\n</table>\n<p>Carrying amount at 31 Dec 20X3 (before revaluation): 4,000,000 − (2 × 100,000) = <b>EGP 3,800,000</b>.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">FIRST REVALUATION — 31 DEC 20X3</span>\n<table class=\"ec-model-table\">\n<tr><td>Revalued amount</td><td class=\"ec-num\">4,200,000</td></tr>\n<tr><td>Carrying amount before revaluation</td><td class=\"ec-num\">(3,800,000)</td></tr>\n<tr class=\"ec-total-row\"><td><b>Revaluation surplus</b></td><td class=\"ec-num\"><b>EGP 400,000</b></td></tr>\n</table>\n<p>This is the <b>first revaluation</b> and results in a <b>gain</b>. The surplus of EGP 400,000 is recognised in <b>other comprehensive income (OCI)</b> and credited to the <b>revaluation surplus</b> in equity.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">DEPRECIATION — YEAR 20X4</span>\n<p>After revaluation, depreciation is recalculated on the <b>revalued amount</b> over the <b>remaining useful life</b> (38 years):</p>\n<table class=\"ec-model-table\">\n<tr><td>Revalued amount</td><td class=\"ec-num\">4,200,000</td></tr>\n<tr><td>÷ Remaining life</td><td class=\"ec-num\">38 years</td></tr>\n<tr class=\"ec-total-row\"><td><b>20X4 depreciation</b></td><td class=\"ec-num\"><b>EGP 110,526</b></td></tr>\n</table>\n<p>Carrying amount at 31 Dec 20X4 (before second revaluation): 4,200,000 − 110,526 = <b>EGP 4,089,474</b>.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">SECOND REVALUATION — 31 DEC 20X4</span>\n<table class=\"ec-model-table\">\n<tr><td>Carrying amount before revaluation</td><td class=\"ec-num\">4,089,474</td></tr>\n<tr><td>Revalued amount</td><td class=\"ec-num\">(3,600,000)</td></tr>\n<tr class=\"ec-total-row\"><td><b>Total revaluation decrease</b></td><td class=\"ec-num\"><b>EGP 489,474</b></td></tr>\n</table>\n<p><b>Allocation of the decrease:</b></p>\n<table class=\"ec-model-table\">\n<tr><td>First, reverse the existing revaluation surplus in OCI</td><td class=\"ec-num\">(400,000)</td></tr>\n<tr><td>Remaining decrease — recognised in <b>profit or loss</b></td><td class=\"ec-num\">(89,474)</td></tr>\n<tr class=\"ec-total-row\"><td><b>Total decrease</b></td><td class=\"ec-num\"><b>(489,474)</b></td></tr>\n</table>\n</div>\n</div>","IFRS 3":"<div class=\"ec-full-model\">\n<h4>Model Answer — IFRS 3 Business Combinations</h4>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">ISSUE & RULE</span>\n<p>Since Ayman Group obtained <b>control</b> of Ekramy Co by acquiring 80% of its equity shares, this is a <b>business combination</b> accounted for using the <b>acquisition method</b> under IFRS 3.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">GOODWILL CALCULATION</span>\n<p><b>Consideration transferred:</b></p>\n<table class=\"ec-model-table\">\n<tr><td>Cash consideration</td><td class=\"ec-num\">12,000,000</td></tr>\n<tr><td>Contingent consideration (acquisition-date FV)</td><td class=\"ec-num\">1,500,000</td></tr>\n<tr class=\"ec-total-row\"><td><b>Total consideration</b></td><td class=\"ec-num\"><b>13,500,000</b></td></tr>\n</table>\n<p><b>Goodwill:</b></p>\n<table class=\"ec-model-table\">\n<tr><td>Consideration transferred</td><td class=\"ec-num\">13,500,000</td></tr>\n<tr><td>NCI at fair value</td><td class=\"ec-num\">3,200,000</td></tr>\n<tr><td>Fair value of identifiable net assets</td><td class=\"ec-num\">(15,100,000)</td></tr>\n<tr class=\"ec-total-row\"><td><b>Goodwill</b></td><td class=\"ec-num\"><b>EGP 1,600,000</b></td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">ACQUISITION-RELATED COSTS</span>\n<p>The EGP 400,000 legal and due diligence fees are <b>expensed as incurred</b> in profit or loss. Under IFRS 3, acquisition-related costs are <b>not</b> part of the consideration transferred and are <b>not</b> included in the goodwill calculation.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">CONTINGENT CONSIDERATION — SUBSEQUENT CHANGES</span>\n<p>The contingent consideration is classified as a <b>financial liability</b> (as it will be settled in cash). It is measured at its acquisition-date fair value of EGP 1,500,000 and included in the consideration transferred.</p>\n<p>Any <b>subsequent changes</b> in the fair value of the contingent consideration are recognised in <b>profit or loss</b> — they do <b>not</b> adjust goodwill. This is a common exam trap: candidates often incorrectly adjust goodwill for post-acquisition fair value changes.</p>\n</div>\n</div>","IAS 37":"<div class=\"ec-full-model\">\n<h4>Model Answer — IAS 37 Provisions, Contingent Liabilities and Contingent Assets</h4>\n\n<div class=\"ec-model-section ec-stage-application-bg\">\n<span class=\"ec-stage-badge ec-stage-application\">RECOGNITION TEST</span>\n<p>The three-part recognition test under IAS 37 is applied:</p>\n<p>1. <b>Present obligation from a past event:</b> Yes — the legal claim gives rise to a present obligation resulting from the event that led to the claim.</p>\n<p>2. <b>Probable outflow of economic benefits:</b> Yes — legal counsel advises a 65% probability of losing, which exceeds the 'more likely than not' threshold (i.e., greater than 50%).</p>\n<p>3. <b>Reliable estimate:</b> Yes — damages are estimated at EGP 900,000.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-conclusion-bg\">\n<span class=\"ec-stage-badge ec-stage-conclusion\">CONCLUSION</span>\n<p>All three criteria are met. A <b>provision should be recognised</b> — this is not merely a contingent liability requiring disclosure only.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">MEASUREMENT</span>\n<p>Since the claim is expected to be settled in 2 years and the time value of money is material, the provision must be <b>discounted to present value</b>:</p>\n<table class=\"ec-model-table\">\n<tr><td>Estimated damages</td><td class=\"ec-num\">900,000</td></tr>\n<tr><td>÷ Discount factor (1.05)²</td><td class=\"ec-num\">1.1025</td></tr>\n<tr class=\"ec-total-row\"><td><b>Provision recognised</b></td><td class=\"ec-num\"><b>EGP 816,327</b></td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-presentation-bg\">\n<span class=\"ec-stage-badge ec-stage-presentation\">PRESENTATION & SUBSEQUENT MEASUREMENT</span>\n<p>The provision of EGP 816,327 is recognised as a <b>non-current liability</b>. In subsequent periods, the <b>unwinding of the discount</b> is recognised as a <b>finance cost</b> in profit or loss:</p>\n<p>Year 1 unwinding: 816,327 × 5% = EGP 40,816 (finance cost in P&L).</p>\n</div>\n</div>","IAS 12":"<div class=\"ec-full-model\">\n<h4>Model Answer — IAS 12 Income Taxes</h4>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">ITEM (i) — MACHINE</span>\n<table class=\"ec-model-table\">\n<tr><td>Carrying amount</td><td class=\"ec-num\">1,200,000</td></tr>\n<tr><td>Tax base</td><td class=\"ec-num\">(800,000)</td></tr>\n<tr><td>Taxable temporary difference</td><td class=\"ec-num\">400,000</td></tr>\n<tr class=\"ec-total-row\"><td><b>Deferred tax liability (DTL)</b></td><td class=\"ec-num\"><b>400,000 × 22.5% = EGP 90,000</b></td></tr>\n</table>\n<p>The carrying amount exceeds the tax base because the entity claims <b>accelerated tax depreciation</b>. This creates a taxable temporary difference — the entity will pay <b>more tax in the future</b> when the accounting depreciation exceeds the remaining tax depreciation. A DTL is recognised.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">ITEM (ii) — WARRANTY PROVISION</span>\n<table class=\"ec-model-table\">\n<tr><td>Carrying amount (provision)</td><td class=\"ec-num\">300,000</td></tr>\n<tr><td>Tax base</td><td class=\"ec-num\">0</td></tr>\n<tr><td>Deductible temporary difference</td><td class=\"ec-num\">300,000</td></tr>\n<tr class=\"ec-total-row\"><td><b>Deferred tax asset (DTA)</b></td><td class=\"ec-num\"><b>300,000 × 22.5% = EGP 67,500</b></td></tr>\n</table>\n<p>The provision has a tax base of zero because the warranty costs are <b>only deductible when actually paid</b>. This creates a deductible temporary difference — the entity will pay <b>less tax in the future</b> when the warranty costs are paid and become deductible. A DTA is recognised, but <b>only to the extent that it is probable</b> that future taxable profits will be available against which the difference can be utilised.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">ITEM (iii) — GOODWILL</span>\n<p>Goodwill of EGP 500,000 arose on a business combination. Under IAS 12, the <b>initial recognition exemption</b> applies: no deferred tax liability is recognised on goodwill at initial recognition. This is because recognising a DTL on goodwill would increase the goodwill itself, creating a circular calculation.</p>\n<p>However, if goodwill is subsequently impaired and the carrying amount falls below its tax base, a <b>deductible temporary difference</b> may arise — a DTA could then be recognised subject to the probability test.</p>\n</div>\n</div>","IAS 38":"<div class=\"ec-full-model\">\n<h4>Model Answer — IAS 38 Intangible Assets</h4>\n\n<div class=\"ec-model-section ec-stage-application-bg\">\n<span class=\"ec-stage-badge ec-stage-application\">RESEARCH PHASE — EGP 1,800,000</span>\n<p>The first EGP 1,800,000 was incurred during the <b>research phase</b>. Under IAS 38.54, expenditure on research must be <b>expensed as incurred</b> — it can never be capitalised, regardless of future outcomes.</p>\n<p>This is because, during the research phase, the entity <b>cannot demonstrate</b> that an intangible asset exists that will generate probable future economic benefits. The expenditure of EGP 1,800,000 is therefore recognised in <b>profit or loss</b> in the period incurred.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-application-bg\">\n<span class=\"ec-stage-badge ec-stage-application\">DEVELOPMENT PHASE — EGP 950,000</span>\n<p>The second EGP 950,000 was incurred during the <b>development phase</b>. Under IAS 38.57, development expenditure may be <b>capitalised as an intangible asset</b> only if <b>all six criteria</b> are met:</p>\n<p>1. <b>Technical feasibility</b> — established ✓</p>\n<p>2. <b>Intention to complete</b> — the entity intends to complete the drug formulation ✓</p>\n<p>3. <b>Ability to use or sell</b> — a clear commercial market has been identified ✓</p>\n<p>4. <b>Probable future economic benefits</b> — the identified commercial market demonstrates this ✓</p>\n<p>5. <b>Adequate resources</b> — funding has been secured ✓</p>\n<p>6. <b>Ability to measure costs reliably</b> — costs of EGP 950,000 have been identified and tracked ✓</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-conclusion-bg\">\n<span class=\"ec-stage-badge ec-stage-conclusion\">CONCLUSION</span>\n<p>All six criteria are satisfied. The EGP 950,000 development expenditure is <b>capitalised as an intangible asset</b> (development costs) in the statement of financial position. It will be <b>amortised</b> over its expected useful life once the drug formulation is available for use, and will be subject to <b>impairment testing</b> under IAS 36 until that date (and annually if the useful life is indefinite).</p>\n</div>\n</div>","IAS 2":"<div class=\"ec-full-model\">\n<h4>Model Answer — IAS 2 Inventories</h4>\n\n<div class=\"ec-model-section ec-stage-rule-bg\">\n<span class=\"ec-stage-badge ec-stage-rule\">ISSUE & RULE</span>\n<p>Under IAS 2, <b>fixed production overheads</b> must be allocated to inventory based on <b>normal production capacity</b>, not actual production. Unallocated overheads resulting from abnormally low production are <b>expensed in the period</b>, not included in inventory cost. Inventory is then measured at the <b>lower of cost and net realisable value (NRV)</b>.</p>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">STEP 1 — CORRECT THE OVERHEAD ALLOCATION</span>\n<table class=\"ec-model-table\">\n<tr><td>Fixed overhead per unit at <b>normal</b> capacity (50,000 units)</td><td class=\"ec-num\">1,000,000 ÷ 50,000 = EGP 20/unit</td></tr>\n<tr><td>Fixed overhead per unit at <b>actual</b> capacity (32,000 units)</td><td class=\"ec-num\">1,000,000 ÷ 32,000 = EGP 31.25/unit</td></tr>\n<tr><td>Excess overhead incorrectly included</td><td class=\"ec-num\">31.25 − 20 = EGP 11.25/unit</td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">STEP 2 — RECALCULATE CORRECT COST PER UNIT</span>\n<table class=\"ec-model-table\">\n<tr><td>Given cost per unit (based on actual production)</td><td class=\"ec-num\">95.00</td></tr>\n<tr><td>Less: excess overhead</td><td class=\"ec-num\">(11.25)</td></tr>\n<tr class=\"ec-total-row\"><td><b>Correct cost per unit</b></td><td class=\"ec-num\"><b>EGP 83.75</b></td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-calculation-bg\">\n<span class=\"ec-stage-badge ec-stage-calculation\">STEP 3 — NRV TEST</span>\n<table class=\"ec-model-table\">\n<tr><td>Estimated selling price</td><td class=\"ec-num\">100.00</td></tr>\n<tr><td>Less: costs to sell</td><td class=\"ec-num\">(8.00)</td></tr>\n<tr class=\"ec-total-row\"><td><b>NRV</b></td><td class=\"ec-num\"><b>EGP 92.00</b></td></tr>\n</table>\n</div>\n\n<div class=\"ec-model-section ec-stage-conclusion-bg\">\n<span class=\"ec-stage-badge ec-stage-conclusion\">CONCLUSION</span>\n<p>The correct cost (EGP 83.75) is <b>lower than</b> NRV (EGP 92.00). Therefore, inventory is carried at cost of <b>EGP 83.75 per unit</b>. <b>No write-down is required.</b></p>\n<p>Total inventory value: 5,000 units × EGP 83.75 = <b>EGP 418,750</b>.</p>\n<p>The unallocated overhead of EGP 11.25 × 32,000 = EGP 360,000 (total for the year's production) is recognised as an <b>expense in profit or loss</b> in the period.</p>\n</div>\n</div>"};
+var EC_KEY='dipifr_ec_history';
+function ecGetHistory(){try{return JSON.parse(localStorage.getItem(EC_KEY))||[];}catch(e){return[];}}
+function ecSaveHistory(h){try{localStorage.setItem(EC_KEY,JSON.stringify(h.slice(-50)));}catch(e){}}
+function ecStatusLine(){var h=ecGetHistory();if(!h.length)return'No attempts yet';var l=h[h.length-1];return h.length+' attempt'+(h.length===1?'':'s')+' · Last: '+l.code+' '+l.scored+'/'+l.total;}
+var _ecTimer=null;
+function renderExaminersChair(preselect){
+  if(_ecTimer){clearInterval(_ecTimer);_ecTimer=null;}
+  activeCode='';
+  var standards=STANDARDS.filter(function(s){return s.model_answer;});
+  var history=ecGetHistory();
+  var html='<div class="ec-wrap">';
+  html+='<div class="ec-hero"><h1>\uD83C\uDF93 Examiner\u2019s Chair</h1><p>Write your answer. Then mark it yourself against the model answer.</p></div>';
+  html+='<div class="ec-controls">';
+  html+='<select class="ec-select" id="ecStdSelect"><option value="">\u2014 Choose a standard \u2014</option>';
+  standards.forEach(function(s){
+    var sel=preselect===s.code?' selected':'';
+    var ar=dipifrsLang==='ar'&&STANDARDS_AR[s.code]&&STANDARDS_AR[s.code].titleAr;
+    html+='<option value="'+s.code+'"'+sel+'>'+s.code+' \u2014 '+(ar||s.title)+' ('+s.model_answer.marks+' marks)</option>';
+  });
+  html+='</select>';
+  html+='<button class="ec-btn ec-btn-secondary" id="ecRandomBtn">\uD83C\uDFB2 Random</button>';
+  html+='<label style="display:flex;align-items:center;gap:5px;font-size:.88em;"><input type="checkbox" id="ecTimerOn" checked> \u23F1 Timer</label>';
+  html+='</div><div id="ecQuestionArea"></div>';
+  if(history.length){
+    html+='<div style="margin-top:18px;"><h3>\uD83D\uDCCB Previous Attempts ('+history.length+')</h3>';
+    history.slice().reverse().slice(0,10).forEach(function(item){
+      var pct=Math.round(item.scored/item.total*100);
+      var col=pct>=60?'#059669':pct>=40?'#d97706':'#e11d48';
+      html+='<div class="ec-history-item"><span>'+item.code+' \u2014 '+(item.date||'')+'</span><span style="font-weight:700;color:'+col+'">'+item.scored+'/'+item.total+' ('+pct+'%)</span></div>';
+    });
+    html+='</div>';
+  }
+  html+='</div>';
+  document.getElementById('mainContent').innerHTML='<div class="read-progress-bar" id="readProgressBar" style="width:0%"></div><div class="content-wrap" id="contentWrap">'+html+'</div>';
+  document.getElementById('ecStdSelect').addEventListener('change',function(){if(this.value)ecLoadQuestion(this.value);});
+  document.getElementById('ecRandomBtn').addEventListener('click',function(){ecPickRandom();});
+  if(preselect)ecLoadQuestion(preselect);
+  window.scrollTo(0,0);
+}
+function ecPickRandom(){
+  var stds=STANDARDS.filter(function(s){return s.model_answer;});
+  var pick=stds[Math.floor(Math.random()*stds.length)];
+  document.getElementById('ecStdSelect').value=pick.code;
+  ecLoadQuestion(pick.code);
+}
+function ecLoadQuestion(code){
+  if(_ecTimer){clearInterval(_ecTimer);_ecTimer=null;}
+  var std=STANDARDS.find(function(s){return s.code===code;});
+  if(!std||!std.model_answer)return;
+  var ma=std.model_answer;
+  var area=document.getElementById('ecQuestionArea');
+  var timeLimit=Math.round(ma.marks*1.95*60);
+  var timeLeft=timeLimit;
+  var ar=dipifrsLang==='ar'&&STANDARDS_AR[std.code]?STANDARDS_AR[std.code].titleAr:std.title;
+  var html='<div class="ec-question-card">';
+  html+='<h2>'+std.code+' \u2014 '+ar+'</h2>';
+  html+='<div class="ec-meta"><span>\uD83D\uDCCA '+ma.marks+' marks</span><span>\u23F1 '+Math.round(ma.marks*1.95)+' min recommended</span></div>';
+  var _qparts=ma.question.split(/Required:\s*/i);
+  if(_qparts.length>1){
+    html+='<div class="ec-scenario">'+_qparts[0]+'</div>';
+    html+='<div class="ec-required"><b>Required:</b> '+_qparts[1].replace(/^required:\s*/i,'')+'</div></div>';
+  } else {
+    html+='<div class="ec-scenario">'+ma.question+'</div></div>';
+  }
+  var showTimer=document.getElementById('ecTimerOn')&&document.getElementById('ecTimerOn').checked;
+  html+='<div id="ecTimerWrap" style="'+(showTimer?'':'display:none')+'">';
+  html+='<div class="ec-timer-label" id="ecTimerLabel">'+Math.floor(timeLimit/60)+':'+String(timeLimit%60).padStart(2,'0')+'</div>';
+  html+='<div class="ec-timer-bar"><div class="ec-timer-fill" id="ecTimerFill" style="width:100%"></div></div></div>';
+  html+='<textarea class="ec-textarea" id="ecAnswer" placeholder="Write your answer here..."></textarea>';
+  html+='<div class="ec-submit-row">';
+  html+='<button class="ec-btn ec-btn-secondary" id="ecBackBtn">\u2190 Back</button>';
+  html+='<button class="ec-btn ec-btn-primary" id="ecSubmitBtn">\u2705 Submit & See Model Answer</button>';
+  html+='</div><div id="ecMarkingArea"></div>';
+  area.innerHTML=html;
+  document.getElementById('ecBackBtn').addEventListener('click',function(){renderExaminersChair();});
+  document.getElementById('ecSubmitBtn').addEventListener('click',function(){ecSubmit(code);});
+  if(showTimer){
+    _ecTimer=setInterval(function(){
+      timeLeft--;if(timeLeft<=0){clearInterval(_ecTimer);_ecTimer=null;timeLeft=0;}
+      var fill=document.getElementById('ecTimerFill');
+      var label=document.getElementById('ecTimerLabel');
+      if(fill)fill.style.width=(timeLeft/timeLimit*100)+'%';
+      if(label)label.textContent=timeLeft<=0?'\u23F0 Time\u2019s up!':Math.floor(timeLeft/60)+':'+String(timeLeft%60).padStart(2,'0');
+      if(timeLeft<=timeLimit*0.2&&fill)fill.style.background='#e11d48';
+    },1000);
+  }
+  document.getElementById('ecAnswer').focus();
+}
+function ecSubmit(code){
+  if(_ecTimer){clearInterval(_ecTimer);_ecTimer=null;}
+  var std=STANDARDS.find(function(s){return s.code===code;});
+  if(!std||!std.model_answer)return;
+  var ma=std.model_answer;
+  document.getElementById('ecAnswer').disabled=true;
+  var btn=document.getElementById('ecSubmitBtn');btn.disabled=true;btn.textContent='\u2705 Submitted';btn.style.opacity='0.5';
+  var stageNames={rule:'IFRS Rule',calculation:'Calculation',application:'Application',presentation:'Presentation',conclusion:'Conclusion',issue:'Issue'};
+  var stageColors={rule:'rule',calculation:'calculation',application:'application',presentation:'presentation',conclusion:'conclusion',issue:'rule'};
+  var area=document.getElementById('ecMarkingArea');
+  var html='';
+  if(EC_FULL_ANSWERS[code]){
+    html+='<div class="ec-marking-card">'+EC_FULL_ANSWERS[code]+'</div>';
+  }
+  html+='<div class="ec-marking-card"><h3>\uD83D\uDCDD Self-Assessment \u2014 Mark yourself honestly</h3>';
+  html+='<p style="font-size:.85em;opacity:.7;margin-bottom:14px;">Tick each point you covered. Be honest \u2014 that\u2019s how you learn.</p>';
+  // Group points by stage for structured display
+  var stageOrder=['issue','rule','application','calculation','presentation','conclusion'];
+  var grouped={};var ungrouped=[];
+  ma.points.forEach(function(pt,i){pt._i=i;var s=pt.stage||'';if(s&&stageNames[s]){if(!grouped[s])grouped[s]=[];grouped[s].push(pt);}else{ungrouped.push(pt);}});
+  // Render structured answer
+  html+='<div class="ec-full-answer">';
+  stageOrder.forEach(function(stage){
+    if(!grouped[stage])return;
+    var pts=grouped[stage];
+    html+='<div class="ec-answer-stage">';
+    html+='<div class="ec-answer-stage-header"><span class="ec-stage-badge ec-stage-'+(stageColors[stage]||'rule')+'">'+(stageNames[stage]||stage)+'</span></div>';
+    pts.forEach(function(pt){
+      html+='<div class="ec-point"><input type="checkbox" id="ecPt'+pt._i+'" data-marks="'+pt.m+'"><label class="ec-point-text" for="ecPt'+pt._i+'">'+pt.text+'</label><span class="ec-point-marks">'+pt.m+(pt.m===1?' mk':' mks')+'</span></div>';
+    });
+    html+='</div>';
+  });
+  // Ungrouped points (no stage)
+  if(ungrouped.length){
+    ungrouped.forEach(function(pt){
+      html+='<div class="ec-point"><input type="checkbox" id="ecPt'+pt._i+'" data-marks="'+pt.m+'"><label class="ec-point-text" for="ecPt'+pt._i+'">'+pt.text+'</label><span class="ec-point-marks">'+pt.m+(pt.m===1?' mk':' mks')+'</span></div>';
+    });
+  }
+  html+='</div>';
+  html+='</div>';
+  if(ma.note)html+='<div class="ec-tip">\uD83D\uDCA1 <b>Examiner tip:</b> '+ma.note+'</div>';
+  html+='<div class="ec-submit-row"><button class="ec-btn ec-btn-primary" id="ecCalcBtn">\uD83D\uDCCA Calculate My Score</button></div>';
+  html+='<div id="ecResultArea"></div>';
+  area.innerHTML=html;
+  document.getElementById('ecCalcBtn').addEventListener('click',function(){ecCalcScore(code,ma.marks);});
+  area.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function ecCalcScore(code,total){
+  var scored=0;
+  document.querySelectorAll('.ec-point input[type=checkbox]').forEach(function(cb){if(cb.checked)scored+=parseInt(cb.dataset.marks)||0;});
+  var pct=Math.round(scored/total*100);
+  var cls,msg;
+  if(pct>=70){cls='good';msg='\uD83C\uDFAF Excellent! You\u2019re exam-ready on this topic.';}
+  else if(pct>=50){cls='ok';msg='\uD83D\uDCC8 Good effort. Review the points you missed.';}
+  else{cls='weak';msg='\uD83D\uDCDA Keep studying this standard. Focus on the missed points.';}
+  var html='<div class="ec-result ec-result-'+cls+'"><div class="ec-result-score">'+scored+' / '+total+'</div><div class="ec-result-pct">'+pct+'%</div><div class="ec-result-msg">'+msg+'</div></div>';
+  html+='<div class="ec-submit-row" style="margin-top:14px;">';
+  html+='<button class="ec-btn ec-btn-secondary" id="ecRetryBtn">\uD83D\uDD04 Try Again</button>';
+  html+='<button class="ec-btn ec-btn-secondary" id="ecNextBtn">\uD83C\uDFB2 Random Next</button>';
+  html+='<button class="ec-btn ec-btn-primary" id="ecStudyBtn">\uD83D\uDCD6 Study '+code+'</button>';
+  html+='</div>';
+  document.getElementById('ecResultArea').innerHTML=html;
+  document.getElementById('ecRetryBtn').addEventListener('click',function(){ecLoadQuestion(code);});
+  document.getElementById('ecNextBtn').addEventListener('click',function(){ecPickRandom();});
+  document.getElementById('ecStudyBtn').addEventListener('click',function(){renderContent(code);});
+  var hist=ecGetHistory();
+  hist.push({code:code,scored:scored,total:total,date:new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short'})});
+  ecSaveHistory(hist);
+  document.getElementById('ecResultArea').scrollIntoView({behavior:'smooth',block:'center'});
 }
 
 </script>
