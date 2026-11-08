@@ -8681,14 +8681,14 @@ function setupSidebarListeners() {
     toggle.type='button';
     toggle.className='spc-list-toggle';
     toggle.setAttribute('aria-expanded','false');
-    toggle.textContent='Question types ▼';
+    toggle.textContent=(dipifrsLang==='ar'?'أنواع الأسئلة':'Question types')+' ▼';
     head.insertBefore(toggle,head.querySelector('.spc-btn'));
     toggle.addEventListener('click',function(ev){
       ev.preventDefault();
       ev.stopPropagation();
       var collapsed=card.classList.toggle('spc-list-collapsed');
       toggle.setAttribute('aria-expanded',String(!collapsed));
-      toggle.textContent=collapsed?'Question types ▼':'Hide types ▲';
+      toggle.textContent=collapsed?(dipifrsLang==='ar'?'أنواع الأسئلة ▼':'Question types ▼'):(dipifrsLang==='ar'?'إخفاء الأنواع ▲':'Hide types ▲');
     });
   }
   function enhance(){enhancePracticeCard();enhanceStandardPracticeCard();}
@@ -8863,7 +8863,7 @@ function setupSidebarListeners() {
     if(!header||document.getElementById('stdPageSearch'))return;
     var box=document.createElement('div');
     box.className='std-page-search-wrap';
-    box.innerHTML='<input type="search" id="stdPageSearch" placeholder="Search inside this standard…" autocomplete="off">';
+    box.innerHTML='<input type="search" id="stdPageSearch" placeholder="'+(dipifrsLang==='ar'?'...ابحث داخل المعيار':'Search inside this standard…')+'" autocomplete="off">';
     header.insertAdjacentElement('afterend',box);
     var input=document.getElementById('stdPageSearch');
     var sections=wrap.querySelectorAll('.sec-block,.card,.technique-box,.monkey-tactic-box,.example-box,.deepdive-divider,.model-answer-box,.checklist-box,.calc-card,.quiz-card,.qsum-card');
@@ -9171,6 +9171,8 @@ function setDipifrsLang(lang) {
     document.body.setAttribute('data-lang',lang);
     if(typeof renderList==='function')renderList();
     if(typeof activeCode!=='undefined'&&activeCode)renderContent(activeCode);
+    var _si2=document.getElementById('stdSearchInput');
+    if(_si2)_si2.placeholder=lang==='ar'?'...ابحث داخل المعيار':'Search inside this standard...';
     setTimeout(function(){if(_cw)_cw.classList.remove('lang-fading');},50);
   },200);
 }
@@ -9298,7 +9300,34 @@ var UI_AR = {
   "Hide Model Answer": "إخفاء الإجابة النموذجية",
   "I&#39;ve written my answer &mdash; Reveal إجابة نموذجية ومخطط الدرجات": "كتبت إجابتي &mdash; اعرض الإجابة النموذجية ومخطط الدرجات",
   "tagged": "مربوط بـ",
-  "Search inside this standard...": "...ابحث داخل المعيار"
+  "Search inside this standard...": "...ابحث داخل المعيار",
+  "Question types": "أنواع الأسئلة",
+  "Speed Round": "جولة السرعة",
+  "Verb Challenge": "تحدي الأفعال",
+  "Command Word Drills": "تدريبات كلمات الأمر",
+  "Investigation Cases": "حالات تحقيق",
+  "True / False": "صح / غلط",
+  "Spot the Error": "اكتشف الخطأ",
+  "Sequencing": "الترتيب",
+  "Odd One Out": "الدخيل",
+  "Ethics Dilemma": "معضلة أخلاقية",
+  "Theoretical Qs": "أسئلة نظرية",
+  "Calculation": "حسابات",
+  "Formula Cheat Sheet": "ملخص المعادلات",
+  "Quick Reference": "مرجع سريع",
+  "When to use:": "متى تستخدمها:",
+  "This is how Examiner markers actually think": "ده طريقة تفكير المصحح الفعلية",
+  "use it.": "استخدمها.",
+  "Now prove it with your own hand.": "دلوقتي اثبت بإيدك.",
+  "Exam Style Practice &mdash;": "تمرين بأسلوب الامتحان &mdash;",
+  "questions for": "سؤال عن",
+  "Correct last time": "صح آخر مرة",
+  "Missed last time": "غلط آخر مرة",
+  "Mark status": "حالة المراجعة"
+,
+  "Formula Cheat Sheet &mdash; Quick Reference": "ملخص المعادلات &mdash; مرجع سريع",
+  "When to use:": "متى تستخدمها:",
+  "MCQ": "MCQ"
 };
 function arLabel(en) {
   if (dipifrsLang !== 'ar') return en;
