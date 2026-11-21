@@ -2864,6 +2864,38 @@ body[data-theme="dark"] .er-paper,@media(prefers-color-scheme:dark){.er-paper{ba
 .cr-stepper-line.cr-line-done{background:#059669;}
 
 .ba-reset-master{padding:3px 10px;border-radius:6px;border:1.5px solid rgba(234,88,12,.4);background:transparent;color:#ea580c;cursor:pointer;font-size:.82em;font-weight:600;transition:all .2s;}.ba-reset-master:hover{background:rgba(234,88,12,.1);}
+
+/* ===== Standard Spotter ===== */
+.ss-wrap{max-width:720px;margin:0 auto;padding:12px;}
+.ss-hero{background:linear-gradient(135deg,#1e3a5f,#2563eb);color:#fff;border-radius:16px;padding:24px 20px;text-align:center;margin-bottom:16px;}
+.ss-hero h1{font-size:1.5em;margin:0 0 6px;}
+.ss-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+@media(max-width:400px){.ss-grid{grid-template-columns:1fr;}}
+.ss-card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:14px;cursor:pointer;transition:all .2s;}
+.ss-card:hover{border-color:#2563eb;transform:translateY(-2px);}
+.ss-card-title{font-weight:700;font-size:.95em;margin-bottom:4px;}
+.ss-card-meta{font-size:.78em;opacity:.6;}
+.ss-diff{padding:2px 8px;border-radius:5px;font-size:.7em;font-weight:700;text-transform:uppercase;margin-left:6px;}
+.ss-diff-easy{background:#d1fae5;color:#065f46;}.ss-diff-medium{background:#fef3c7;color:#92400e;}.ss-diff-hard{background:#fce7f3;color:#9d174d;}
+.ss-scenario-box{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:16px;margin-bottom:14px;}
+.ss-sentence{padding:10px 14px;border-radius:8px;margin:6px 0;cursor:pointer;transition:all .2s;border:2px solid transparent;line-height:1.6;font-size:.93em;position:relative;}
+.ss-sentence:hover{background:rgba(37,99,235,.06);}
+.ss-sentence.ss-selected{border-color:#2563eb;background:rgba(37,99,235,.06);}
+.ss-sentence.ss-correct{border-color:#059669;background:rgba(5,150,105,.06);}
+.ss-sentence.ss-wrong{border-color:#dc2626;background:rgba(220,38,38,.06);}
+.ss-std-tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:.75em;font-weight:700;margin-left:6px;}
+.ss-std-tag-correct{background:#d1fae5;color:#065f46;}.ss-std-tag-wrong{background:#fce7f3;color:#9d174d;}
+.ss-hint{font-size:.82em;color:#059669;font-style:italic;margin-top:4px;display:none;}
+.ss-input-row{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.ss-std-option{padding:6px 12px;border-radius:8px;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:.82em;font-weight:600;transition:all .2s;}
+.ss-std-option:hover{border-color:#2563eb;}.ss-std-option.ss-opt-selected{border-color:#2563eb;background:rgba(37,99,235,.1);color:#2563eb;}
+.ss-controls{display:flex;gap:10px;justify-content:center;align-items:center;margin:14px 0;flex-wrap:wrap;}
+.ss-btn{padding:10px 20px;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:.95em;}
+.ss-btn-primary{background:#2563eb;color:#fff;}.ss-btn-secondary{background:rgba(128,128,128,.15);color:var(--ink);}
+.ss-score{text-align:center;padding:16px;border-radius:14px;margin-top:14px;font-size:1.1em;font-weight:700;}
+.ss-score-good{background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46;}
+.ss-score-ok{background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;}
+.ss-score-weak{background:linear-gradient(135deg,#fce7f3,#fbcfe8);color:#9d174d;}
 </style>
 </head>
 <body>
@@ -7474,6 +7506,7 @@ function buildReviewCenterHomeHtml(){
     {icon:'&#128214;',title:'My Mistakes',hint:'دفتر أخطائي',fn:'renderMistakesNotebook',clr:'tk-red'},
     {icon:'__SEP__',title:'Battle Arena'},
     {icon:'&#127970;',title:'My Company',hint:'شركتي',fn:'renderMyCompany',clr:'tk-green',badge:'&#10024; Magical',sub:mcoStatusLine()},
+    {icon:'\uD83D\uDD0D',title:'Standard Spotter',hint:'اكتشف المعايير',fn:'renderStandardSpotter',clr:'tk-blue',badge:'\u2728 New',sub:ssStatusLine()},
     {icon:'&#129513;',title:'Key Terms Quiz',hint:'اختبر مصطلحاتك',fn:'renderKeyTermsQuiz',clr:'tk-purple',badge:'&#128293; Hot'},
     {icon:'\uD83D\uDCF0',title:'Breaking News',hint:'حلّل الخبر',fn:'renderBreakingNews',clr:'tk-blue',sub:bnStatusLine()},
     {icon:'\uD83D\uDD17',title:'Chain Reaction',hint:'5 معايير متسلسلة',fn:'renderChainReaction',clr:'tk-red',badge:'\uD83D\uDD25 Hot',sub:crStatusLine()},
@@ -10412,9 +10445,105 @@ function renderMemoryPalace(preId){
 
 
 /* Battle Arena Resets */
-var BA_KEYS=['dipifr_sca','dipifr_trap','dipifr_195','dipifr_ec_history','dipifr_mp','dipifr_bn'];
+var BA_KEYS=['dipifr_sca','dipifr_trap','dipifr_195','dipifr_ec_history','dipifr_mp','dipifr_bn','dipifr_ss'];
 function baResetAll(){BA_KEYS.forEach(function(k){try{localStorage.removeItem(k);}catch(e){}});}
 function baResetOne(key){try{localStorage.removeItem(key);}catch(e){}}
+
+/* ===== Standard Spotter ===== */
+var SS_DATA=[{"id":1,"title":"The Acquisition Report","difficulty":"Hard","scenario":[{"text":"On 1 October 20X4, Alpha Co acquired 80% of Beta Co for EGP 15 million cash,","std":"IFRS 3","hint":"Business combination — acquisition method"},{"text":"plus contingent consideration estimated at EGP 2 million payable if Beta meets revenue targets.","std":"IFRS 3","hint":"Contingent consideration at FV on acquisition date"},{"text":"Legal and due diligence fees of EGP 800,000 were incurred.","std":"IFRS 3","hint":"Acquisition costs — expensed, not capitalised"},{"text":"Beta owns a building carried at EGP 5 million but valued at EGP 8 million,","std":"IFRS 3","hint":"Fair value adjustment on identifiable net assets"},{"text":"and a customer list not recognised in Beta's own books worth EGP 1.5 million.","std":"IAS 38","hint":"Intangible assets recognised in a business combination"},{"text":"Beta also has a patent with 4 years remaining, amortised straight-line.","std":"IAS 38","hint":"Finite-life intangible — amortisation"},{"text":"Alpha funded the acquisition with a EGP 12 million bank loan at 7% interest.","std":"IAS 23","hint":"Borrowing costs — but NOT a qualifying asset, so expense"},{"text":"Beta declared a dividend of EGP 500,000 on 15 December 20X4.","std":"IFRS 10","hint":"Intercompany dividend — eliminated on consolidation"},{"text":"At year-end, Alpha tested goodwill for impairment and found indicators of decline.","std":"IAS 36","hint":"Goodwill impairment testing"}]},{"id":2,"title":"The Property Empire","difficulty":"Medium","scenario":[{"text":"Gamma Co owns a headquarters building measured under the revaluation model,","std":"IAS 16","hint":"PPE — revaluation model"},{"text":"revalued upward by EGP 3 million this year with a previous P&L loss of EGP 500,000 on the same asset.","std":"IAS 16","hint":"Revaluation gain: first reverse P&L loss, then OCI"},{"text":"Gamma also rents out a separate office block to third parties, measuring it at fair value.","std":"IAS 40","hint":"Investment property — fair value model"},{"text":"The fair value of the investment property fell by EGP 1.2 million this year.","std":"IAS 40","hint":"FV loss goes to P&L (not OCI — that's IAS 16)"},{"text":"A third property is being actively marketed for sale, with a buyer expected within 6 months.","std":"IFRS 5","hint":"Held for sale — lower of CA and FVLCS, no depreciation"},{"text":"The roof of the headquarters (10-year life) was replaced at a cost of EGP 2 million.","std":"IAS 16","hint":"Component depreciation — capitalise and depreciate separately"},{"text":"Deferred tax on the revaluation surplus needs to be calculated at 25%.","std":"IAS 12","hint":"DT follows the item — revaluation DT goes to OCI"}]},{"id":3,"title":"The Revenue Puzzle","difficulty":"Hard","scenario":[{"text":"Delta Co sells software licences bundled with 3-year support contracts for EGP 600,000.","std":"IFRS 15","hint":"Step 2: two performance obligations (licence + support)"},{"text":"The standalone selling price of the licence is EGP 450,000 and support is EGP 200,000.","std":"IFRS 15","hint":"Step 4: allocate by relative SSP"},{"text":"Delta offers a 5% volume discount if the customer buys 100+ licences.","std":"IFRS 15","hint":"Variable consideration — constraint"},{"text":"One customer paid EGP 1 million upfront for goods to be delivered over 18 months.","std":"IFRS 15","hint":"Significant financing component (> 12 months)"},{"text":"Delta acts as an agent for third-party cloud hosting, earning a 12% commission.","std":"IFRS 15","hint":"Principal vs agent — net revenue"},{"text":"A construction contract is 60% complete at year-end, with the customer controlling the WIP.","std":"IFRS 15","hint":"Over time — customer controls asset as built"},{"text":"Delta has a warranty obligation — assurance-type warranties estimated at EGP 300,000.","std":"IAS 37","hint":"Assurance warranty = provision (not a PO under IFRS 15)"},{"text":"An onerous contract was identified where unavoidable costs exceed economic benefits by EGP 150,000.","std":"IAS 37","hint":"Onerous contract provision"}]},{"id":4,"title":"The Year-End Minefield","difficulty":"Medium","scenario":[{"text":"At 31 December, inventory of EGP 4 million includes items with NRV of EGP 3.2 million.","std":"IAS 2","hint":"Lower of cost and NRV — write-down to cost of sales"},{"text":"A lawsuit filed against the company has a 70% probability of EGP 2 million damages, expected in 2 years.","std":"IAS 37","hint":"Provision — probable outflow, needs discounting"},{"text":"The company received a letter on 15 January confirming a major customer's bankruptcy.","std":"IAS 10","hint":"Adjusting event — condition existed at year-end"},{"text":"A fire destroyed a warehouse on 20 January, causing EGP 5 million in damages.","std":"IAS 10","hint":"Non-adjusting event — disclose only"},{"text":"A dividend of EGP 1 million was declared on 10 January by the board.","std":"IAS 10","hint":"Non-adjusting — no obligation at year-end"},{"text":"The company changed its depreciation method from reducing balance to straight-line.","std":"IAS 8","hint":"Change in estimate — prospective application"},{"text":"An error was discovered in last year's revenue — EGP 500,000 was double-counted.","std":"IAS 8","hint":"Prior period error — retrospective restatement"},{"text":"Tax losses of EGP 3 million are available, but future profitability is uncertain.","std":"IAS 12","hint":"DTA probability test — probably not recognised"}]},{"id":5,"title":"The Lease & Finance Mix","difficulty":"Hard","scenario":[{"text":"Epsilon leases office space for 8 years at EGP 500,000 per year. IBR is 5%.","std":"IFRS 16","hint":"Lessee: ROU asset + lease liability at PV"},{"text":"The company also leases 20 laptops, each costing EGP 2,500 new, for 3 years.","std":"IFRS 16","hint":"Low-value exemption — expense straight-line"},{"text":"Epsilon issued EGP 50 million in convertible bonds, 4% coupon, market rate without conversion 7%.","std":"IAS 32","hint":"Compound instrument — split debt/equity"},{"text":"The company holds a portfolio of corporate bonds to collect contractual cash flows.","std":"IFRS 9","hint":"Amortised cost — hold to collect + SPPI"},{"text":"An equity investment in a listed company was designated FVOCI (irrevocable election).","std":"IFRS 9","hint":"FVOCI equity — never recycled"},{"text":"Trade receivables of EGP 8 million use the simplified approach for ECL.","std":"IFRS 9","hint":"Simplified approach — lifetime ECL from day one"},{"text":"The lease was modified to extend by 3 years at a non-commensurate price.","std":"IFRS 16","hint":"Modification — remeasure, don't treat as separate"},{"text":"Year-end interest on the lease liability was calculated on the opening balance.","std":"IFRS 16","hint":"Interest = opening liability × IBR"},{"text":"The finance cost on the convertible bond exceeds the cash coupon.","std":"IFRS 9","hint":"Effective interest method — P&L ≠ cash"}]},{"id":6,"title":"The Group Accounts Challenge","difficulty":"Hard","scenario":[{"text":"Parent owns 75% of Sub (acquired 2 years ago) and 30% of Associate.","std":"IFRS 10","hint":"Subsidiary = consolidate; Associate = equity method"},{"text":"Parent sold inventory to Sub at a 25% markup. Half remains unsold at year-end.","std":"IFRS 10","hint":"Downstream PURP — eliminate 50% unrealised profit, all from parent"},{"text":"Sub sold goods to Associate at cost plus 20%. One-third remains in Associate's inventory.","std":"IAS 28","hint":"Upstream to associate — eliminate investor's share of PURP only"},{"text":"Goodwill on Sub's acquisition was tested for impairment — the CGU's recoverable amount fell below carrying amount.","std":"IAS 36","hint":"Impairment allocated to goodwill first, then other assets"},{"text":"Sub operates in the USA (functional currency USD). Exchange rates changed significantly.","std":"IAS 21","hint":"Foreign subsidiary — translate at closing/average rates"},{"text":"Sub's PPE was revalued at acquisition to fair value, creating a EGP 2 million excess depreciation adjustment.","std":"IFRS 3","hint":"FV adjustment — extra depreciation in consolidation"},{"text":"NCI is measured at proportionate share of Sub's identifiable net assets.","std":"IFRS 3","hint":"Proportionate NCI = partial goodwill method"},{"text":"The group disclosed transactions with the CEO's family company.","std":"IAS 24","hint":"Related party disclosure — KMP family"},{"text":"Diluted EPS included the effect of share options granted to employees.","std":"IAS 33","hint":"Diluted EPS — treasury stock method for options"}]},{"id":7,"title":"The Employee & Ethics File","difficulty":"Medium","scenario":[{"text":"The company granted 500,000 share options to employees, vesting over 3 years.","std":"IFRS 2","hint":"Equity-settled SBP — grant-date FV, spread over vesting"},{"text":"A defined benefit pension plan has a net liability with current service cost of EGP 1.5 million.","std":"IAS 19","hint":"DB plan — 3 components (service, interest, remeasurement)"},{"text":"Actuarial losses of EGP 400,000 arose from updated mortality assumptions.","std":"IAS 19","hint":"Remeasurement — OCI, never recycled"},{"text":"A restructuring plan was formally announced to employees, with estimated costs of EGP 3 million.","std":"IAS 37","hint":"Constructive obligation — plan + announcement = provision"},{"text":"The audit partner has served on the engagement for 8 years.","std":"IESBA","hint":"Long association threat — rotation after 7 years"},{"text":"The finance director holds shares in a client company.","std":"IESBA","hint":"Self-interest threat — financial interest"},{"text":"Termination benefits of EGP 2 million were offered to 50 employees being made redundant.","std":"IAS 19","hint":"Termination benefits — recognise when entity cannot withdraw"}]},{"id":8,"title":"The Research Lab Report","difficulty":"Medium","scenario":[{"text":"The company spent EGP 5 million on pure research into a new drug compound.","std":"IAS 38","hint":"Research = always expense"},{"text":"Development costs of EGP 8 million were incurred after all 6 capitalisation criteria were met.","std":"IAS 38","hint":"Development = capitalise when ALL 6 met"},{"text":"An internally generated brand was valued at EGP 10 million by an external expert.","std":"IAS 38","hint":"Internally generated brands — NEVER capitalise"},{"text":"The company received a EGP 3 million government grant towards the research costs.","std":"IAS 20","hint":"Grant for expenses — deferred income or net against expense"},{"text":"Exploration expenditure of EGP 6 million was incurred for a mining licence.","std":"IFRS 6","hint":"Exploration and evaluation — policy choice to capitalise or expense"},{"text":"A patent purchased from a competitor for EGP 4 million has a remaining life of 5 years.","std":"IAS 38","hint":"Purchased intangible — capitalise and amortise over 5 years"},{"text":"The company borrowed EGP 20 million specifically to fund construction of a new lab (18-month build).","std":"IAS 23","hint":"Qualifying asset — capitalise borrowing costs during construction"}]}];
+var SS_KEY='dipifr_ss';
+function ssGetState(){try{return JSON.parse(localStorage.getItem(SS_KEY))||{done:[]};}catch(e){return{done:[]};}}
+function ssSave(s){try{localStorage.setItem(SS_KEY,JSON.stringify(s));}catch(e){}}
+function ssStatusLine(){var s=ssGetState();if(!s.done.length)return SS_DATA.length+' scenarios';return s.done.length+'/'+SS_DATA.length+' completed';}
+
+function renderStandardSpotter(preId){
+  activeCode='';
+  var current=preId?SS_DATA.find(function(s){return s.id===preId;}):null;
+  if(!current){
+    var state=ssGetState();
+    var html='<div class="ss-wrap"><div class="ss-hero"><h1>\uD83D\uDD0D Standard Spotter</h1><p>Read the scenario. Click each sentence and identify the hidden standard.</p><p style="font-size:.85em;margin-top:6px;">'+state.done.length+'/'+SS_DATA.length+' completed</p></div>';
+    html+='<div class="ss-grid">';
+    SS_DATA.forEach(function(s){
+      var done=state.done.indexOf(s.id)!==-1;
+      html+='<div class="ss-card'+(done?' ss-card-done':'')+'" data-ssid="'+s.id+'">';
+      html+='<div class="ss-card-title">'+s.title+(done?' \u2705':'')+'<span class="ss-diff ss-diff-'+s.difficulty.toLowerCase()+'">'+s.difficulty+'</span></div>';
+      html+='<div class="ss-card-meta">'+s.scenario.length+' clues to find</div></div>';
+    });
+    html+='</div>';
+    html+='<div style="text-align:center;"><button class="ss-btn ss-btn-secondary" onclick="renderHome()">\uD83C\uDFE0 Home</button></div></div>';
+    document.getElementById('mainContent').innerHTML='<div class="read-progress-bar" id="readProgressBar" style="width:0%"></div><div class="content-wrap" id="contentWrap">'+html+'</div>';
+    document.querySelectorAll('.ss-card').forEach(function(c){c.addEventListener('click',function(){renderStandardSpotter(parseInt(this.dataset.ssid));});});
+    window.scrollTo(0,0);return;
+  }
+  // Build standard options from unique standards in this scenario
+  var stds=[];current.scenario.forEach(function(s){if(stds.indexOf(s.std)===-1)stds.push(s.std);});
+  stds.sort();
+  var ssState={answers:{},revealed:false};
+  var html='<div class="ss-wrap">';
+  html+='<div style="text-align:center;margin-bottom:12px;"><span class="ss-diff ss-diff-'+current.difficulty.toLowerCase()+'">'+current.difficulty+'</span></div>';
+  html+='<h2 style="text-align:center;margin:0 0 4px;">\uD83D\uDD0D '+current.title+'</h2>';
+  html+='<p style="text-align:center;font-size:.88em;opacity:.7;margin-bottom:14px;">Click each sentence, then pick the standard.</p>';
+  html+='<div class="ss-scenario-box" id="ssScenario">';
+  current.scenario.forEach(function(s,i){
+    html+='<div class="ss-sentence" data-ssi="'+i+'"><span class="ss-sent-num" style="font-weight:700;color:#2563eb;margin-right:6px;">'+(i+1)+'.</span>'+s.text+'<div class="ss-input-row" id="ssInput'+i+'" style="display:none;">';
+    stds.forEach(function(st){html+='<button class="ss-std-option" data-ssi="'+i+'" data-std="'+st+'">'+st+'</button>';});
+    html+='</div><div class="ss-hint" id="ssHint'+i+'">'+s.hint+'</div></div>';
+  });
+  html+='</div>';
+  html+='<div class="ss-controls"><span id="ssLiveScore" style="font-weight:700;color:#2563eb;font-size:.95em;">Pick standards...</span><button class="ss-btn ss-btn-secondary" id="ssRevealBtn">\uD83D\uDCA1 Reveal All</button></div>';
+  html+='<div id="ssResult"></div>';
+  html+='<div class="ss-controls"><button class="ss-btn ss-btn-secondary" onclick="renderStandardSpotter()">\uD83D\uDCCB All Scenarios</button><button class="ss-btn ss-btn-secondary" onclick="renderHome()">\uD83C\uDFE0 Home</button></div>';
+  html+='</div>';
+  document.getElementById('mainContent').innerHTML='<div class="read-progress-bar" id="readProgressBar" style="width:0%"></div><div class="content-wrap" id="contentWrap">'+html+'</div>';
+  // Sentence click: toggle input row
+  document.querySelectorAll('.ss-sentence').forEach(function(s){
+    s.addEventListener('click',function(ev){
+      if(ev.target.classList.contains('ss-std-option'))return;
+      var idx=this.dataset.ssi;
+      var input=document.getElementById('ssInput'+idx);
+      var isOpen=input.style.display!=='none';
+      document.querySelectorAll('.ss-input-row').forEach(function(r){r.style.display='none';});
+      document.querySelectorAll('.ss-sentence').forEach(function(s2){s2.classList.remove('ss-selected');});
+      if(!isOpen){input.style.display='flex';this.classList.add('ss-selected');}
+    });
+  });
+  // Option click
+  document.querySelectorAll('.ss-std-option').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var idx=this.dataset.ssi;var std=this.dataset.std;
+      var _s=current.scenario[parseInt(idx)];var _ok=std===_s.std;
+      ssState.answers[idx]=std;
+      document.querySelectorAll('.ss-std-option[data-ssi="'+idx+'"]').forEach(function(b){b.classList.remove('ss-opt-selected');b.style.pointerEvents='none';b.style.opacity=b.dataset.std===_s.std?'1':'.4';});
+      this.classList.add('ss-opt-selected');
+      var _el=document.querySelectorAll('.ss-sentence')[parseInt(idx)];
+      _el.classList.add(_ok?'ss-correct':'ss-wrong');
+      var _tag=_el.querySelector('.ss-std-tag');if(!_tag){_tag=document.createElement('span');_tag.className='ss-std-tag';_el.appendChild(_tag);}
+      _tag.className='ss-std-tag '+(_ok?'ss-std-tag-correct':'ss-std-tag-wrong');_tag.textContent=_s.std;
+      document.getElementById('ssHint'+idx).style.display='block';
+      document.getElementById('ssInput'+idx).style.display='none';_el.classList.remove('ss-selected');
+      var _an=Object.keys(ssState.answers).length;var _co=0;
+      current.scenario.forEach(function(sc,j){if(ssState.answers[j]===sc.std)_co++;});
+      document.getElementById('ssLiveScore').textContent=_co+'/'+_an+' correct';
+      if(_an===current.scenario.length){var _p=Math.round(_co/current.scenario.length*100);var _c=_p>=70?'ss-score-good':_p>=40?'ss-score-ok':'ss-score-weak';document.getElementById('ssResult').innerHTML='<div class="ss-score '+_c+'">'+_co+'/'+current.scenario.length+' ('+_p+'%)</div>';var _st=ssGetState();if(_st.done.indexOf(current.id)===-1){_st.done.push(current.id);ssSave(_st);}}
+    });
+  });
+  // Check
+  
+  // Reveal
+  document.getElementById('ssRevealBtn').addEventListener('click',function(){
+    current.scenario.forEach(function(s,i){
+      var el=document.querySelectorAll('.ss-sentence')[i];
+      el.classList.add('ss-correct');
+      var tag=el.querySelector('.ss-std-tag');if(!tag){tag=document.createElement('span');tag.className='ss-std-tag ss-std-tag-correct';el.appendChild(tag);}
+      else{tag.className='ss-std-tag ss-std-tag-correct';}
+      tag.textContent=s.std;
+      document.getElementById('ssHint'+i).style.display='block';
+    });
+    document.getElementById('ssResult').innerHTML='<div class="ss-score ss-score-ok">All standards revealed!</div>';
+    var state=ssGetState();if(state.done.indexOf(current.id)===-1){state.done.push(current.id);ssSave(state);}
+  });
+  window.scrollTo(0,0);
+}
 </script>
 <div class="welcome-name-overlay" id="welcomeNameOverlay" style="display:none;">
 <div class="welcome-name-card">
