@@ -7126,15 +7126,12 @@ function renderMistakesNotebook(){
   document.querySelectorAll('.mnb-fix-std').forEach(function(btn){
     btn.addEventListener('click',function(){
       var code=this.dataset.mnbcode;
-      var set=buildMistakesReviewSet(code);
-      if(set.length>0)startPracticeSession(set,"mistakes");
+      renderMistakesReview(code);
     });
   });
   var fixBtn=document.getElementById("mnbFixBtn");
   if(fixBtn)fixBtn.addEventListener("click",function(){
-    var set=buildMistakesReviewSet();
-    if(set.length>0)startPracticeSession(set,"mistakes");
-    else alert("No mistakes to fix!");
+    renderMistakesReview();
   });
 }
 function renderGlossary(filterCode){
@@ -9825,7 +9822,7 @@ function renderExaminersChair(preselect){
     html+='<option value="'+s.code+'"'+sel+'>'+s.code+' \u2014 '+(ar||s.title)+' ('+s.model_answer.marks+' marks)</option>';
   });
   html+='</select>';
-  html+='<button class="ec-btn ec-btn-secondary" id="ecRandomBtn">\uD83C\uDFB2 Random</button>';
+  html+='<button class="ec-btn ec-btn-secondary" id="ecResetBtn" style="font-size:.82em;">\uD83D\uDD04</button><button class="ec-btn ec-btn-secondary" id="ecRandomBtn">\uD83C\uDFB2 Random</button>';
   html+='<label style="display:flex;align-items:center;gap:5px;font-size:.88em;"><input type="checkbox" id="ecTimerOn" checked> \u23F1 Timer</label>';
   html+='</div><div id="ecQuestionArea"></div>';
   if(history.length){
@@ -9840,6 +9837,7 @@ function renderExaminersChair(preselect){
   html+='</div>';
   document.getElementById('mainContent').innerHTML='<div class="read-progress-bar" id="readProgressBar" style="width:0%"></div><div class="content-wrap" id="contentWrap">'+html+'</div>';
   document.getElementById('ecStdSelect').addEventListener('change',function(){if(this.value)ecLoadQuestion(this.value);});
+  document.getElementById('ecResetBtn')?.addEventListener('click',function(){if(this.dataset.armed){baResetOne('dipifr_ec_history');renderExaminersChair();}else{this.dataset.armed='1';this.textContent='\u26A0\uFE0F';this.style.background='#dc2626';this.style.color='#fff';var _t=this;setTimeout(function(){delete _t.dataset.armed;_t.textContent='\uD83D\uDD04';_t.style.background='';_t.style.color='';},3000);}});
   document.getElementById('ecRandomBtn').addEventListener('click',function(){ecPickRandom();});
   if(preselect)ecLoadQuestion(preselect);
   window.scrollTo(0,0);
@@ -10558,9 +10556,10 @@ function renderStandardSpotter(preId){
       html+='<div class="ss-card-meta">'+s.scenario.length+' clues to find</div></div>';
     });
     html+='</div>';
-    html+='<div style="text-align:center;"><button class="ss-btn ss-btn-secondary" onclick="renderHome()">\uD83C\uDFE0 Home</button></div></div>';
+    html+='<div style="text-align:center;"><button class="ss-btn ss-btn-secondary" id="ssResetBtn" style="font-size:.82em;">\uD83D\uDD04 Reset</button> <button class="ss-btn ss-btn-secondary" onclick="renderHome()">\uD83C\uDFE0 Home</button></div></div>';
     document.getElementById('mainContent').innerHTML='<div class="read-progress-bar" id="readProgressBar" style="width:0%"></div><div class="content-wrap" id="contentWrap">'+html+'</div>';
     document.querySelectorAll('.ss-card').forEach(function(c){c.addEventListener('click',function(){renderStandardSpotter(parseInt(this.dataset.ssid));});});
+    document.getElementById('ssResetBtn')?.addEventListener('click',function(){if(this.dataset.armed){baResetOne('dipifr_ss');renderStandardSpotter();}else{this.dataset.armed='1';this.textContent='\u26A0\uFE0F Confirm';this.style.background='#dc2626';this.style.color='#fff';var _t=this;setTimeout(function(){delete _t.dataset.armed;_t.textContent='\uD83D\uDD04 Reset';_t.style.background='';_t.style.color='';},3000);}});
     window.scrollTo(0,0);return;
   }
   // Build standard options from unique standards in this scenario
@@ -10672,9 +10671,10 @@ function renderBuildStandard(preStd){
     var state=bsGetState();
     var html='<div class="bs-wrap"><div class="bs-hero"><h1>\uD83C\uDFD7\uFE0F Build the Standard</h1><p>Drag the building blocks into the correct order.</p><p style="font-size:.85em;margin-top:6px;">'+state.done.length+'/'+BS_DATA.length+' completed</p></div>';
     html+='<div class="bs-grid">';BS_DATA.forEach(function(s){var done=state.done.indexOf(s.std)!==-1;html+='<div class="bs-sel-card" data-bsstd="'+s.std+'"><b>'+(done?'\u2705 ':'')+s.std+'</b><span>'+s.title+'</span></div>';});
-    html+='</div><div style="text-align:center;"><button class="ss-btn ss-btn-secondary" onclick="renderHome()">\uD83C\uDFE0 Home</button></div></div>';
+    html+='</div><div style="text-align:center;"><button class="ss-btn ss-btn-secondary" id="bsResetBtn" style="font-size:.82em;">\uD83D\uDD04 Reset</button> <button class="ss-btn ss-btn-secondary" onclick="renderHome()">\uD83C\uDFE0 Home</button></div></div>';
     document.getElementById('mainContent').innerHTML='<div class="read-progress-bar" id="readProgressBar" style="width:0%"></div><div class="content-wrap" id="contentWrap">'+html+'</div>';
     document.querySelectorAll('.bs-sel-card').forEach(function(c){c.addEventListener('click',function(){renderBuildStandard(this.dataset.bsstd);});});
+    document.getElementById('bsResetBtn')?.addEventListener('click',function(){if(this.dataset.armed){baResetOne('dipifr_bs');renderBuildStandard();}else{this.dataset.armed='1';this.textContent='\u26A0\uFE0F Confirm';this.style.background='#dc2626';this.style.color='#fff';var _t=this;setTimeout(function(){delete _t.dataset.armed;_t.textContent='\uD83D\uDD04 Reset';_t.style.background='';_t.style.color='';},3000);}});
     window.scrollTo(0,0);return;
   }
   var std=BS_DATA.find(function(s){return s.std===preStd;});if(!std)return;
@@ -10703,7 +10703,14 @@ function renderBuildStandard(preStd){
         var correct=placed.filter(function(v,i){return v===i;}).length;
         var pct=Math.round(correct/std.blocks.length*100);
         var cls=pct>=80?'bs-result-good':pct>=50?'bs-result-ok':'bs-result-weak';
-        document.getElementById('bsResult').innerHTML='<div class="bs-result '+cls+'">'+correct+'/'+std.blocks.length+' in correct position ('+pct+'%)</div>';
+        var resHtml='<div class="bs-result '+cls+'">'+correct+'/'+std.blocks.length+' in correct position ('+pct+'%)</div>';
+        resHtml+='<div style="margin-top:14px;padding:14px;background:rgba(5,150,105,.04);border:1.5px solid rgba(5,150,105,.2);border-radius:12px;"><div style="font-weight:700;margin-bottom:10px;color:#059669;">\u2705 Correct Order:</div>';
+        std.blocks.forEach(function(block,i){
+          var wasRight=placed[i]===i;
+          resHtml+='<div style="padding:8px 12px;margin:4px 0;border-radius:6px;font-size:.88em;line-height:1.5;border-left:3px solid '+(wasRight?'#059669':'#dc2626')+';background:'+(wasRight?'rgba(5,150,105,.04)':'rgba(220,38,38,.04)')+'"><span style="display:inline-block;width:22px;height:22px;border-radius:50%;background:'+(wasRight?'#059669':'#dc2626')+';color:#fff;text-align:center;line-height:22px;font-size:.75em;font-weight:800;margin-right:8px;">'+(i+1)+'</span>'+block+'</div>';
+        });
+        resHtml+='</div>';
+        document.getElementById('bsResult').innerHTML=resHtml;
         if(pct>=60){var st=bsGetState();if(st.done.indexOf(std.std)===-1){st.done.push(std.std);bsSave(st);}}
       }
     });
