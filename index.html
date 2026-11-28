@@ -2957,6 +2957,99 @@ body[data-theme="dark"] .er-paper,@media(prefers-color-scheme:dark){.er-paper{ba
 .bs-pool-label{font-size:.82em;font-weight:700;margin-bottom:8px;color:var(--ink);opacity:.6;}
 .bs-result{text-align:center;padding:16px;border-radius:14px;margin:14px 0;font-weight:700;}
 .bs-result-good{background:rgba(5,150,105,.08);color:#059669;}.bs-result-ok{background:rgba(217,119,6,.08);color:#92400e;}.bs-result-weak{background:rgba(220,38,38,.08);color:#dc2626;}
+
+/* ===== Journal Entry Gym ===== */
+.jeg-wrap{max-width:720px;margin:0 auto;padding:20px 10px;}
+.jeg-hero{text-align:center;padding:28px 16px 18px;background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:16px;margin-bottom:18px;color:#e2e8f0;}
+.jeg-hero h1{font-size:1.6em;margin:0 0 6px;}
+.jeg-hero p{margin:4px 0;font-size:.92em;opacity:.85;}
+.jeg-lobby{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:12px;}
+.jeg-card{background:#1e293b;border:2px solid #334155;border-radius:12px;padding:14px;cursor:pointer;transition:all .2s;}
+.jeg-card:hover{border-color:#818cf8;transform:translateY(-2px);box-shadow:0 4px 16px rgba(129,140,248,.18);}
+.jeg-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.jeg-card-std{font-size:.78em;padding:3px 8px;border-radius:6px;background:#312e81;color:#a5b4fc;font-weight:600;}
+.jeg-card-diff{font-size:.72em;padding:2px 7px;border-radius:6px;font-weight:600;}
+.jeg-diff-Easy{background:#064e3b;color:#6ee7b7;}
+.jeg-diff-Medium{background:#78350f;color:#fcd34d;}
+.jeg-diff-Hard{background:#7f1d1d;color:#fca5a5;}
+.jeg-card-title{font-size:.95em;font-weight:600;color:#e2e8f0;margin-bottom:4px;}
+.jeg-card-done{position:absolute;top:8px;right:8px;font-size:1.1em;}
+.jeg-card{position:relative;}
+.jeg-filter-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;}
+.jeg-filter-btn{padding:6px 14px;border-radius:20px;border:1.5px solid #475569;background:transparent;color:#94a3b8;font-size:.82em;cursor:pointer;transition:all .15s;}
+.jeg-filter-btn.active{background:#4f46e5;color:#fff;border-color:#4f46e5;}
+.jeg-play-wrap{background:#1e293b;border-radius:14px;padding:20px;margin-top:12px;}
+.jeg-scenario-box{background:#0f172a;border:1.5px solid #334155;border-radius:10px;padding:16px;margin-bottom:16px;}
+.jeg-scenario-box h3{margin:0 0 8px;font-size:1em;color:#a5b4fc;}
+.jeg-scenario-box p{margin:0;font-size:.93em;color:#cbd5e1;line-height:1.6;}
+.jeg-entry-row{background:#0f172a;border:1.5px solid #334155;border-radius:10px;padding:14px;margin-bottom:10px;transition:border-color .3s;}
+.jeg-entry-row.jeg-correct{border-color:#22c55e;background:rgba(34,197,94,.08);}
+.jeg-entry-row.jeg-wrong{border-color:#ef4444;background:rgba(239,68,68,.08);}
+.jeg-entry-label{font-size:.78em;color:#64748b;margin-bottom:4px;font-weight:600;text-transform:uppercase;}
+.jeg-entry-input{width:100%;padding:8px 10px;border-radius:7px;border:1.5px solid #475569;background:#1e293b;color:#e2e8f0;font-size:.9em;box-sizing:border-box;}
+.jeg-entry-input:focus{border-color:#818cf8;outline:none;}
+.jeg-entry-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:4px;}
+@media(max-width:600px){.jeg-entry-grid{grid-template-columns:1fr;}}
+.jeg-check-btn{display:block;width:100%;padding:12px;border-radius:10px;border:none;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:1em;font-weight:700;cursor:pointer;margin-top:14px;transition:transform .1s;}
+.jeg-check-btn:hover{transform:scale(1.02);}
+.jeg-check-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.jeg-result-note{font-size:.82em;color:#94a3b8;margin-top:6px;padding:6px 10px;background:#1e293b;border-radius:6px;border-left:3px solid #818cf8;}
+.jeg-score-bar{text-align:center;padding:16px;background:linear-gradient(135deg,#064e3b,#065f46);border-radius:12px;margin-top:14px;}
+.jeg-score-bar.jeg-score-fail{background:linear-gradient(135deg,#7f1d1d,#991b1b);}
+.jeg-score-bar h2{margin:0;font-size:1.3em;color:#fff;}
+.jeg-score-bar p{margin:4px 0 0;font-size:.88em;color:#d1fae5;}
+.jeg-score-fail p{color:#fecaca;}
+.jeg-nav-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.jeg-nav-btn{padding:8px 18px;border-radius:8px;border:1.5px solid #475569;background:#1e293b;color:#94a3b8;cursor:pointer;font-size:.88em;transition:all .15s;}
+.jeg-nav-btn:hover{border-color:#818cf8;color:#e2e8f0;}
+.jeg-entry-num{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:#312e81;color:#a5b4fc;font-weight:700;font-size:.82em;margin-right:8px;}
+.jeg-status-line{font-size:.8em;color:#94a3b8;text-align:center;margin-top:8px;}
+
+/* ===== W1-W5 Builder ===== */
+.wb-wrap{max-width:760px;margin:0 auto;padding:20px 10px;}
+.wb-hero{text-align:center;padding:28px 16px 18px;background:linear-gradient(135deg,#1a1a2e,#0f3460);border-radius:16px;margin-bottom:18px;color:#e2e8f0;}
+.wb-hero h1{font-size:1.5em;margin:0 0 6px;}
+.wb-hero p{margin:4px 0;font-size:.9em;opacity:.85;}
+.wb-lobby{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:12px;}
+.wb-card{background:#1e293b;border:2px solid #334155;border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;position:relative;}
+.wb-card:hover{border-color:#60a5fa;transform:translateY(-2px);box-shadow:0 4px 16px rgba(96,165,250,.18);}
+.wb-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.wb-card-title{font-size:.95em;font-weight:700;color:#e2e8f0;}
+.wb-card-done{position:absolute;top:8px;right:8px;font-size:1.1em;}
+.wb-scenario{background:#0f172a;border:1.5px solid #334155;border-radius:10px;padding:16px;margin-bottom:14px;}
+.wb-scenario h3{margin:0 0 8px;font-size:1em;color:#60a5fa;}
+.wb-scenario p{margin:0;font-size:.9em;color:#cbd5e1;line-height:1.65;}
+.wb-tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap;}
+.wb-tab{padding:8px 16px;border-radius:8px 8px 0 0;border:1.5px solid #334155;border-bottom:none;background:#0f172a;color:#94a3b8;cursor:pointer;font-size:.85em;font-weight:600;transition:all .15s;}
+.wb-tab.active{background:#1e293b;color:#60a5fa;border-color:#60a5fa;}
+.wb-tab.wb-tab-done{color:#22c55e;}
+.wb-working{background:#1e293b;border:1.5px solid #334155;border-radius:0 10px 10px 10px;padding:16px;display:none;}
+.wb-working.active{display:block;}
+.wb-working h4{margin:0 0 10px;font-size:.95em;color:#e2e8f0;}
+.wb-row{display:grid;grid-template-columns:1fr 160px;gap:10px;align-items:center;margin-bottom:6px;padding:4px 0;border-bottom:1px solid #1e293b;}
+.wb-row-label{font-size:.88em;color:#cbd5e1;}
+.wb-row-label.wb-total{font-weight:700;color:#60a5fa;}
+.wb-row-label.wb-subtract{color:#f87171;}
+.wb-input{width:100%;padding:7px 10px;border-radius:6px;border:1.5px solid #475569;background:#0f172a;color:#e2e8f0;font-size:.88em;text-align:right;box-sizing:border-box;font-family:monospace;}
+.wb-input:focus{border-color:#60a5fa;outline:none;}
+.wb-input.wb-correct{border-color:#22c55e;background:rgba(34,197,94,.08);}
+.wb-input.wb-wrong{border-color:#ef4444;background:rgba(239,68,68,.08);}
+.wb-input:disabled{opacity:.7;}
+.wb-answer-hint{font-size:.78em;color:#94a3b8;text-align:right;margin-top:2px;min-height:16px;}
+.wb-answer-hint.wrong{color:#fca5a5;}
+.wb-check-btn{display:block;width:100%;padding:12px;border-radius:10px;border:none;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;font-size:1em;font-weight:700;cursor:pointer;margin-top:14px;transition:transform .1s;}
+.wb-check-btn:hover{transform:scale(1.02);}
+.wb-check-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.wb-score-bar{text-align:center;padding:16px;border-radius:12px;margin-top:14px;}
+.wb-score-pass{background:linear-gradient(135deg,#064e3b,#065f46);}
+.wb-score-fail{background:linear-gradient(135deg,#7f1d1d,#991b1b);}
+.wb-score-bar h2{margin:0;font-size:1.2em;color:#fff;}
+.wb-score-bar p{margin:4px 0 0;font-size:.86em;color:#d1fae5;}
+.wb-score-fail p{color:#fecaca;}
+.wb-nav-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.wb-nav-btn{padding:8px 18px;border-radius:8px;border:1.5px solid #475569;background:#1e293b;color:#94a3b8;cursor:pointer;font-size:.86em;transition:all .15s;}
+.wb-nav-btn:hover{border-color:#60a5fa;color:#e2e8f0;}
+.wb-na-note{text-align:center;padding:20px;color:#64748b;font-size:.88em;font-style:italic;}
 </style>
 </head>
 <body>
@@ -5636,7 +5729,7 @@ function ppRenderItemCard(e,t){e=Object.assign({},e,{title:cleanExamContent(e.ti
 const allPairs=[];PAST_PAPERS.forEach(function(s){s.items.forEach(function(it){allPairs.push({item:it});});});
 const picks=shuffleArr(allPairs.slice()).slice(0,5);
 const cards=picks.map(function(p,idx){return '<div class="pp-random-session-label">Question '+(idx+1)+'</div>'+ppRenderItemCard(p.item,idx);}).join('');
-const n='<span class="pp-back-link" id="ppBackLink">&larr; All sessions</span><div class="guide-hero"><h1>&#127922; 5 Random Questions</h1><p>Pulled from across all '+allPairs.length+' exam style practice questions &mdash; tap "New random set" for 5 different ones.</p></div><span class="pp-random-btn" id="ppRandomBtn2">&#127922; New Random Set</span>'+cards;document.getElementById("contentWrap").innerHTML=n,document.getElementById("mainContent").scrollTop=0,renderList(),document.getElementById("ppBackLink").addEventListener("click",renderPastPapersList),document.getElementById("ppRandomBtn2").addEventListener("click",renderRandomPastQuestion),ppWireItemCards(),window.innerWidth<=860&&document.getElementById("sidebar").classList.remove("open")}function buildTrueFalsePool(){const e=[];Object.keys(TRUE_FALSE_BANK).forEach(function(t){TRUE_FALSE_BANK[t].forEach(function(i){e.push({code:t,statement:i.statement,answer:i.answer,explanation:i.explanation})})});for(let t=e.length-1;t>0;t--){const i=Math.floor(Math.random()*(t+1)),a=e[t];e[t]=e[i],e[i]=a}return e}document.getElementById("confusedPin").addEventListener("click",renderConfusedPairs),document.getElementById("formulaPin").addEventListener("click",renderFormulaSheet),document.getElementById("buzzwordsPin").addEventListener("click",renderBuzzwordsLedger),document.getElementById("pastPapersPin").addEventListener("click",renderPastPapersList);let _currentTfSet=[];function renderTrueFalse(e){recordNav(renderTrueFalse,[e]),activeCode="TRUEFALSE",clearAllPins();const t=document.getElementById("practicePin");t&&t.classList.add("active"),_currentTfSet=buildTrueFalsePool().slice(0,e||20);const i=_currentTfSet.map((e,t)=>'<div class="tf-card" data-tfcard="'+t+'"><div class="tf-statement"><span class="tf-source">'+e.code+"</span> Q"+(t+1)+". "+e.statement+'</div><div class="tf-options"><button class="tf-btn" data-tfi="'+t+'" data-tfval="true">&#10003; True</button><button class="tf-btn" data-tfi="'+t+'" data-tfval="false">&#10007; False</button></div><div class="tf-explain" data-tfexplain="'+t+'">'+e.explanation+"</div></div>").join(""),a='<div class="guide-hero"><h1>&#9989; True / False Questions</h1><p>Fast statement-verification across every standard &mdash; a quick way to test whether you genuinely know the rule, or just recognize the words.</p></div><div class="quiz-header"><span class="quiz-score" id="quizScore">Score: 0 / '+_currentTfSet.length+'</span><span class="quiz-reset" id="tfNewSet">&#127922; New random set</span></div>'+i;document.getElementById("contentWrap").innerHTML=a,document.getElementById("mainContent").scrollTop=0,renderList(),window.innerWidth<=860&&document.getElementById("sidebar").classList.remove("open");let n=0;const s={};document.querySelectorAll(".tf-btn").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-tfi");if(s[t])return;s[t]=!0;const i="true"===e.getAttribute("data-tfval"),a=_currentTfSet[parseInt(t,10)].answer,o=i===a;document.querySelectorAll('.tf-btn[data-tfi="'+t+'"]').forEach(function(e){e.classList.add("disabled");const t="true"===e.getAttribute("data-tfval");t===a?e.classList.add("correct"):t===i&&e.classList.add("wrong")}),o&&n++,function(){const e=document.getElementById("quizScore");e&&(e.textContent="Score: "+n+" / "+_currentTfSet.length)}();const r=document.querySelector('.tf-explain[data-tfexplain="'+t+'"]');r&&r.classList.add("shown")})});const o=document.getElementById("tfNewSet");o&&o.addEventListener("click",function(){renderTrueFalse(e||20)})}function buildCalcPool(){const e=[];return STANDARDS.forEach(function(t){(t.calc||[]).forEach(function(i,a){e.push({code:t.code,calcIdx:a,title:i.title,facts:i.facts,question:i.question,steps:i.steps,answer:i.answer})})}),e}function shuffleArr(e){const t=e.slice();for(let e=t.length-1;e>0;e--){const i=Math.floor(Math.random()*(e+1)),a=t[e];t[e]=t[i],t[i]=a}return t}function pickNRandom(n,max){
+const n='<span class="pp-back-link" id="ppBackLink">&larr; All sessions</span><div class="guide-hero"><h1>&#127922; 5 Random Questions</h1><p>Pulled from across all '+allPairs.length+' exam style practice questions &mdash; tap "New random set" for 5 different ones.</p></div><span class="pp-random-btn" id="ppRandomBtn2">&#127922; New Random Set</span>'+cards;document.getElementById("contentWrap").innerHTML=n,document.getElementById("mainContent").scrollTop=0,renderList(),document.getElementById("ppBackLink").addEventListener("click",renderPastPapersList),document.getElementById("ppRandomBtn2").addEventListener("click",renderRandomPastQuestion),ppWireItemCards(),window.innerWidth<=860&&document.getElementById("sidebar").classList.remove("open")}function buildTrueFalsePool(){const e=[];Object.keys(TRUE_FALSE_BANK).forEach(function(t){TRUE_FALSE_BANK[t].forEach(function(i,idx){e.push({code:t,idx:idx,statement:i.statement,answer:i.answer,explanation:i.explanation})})});for(let t=e.length-1;t>0;t--){const i=Math.floor(Math.random()*(t+1)),a=e[t];e[t]=e[i],e[i]=a}return e}document.getElementById("confusedPin").addEventListener("click",renderConfusedPairs),document.getElementById("formulaPin").addEventListener("click",renderFormulaSheet),document.getElementById("buzzwordsPin").addEventListener("click",renderBuzzwordsLedger),document.getElementById("pastPapersPin").addEventListener("click",renderPastPapersList);let _currentTfSet=[];function renderTrueFalse(e){recordNav(renderTrueFalse,[e]),activeCode="TRUEFALSE",clearAllPins();const t=document.getElementById("practicePin");t&&t.classList.add("active"),_currentTfSet=buildTrueFalsePool().slice(0,e||20);const i=_currentTfSet.map((e,t)=>'<div class="tf-card" data-tfcard="'+t+'"><div class="tf-statement"><span class="tf-source">'+e.code+"</span> Q"+(t+1)+". "+e.statement+'</div><div class="tf-options"><button class="tf-btn" data-tfi="'+t+'" data-tfval="true">&#10003; True</button><button class="tf-btn" data-tfi="'+t+'" data-tfval="false">&#10007; False</button></div><div class="tf-explain" data-tfexplain="'+t+'">'+e.explanation+"</div></div>").join(""),a='<div class="guide-hero"><h1>&#9989; True / False Questions</h1><p>Fast statement-verification across every standard &mdash; a quick way to test whether you genuinely know the rule, or just recognize the words.</p></div><div class="quiz-header"><span class="quiz-score" id="quizScore">Score: 0 / '+_currentTfSet.length+'</span><span class="quiz-reset" id="tfNewSet">&#127922; New random set</span></div>'+i;document.getElementById("contentWrap").innerHTML=a,document.getElementById("mainContent").scrollTop=0,renderList(),window.innerWidth<=860&&document.getElementById("sidebar").classList.remove("open");let n=0;const s={};document.querySelectorAll(".tf-btn").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-tfi");if(s[t])return;s[t]=!0;const i="true"===e.getAttribute("data-tfval"),a=_currentTfSet[parseInt(t,10)].answer,o=i===a;document.querySelectorAll('.tf-btn[data-tfi="'+t+'"]').forEach(function(e){e.classList.add("disabled");const t="true"===e.getAttribute("data-tfval");t===a?e.classList.add("correct"):t===i&&e.classList.add("wrong")}),o&&n++;var tfItem=_currentTfSet[parseInt(t,10)];if(tfItem)recordAnswer(tfItem.code,'tf'+(tfItem.idx!==undefined?tfItem.idx:t),o);(function(){const e=document.getElementById("quizScore");e&&(e.textContent="Score: "+n+" / "+_currentTfSet.length)})();const r=document.querySelector('.tf-explain[data-tfexplain="'+t+'"]');r&&r.classList.add("shown")})});const o=document.getElementById("tfNewSet");o&&o.addEventListener("click",function(){renderTrueFalse(e||20)})}function buildCalcPool(){const e=[];return STANDARDS.forEach(function(t){(t.calc||[]).forEach(function(i,a){e.push({code:t.code,calcIdx:a,title:i.title,facts:i.facts,question:i.question,steps:i.steps,answer:i.answer})})}),e}function shuffleArr(e){const t=e.slice();for(let e=t.length-1;e>0;e--){const i=Math.floor(Math.random()*(e+1)),a=t[e];t[e]=t[i],t[i]=a}return t}function pickNRandom(n,max){
   var pool=[]; for(var i=0;i<max;i++) pool.push(i);
   pool=shuffleArr(pool);
   return pool.slice(0,Math.min(n,max));
@@ -6325,7 +6418,7 @@ function startTimeBoxedPractice(minutes){
 
 function renderTodaysChallengeResults(){
   activeCode="MOCKEXAM",clearAllPins();
-  const score=_mockScore.mcq.correct+_mockScore.tf.correct+_mockScore.spot.correct+_mockScore.seq.correct+_mockScore.calc.correct+_mockScore.gamcq.correct+_mockScore.speed.correct+_mockScore.odd.correct+_mockScore.ethics.correct+_mockScore.theoretical.correct+_mockScore.realexam.correct;
+  const score=_mockScore.mcq.correct+_mockScore.verb.correct+_mockScore.tf.correct+_mockScore.spot.correct+_mockScore.seq.correct+_mockScore.calc.correct+_mockScore.gamcq.correct+_mockScore.speed.correct+_mockScore.odd.correct+_mockScore.ethics.correct+_mockScore.theoretical.correct+_mockScore.realexam.correct;
   const unscoredTypes=["special_bf","special_dt","special_cr","special_tle","special_ecs"];
   const total=_mockSet.filter(function(item){return unscoredTypes.indexOf(item.type)===-1;}).length;
   const pct=total?Math.round(score/total*100):0;
@@ -6372,7 +6465,7 @@ function renderTodaysChallengeResults(){
           correctBtn.appendChild(inline);
           expDiv.style.display='none';
         }
-      })();const o="verb"===a.type?_mockScore.verb:"gamcq"===a.type?_mockScore.gamcq:"spot"===a.type?_mockScore.spot:"speed"===a.type?_mockScore.speed:"odd"===a.type?_mockScore.odd:"ethics"===a.type?_mockScore.ethics:_mockScore.mcq;o.total++,s&&(o.correct++,typeof playCorrectDing==="function"&&playCorrectDing()),updateMockScoreDisplay(),"mcq"===a.type?recordAnswer(a.code,a.qIndex,s):"verb"===a.type?recordAnswer(a.code,("reverse"===a.kind?"verbR":"verb")+a.verbIdx,s):"spot"===a.type?recordAnswer(a.code,"spot"+a.idx,s):"gamcq"===a.type?recordAnswer("Group Accounts","ga"+a.gaIdx,s):"speed"===a.type?recordAnswer(a.code,"speed"+a.idx,s):"odd"===a.type?recordAnswer(a.code,"odd"+a.idx,s):"ethics"===a.type&&recordAnswer("IESBA","ethics"+a.idx,s);const r=document.querySelector('.quiz-explain[data-meexplain="'+t+'"]');r&&r.classList.add("shown")})}),document.querySelectorAll(".tf-btn[data-metfi]").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-metfi"),i="tf"+t;if(_mockAnswered[i])return;_mockAnswered[i]=!0;const a=_mockSet[parseInt(t,10)],n="true"===e.getAttribute("data-metfval"),s=n===a.answer;document.querySelectorAll('.tf-btn[data-metfi="'+t+'"]').forEach(function(e){e.classList.add("disabled");const t="true"===e.getAttribute("data-metfval");t===a.answer?e.classList.add("correct"):t===n&&e.classList.add("wrong")}),_mockScore.tf.total++,s&&(_mockScore.tf.correct++,typeof playCorrectDing==="function"&&playCorrectDing()),updateMockScoreDisplay(),recordAnswer(a.code,"tf"+t,s);const o=document.querySelector('.tf-explain[data-meexplain="'+t+'"]');o&&o.classList.add("shown")})}),document.querySelectorAll(".reveal-btn[data-mereveal]").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-mereveal"),i=document.querySelector('.calc-solution[data-mesolution="'+t+'"]');i&&i.classList.toggle("shown")})}),document.querySelectorAll(".me-selfcheck-btn").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-meself"),n=_mockSet[parseInt(t,10)],isRex="realexam"===(n&&n.type),isTheo="theoretical"===(n&&n.type),i=(isRex?"rex":(isTheo?"theo":"calc"))+t;if(_mockAnswered[i])return;_mockAnswered[i]=!0;const a="correct"===e.getAttribute("data-meselfval");document.querySelectorAll('.me-selfcheck-btn[data-meself="'+t+'"]').forEach(function(e){e.classList.add("chosen")});const bucket=isTheo?_mockScore.theoretical:(isRex?_mockScore.realexam:_mockScore.calc);bucket.total++,a&&bucket.correct++,updateMockScoreDisplay();n&&n.code&&recordAnswer(n.code,(isRex?"rex"+n.si+"_"+n.ii:"calc"+n.calcIdx),a)})}),_mockSeqState={},document.querySelectorAll(".seq-step-btn[data-meseqcard]").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-meseqcard"),i="seq"+t;if(_mockAnswered[i])return;_mockSeqState[t]||(_mockSeqState[t]=[]);const a=parseInt(e.getAttribute("data-meseqorig"),10);if(-1!==_mockSeqState[t].indexOf(a))return;_mockSeqState[t].push(a),e.classList.add("disabled"),e.style.opacity="0.4";const n=_mockSet[parseInt(t,10)];if(document.getElementById("meSeqOrder-"+t).innerHTML=_mockSeqState[t].map(function(e,t){return'<div class="seq-order-item">'+(t+1)+". "+n.steps[e]+"</div>"}).join(""),_mockSeqState[t].length===n.steps.length){_mockAnswered[i]=!0;const e=n.steps.map(function(e,t){return t}),a=_mockSeqState[t].every(function(t,i){return t===e[i]});_mockScore.seq.total++,a&&(_mockScore.seq.correct++,typeof playCorrectDing==="function"&&playCorrectDing()),updateMockScoreDisplay(),recordAnswer(n.code,"seq"+n.idx,a);const s=document.getElementById("meSeqResult-"+t);s.classList.add(a?"seq-correct":"seq-wrong"),s.innerHTML=a?"&#10003; Correct order!":"&#10007; Not quite. Correct order:<ol>"+n.steps.map(function(e){return"<li>"+e+"</li>"}).join("")+"</ol>"}})}),_mockSet.forEach(function(item,idx){if(item.type==="special_bf")wireEmbeddedBf(idx);if(item.type==="special_dt")wireEmbeddedDt(idx);if(item.type==="special_cr")wireEmbeddedCr(idx,CODE_RED_SCENARIOS[item.crIdx]);if(item.type==="special_ecs")wireEmbeddedEcs(idx);if(item.type==="special_tle")wireEmbeddedTle(idx);if(item.type==="special_fv")wireEmbeddedFv(idx);if(item.type==="commandword")wireEmbeddedCwd(idx);if(item.type==="special_inv")wireEmbeddedInv(idx);})}function fmtMoney(e){isNaN(e)&&(e=0);const t=e<0,i=Math.abs(Math.round(e)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");return t?"("+i+")":i}function shuffleConsolidationMcqs(size,topicFilter){size=size||50;const e=CONSOLIDATION_MCQS.map(function(e,t){return Object.assign({gaIdx:t},e)}).filter(function(q){if(!topicFilter||topicFilter==="all")return!0;return gaTopicCategory(q.topic)===topicFilter||(q.topic||"").toLowerCase().indexOf(String(topicFilter).toLowerCase())!==-1});for(let t=e.length-1;t>0;t--){const i=Math.floor(Math.random()*(t+1)),a=e[t];e[t]=e[i],e[i]=a}return e.slice(0,Math.min(size,e.length))}let _currentGaMcqSet=[];function gaTopicCategory(topic){var t=String(topic||"").toLowerCase();
+      })();const o="verb"===a.type?_mockScore.verb:"gamcq"===a.type?_mockScore.gamcq:"spot"===a.type?_mockScore.spot:"speed"===a.type?_mockScore.speed:"odd"===a.type?_mockScore.odd:"ethics"===a.type?_mockScore.ethics:_mockScore.mcq;o.total++,s&&(o.correct++,typeof playCorrectDing==="function"&&playCorrectDing()),updateMockScoreDisplay(),"mcq"===a.type?recordAnswer(a.code,a.qIndex,s):"verb"===a.type?recordAnswer(a.code,("reverse"===a.kind?"verbR":"verb")+a.verbIdx,s):"spot"===a.type?recordAnswer(a.code,"spot"+a.idx,s):"gamcq"===a.type?recordAnswer("Group Accounts","ga"+a.gaIdx,s):"speed"===a.type?recordAnswer(a.code,"speed"+a.idx,s):"odd"===a.type?recordAnswer(a.code,"odd"+a.idx,s):"ethics"===a.type&&recordAnswer("IESBA","ethics"+a.idx,s);const r=document.querySelector('.quiz-explain[data-meexplain="'+t+'"]');r&&r.classList.add("shown")})}),document.querySelectorAll(".tf-btn[data-metfi]").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-metfi"),i="tf"+t;if(_mockAnswered[i])return;_mockAnswered[i]=!0;const a=_mockSet[parseInt(t,10)],n="true"===e.getAttribute("data-metfval"),s=n===a.answer;document.querySelectorAll('.tf-btn[data-metfi="'+t+'"]').forEach(function(e){e.classList.add("disabled");const t="true"===e.getAttribute("data-metfval");t===a.answer?e.classList.add("correct"):t===n&&e.classList.add("wrong")}),_mockScore.tf.total++,s&&(_mockScore.tf.correct++,typeof playCorrectDing==="function"&&playCorrectDing()),updateMockScoreDisplay(),recordAnswer(a.code,"tf"+(a.idx!==undefined?a.idx:t),s);const o=document.querySelector('.tf-explain[data-meexplain="'+t+'"]');o&&o.classList.add("shown")})}),document.querySelectorAll(".reveal-btn[data-mereveal]").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-mereveal"),i=document.querySelector('.calc-solution[data-mesolution="'+t+'"]');i&&i.classList.toggle("shown")})}),document.querySelectorAll(".me-selfcheck-btn").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-meself"),n=_mockSet[parseInt(t,10)],isRex="realexam"===(n&&n.type),isTheo="theoretical"===(n&&n.type),i=(isRex?"rex":(isTheo?"theo":"calc"))+t;if(_mockAnswered[i])return;_mockAnswered[i]=!0;const a="correct"===e.getAttribute("data-meselfval");document.querySelectorAll('.me-selfcheck-btn[data-meself="'+t+'"]').forEach(function(e){e.classList.add("chosen")});const bucket=isTheo?_mockScore.theoretical:(isRex?_mockScore.realexam:_mockScore.calc);bucket.total++,a&&bucket.correct++,updateMockScoreDisplay();n&&n.code&&recordAnswer(n.code,(isRex?"rex"+n.si+"_"+n.ii:(isTheo?"theo"+t:"calc"+n.calcIdx)),a)})}),_mockSeqState={},document.querySelectorAll(".seq-step-btn[data-meseqcard]").forEach(function(e){e.addEventListener("click",function(){const t=e.getAttribute("data-meseqcard"),i="seq"+t;if(_mockAnswered[i])return;_mockSeqState[t]||(_mockSeqState[t]=[]);const a=parseInt(e.getAttribute("data-meseqorig"),10);if(-1!==_mockSeqState[t].indexOf(a))return;_mockSeqState[t].push(a),e.classList.add("disabled"),e.style.opacity="0.4";const n=_mockSet[parseInt(t,10)];if(document.getElementById("meSeqOrder-"+t).innerHTML=_mockSeqState[t].map(function(e,t){return'<div class="seq-order-item">'+(t+1)+". "+n.steps[e]+"</div>"}).join(""),_mockSeqState[t].length===n.steps.length){_mockAnswered[i]=!0;const e=n.steps.map(function(e,t){return t}),a=_mockSeqState[t].every(function(t,i){return t===e[i]});_mockScore.seq.total++,a&&(_mockScore.seq.correct++,typeof playCorrectDing==="function"&&playCorrectDing()),updateMockScoreDisplay(),recordAnswer(n.code,"seq"+n.idx,a);const s=document.getElementById("meSeqResult-"+t);s.classList.add(a?"seq-correct":"seq-wrong"),s.innerHTML=a?"&#10003; Correct order!":"&#10007; Not quite. Correct order:<ol>"+n.steps.map(function(e){return"<li>"+e+"</li>"}).join("")+"</ol>"}})}),_mockSet.forEach(function(item,idx){if(item.type==="special_bf")wireEmbeddedBf(idx);if(item.type==="special_dt")wireEmbeddedDt(idx);if(item.type==="special_cr")wireEmbeddedCr(idx,CODE_RED_SCENARIOS[item.crIdx]);if(item.type==="special_ecs")wireEmbeddedEcs(idx);if(item.type==="special_tle")wireEmbeddedTle(idx);if(item.type==="special_fv")wireEmbeddedFv(idx);if(item.type==="commandword")wireEmbeddedCwd(idx);if(item.type==="special_inv")wireEmbeddedInv(idx);})}function fmtMoney(e){isNaN(e)&&(e=0);const t=e<0,i=Math.abs(Math.round(e)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");return t?"("+i+")":i}function shuffleConsolidationMcqs(size,topicFilter){size=size||50;const e=CONSOLIDATION_MCQS.map(function(e,t){return Object.assign({gaIdx:t},e)}).filter(function(q){if(!topicFilter||topicFilter==="all")return!0;return gaTopicCategory(q.topic)===topicFilter||(q.topic||"").toLowerCase().indexOf(String(topicFilter).toLowerCase())!==-1});for(let t=e.length-1;t>0;t--){const i=Math.floor(Math.random()*(t+1)),a=e[t];e[t]=e[i],e[i]=a}return e.slice(0,Math.min(size,e.length))}let _currentGaMcqSet=[];function gaTopicCategory(topic){var t=String(topic||"").toLowerCase();
 if(/disposal|derecognis|gain on disposal/.test(t))return"Disposal of Subsidiary";
 if(/step acquisition|previously held/.test(t))return"Step Acquisition";
 if(/\bcontrol\b|ifrs 10|relevant activities|variable returns|potential voting/.test(t))return"Control (IFRS 10)";
@@ -7580,6 +7673,8 @@ function buildReviewCenterHomeHtml(){
     {icon:'&#127970;',title:'My Company',hint:'شركتي',fn:'renderMyCompany',clr:'tk-green',badge:'&#10024; Magical',sub:mcoStatusLine()},
     {icon:'\uD83D\uDC8A',title:'IFRS Pharmacy',hint:'وصفة سريعة',fn:'renderPharmacy',clr:'tk-green',badge:'\u2728 New'},
     {icon:'\uD83C\uDFD7\uFE0F',title:'Build Standard',hint:'ابني المعيار',fn:'renderBuildStandard',clr:'tk-purple',badge:'\u2728 New'},
+    {icon:'\uD83C\uDFD7\uFE0F',title:'W1\u2013W5 Builder',hint:'ابني التجميع',fn:'renderW15Builder',clr:'tk-red',badge:'\u2728 New',sub:w15StatusLine()},
+    {icon:'\uD83D\uDCDD',title:'Journal Entry Gym',hint:'اكتب القيود',fn:'renderJournalEntryGym',clr:'tk-blue',badge:'\u2728 New',sub:jegStatusLine()},
     {icon:'\uD83D\uDD0D',title:'Standard Spotter',hint:'اكتشف المعايير',fn:'renderStandardSpotter',clr:'tk-blue',badge:'\u2728 New',sub:ssStatusLine()},
     {icon:'&#129513;',title:'Key Terms Quiz',hint:'اختبر مصطلحاتك',fn:'renderKeyTermsQuiz',clr:'tk-purple',badge:'&#128293; Hot'},
     {icon:'\uD83D\uDCF0',title:'Breaking News',hint:'حلّل الخبر',fn:'renderBreakingNews',clr:'tk-blue',sub:bnStatusLine()},
@@ -10531,7 +10626,7 @@ function renderMemoryPalace(preId){
 
 
 /* Battle Arena Resets */
-var BA_KEYS=['dipifr_sca','dipifr_trap','dipifr_195','dipifr_ec_history','dipifr_mp','dipifr_bn','dipifr_ss','dipifr_bs'];
+var BA_KEYS=['dipifr_w15','dipifr_jeg','dipifr_sca','dipifr_trap','dipifr_195','dipifr_ec_history','dipifr_mp','dipifr_bn','dipifr_ss','dipifr_bs'];
 function baResetAll(){BA_KEYS.forEach(function(k){try{localStorage.removeItem(k);}catch(e){}});}
 function baResetOne(key){try{localStorage.removeItem(key);}catch(e){}}
 
@@ -10716,6 +10811,386 @@ function renderBuildStandard(preStd){
     });
   });
   window.scrollTo(0,0);
+}
+var JEG_DATA=[{"id": 1, "std": "IFRS 16", "title": "Lease — Initial Recognition", "difficulty": "Easy", "scenario": "Alpha leases equipment for 5 years. Annual payment EGP 200,000 (end of year). PV of payments = EGP 842,480.", "entries": [{"dr": "Right-of-use asset", "cr": "Lease liability", "amount": 842480, "note": "PV of future lease payments"}]}, {"id": 2, "std": "IFRS 3", "title": "Acquisition with Goodwill", "difficulty": "Medium", "scenario": "Parent acquires 100% of Sub for EGP 5,000,000 cash. FV of net assets = EGP 4,200,000. Acquisition costs EGP 150,000.", "entries": [{"dr": "Net assets (at FV)", "cr": "Cash", "amount": 4200000, "note": "Identifiable net assets acquired"}, {"dr": "Goodwill", "cr": "Cash", "amount": 800000, "note": "5,000,000 − 4,200,000"}, {"dr": "Acquisition costs (P&L)", "cr": "Cash", "amount": 150000, "note": "Expensed, NOT part of goodwill"}]}, {"id": 3, "std": "IAS 16", "title": "Revaluation Gain (first time)", "difficulty": "Easy", "scenario": "Building CA = EGP 3,000,000 (cost 5m, dep 2m). Revalued to EGP 4,500,000. No previous revaluation.", "entries": [{"dr": "Building (PPE)", "cr": "Revaluation surplus (OCI)", "amount": 1500000, "note": "4,500,000 − 3,000,000 → OCI (first reval)"}, {"dr": "Accumulated depreciation", "cr": "Building (PPE)", "amount": 2000000, "note": "Eliminate acc. dep. (gross-up method)"}]}, {"id": 4, "std": "IAS 37", "title": "Provision — Legal Claim", "difficulty": "Medium", "scenario": "Lawsuit: 70% probability of losing. Estimated damages EGP 2,000,000 in 3 years. Discount rate 5%. PV factor = 0.8638.", "entries": [{"dr": "Legal expense (P&L)", "cr": "Provision", "amount": 1727600, "note": "2,000,000 × 0.8638 (discounted)"}]}, {"id": 5, "std": "IFRS 15", "title": "Revenue with Contract Liability", "difficulty": "Easy", "scenario": "Customer pays EGP 600,000 upfront for 2-year service on 1 July. Year-end 31 Dec. 6 months delivered.", "entries": [{"dr": "Cash", "cr": "Contract liability", "amount": 600000, "note": "Upfront payment received"}, {"dr": "Contract liability", "cr": "Revenue", "amount": 150000, "note": "6/24 months performed = EGP 150,000"}]}, {"id": 6, "std": "IAS 12", "title": "Deferred Tax on Revaluation", "difficulty": "Easy", "scenario": "Building revalued up by EGP 500,000. Tax rate 25%. Revaluation went to OCI.", "entries": [{"dr": "Revaluation surplus (OCI)", "cr": "Deferred tax liability", "amount": 125000, "note": "500,000 × 25% — DT follows the item → OCI"}]}, {"id": 7, "std": "IFRS 9", "title": "ECL on Trade Receivables", "difficulty": "Easy", "scenario": "Trade receivables EGP 10,000,000. Expected credit loss rate 3% (simplified approach).", "entries": [{"dr": "Impairment loss (P&L)", "cr": "Loss allowance", "amount": 300000, "note": "10,000,000 × 3%"}]}, {"id": 8, "std": "IAS 2", "title": "Inventory Write-down to NRV", "difficulty": "Easy", "scenario": "Inventory cost EGP 800,000. NRV = EGP 650,000.", "entries": [{"dr": "Cost of sales (P&L)", "cr": "Inventory", "amount": 150000, "note": "800,000 − 650,000 write-down"}]}, {"id": 9, "std": "IFRS 2", "title": "Equity-settled SBP — Year 1", "difficulty": "Medium", "scenario": "1,000 options granted, grant-date FV = EGP 10 each, 3-year vesting, 90% expected to vest.", "entries": [{"dr": "Employee expense (P&L)", "cr": "SBP reserve (Equity)", "amount": 3000, "note": "1,000 × 90% × EGP 10 × 1/3"}]}, {"id": 10, "std": "IAS 20", "title": "Government Grant — Deferred Income", "difficulty": "Medium", "scenario": "Received EGP 2,000,000 grant for equipment with 10-year life. Deferred income method. Year 1.", "entries": [{"dr": "Cash", "cr": "Deferred income", "amount": 2000000, "note": "Grant received — initially a liability"}, {"dr": "Deferred income", "cr": "Other income (P&L)", "amount": 200000, "note": "2,000,000 ÷ 10 years released"}]}, {"id": 11, "std": "IFRS 16", "title": "Lease — Year 1 Interest + Payment", "difficulty": "Medium", "scenario": "Opening lease liability = EGP 842,480. IBR 6%. Annual payment EGP 200,000 at year-end.", "entries": [{"dr": "Interest expense (P&L)", "cr": "Lease liability", "amount": 50549, "note": "842,480 × 6%"}, {"dr": "Lease liability", "cr": "Cash", "amount": 200000, "note": "Payment reduces liability"}]}, {"id": 12, "std": "IFRS 5", "title": "Reclassify as Held for Sale", "difficulty": "Medium", "scenario": "Division X: PPE CA = EGP 5,000,000. FVLCS = EGP 4,200,000.", "entries": [{"dr": "Assets held for sale", "cr": "PPE", "amount": 5000000, "note": "Reclassify to current assets"}, {"dr": "Impairment loss (P&L)", "cr": "Assets held for sale", "amount": 800000, "note": "Write-down to FVLCS"}]}, {"id": 13, "std": "IAS 19", "title": "DB Pension — 3 Components", "difficulty": "Hard", "scenario": "Opening net liability EGP 4m. Service cost EGP 1.2m. Rate 5%. Contributions EGP 900k. Actuarial loss EGP 300k.", "entries": [{"dr": "Service cost (P&L)", "cr": "Net pension liability", "amount": 1200000, "note": "Current service cost"}, {"dr": "Net interest (P&L)", "cr": "Net pension liability", "amount": 200000, "note": "4,000,000 × 5%"}, {"dr": "Net pension liability", "cr": "Cash", "amount": 900000, "note": "Contributions reduce liability"}, {"dr": "Remeasurement loss (OCI)", "cr": "Net pension liability", "amount": 300000, "note": "Actuarial loss → OCI (never recycled)"}]}, {"id": 14, "std": "IAS 36", "title": "CGU Impairment with Goodwill", "difficulty": "Hard", "scenario": "CGU: Goodwill 500k, PPE 3m, Intangibles 1.5m. Total CA = 5m. Recoverable amount = 4.2m.", "entries": [{"dr": "Impairment loss (P&L)", "cr": "Goodwill", "amount": 500000, "note": "Allocate to goodwill FIRST"}, {"dr": "Impairment loss (P&L)", "cr": "PPE", "amount": 200000, "note": "Remaining 300k × (3,000/4,500)"}, {"dr": "Impairment loss (P&L)", "cr": "Intangibles", "amount": 100000, "note": "Remaining 300k × (1,500/4,500)"}]}, {"id": 15, "std": "IAS 21", "title": "FX Retranslation — Monetary", "difficulty": "Easy", "scenario": "USD receivable $100,000. Transaction rate: EGP 30. Closing rate: EGP 31.50.", "entries": [{"dr": "Trade receivable", "cr": "FX gain (P&L)", "amount": 150000, "note": "100,000 × (31.50 − 30.00)"}]}, {"id": 16, "std": "IAS 10", "title": "Post-Year-End Bankruptcy", "difficulty": "Medium", "scenario": "Customer owed EGP 800,000 at year-end. Went bankrupt 15 Jan (adjusting event). Recovery: 20%.", "entries": [{"dr": "Impairment loss (P&L)", "cr": "Trade receivable allowance", "amount": 640000, "note": "800,000 × 80% irrecoverable"}]}, {"id": 17, "std": "IAS 23", "title": "Capitalise Borrowing Costs", "difficulty": "Medium", "scenario": "Borrowed EGP 10m at 7% for factory construction (full year). Investment income earned: EGP 80,000.", "entries": [{"dr": "Factory (PPE)", "cr": "Interest payable", "amount": 620000, "note": "(10m × 7%) − 80k = 620k net capitalised"}, {"dr": "Cash", "cr": "Investment income (P&L)", "amount": 80000, "note": "Temporary investment income deducted"}]}, {"id": 18, "std": "IAS 32", "title": "Compound Instrument — Convertible Bond", "difficulty": "Hard", "scenario": "Issued EGP 10m convertible bond. Liability component (PV at market rate) = EGP 8,500,000.", "entries": [{"dr": "Cash", "cr": "Financial liability", "amount": 8500000, "note": "PV of future cash flows"}, {"dr": "Cash", "cr": "Equity component (OCE)", "amount": 1500000, "note": "Residual: 10m − 8.5m"}]}];
+
+function jegGetProg(){try{return JSON.parse(localStorage.getItem('dipifr_jeg'))||{done:[]};}catch(e){return{done:[]};}}
+function jegSaveProg(s){try{localStorage.setItem('dipifr_jeg',JSON.stringify(s));}catch(e){}}
+function jegStatusLine(){var s=jegGetProg();return s.done.length+'/'+JEG_DATA.length+' done';}
+
+function renderJournalEntryGym(preId){
+  var el=document.getElementById('mainContent')||document.getElementById('rcMainContent');
+  if(!el)return;
+  var state=jegGetProg();
+
+  if(typeof preId==='undefined'||preId===null){
+    // LOBBY
+    var html='<div class="jeg-wrap"><div class="jeg-hero"><h1>📝 Journal Entry Gym</h1><p>Read the scenario. Write the correct Dr/Cr entries.</p><p style="font-size:.85em;margin-top:6px;">'+state.done.length+'/'+JEG_DATA.length+' completed</p></div>';
+
+    // Filter bar
+    var diffs=['All','Easy','Medium','Hard'];
+    html+='<div class="jeg-filter-bar">';
+    diffs.forEach(function(d){html+='<button class="jeg-filter-btn'+(d==='All'?' active':'')+'" data-jegf="'+d+'">'+d+'</button>';});
+    html+='</div>';
+
+    // Reset
+    html+='<div style="text-align:center;margin-bottom:12px;"><button class="jeg-nav-btn" onclick="if(confirm(\'Reset all Journal Entry Gym progress?\')){try{localStorage.removeItem(\'dipifr_jeg\');}catch(e){}renderJournalEntryGym();}">🔄 Reset Progress</button></div>';
+
+    html+='<div class="jeg-lobby" id="jegLobby">';
+    JEG_DATA.forEach(function(q){
+      var done=state.done.indexOf(q.id)!==-1;
+      html+='<div class="jeg-card" onclick="renderJournalEntryGym('+q.id+')" data-jegdiff="'+q.difficulty+'">';
+      if(done)html+='<span class="jeg-card-done">✅</span>';
+      html+='<div class="jeg-card-head"><span class="jeg-card-std">'+q.std+'</span><span class="jeg-card-diff jeg-diff-'+q.difficulty+'">'+q.difficulty+'</span></div>';
+      html+='<div class="jeg-card-title">'+q.title+'</div>';
+      html+='</div>';
+    });
+    html+='</div></div>';
+    el.innerHTML=html;
+
+    // Filter logic
+    document.querySelectorAll('.jeg-filter-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        document.querySelectorAll('.jeg-filter-btn').forEach(function(b){b.classList.remove('active');});
+        this.classList.add('active');
+        var f=this.dataset.jegf;
+        document.querySelectorAll('.jeg-card').forEach(function(c){
+          c.style.display=(f==='All'||c.dataset.jegdiff===f)?'':'none';
+        });
+      });
+    });
+    return;
+  }
+
+  // PLAY MODE
+  var q=JEG_DATA.find(function(x){return x.id===preId;});
+  if(!q)return;
+
+  var html='<div class="jeg-wrap">';
+  html+='<div class="jeg-scenario-box"><h3>'+q.std+' — '+q.title+' <span class="jeg-card-diff jeg-diff-'+q.difficulty+'" style="vertical-align:middle;">'+q.difficulty+'</span></h3><p>'+q.scenario+'</p></div>';
+
+  html+='<div id="jegEntries">';
+  q.entries.forEach(function(ent,i){
+    html+='<div class="jeg-entry-row" id="jegRow'+i+'">';
+    html+='<div style="margin-bottom:6px;"><span class="jeg-entry-num">'+(i+1)+'</span><span style="font-size:.82em;color:#94a3b8;">Entry '+(i+1)+' of '+q.entries.length+'</span></div>';
+    html+='<div class="jeg-entry-grid">';
+    html+='<div><div class="jeg-entry-label">Dr (Debit)</div><input class="jeg-entry-input" id="jegDr'+i+'" placeholder="Account name..." autocomplete="off"></div>';
+    html+='<div><div class="jeg-entry-label">Cr (Credit)</div><input class="jeg-entry-input" id="jegCr'+i+'" placeholder="Account name..." autocomplete="off"></div>';
+    html+='<div><div class="jeg-entry-label">Amount (EGP)</div><input class="jeg-entry-input" id="jegAmt'+i+'" type="number" placeholder="0" autocomplete="off"></div>';
+    html+='</div></div>';
+  });
+  html+='</div>';
+
+  html+='<button class="jeg-check-btn" id="jegCheckBtn" onclick="jegCheck('+q.id+')">Check My Entries ✔</button>';
+  html+='<div id="jegResult"></div>';
+
+  // Nav
+  html+='<div class="jeg-nav-row">';
+  html+='<button class="jeg-nav-btn" onclick="renderJournalEntryGym()">📋 All Scenarios</button>';
+  var idx=JEG_DATA.findIndex(function(x){return x.id===preId;});
+  if(idx>0)html+='<button class="jeg-nav-btn" onclick="renderJournalEntryGym('+JEG_DATA[idx-1].id+')">⬅ Previous</button>';
+  if(idx<JEG_DATA.length-1)html+='<button class="jeg-nav-btn" onclick="renderJournalEntryGym('+JEG_DATA[idx+1].id+')">Next ➡</button>';
+  html+='</div></div>';
+  el.innerHTML=html;
+}
+
+function jegNorm(s){return(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');}
+
+function jegCheck(qid){
+  var q=JEG_DATA.find(function(x){return x.id===qid;});
+  if(!q)return;
+  var total=q.entries.length,correct=0;
+  var resultHtml='';
+
+  q.entries.forEach(function(ent,i){
+    var drIn=document.getElementById('jegDr'+i);
+    var crIn=document.getElementById('jegCr'+i);
+    var amtIn=document.getElementById('jegAmt'+i);
+    var row=document.getElementById('jegRow'+i);
+    if(!drIn||!crIn||!amtIn||!row)return;
+
+    var drVal=jegNorm(drIn.value);
+    var crVal=jegNorm(crIn.value);
+    var amtVal=parseFloat(amtIn.value)||0;
+
+    var drOk=drVal.length>2 && jegNorm(ent.dr).indexOf(drVal)!==-1 || drVal.length>2 && drVal.indexOf(jegNorm(ent.dr))!==-1;
+    var crOk=crVal.length>2 && jegNorm(ent.cr).indexOf(crVal)!==-1 || crVal.length>2 && crVal.indexOf(jegNorm(ent.cr))!==-1;
+    // Also check partial key words
+    var drWords=jegNorm(ent.dr).split('');
+    var crWords=jegNorm(ent.cr).split('');
+    // Fuzzy: check if at least the main keyword matches
+    var drKey=ent.dr.split(/[\s()\/,]+/).filter(function(w){return w.length>3;}).map(function(w){return jegNorm(w);});
+    var crKey=ent.cr.split(/[\s()\/,]+/).filter(function(w){return w.length>3;}).map(function(w){return jegNorm(w);});
+    if(!drOk && drKey.length>0){
+      var drMatch=drKey.filter(function(k){return drVal.indexOf(k)!==-1;});
+      if(drMatch.length>=1 && drMatch.length>=Math.ceil(drKey.length*0.4))drOk=true;
+    }
+    if(!crOk && crKey.length>0){
+      var crMatch=crKey.filter(function(k){return crVal.indexOf(k)!==-1;});
+      if(crMatch.length>=1 && crMatch.length>=Math.ceil(crKey.length*0.4))crOk=true;
+    }
+
+    var amtOk=Math.abs(amtVal-ent.amount)<1;
+    var allOk=drOk && crOk && amtOk;
+    if(allOk)correct++;
+
+    row.classList.remove('jeg-correct','jeg-wrong');
+    row.classList.add(allOk?'jeg-correct':'jeg-wrong');
+
+    // Disable inputs
+    drIn.disabled=true;crIn.disabled=true;amtIn.disabled=true;
+
+    // Show correct answer
+    var fb='<div class="jeg-result-note">';
+    fb+='<strong>'+(allOk?'✅ Correct':'❌ Incorrect')+'</strong><br>';
+    if(!allOk){
+      fb+='<b>Dr:</b> '+ent.dr+(drOk?' ✅':' ❌')+'<br>';
+      fb+='<b>Cr:</b> '+ent.cr+(crOk?' ✅':' ❌')+'<br>';
+      fb+='<b>Amount:</b> EGP '+ent.amount.toLocaleString()+(amtOk?' ✅':' ❌')+'<br>';
+    }
+    fb+='📝 '+ent.note+'</div>';
+    row.insertAdjacentHTML('beforeend',fb);
+  });
+
+  // Score
+  var pct=Math.round(correct/total*100);
+  var pass=pct>=70;
+  var scoreHtml='<div class="jeg-score-bar'+(pass?'':' jeg-score-fail')+'"><h2>'+correct+'/'+total+' entries correct ('+pct+'%)</h2><p>'+(pass?'🌟 Excellent! You nailed it.':'💪 Keep practicing — review the notes above.')+'</p></div>';
+  document.getElementById('jegResult').innerHTML=scoreHtml;
+
+  // Disable check button
+  document.getElementById('jegCheckBtn').disabled=true;
+
+  // Save progress if passed
+  if(pass){
+    var state=jegGetProg();
+    if(state.done.indexOf(qid)===-1){state.done.push(qid);jegSaveProg(state);}
+  }
+
+  // Log to mistakes if wrong
+  if(!pass){
+    try{
+      var mk=JSON.parse(localStorage.getItem('dipifr_mistakes'))||[];
+      mk.push({tool:'Journal Entry Gym',q:q.std+' — '+q.title,ts:Date.now(),score:pct});
+      localStorage.setItem('dipifr_mistakes',JSON.stringify(mk.slice(-200)));
+    }catch(e){}
+  }
+}
+
+/* ===== End Journal Entry Gym ===== */
+var W15_DATA=[{"id": 1, "title": "Alpha Group — Basic Acquisition", "difficulty": "Easy", "desc": "Alpha acquired 100% of Beta on 1 January 20X1 for EGP 6,000,000 cash. At acquisition, Beta's share capital was EGP 2,000,000 and retained earnings were EGP 1,800,000. There were no fair value adjustments. At the reporting date (31 December 20X3), Beta's retained earnings are EGP 3,200,000. NCI is not applicable (100% owned). No goodwill impairment.", "pct": 100, "nciMethod": "none", "answers": {"w1_pct": 100, "w1_nci_pct": 0, "w2_sc": 2000000, "w2_re_acq": 1800000, "w2_fv": 0, "w2_acq_total": 3800000, "w2_re_report": 3200000, "w2_fv_dep": 0, "w2_report_total": 5200000, "w2_post_acq": 1400000, "w3_consideration": 6000000, "w3_nci_at_acq": 0, "w3_net_assets_acq": 3800000, "w3_goodwill": 2200000, "w4_nci_at_acq": 0, "w4_nci_post_acq": 0, "w4_total": 0, "w5_parent_re": 8500000, "w5_group_share": 1400000, "w5_impairment": 0, "w5_total": 9900000}}, {"id": 2, "title": "Gamma Group — 80% with FV Adjustment", "difficulty": "Medium", "desc": "Gamma acquired 80% of Delta on 1 July 20X1 for EGP 5,200,000. Delta's share capital: EGP 2,000,000. Delta's retained earnings at acquisition: EGP 1,500,000. Fair value adjustment on PPE: EGP 400,000 (remaining useful life 10 years). At reporting date (31 December 20X3), Delta's retained earnings: EGP 2,800,000 (2.5 years post-acquisition). NCI valued at proportion of net assets at acquisition. Goodwill impaired by EGP 120,000 to date.", "pct": 80, "nciMethod": "proportion", "answers": {"w1_pct": 80, "w1_nci_pct": 20, "w2_sc": 2000000, "w2_re_acq": 1500000, "w2_fv": 400000, "w2_acq_total": 3900000, "w2_re_report": 2800000, "w2_fv_dep": 100000, "w2_report_total": 5100000, "w2_post_acq": 1200000, "w3_consideration": 5200000, "w3_nci_at_acq": 780000, "w3_net_assets_acq": 3900000, "w3_goodwill": 2080000, "w4_nci_at_acq": 780000, "w4_nci_post_acq": 240000, "w4_total": 1020000, "w5_parent_re": 10000000, "w5_group_share": 960000, "w5_impairment": 120000, "w5_total": 10840000}}, {"id": 3, "title": "Nile Group — 75% with Large FV", "difficulty": "Medium", "desc": "Nile acquired 75% of Pharos on 1 April 20X2 for EGP 9,000,000. Pharos share capital: EGP 3,000,000. Pharos retained earnings at acquisition: EGP 2,400,000. Fair value adjustment on land: EGP 1,200,000 (land — infinite life, no depreciation). At reporting date (31 December 20X4), Pharos retained earnings: EGP 4,600,000 (2 years 9 months post-acq). NCI at proportion of net assets. Goodwill impaired by EGP 200,000.", "pct": 75, "nciMethod": "proportion", "answers": {"w1_pct": 75, "w1_nci_pct": 25, "w2_sc": 3000000, "w2_re_acq": 2400000, "w2_fv": 1200000, "w2_acq_total": 6600000, "w2_re_report": 4600000, "w2_fv_dep": 0, "w2_report_total": 8800000, "w2_post_acq": 2200000, "w3_consideration": 9000000, "w3_nci_at_acq": 1650000, "w3_net_assets_acq": 6600000, "w3_goodwill": 4050000, "w4_nci_at_acq": 1650000, "w4_nci_post_acq": 550000, "w4_total": 2200000, "w5_parent_re": 15000000, "w5_group_share": 1650000, "w5_impairment": 200000, "w5_total": 16450000}}, {"id": 4, "title": "Sphinx Group — Full Goodwill Method", "difficulty": "Hard", "desc": "Sphinx acquired 60% of Oasis on 1 October 20X1 for EGP 7,500,000. Fair value of NCI at acquisition: EGP 4,800,000. Oasis share capital: EGP 3,000,000. Oasis retained earnings at acquisition: EGP 2,200,000. Fair value adjustment on equipment: EGP 600,000 (remaining life 5 years). At reporting date (31 December 20X3), Oasis retained earnings: EGP 3,900,000 (2 years 3 months post-acq). Goodwill impaired by EGP 350,000.", "pct": 60, "nciMethod": "fv", "answers": {"w1_pct": 60, "w1_nci_pct": 40, "w2_sc": 3000000, "w2_re_acq": 2200000, "w2_fv": 600000, "w2_acq_total": 5800000, "w2_re_report": 3900000, "w2_fv_dep": 270000, "w2_report_total": 7230000, "w2_post_acq": 1430000, "w3_consideration": 7500000, "w3_nci_at_acq": 4800000, "w3_net_assets_acq": 5800000, "w3_goodwill": 6500000, "w4_nci_at_acq": 4800000, "w4_nci_post_acq": 572000, "w4_total": 5372000, "w5_parent_re": 12000000, "w5_group_share": 858000, "w5_impairment": 350000, "w5_total": 12508000}}, {"id": 5, "title": "Pyramid Group — Mid-year, No Impairment", "difficulty": "Easy", "desc": "Pyramid acquired 100% of Stone on 1 July 20X2 for EGP 4,000,000. Stone share capital: EGP 1,500,000. Stone retained earnings at acquisition: EGP 1,000,000. No fair value adjustments. At reporting date (31 December 20X2), Stone retained earnings: EGP 1,300,000 (6 months post-acq). No goodwill impairment.", "pct": 100, "nciMethod": "none", "answers": {"w1_pct": 100, "w1_nci_pct": 0, "w2_sc": 1500000, "w2_re_acq": 1000000, "w2_fv": 0, "w2_acq_total": 2500000, "w2_re_report": 1300000, "w2_fv_dep": 0, "w2_report_total": 2800000, "w2_post_acq": 300000, "w3_consideration": 4000000, "w3_nci_at_acq": 0, "w3_net_assets_acq": 2500000, "w3_goodwill": 1500000, "w4_nci_at_acq": 0, "w4_nci_post_acq": 0, "w4_total": 0, "w5_parent_re": 6000000, "w5_group_share": 300000, "w5_impairment": 0, "w5_total": 6300000}}, {"id": 6, "title": "Cairo Group — 90% Subsidiary", "difficulty": "Medium", "desc": "Cairo acquired 90% of Luxor on 1 January 20X1 for EGP 8,100,000. Luxor share capital: EGP 2,500,000. Luxor retained earnings at acquisition: EGP 3,000,000. Fair value adjustment on inventory: EGP 200,000 (sold within first year — fully realised). At reporting date (31 December 20X3), Luxor retained earnings: EGP 5,200,000 (3 years post-acq). NCI at proportion of net assets. Goodwill impaired by EGP 80,000.", "pct": 90, "nciMethod": "proportion", "answers": {"w1_pct": 90, "w1_nci_pct": 10, "w2_sc": 2500000, "w2_re_acq": 3000000, "w2_fv": 200000, "w2_acq_total": 5700000, "w2_re_report": 5200000, "w2_fv_dep": 200000, "w2_report_total": 7700000, "w2_post_acq": 2000000, "w3_consideration": 8100000, "w3_nci_at_acq": 570000, "w3_net_assets_acq": 5700000, "w3_goodwill": 2970000, "w4_nci_at_acq": 570000, "w4_nci_post_acq": 200000, "w4_total": 770000, "w5_parent_re": 14000000, "w5_group_share": 1800000, "w5_impairment": 80000, "w5_total": 15720000}}, {"id": 7, "title": "Sahara Group — Full Goodwill, Large FV", "difficulty": "Hard", "desc": "Sahara acquired 70% of Mirage on 1 January 20X2 for EGP 11,000,000. Fair value of NCI at acquisition: EGP 4,500,000. Mirage share capital: EGP 4,000,000. Mirage retained earnings at acquisition: EGP 3,500,000. Fair value adjustment on building: EGP 2,000,000 (remaining life 20 years). At reporting date (31 December 20X4), Mirage retained earnings: EGP 6,100,000 (3 years post-acq). Goodwill impaired by EGP 500,000.", "pct": 70, "nciMethod": "fv", "answers": {"w1_pct": 70, "w1_nci_pct": 30, "w2_sc": 4000000, "w2_re_acq": 3500000, "w2_fv": 2000000, "w2_acq_total": 9500000, "w2_re_report": 6100000, "w2_fv_dep": 300000, "w2_report_total": 11800000, "w2_post_acq": 2300000, "w3_consideration": 11000000, "w3_nci_at_acq": 4500000, "w3_net_assets_acq": 9500000, "w3_goodwill": 6000000, "w4_nci_at_acq": 4500000, "w4_nci_post_acq": 690000, "w4_total": 5190000, "w5_parent_re": 20000000, "w5_group_share": 1610000, "w5_impairment": 500000, "w5_total": 21110000}}, {"id": 8, "title": "Delta Group — Simple 80%", "difficulty": "Easy", "desc": "Delta acquired 80% of Echo on 1 January 20X3 for EGP 3,600,000. Echo share capital: EGP 1,000,000. Echo retained earnings at acquisition: EGP 1,500,000. Fair value adjustment on brand: EGP 500,000 (remaining life 5 years). At reporting date (31 December 20X4), Echo retained earnings: EGP 2,300,000 (2 years post-acq). NCI at proportion of net assets. No goodwill impairment.", "pct": 80, "nciMethod": "proportion", "answers": {"w1_pct": 80, "w1_nci_pct": 20, "w2_sc": 1000000, "w2_re_acq": 1500000, "w2_fv": 500000, "w2_acq_total": 3000000, "w2_re_report": 2300000, "w2_fv_dep": 200000, "w2_report_total": 3600000, "w2_post_acq": 600000, "w3_consideration": 3600000, "w3_nci_at_acq": 600000, "w3_net_assets_acq": 3000000, "w3_goodwill": 1200000, "w4_nci_at_acq": 600000, "w4_nci_post_acq": 120000, "w4_total": 720000, "w5_parent_re": 7000000, "w5_group_share": 480000, "w5_impairment": 0, "w5_total": 7480000}}];
+
+function w15GetProg(){try{return JSON.parse(localStorage.getItem('dipifr_w15'))||{done:[]};}catch(e){return{done:[]};}}
+function w15SaveProg(s){try{localStorage.setItem('dipifr_w15',JSON.stringify(s));}catch(e){}}
+function w15StatusLine(){var s=w15GetProg();return s.done.length+'/'+W15_DATA.length+' done';}
+
+function renderW15Builder(preId){
+  var el=document.getElementById('mainContent')||document.getElementById('rcMainContent');
+  if(!el)return;
+  var state=w15GetProg();
+
+  if(typeof preId==='undefined'||preId===null){
+    // LOBBY
+    var html='<div class="wb-wrap"><div class="wb-hero"><h1>🏗️ W1–W5 Builder</h1><p>Build the 5 consolidation workings step by step.</p><p style="font-size:.85em;margin-top:6px;">'+state.done.length+'/'+W15_DATA.length+' completed</p></div>';
+    html+='<div style="text-align:center;margin-bottom:12px;"><button class="wb-nav-btn" onclick="if(confirm(\'Reset all W1-W5 progress?\')){try{localStorage.removeItem(\'dipifr_w15\');}catch(e){}renderW15Builder();}">🔄 Reset</button></div>';
+    html+='<div class="wb-lobby">';
+    W15_DATA.forEach(function(s){
+      var done=state.done.indexOf(s.id)!==-1;
+      html+='<div class="wb-card" onclick="renderW15Builder('+s.id+')">';
+      if(done)html+='<span class="wb-card-done">✅</span>';
+      html+='<div class="wb-card-head"><span class="wb-card-title">'+s.title+'</span><span class="jeg-card-diff jeg-diff-'+s.difficulty+'">'+s.difficulty+'</span></div>';
+      html+='<div style="font-size:.82em;color:#94a3b8;margin-top:4px;">'+s.pct+'% subsidiary'+(s.nciMethod==='fv'?' • Full goodwill':'')+'</div>';
+      html+='</div>';
+    });
+    html+='</div></div>';
+    el.innerHTML=html;
+    return;
+  }
+
+  // PLAY MODE
+  var q=W15_DATA.find(function(x){return x.id===preId;});
+  if(!q)return;
+  var a=q.answers;
+  var is100=q.pct===100;
+
+  // Build working rows
+  function row(label,key,cls){
+    return '<div class="wb-row"><div class="wb-row-label '+(cls||'')+'">'+label+'</div><div><input class="wb-input" id="wb_'+key+'" type="number" placeholder="0" autocomplete="off"><div class="wb-answer-hint" id="wbh_'+key+'"></div></div></div>';
+  }
+
+  var html='<div class="wb-wrap">';
+  html+='<div class="wb-scenario"><h3>'+q.title+' <span class="jeg-card-diff jeg-diff-'+q.difficulty+'" style="vertical-align:middle;">'+q.difficulty+'</span></h3><p>'+q.desc+'</p></div>';
+
+  // Tabs
+  var tabs=['W1: Group Structure','W2: Net Assets','W3: Goodwill','W4: NCI','W5: Group RE'];
+  html+='<div class="wb-tabs">';
+  tabs.forEach(function(t,i){
+    html+='<div class="wb-tab'+(i===0?' active':'')+'" data-wbtab="'+i+'">'+t+'</div>';
+  });
+  html+='</div>';
+
+  // W1 - Group Structure
+  html+='<div class="wb-working active" data-wbpanel="0"><h4>W1 — Group Structure</h4>';
+  html+=row('Parent ownership %','w1_pct');
+  if(!is100) html+=row('NCI %','w1_nci_pct');
+  html+='</div>';
+
+  // W2 - Net Assets
+  html+='<div class="wb-working" data-wbpanel="1"><h4>W2 — Net Assets of Subsidiary</h4>';
+  html+='<div style="font-size:.82em;color:#60a5fa;font-weight:600;margin-bottom:8px;">At Acquisition</div>';
+  html+=row('Share capital','w2_sc');
+  html+=row('Retained earnings (at acq)','w2_re_acq');
+  if(a.w2_fv>0) html+=row('Fair value adjustment','w2_fv');
+  html+=row('Total net assets at acquisition','w2_acq_total','wb-total');
+  html+='<div style="font-size:.82em;color:#60a5fa;font-weight:600;margin:12px 0 8px;">At Reporting Date</div>';
+  html+=row('Share capital','w2_sc2');
+  html+=row('Retained earnings (at reporting)','w2_re_report');
+  if(a.w2_fv>0){
+    html+=row('Fair value adjustment','w2_fv2');
+    html+=row('Less: FV depreciation','w2_fv_dep','wb-subtract');
+  }
+  html+=row('Total net assets at reporting','w2_report_total','wb-total');
+  html+=row('Post-acquisition movement','w2_post_acq','wb-total');
+  html+='</div>';
+
+  // W3 - Goodwill
+  html+='<div class="wb-working" data-wbpanel="2"><h4>W3 — Goodwill</h4>';
+  html+=row('Consideration (cost of investment)','w3_consideration');
+  if(!is100) html+=row('NCI at acquisition'+(q.nciMethod==='fv'?' (fair value)':' (proportion of net assets)'),'w3_nci_at_acq');
+  html+=row('Less: Net assets at acquisition','w3_net_assets_acq','wb-subtract');
+  html+=row('Goodwill','w3_goodwill','wb-total');
+  html+='</div>';
+
+  // W4 - NCI
+  html+='<div class="wb-working" data-wbpanel="3"><h4>W4 — Non-Controlling Interest at Reporting Date</h4>';
+  if(is100){
+    html+='<div class="wb-na-note">Not applicable — 100% subsidiary, no NCI.</div>';
+  } else {
+    html+=row('NCI at acquisition','w4_nci_at_acq');
+    html+=row('NCI share of post-acquisition','w4_nci_post_acq');
+    html+=row('NCI at reporting date','w4_total','wb-total');
+  }
+  html+='</div>';
+
+  // W5 - Group RE
+  html+='<div class="wb-working" data-wbpanel="4"><h4>W5 — Group Retained Earnings</h4>';
+  html+=row('Parent retained earnings','w5_parent_re');
+  html+=row('Group share of post-acq Sub RE','w5_group_share');
+  if(a.w5_impairment>0) html+=row('Less: Goodwill impairment','w5_impairment','wb-subtract');
+  html+=row('Group retained earnings','w5_total','wb-total');
+  html+='</div>';
+
+  html+='<button class="wb-check-btn" id="wbCheckBtn" onclick="w15Check('+q.id+')">Check All Workings ✔</button>';
+  html+='<div id="wbResult"></div>';
+
+  // Nav
+  html+='<div class="wb-nav-row">';
+  html+='<button class="wb-nav-btn" onclick="renderW15Builder()">📋 All Scenarios</button>';
+  var idx=W15_DATA.findIndex(function(x){return x.id===preId;});
+  if(idx>0)html+='<button class="wb-nav-btn" onclick="renderW15Builder('+W15_DATA[idx-1].id+')">⬅ Previous</button>';
+  if(idx<W15_DATA.length-1)html+='<button class="wb-nav-btn" onclick="renderW15Builder('+W15_DATA[idx+1].id+')">Next ➡</button>';
+  html+='</div></div>';
+  el.innerHTML=html;
+
+  // Wire tabs
+  document.querySelectorAll('.wb-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.wb-tab').forEach(function(t){t.classList.remove('active');});
+      document.querySelectorAll('.wb-working').forEach(function(p){p.classList.remove('active');});
+      tab.classList.add('active');
+      var panel=document.querySelector('[data-wbpanel="'+tab.dataset.wbtab+'"]');
+      if(panel)panel.classList.add('active');
+    });
+  });
+}
+
+function w15Check(qid){
+  var q=W15_DATA.find(function(x){return x.id===qid;});
+  if(!q)return;
+  var a=q.answers;
+  var is100=q.pct===100;
+  var total=0,correct=0;
+
+  // Map of answer keys with duplicates for W2 at-reporting section
+  var ansMap={
+    w1_pct:a.w1_pct,
+    w2_sc:a.w2_sc, w2_re_acq:a.w2_re_acq,
+    w2_acq_total:a.w2_acq_total,
+    w2_sc2:a.w2_sc, w2_re_report:a.w2_re_report,
+    w2_report_total:a.w2_report_total,
+    w2_post_acq:a.w2_post_acq,
+    w3_consideration:a.w3_consideration,
+    w3_net_assets_acq:a.w3_net_assets_acq,
+    w3_goodwill:a.w3_goodwill,
+    w5_parent_re:a.w5_parent_re,
+    w5_group_share:a.w5_group_share,
+    w5_total:a.w5_total
+  };
+  if(a.w2_fv>0){
+    ansMap.w2_fv=a.w2_fv;
+    ansMap.w2_fv2=a.w2_fv;
+    ansMap.w2_fv_dep=a.w2_fv_dep;
+  }
+  if(!is100){
+    ansMap.w1_nci_pct=a.w1_nci_pct;
+    ansMap.w3_nci_at_acq=a.w3_nci_at_acq;
+    ansMap.w4_nci_at_acq=a.w4_nci_at_acq;
+    ansMap.w4_nci_post_acq=a.w4_nci_post_acq;
+    ansMap.w4_total=a.w4_total;
+  }
+  if(a.w5_impairment>0){
+    ansMap.w5_impairment=a.w5_impairment;
+  }
+
+  Object.keys(ansMap).forEach(function(key){
+    var inp=document.getElementById('wb_'+key);
+    var hint=document.getElementById('wbh_'+key);
+    if(!inp)return;
+    total++;
+    var val=parseFloat(inp.value)||0;
+    var expected=ansMap[key];
+    var ok=Math.abs(val-expected)<2;
+    inp.classList.remove('wb-correct','wb-wrong');
+    inp.classList.add(ok?'wb-correct':'wb-wrong');
+    inp.disabled=true;
+    if(ok){
+      correct++;
+      if(hint)hint.textContent='✅';
+    } else {
+      if(hint){hint.textContent='❌ Correct: EGP '+expected.toLocaleString();hint.classList.add('wrong');}
+    }
+  });
+
+  // Mark tabs
+  var tabKeys={0:['w1_pct','w1_nci_pct'],1:['w2_sc','w2_re_acq','w2_fv','w2_acq_total','w2_sc2','w2_re_report','w2_fv2','w2_fv_dep','w2_report_total','w2_post_acq'],2:['w3_consideration','w3_nci_at_acq','w3_net_assets_acq','w3_goodwill'],3:['w4_nci_at_acq','w4_nci_post_acq','w4_total'],4:['w5_parent_re','w5_group_share','w5_impairment','w5_total']};
+  Object.keys(tabKeys).forEach(function(ti){
+    var allOk=true;
+    tabKeys[ti].forEach(function(k){
+      if(ansMap[k]===undefined)return;
+      var inp=document.getElementById('wb_'+k);
+      if(inp&&!inp.classList.contains('wb-correct'))allOk=false;
+    });
+    var tab=document.querySelector('[data-wbtab="'+ti+'"]');
+    if(tab&&allOk)tab.classList.add('wb-tab-done');
+  });
+
+  var pct=Math.round(correct/total*100);
+  var pass=pct>=70;
+  var scoreHtml='<div class="wb-score-bar '+(pass?'wb-score-pass':'wb-score-fail')+'"><h2>'+correct+'/'+total+' cells correct ('+pct+'%)</h2><p>'+(pass?'🌟 Excellent consolidation skills!':'💪 Review the red cells and try again.')+'</p></div>';
+  document.getElementById('wbResult').innerHTML=scoreHtml;
+  document.getElementById('wbCheckBtn').disabled=true;
+
+  if(pass){
+    var state=w15GetProg();
+    if(state.done.indexOf(qid)===-1){state.done.push(qid);w15SaveProg(state);}
+  }
+  if(!pass){
+    try{
+      var mk=JSON.parse(localStorage.getItem('dipifr_mistakes'))||[];
+      mk.push({tool:'W1-W5 Builder',q:q.title,ts:Date.now(),score:pct});
+      localStorage.setItem('dipifr_mistakes',JSON.stringify(mk.slice(-200)));
+    }catch(e){}
+  }
 }
 </script>
 <div class="welcome-name-overlay" id="welcomeNameOverlay" style="display:none;">
